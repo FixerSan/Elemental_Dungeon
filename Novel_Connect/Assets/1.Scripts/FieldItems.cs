@@ -11,16 +11,20 @@ public class FieldItems : MonoBehaviour
     {
         item.itemID = _item.itemID;
         item.itemName = _item.itemName;
-        item.itemImage = _item.itemImage;
+        item.itemImagePath = _item.itemImagePath;
         item.itemtType = _item.itemtType;
         
 
-        spriteRenderer.sprite = item.itemImage;
+        spriteRenderer.sprite = Resources.Load<Sprite>(item.itemImagePath);
     }
 
-    public Item GetItem()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        return item;
+        if (collision.CompareTag("Player"))
+        {
+            if (Inventory.instance.AddItem(item.itemID))
+                DestroyItem();
+        }
     }
 
     public void DestroyItem()

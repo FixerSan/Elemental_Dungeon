@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     #region Singleton
     public static GameManager instance;
+
     private void Awake()
     {
         if (instance != null)
@@ -13,13 +15,20 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
-        instance = this;
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+
+        Screen.SetResolution(1920,1080,true,120);
     }
     #endregion
 
     public bool MouseLayCheckUse = true;
     public Text talkText;
     public GameObject scanObject;
+    public Image fadePanel;
 
     public delegate void OnEnenyDeath(int index);
     public OnEnenyDeath onEnenyDeath;
@@ -41,7 +50,7 @@ public class GameManager : MonoBehaviour
                 {
                     quest.currentKillAmount = quest.killAmount;
                     quest.state = QuestState.after;
-                    QuestDatabase.instance.onChangeCurrentQuest.Invoke();
+                    QuestSystem.instance.onChangeCurrentQuest.Invoke();
                 }
 
                 QuestInventory.instance.onChangeQuest.Invoke();
@@ -61,16 +70,13 @@ public class GameManager : MonoBehaviour
                 {
                     quest.currentItemAmount = quest.itemAmount;
                     quest.state = QuestState.after;
-                    QuestDatabase.instance.onChangeCurrentQuest.Invoke();
+                    QuestSystem.instance.onChangeCurrentQuest.Invoke();
                 }
 
                 QuestInventory.instance.onChangeQuest.Invoke();
             }
         }
     }
-
-
-
 
     public bool DoneQuest(int questID)
     {
@@ -80,7 +86,7 @@ public class GameManager : MonoBehaviour
 
         for(int i = QuestInventory.instance.quests.Count-1; i >= 0; i--)
         {
-            if(QuestInventory.instance.quests[i].qusetID == questID)
+            if(QuestInventory.instance.quests[i].questID == questID)
             {
                 QuestInventory.instance.quests.RemoveAt(i);
                 removeInventory = true;
@@ -88,25 +94,25 @@ public class GameManager : MonoBehaviour
         }
 
         //Äù½ºÆ® µ¥ÀÌÅÍº£ÀÌ½º¿¡ ÇöÀç Äù½ºÆ®°¡ »èÁ¦ µÆ´ÂÁö Ã¼Å© ÇÏ´Â ÄÚµå
-        for (int i = QuestDatabase.instance.current_Quest.Count - 1; i >= 0; i--)
+        for (int i = QuestSystem.instance.current_Quest.Count - 1; i >= 0; i--)
         {
-            if (QuestDatabase.instance.current_Quest[i].qusetID == questID)
+            if (QuestSystem.instance.current_Quest[i].questID == questID)
             {
-                QuestDatabase.instance.current_Quest.RemoveAt(i);
+                QuestSystem.instance.current_Quest.RemoveAt(i);
                 removeDatabase = true;
             }
         }
 
 
-        if(QuestDatabase.instance.GetQuest(questID).type == QuestType.get)
+        if(DataBase.instance.GetQuest(questID).type == QuestType.get)
         {
             foreach(Item item in Inventory.instance.items)
             {
-                if(item.itemID == QuestDatabase.instance.GetQuest(questID).itemID)
+                if(item.itemID == DataBase.instance.GetQuest(questID).itemID)
                 {
-                    if(item.count > QuestDatabase.instance.GetQuest(questID).itemAmount)
+                    if(item.count > DataBase.instance.GetQuest(questID).itemAmount)
                     {
-                        item.count -= QuestDatabase.instance.GetQuest(questID).itemAmount;
+                        item.count -= DataBase.instance.GetQuest(questID).itemAmount;
                         removeItem = true;
                     }
 
@@ -118,23 +124,23 @@ public class GameManager : MonoBehaviour
             }
         }
         
-        if(removeDatabase && removeInventory && QuestDatabase.instance.GetQuest(questID).type == QuestType.kill)
+        if(removeDatabase && removeInventory && DataBase.instance.GetQuest(questID).type == QuestType.kill)
         {
             //Å³Äù º¸»ó ÄÚµå
 
 
-            QuestInventory.instance.onChangeQuest.Invoke();
+            QuestSystem.instance.onChangeCurrentQuest.Invoke();
             Debug.Log("Å³Äù ¼º°ø");
             return true;
         }
 
-        else if(removeDatabase && removeInventory && removeItem && QuestDatabase.instance.GetQuest(questID).type == QuestType.get)
+        else if(removeDatabase && removeInventory && removeItem && DataBase.instance.GetQuest(questID).type == QuestType.get)
         {
             //°ÙÄù º¸»ó ÄÚµå
 
 
-            QuestInventory.instance.onChangeQuest.Invoke();
-            Inventory.instance.onChangeItem.Invoke(QuestDatabase.instance.GetQuest(questID).itemID);
+            QuestSystem.instance.onChangeCurrentQuest.Invoke();
+            Inventory.instance.onChangeItem.Invoke(DataBase.instance.GetQuest(questID).itemID);
             Debug.Log("°ÙÄù ¼º°ø");
             return true;
         }
@@ -144,5 +150,64 @@ public class GameManager : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public IEnumerator FadeIn()
+    {
+        bool isStart = false;
+        fadePanel.gameObject.SetActive(true);
+        fadePanel.color = new Color(0, 0, 0, 0);
+        while (!isStart)
+        {
+            fadePanel.color = new Color(0, 0, 0, fadePanel.color.a + 0.02f);
+            if (fadePanel.color.a >= 1)
+                isStart = true;
+            yield return new WaitForSeconds(0.01f);
+        }
+    }
+
+    public IEnumerator FadeOut()
+    {
+        bool isEnd = false;
+        fadePanel.gameObject.SetActive(true);
+        fadePanel.color = new Color(0, 0, 0, 1);
+        while (!isEnd)
+        {
+            fadePanel.color = new Color(0, 0, 0, fadePanel.color.a - 0.02f);
+            if (fadePanel.color.a <= 0)
+                isEnd = true;
+            yield return new WaitForSeconds(0.01f);
+        }
+        fadePanel.gameObject.SetActive(false);
+    }
+    
+
+    public void SceneChange(int index)
+    {
+        SceneManager.LoadScene(index);
+    }
+
+    public void SceneChange(int index, PlayerController player, Vector2 pos, int direction)
+    {
+        StartCoroutine(SceneChangeCoroutine(index, player, pos, direction));
+
+    }
+
+    IEnumerator SceneChangeCoroutine(int index, PlayerController player, Vector2 pos, int direction)
+    {
+        //player.ChangeState(PlayerState.dontGetIput, true);
+
+        yield return StartCoroutine(FadeIn());
+
+        SceneManager.LoadScene(index);
+        player.transform.position = pos;
+        if (direction == -1)
+            player.transform.eulerAngles = new Vector3(0, -180, 0);
+        else if (direction == 1)
+            player.transform.eulerAngles = new Vector3(0, 0, 0);
+
+        //player.ChangeState(PlayerState.idle, false);
+
+        yield return StartCoroutine(FadeOut());
     }
 }

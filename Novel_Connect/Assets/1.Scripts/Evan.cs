@@ -3,7 +3,7 @@
 //using UnityEngine;
 
 //public class Evan 
-//{   근데 여기에 에반이 왜 있음? 
+//{
 //    public BreakingpProperty bP = BreakingpProperty.sword;
 //    public Vector2 skill_1Size;
 //    public Transform skill_1Point;

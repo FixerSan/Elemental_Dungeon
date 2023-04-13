@@ -13,20 +13,26 @@ public class QuestSlot : MonoBehaviour
     bool active = false;
     public void UpdateSlotUI()
     {
-
         if(quest != null)
         {
-            if (quest.state != QuestState.after)
+            switch (quest.state)
             {
-                GetComponent<Button>().interactable = true;
-                iconImage.sprite = quest.iconSprite;
-                iconImage.gameObject.SetActive(true);
-            }
+                case QuestState.before:
+                    GetComponent<Button>().interactable = true;
+                    iconImage.sprite = Resources.Load<Sprite>(quest.iconSpritePath);
+                    iconImage.gameObject.SetActive(true);
+                    break;
 
-            else
-            {
-                GetComponent<Button>().interactable = true;
-                doneText.SetActive(true);
+                case QuestState.Proceeding:
+                    GetComponent<Button>().interactable = false;
+                    iconImage.sprite = Resources.Load<Sprite>(quest.iconSpritePath);
+                    iconImage.gameObject.SetActive(true);
+                    break;
+
+                case QuestState.after:
+                    GetComponent<Button>().interactable = true;
+                    doneText.SetActive(true);
+                    break;
             }
         }
 
@@ -40,19 +46,19 @@ public class QuestSlot : MonoBehaviour
 
     public void OnClickButton()
     {
-        if(quest.questSprite == null)
+        if(quest.questSpritePath == "None")
             return;
         if(quest.state != QuestState.after)
         {
             active = !active;
             contentUI.SetActive(active);
-            contentUI.GetComponent<Image>().sprite = quest.questSprite;
+            contentUI.GetComponent<Image>().sprite = Resources.Load<Sprite>(quest.questSpritePath);
             contentUI.transform.GetChild(0).GetComponent<QuestYesButton>().nowQuest = this;
         }
 
         else
         {
-            if(GameManager.instance.DoneQuest(quest.qusetID))
+            if(GameManager.instance.DoneQuest(quest.questID))
             {
                 quest = null;
                 UpdateSlotUI();

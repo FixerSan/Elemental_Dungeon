@@ -7,11 +7,12 @@ public class MouseClick : MonoBehaviour
 {
     public LayerMask clickLayer;
     public GameObject canClickNPC;
+    public bool mouseLayCheckUse = true;
 
 
     private void Update()
     {
-        //if(GameManager.instance.MouseLayCheckUse)
+        if(mouseLayCheckUse)
             HoverCheck();
         if (canClickNPC)
             ClickCheck();
@@ -46,7 +47,7 @@ public class MouseClick : MonoBehaviour
                 canClickNPC.GetComponent<ClickableNPC>().Interaction();
                 canClickNPC.GetComponent<SpriteRenderer>().enabled = false;
                 canClickNPC = null;
-                GameManager.instance.MouseLayCheckUse = false;
+                mouseLayCheckUse = false;
             }
         }
     }

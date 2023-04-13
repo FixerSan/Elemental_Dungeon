@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.IO;
 
 public class ItemDatabase : MonoBehaviour
 {
@@ -11,9 +12,9 @@ public class ItemDatabase : MonoBehaviour
     }
 
     public List<Item> itemDB = new List<Item>();
-
     public GameObject fieldItemPrefab;
     public Vector2[] pos;
+
     private void Start()
     {
         for(int i = 0; i< pos.Length; i++)

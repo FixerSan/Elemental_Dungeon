@@ -10,6 +10,10 @@ public class Parallax : MonoBehaviour
 
     private float change;
 
+    private void Start()
+    {
+        camera_ = Camera.main.gameObject;
+    }
     // Update is called once per frame
     void Update()
     {

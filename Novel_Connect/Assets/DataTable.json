@@ -1,0 +1,118 @@
+{
+  "dialogDatas": [
+    {
+      "index": "0",
+      "name": "주인공",
+      "sentence": "와! 드디어 도착한 건가?",
+      "illustPath": "1",
+      "speakerUI_Index": "0",
+      "nextIndex": "1",
+      "nextBtnText": "다음",
+      "selectBtn_1Text": "None",
+      "selectBtn_2Text": "None",
+      "selectBtn_3Text": "None"
+    },
+    {
+      "index": "1",
+      "name": "주인공",
+      "sentence": "여기까지 오는 동안 얼마나 힘들었는지 ㅠㅠ",
+      "illustPath": "1",
+      "speakerUI_Index": "0",
+      "nextIndex": "2",
+      "nextBtnText": "다음",
+      "selectBtn_1Text": "None",
+      "selectBtn_2Text": "None",
+      "selectBtn_3Text": "None"
+    },
+    {
+      "index": "1001",
+      "name": "로시",
+      "sentence": "오 안녕~ 오늘도 만나러 와주었네! 기다리고 있었어 ㅎㅎ",
+      "illustPath": "IllustSprites/Rosy",
+      "speakerUI_Index": "0",
+      "nextIndex": "-1",
+      "nextBtnText": "마석 판매",
+      "selectBtn_1Text": "None",
+      "selectBtn_2Text": "None",
+      "selectBtn_3Text": "None"
+    }
+  ],
+  "itemDatas": [
+    {
+      "itemID": "0",
+      "itemType": "0",
+      "itemName": "점액",
+      "itemImagePath": "ItemSprites/Etc/SlimeItem",
+      "count": "1",
+      "maxCount": "64"
+    },
+    {
+      "itemID": "1",
+      "itemType": "0",
+      "itemName": "HP물약",
+      "itemImagePath": "ItemSprites/Potion/Red Potion",
+      "count": "1",
+      "maxCount": "64"
+    },
+    {
+      "itemID": "2",
+      "itemType": "0",
+      "itemName": "MP물약",
+      "itemImagePath": "ItemSprites/Potion/Blue Potion",
+      "count": "1",
+      "maxCount": "64"
+    },
+    {
+      "itemID": "3",
+      "itemType": "0",
+      "itemName": "도끼",
+      "itemImagePath": "ItemSprites/Weapon & Tool/Axe",
+      "count": "1",
+      "maxCount": "64"
+    },
+    {
+      "itemID": "4",
+      "itemType": "2",
+      "itemName": "마석",
+      "itemImagePath": "ItemSprites/Ore & Gem/MaSuck",
+      "count": "1",
+      "maxCount": "64"
+    }
+  ],
+  "questDatas": [
+    {
+      "questID": "0",
+      "pay": "0",
+      "servicePoint": "0",
+      "name": "푸른 슬라임 토벌!!",
+      "content": "푸른 슬라임",
+      "questSpritePath": "QuestSprites/SlimeQuest",
+      "iconSpritePath": "QuestSprites/SlimeQuestIcon",
+      "state": "0",
+      "type": "0",
+      "killAmount": "5",
+      "currentKillAmount": "0",
+      "killMonsterID": "0",
+      "itemAmount": "0",
+      "currentItemAmount": "0",
+      "itemID": "0"
+    },
+    {
+      "questID": "1",
+      "pay": "0",
+      "servicePoint": "0",
+      "name": "푸른 슬라임 점액 모으기!!",
+      "content": "푸른 슬라임 점액",
+      "questSpritePath": "QuestSprites/SlimeQuest",
+      "iconSpritePath": "ItemSprites/Etc/SlimeItem",
+      "state": "0",
+      "type": "2",
+      "killAmount": "0",
+      "currentKillAmount": "0",
+      "killMonsterID": "0",
+      "itemAmount": "5",
+      "currentItemAmount": "0",
+      "itemID": "0"
+    }
+  ]
+}

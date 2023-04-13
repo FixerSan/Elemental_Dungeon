@@ -3,17 +3,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class InventoryUI : MonoBehaviour
 {
+
     Inventory inventory;
 
     public GameObject inventoryPanel;
+    public TextMeshProUGUI moneyText;
     bool activeInventory = false;
 
     public Slot[] slots;
     public Transform slotHolder;
+
+    private void FixedUpdate()
+    {
+        if (moneyText.text != "" + inventory.money)
+            moneyText.text = "" + inventory.money;
+    }
     private void Start()
     {
         inventory = Inventory.instance;

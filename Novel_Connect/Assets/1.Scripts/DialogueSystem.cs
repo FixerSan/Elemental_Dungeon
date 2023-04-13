@@ -51,6 +51,7 @@ public class DialogueSystem : MonoBehaviour
             txtSentence.text += letter;
             yield return new WaitForSeconds(0.05f);
         }
+
         if(isUseBtn)
         {
             yield return new WaitForSeconds(0.5f);

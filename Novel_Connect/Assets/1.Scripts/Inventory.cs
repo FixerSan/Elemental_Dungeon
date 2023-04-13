@@ -33,44 +33,32 @@ public class Inventory : MonoBehaviour
     }
 
 
-    private void FixedUpdate()
+    public bool AddItem(int index)
     {
-        if(moneyText.text != "" + money)
-            moneyText.text = "" + money;
-
-    }
-
-    public bool AddItem(Item _itme)
-    {
-        if(items.Count < SlotCount)
+        foreach (var item in items)
         {
-            foreach(Item item in items)
+            if (item.itemID == index && item.count < item.maxCount)
             {
-                if(item.itemName == _itme.itemName && item.count < 64)
-                {
-                    item.count++;
-                    if (onChangeItem != null)
-                        onChangeItem.Invoke(item.itemID);
-                    return true;
-                }
+                item.count++;
+                onChangeItem.Invoke(index);
+                return true;
             }
-            items.Add(_itme);
-            if(onChangeItem != null)
-                onChangeItem.Invoke(_itme.itemID);
+        }
+
+        if (SlotCount > items.Count)
+        {
+            Item item_ = new Item(index);
+            items.Add(item_);
+            onChangeItem.Invoke(index);
             return true;
         }
-        return false;
+
+        else
+            return false;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Item"))
-        {
-            FieldItems fieldItems = collision.GetComponent<FieldItems>();
-            if (AddItem(fieldItems.GetItem()))
-            {
-                fieldItems.DestroyItem();
-            }
-        }
+
     }
 
 }
