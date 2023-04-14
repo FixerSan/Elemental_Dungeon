@@ -10,7 +10,7 @@ public class Town : Stage
     public override void Setup()
     {
         monsterSpawnPos = GameObject.Find("MonsterSpawnPos").transform;
-        MonsterObjectPool.instance.Init(0, 6);
+        MonsterObjectPool.instance.Init(0, monsterSpawnPos.childCount);
 
         for (int i = 0; i < monsterSpawnPos.childCount; i++)
         {
@@ -20,13 +20,7 @@ public class Town : Stage
 
     public override void UpdateStage()
     {
-        foreach (var item in monsters)
-        {
-            if (!item.activeSelf)
-            {
-                StartCoroutine(Respawn(item));
-            }
-        }
+
     }
 
     IEnumerator Respawn(GameObject monster)

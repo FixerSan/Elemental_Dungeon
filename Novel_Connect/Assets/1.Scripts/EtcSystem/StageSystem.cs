@@ -31,12 +31,8 @@ public class StageSystem : MonoBehaviour
             Destroy(gameObject);
         }
 
-        SceneManager.sceneLoaded += CallSetup;
-        if(currentStageIndex == 0)
-        {
-            currentStageIndex = SceneManager.GetActiveScene().buildIndex;
-        }
         AddList();
+        SceneManager.sceneLoaded += CallSetup;
     }
 
     #endregion

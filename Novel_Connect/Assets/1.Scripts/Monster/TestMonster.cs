@@ -47,10 +47,13 @@ public class TestMonster : MonsterV2
     public override IEnumerator HitEffect()
     {
         rb.velocity = new Vector2(0, rb.velocity.y);
-        rb.AddForce(-LookAtPlayer() * Vector2.right * 2,ForceMode2D.Impulse);
+        rb.AddForce(-LookAtPlayer() * Vector2.right * 2f , ForceMode2D.Impulse);
         rb.AddForce(Vector2.up * 3f, ForceMode2D.Impulse);
+        if (monsterData.monsterState == MonsterState.Dead)
+            StopCoroutine(hitCoroutine);
         yield return new WaitForSeconds(0.5f);
-        
+
+
         if(monsterData.monsterAttackPattern == MonsterAttackPattern.NotAttack)
             stateMachine.ChangeState(states[(int)MonsterState.Idle]);
 

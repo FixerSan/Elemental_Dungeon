@@ -61,7 +61,7 @@ public class MonsterV2 : MonoBehaviour, IHitable
         if(player.gameObject.transform.position.x > transform.position.x)
         {
             TurnDirection(Direction.Right);
-            return 0;
+            return 1;
         }
 
         else

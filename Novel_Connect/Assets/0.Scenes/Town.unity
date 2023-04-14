@@ -3428,6 +3428,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1043103424735645788, guid: e8451d544b8f32944b35bfc52230173f, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1043103424735645790, guid: e8451d544b8f32944b35bfc52230173f, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -3470,6 +3474,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1043103424735645790, guid: e8451d544b8f32944b35bfc52230173f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043103425234638996, guid: e8451d544b8f32944b35bfc52230173f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1043103425234638998, guid: e8451d544b8f32944b35bfc52230173f, type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -17692,7 +17704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24a68fdd7aa02fe4a81024ad19b767f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  multiplier: 0
+  multiplier: 2
 --- !u!1 &1163930418
 GameObject:
   m_ObjectHideFlags: 0
@@ -33613,12 +33625,20 @@ PrefabInstance:
       value: NewPlayer
       objectReference: {fileID: 0}
     - target: {fileID: 6458128178315707350, guid: a759d1aa2d2c8644daa2bb49e35831c5, type: 3}
+      propertyPath: playerData.force
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458128178315707350, guid: a759d1aa2d2c8644daa2bb49e35831c5, type: 3}
       propertyPath: playerData.walkSpeed
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6458128178315707350, guid: a759d1aa2d2c8644daa2bb49e35831c5, type: 3}
       propertyPath: playerData.jumpMoveForce
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458128178315707350, guid: a759d1aa2d2c8644daa2bb49e35831c5, type: 3}
+      propertyPath: playerData.attackMoveForce
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6458128178315707351, guid: a759d1aa2d2c8644daa2bb49e35831c5, type: 3}
       propertyPath: m_RootOrder

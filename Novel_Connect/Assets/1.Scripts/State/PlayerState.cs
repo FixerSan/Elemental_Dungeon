@@ -41,6 +41,7 @@ namespace PlayerStates
                 //카운트를 1로 초기화
                 entity.animator.SetInteger("AttackCount", 1);
             entity.StartCoroutine("AttackCoroutine");
+            entity.StartCoroutine("AttackMoveCoroutine");
         }
 
         public override void ExitState(PlayerController entity)
