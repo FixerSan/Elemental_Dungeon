@@ -88,7 +88,6 @@ public class DataBase : MonoBehaviour
             return items[index];
         return null;
     }
-
     public Dialog GetDialog(int index)
     {
         if (dialogs.ContainsKey(index))
@@ -101,28 +100,24 @@ public class DataBase : MonoBehaviour
             return quests[index];
         return null;
     }
-
     public MonsterData GetMonsterData(int index)
     {
         if (monsterDatas.ContainsKey(index))
             return monsterDatas[index];
         return null;
     }
-
     public PlayerData GetPlayerData(int index)
     {
         if (playerDatas.ContainsKey(index))
             return playerDatas[index];
         return null;
     }
-
     public SkillData GetSkillData(int index)
     {
         if (skillDatas.ContainsKey(index))
             return skillDatas[index];
         return null;
     }
-
     public AudioClip GetAudioClip(int index)
     {
         if (audioClips.ContainsKey(index))
@@ -130,8 +125,6 @@ public class DataBase : MonoBehaviour
         return null;
     }
 }
-
-
 
 #region 올데이터 클래스
 [System.Serializable]
@@ -341,4 +334,9 @@ public enum MonsterAttackPattern
 public enum Elemental
 {
     Water, Wind, Rock, Glass, Electric, Ice, Poison, Default, Fire
+}
+
+public enum StatusEffect
+{
+    Burns
 }

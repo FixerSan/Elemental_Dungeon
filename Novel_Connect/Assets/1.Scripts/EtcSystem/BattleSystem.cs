@@ -25,7 +25,7 @@ public class BattleSystem : MonoBehaviour
     }
     #endregion
 
-    public float multiplier;
+    public float amageMultiplier;
 
     public void Calculate(Elemental attackerElemental, Elemental hiterElemental, IHitable hiter, float damage)
     {
@@ -37,43 +37,43 @@ public class BattleSystem : MonoBehaviour
             case Elemental.Water:
                 if (attackerElemental == Elemental.Wind || attackerElemental == Elemental.Glass || attackerElemental == Elemental.Electric)
                 {
-                    calculatedDamage *= multiplier;
+                    calculatedDamage *= amageMultiplier;
                 }
                 break;
             case Elemental.Wind:
                 if (attackerElemental == Elemental.Glass || attackerElemental == Elemental.Ice)
                 {
-                    calculatedDamage *= multiplier;
+                    calculatedDamage *= amageMultiplier;
                 }
                 break;
             case Elemental.Rock:
                 if (attackerElemental == Elemental.Water || attackerElemental == Elemental.Poison || attackerElemental == Elemental.Electric)
                 {
-                    calculatedDamage *= multiplier;
+                    calculatedDamage *= amageMultiplier;
                 }
                 break;
             case Elemental.Glass:
                 if (attackerElemental == Elemental.Wind || attackerElemental == Elemental.Ice || attackerElemental == Elemental.Poison)
                 {
-                    calculatedDamage *= multiplier;
+                    calculatedDamage *= amageMultiplier;
                 }
                 break;
             case Elemental.Electric:
                 if (attackerElemental == Elemental.Wind || attackerElemental == Elemental.Ice || attackerElemental == Elemental.Poison)
                 {
-                    calculatedDamage *= multiplier;
+                    calculatedDamage *= amageMultiplier;
                 }
                 break;
             case Elemental.Ice:
                 if (attackerElemental == Elemental.Rock)
                 {
-                    calculatedDamage *= multiplier;
+                    calculatedDamage *= amageMultiplier;
                 }
                 break;
             case Elemental.Poison:
                 if (attackerElemental == Elemental.Rock)
                 {
-                    calculatedDamage *= multiplier;
+                    calculatedDamage *= amageMultiplier;
                 }
                 break;
             default:
@@ -82,5 +82,10 @@ public class BattleSystem : MonoBehaviour
 
         // 데미지 적용
         hiter.Hit(calculatedDamage);
+    }
+
+    public void SetStatusEffect(IStatusEffect hiter,StatusEffect status, float duration, float damage)
+    {
+        hiter.SetStatusEffect(status, duration, damage);
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterV2 : MonoBehaviour, IHitable
+public class MonsterV2 : MonoBehaviour, IHitable , IStatusEffect
 {
     public MonsterData monsterData;
     public Animator animator;
@@ -17,18 +17,26 @@ public class MonsterV2 : MonoBehaviour, IHitable
     public Vector2 attackSize;
     public bool isknukcBack = false;
 
+    //public List<Status<MonsterV2>> statuses = new List<Status<MonsterV2>>();
+    //public StatusMachine<MonsterV2> statusMachine = new StatusMachine<MonsterV2>();
 
+    public Statuses statuses = new Statuses();
     public virtual void Awake()
     {
         animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        //statusMachine.Setup(this);
+        //statuses.Add(new MonsterStatus.Burns());
+        //statuses.Add(new MonsterStatus.D());
     }
 
     public virtual void Update()
     {
         CheckDead();
+        //statusMachine.Update();
     }
+
     public virtual void TurnDirection()
     {
         if (monsterData.direction == Direction.Left)
@@ -57,7 +65,7 @@ public class MonsterV2 : MonoBehaviour, IHitable
     }
     public virtual int LookAtPlayer()
     {
-        PlayerController player = FindObjectOfType<PlayerController>();
+        PlayerController player = PlayerController.instance;
         if (player == null)
             return 0;
         if(player.gameObject.transform.position.x > transform.position.x)
@@ -190,6 +198,61 @@ public class MonsterV2 : MonoBehaviour, IHitable
         return monsterData.elemental;
     }
 
+    public void GetDamage(float damage)
+    {
+        if (monsterData.monsterHP <= 0)
+            return;
+
+        monsterData.monsterHP -= damage;
+    }
+
+    IEnumerator burnCoroutine;
+    IEnumerator CheckburnCoroutine;
+    public virtual void SetStatusEffect(StatusEffect status, float duration, float damage)
+    {
+        switch(status)
+        {
+            case StatusEffect.Burns:
+                if(CheckburnCoroutine != null)
+                {
+                    StopCoroutine(CheckburnCoroutine);
+                    CheckburnCoroutine = null;
+                    CheckburnCoroutine = CheckBurn(duration);
+                    StartCoroutine(CheckburnCoroutine);
+                    return;
+                }
+                else
+                {
+                    statuses.isBurn = true;
+                    CheckburnCoroutine = CheckBurn(duration);
+                    StartCoroutine(CheckburnCoroutine);
+                    StartCoroutine(Burns(damage));
+                }
+                break;
+
+
+        }
+
+        //statusMachine.SetStatus(statuses[(int)status], duration, damage);
+    }
+
+    public IEnumerator CheckBurn(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        statuses.isBurn = false;
+        CheckburnCoroutine = null;
+    }
+    public IEnumerator Burns(float damage)
+    {
+        yield return new WaitForSeconds(0.8f);
+        GetDamage(damage);
+        spriteRenderer.color = Color.red;
+        yield return new WaitForSeconds(0.2f);
+        spriteRenderer.color = Color.white;
+
+        if (statuses.isBurn)
+            StartCoroutine(Burns(damage));
+    }
 }
 
 

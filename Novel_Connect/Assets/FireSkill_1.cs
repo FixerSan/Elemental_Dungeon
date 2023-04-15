@@ -7,6 +7,7 @@ public class FireSkill_1 : MonoBehaviour
     public float damage;
     public float knuckBackForce;
     public float speed;
+    public float burnsDuration;
     private float duration;
     public Direction direction;
 
@@ -16,6 +17,11 @@ public class FireSkill_1 : MonoBehaviour
         duration = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length;
         //knuckBackForce = 1;
         direction = PlayerController.instance.playerDirection;
+        if(direction == Direction.Left)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+            speed = -speed; 
+        }
         StartCoroutine(SkillExit());
     }
 
@@ -41,7 +47,9 @@ public class FireSkill_1 : MonoBehaviour
         {
             MonsterV2 monster = collision.GetComponent<MonsterV2>();
             BattleSystem.instance.Calculate(Elemental.Fire, monster.monsterData.elemental, collision.GetComponent<IHitable>(), damage * PlayerController.instance.playerData.force);
-            monster.KnockBack(direction, knuckBackForce, 0) ;
+            BattleSystem.instance.SetStatusEffect(collision.GetComponent<IStatusEffect>(), StatusEffect.Burns, burnsDuration, PlayerController.instance.playerData.force / 5);
+            monster.KnockBack(direction, knuckBackForce, 0);
+
         }
     }
 
