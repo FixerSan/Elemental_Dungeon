@@ -15,6 +15,8 @@ public class DataBase : MonoBehaviour
     public Dictionary<int, MonsterData> monsterDatas = new Dictionary<int, MonsterData>();
     public Dictionary<int, PlayerData> playerDatas = new Dictionary<int, PlayerData>();
     public Dictionary<int, SkillData> skillDatas = new Dictionary<int, SkillData>();
+    public Dictionary<int, AudioClip> audioClips = new Dictionary<int, AudioClip>();
+    
     //데이터베이스까지 같이 기능
     #region 싱글톤 및 DontDestroy
     private static DataBase Instance;
@@ -68,6 +70,11 @@ public class DataBase : MonoBehaviour
         {
             playerDatas.Add(item.index, item);
         }
+        //foreach (var item in datas.audioClipDatas)
+        //{
+        //    audioClips.Add(item.index, Resources.Load<AudioClip>(item.clipPath)) ;
+        //}
+
     }
 
     #endregion
@@ -111,8 +118,15 @@ public class DataBase : MonoBehaviour
 
     public SkillData GetSkillData(int index)
     {
-        if (playerDatas.ContainsKey(index))
+        if (skillDatas.ContainsKey(index))
             return skillDatas[index];
+        return null;
+    }
+
+    public AudioClip GetAudioClip(int index)
+    {
+        if (audioClips.ContainsKey(index))
+            return audioClips[index];
         return null;
     }
 }
@@ -128,6 +142,7 @@ public class AllData
     public Quest[] questDatas;
     public MonsterData[] monsterDatas;
     public PlayerData[] playerDatas;
+    public AudioClipData[] audioClipDatas;
 }
 #endregion
 #region 다이얼로그 클래스 , 스피커 구조체, 스피커 이넘
@@ -302,9 +317,15 @@ public class SkillData
     public float coolTime;
 }
 
+public class AudioClipData
+{
+    public int index;
+    public string clipPath;
+}
+
 public enum MonsterState
 {
-    Idle, Patrol, Hit, Attack, Follow, Dead
+    Idle, Patrol, Hit, Attack, Follow, Dead , KnockBack
 }
 
 public enum MonsterAttackType
@@ -319,5 +340,5 @@ public enum MonsterAttackPattern
 
 public enum Elemental
 {
-    Water, Wind, Rock, Glass, Electric, Ice, Poison, Default
+    Water, Wind, Rock, Glass, Electric, Ice, Poison, Default, Fire
 }

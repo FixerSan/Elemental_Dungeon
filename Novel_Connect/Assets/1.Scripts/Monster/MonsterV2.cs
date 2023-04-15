@@ -15,6 +15,10 @@ public class MonsterV2 : MonoBehaviour, IHitable
     public LayerMask attackLayer;
     public IEnumerator followCoroutin;
     public Vector2 attackSize;
+    public bool isknukcBack = false;
+
+    protected StateMachine<MonsterV2> stateMachine;
+    protected State<MonsterV2>[] states;
 
     public virtual void Awake()
     {
@@ -69,8 +73,6 @@ public class MonsterV2 : MonoBehaviour, IHitable
             TurnDirection(Direction.Left);
             return -1;
         }
-
-
     }
     public virtual bool CheckCanMove()
     {
@@ -122,6 +124,26 @@ public class MonsterV2 : MonoBehaviour, IHitable
         yield return new WaitForSeconds(0);
     }
 
+    public virtual IEnumerator KnockBack(Direction direction, float xKnockBackforce, float yKnockBackforce)
+    {
+        ChangeState(MonsterState.KnockBack);
+        int intDirection;
+        if (direction == Direction.Left)
+            intDirection = -1;
+        else
+            intDirection = 1;
+
+        rb.AddForce(intDirection * Vector2.right * xKnockBackforce, ForceMode2D.Impulse);
+        rb.AddForce(Vector2.up * yKnockBackforce, ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.5f);
+        if (monsterData.monsterAttackPattern == MonsterAttackPattern.NotAttack)
+            ChangeState(MonsterState.Idle);
+
+        else if (monsterData.monsterAttackPattern == MonsterAttackPattern.AfterHitAttack ||
+                monsterData.monsterAttackPattern == MonsterAttackPattern.BeforeHitAttack)
+            ChangeState(MonsterState.Follow);
+    }
+
     public virtual void CheckCanAttack()
     {
 
@@ -156,7 +178,7 @@ public class MonsterV2 : MonoBehaviour, IHitable
             //죽음 효과 시간에 맞추기 위해 대기
             yield return new WaitForSeconds(monsterData.deadEffectTimeLength / monsterData.deadEffectCount);
         }
-        Destroy(gameObject);
+        MonsterObjectPool.instance.ReturnMonster(this.gameObject);
     }
 
     private void OnDrawGizmos()
@@ -167,13 +189,18 @@ public class MonsterV2 : MonoBehaviour, IHitable
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("PlayerHit"))
             BattleSystem.instance.Calculate(monsterData.elemental, PlayerController.instance.elemental, PlayerController.instance , monsterData.monsterAttackForce);   
     }
 
     public Elemental GetElemental()
     {
         return monsterData.elemental;
+    }
+
+    public void ChangeState(MonsterState state)
+    {
+        stateMachine.ChangeState(states[(int)state]);
     }
 }
 

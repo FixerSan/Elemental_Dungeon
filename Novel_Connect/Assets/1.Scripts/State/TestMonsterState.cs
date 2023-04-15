@@ -127,6 +127,22 @@ namespace TestMonsterState
         }
     }
 
+    public class KnockBack : State<TestMonster>
+    {
+        public override void EnterState(TestMonster entity)
+        {
+            entity.monsterData.monsterState = MonsterState.KnockBack;
+        }
+        public override void UpdateState(TestMonster entity)
+        {
+
+        }
+        public override void ExitState(TestMonster entity)
+        {
+
+        }
+    }
+
 
     public class Dead : State<TestMonster>
     {

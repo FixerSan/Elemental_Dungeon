@@ -34,6 +34,14 @@ public class MonsterObjectPool : MonoBehaviour
     //    monster.transform.SetParent(transform);
     //    return monster;
     //}
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Alpha0))
+        {
+            GetMonster(0, PlayerController.instance.transform);
+        }
+    }
     public void Init(int initMonsterIndex,int initCount)
     {
         Debug.Log("init호출됨");
@@ -55,7 +63,6 @@ public class MonsterObjectPool : MonoBehaviour
     //풀에게 몬스터를 호출 하는 함수 , 맞는 몬스터 배열에 몬스터가 있으면 몬스터를 재 설정 하고 내보내기, 아니라면 생성과 재 설정 후 내보내기
     public GameObject GetMonster(int monsterIndex,Transform spawnPos)
     {
-        Debug.Log("호출됨");
         if(monsterQueues[monsterIndex].Count > 0)
         {
             var monster = monsterQueues[monsterIndex].Dequeue();
@@ -92,7 +99,8 @@ public class MonsterObjectPool : MonoBehaviour
     {
         int monsterIndex = monster.GetComponent<MonsterV2>().monsterData.monsterID;
         monster.gameObject.SetActive(false);
-        monster.transform.SetParent(Instance.transform);
+        monster.transform.SetParent(transform);
         monsterQueues[monsterIndex].Enqueue(monster);
+        Debug.Log(monsterQueues[monsterIndex].Count);
     }
 }

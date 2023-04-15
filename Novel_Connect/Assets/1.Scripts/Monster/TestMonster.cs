@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TestMonster : MonsterV2
 {
-    public StateMachine<TestMonster> stateMachine = new StateMachine<TestMonster>();
-    public State<TestMonster>[] states;
+    public new StateMachine<TestMonster> stateMachine = new StateMachine<TestMonster>();
+    public new State<TestMonster>[] states;
 
     public IEnumerator hitCoroutine;
 
@@ -17,15 +17,21 @@ public class TestMonster : MonsterV2
 
     public void Setup()
     {
+        monsterData = new MonsterData(0);
         states = new State<TestMonster>[6];
+
         states[(int)MonsterState.Idle] = new TestMonsterState.Idle();
         states[(int)MonsterState.Patrol] = new TestMonsterState.Patrol();
         states[(int)MonsterState.Hit] = new TestMonsterState.Hit();
         states[(int)MonsterState.Follow] = new TestMonsterState.Follow();
         states[(int)MonsterState.Attack] = new TestMonsterState.Attack();
         states[(int)MonsterState.Dead] = new TestMonsterState.Dead();
+        states[(int)MonsterState.KnockBack] = new TestMonsterState.KnockBack();
 
         stateMachine.Setup(this, states[(int)MonsterState.Idle]);
+
+        spriteRenderer.color = Color.white;
+
     }
 
     public override void Update()
@@ -36,17 +42,19 @@ public class TestMonster : MonsterV2
 
     public override void Hit(float damage)
     {
+        if (monsterData.monsterHP <= 0)
+            return;
         base.Hit(damage);
-        if (monsterData.monsterState != MonsterState.Attack)
+        if (monsterData.monsterState != MonsterState.Attack || monsterData.monsterState != MonsterState.KnockBack)
         {
             stateMachine.ChangeState(states[(int)MonsterState.Hit]);
-
         }
     }
 
     public override IEnumerator HitEffect()
     {
-        rb.velocity = new Vector2(0, rb.velocity.y);
+        if(!isknukcBack)
+            rb.velocity = new Vector2(0, rb.velocity.y);
         rb.AddForce(-LookAtPlayer() * Vector2.right * 2f , ForceMode2D.Impulse);
         rb.AddForce(Vector2.up * 3f, ForceMode2D.Impulse);
         if (monsterData.monsterState == MonsterState.Dead)
@@ -105,5 +113,10 @@ public class TestMonster : MonsterV2
             StartCoroutine(DeadEffect());
             stateMachine.ChangeState(states[(int)MonsterState.Dead]);
         }
+    }
+
+    private void OnEnable()
+    {
+        Setup();
     }
 }
