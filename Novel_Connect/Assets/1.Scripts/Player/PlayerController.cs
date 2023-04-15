@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour, IHitable
 
         AddState();
         stateMachine.Setup(this, states[(int)PlayerState.Idle]);
-
+        Setup();
     }
     #endregion
 
@@ -74,6 +74,10 @@ public class PlayerController : MonoBehaviour, IHitable
         CheckUpAndFall();
         CheckSkillCanUse();
         stateMachine.UpdateState();
+    }
+    public void Setup()
+    {
+        playerDirection = Direction.Right;
     }
     public void CheckIsGround()
     {

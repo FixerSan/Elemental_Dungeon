@@ -17,8 +17,6 @@ public class MonsterV2 : MonoBehaviour, IHitable
     public Vector2 attackSize;
     public bool isknukcBack = false;
 
-    protected StateMachine<MonsterV2> stateMachine;
-    protected State<MonsterV2>[] states;
 
     public virtual void Awake()
     {
@@ -124,24 +122,18 @@ public class MonsterV2 : MonoBehaviour, IHitable
         yield return new WaitForSeconds(0);
     }
 
-    public virtual IEnumerator KnockBack(Direction direction, float xKnockBackforce, float yKnockBackforce)
+    public virtual void KnockBack(Direction direction, float xKnockBackforce, float yKnockBackforce)
     {
-        ChangeState(MonsterState.KnockBack);
         int intDirection;
         if (direction == Direction.Left)
             intDirection = -1;
         else
             intDirection = 1;
 
+        rb.velocity = new Vector2(0, rb.velocity.y);
         rb.AddForce(intDirection * Vector2.right * xKnockBackforce, ForceMode2D.Impulse);
         rb.AddForce(Vector2.up * yKnockBackforce, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(0.5f);
-        if (monsterData.monsterAttackPattern == MonsterAttackPattern.NotAttack)
-            ChangeState(MonsterState.Idle);
 
-        else if (monsterData.monsterAttackPattern == MonsterAttackPattern.AfterHitAttack ||
-                monsterData.monsterAttackPattern == MonsterAttackPattern.BeforeHitAttack)
-            ChangeState(MonsterState.Follow);
     }
 
     public virtual void CheckCanAttack()
@@ -198,10 +190,6 @@ public class MonsterV2 : MonoBehaviour, IHitable
         return monsterData.elemental;
     }
 
-    public void ChangeState(MonsterState state)
-    {
-        stateMachine.ChangeState(states[(int)state]);
-    }
 }
 
 

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class TestMonster : MonsterV2
 {
-    public new StateMachine<TestMonster> stateMachine = new StateMachine<TestMonster>();
-    public new State<TestMonster>[] states;
+    public StateMachine<TestMonster> stateMachine = new StateMachine<TestMonster>();
+    public State<TestMonster>[] states;
 
     public IEnumerator hitCoroutine;
 
@@ -26,7 +26,6 @@ public class TestMonster : MonsterV2
         states[(int)MonsterState.Follow] = new TestMonsterState.Follow();
         states[(int)MonsterState.Attack] = new TestMonsterState.Attack();
         states[(int)MonsterState.Dead] = new TestMonsterState.Dead();
-        states[(int)MonsterState.KnockBack] = new TestMonsterState.KnockBack();
 
         stateMachine.Setup(this, states[(int)MonsterState.Idle]);
 
@@ -45,16 +44,16 @@ public class TestMonster : MonsterV2
         if (monsterData.monsterHP <= 0)
             return;
         base.Hit(damage);
-        if (monsterData.monsterState != MonsterState.Attack || monsterData.monsterState != MonsterState.KnockBack)
+        if (monsterData.monsterState != MonsterState.Attack)
         {
             stateMachine.ChangeState(states[(int)MonsterState.Hit]);
+
         }
     }
 
     public override IEnumerator HitEffect()
     {
-        if(!isknukcBack)
-            rb.velocity = new Vector2(0, rb.velocity.y);
+        rb.velocity = new Vector2(0, rb.velocity.y);
         rb.AddForce(-LookAtPlayer() * Vector2.right * 2f , ForceMode2D.Impulse);
         rb.AddForce(Vector2.up * 3f, ForceMode2D.Impulse);
         if (monsterData.monsterState == MonsterState.Dead)
