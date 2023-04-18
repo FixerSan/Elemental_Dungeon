@@ -16,7 +16,9 @@ public class DataBase : MonoBehaviour
     public Dictionary<int, PlayerData> playerDatas = new Dictionary<int, PlayerData>();
     public Dictionary<int, SkillData> skillDatas = new Dictionary<int, SkillData>();
     public Dictionary<int, AudioClip> audioClips = new Dictionary<int, AudioClip>();
-    
+
+
+    public RuntimeAnimatorController[] animatorControllers;
     //데이터베이스까지 같이 기능
     #region 싱글톤 및 DontDestroy
     private static DataBase Instance;
@@ -123,6 +125,11 @@ public class DataBase : MonoBehaviour
         if (audioClips.ContainsKey(index))
             return audioClips[index];
         return null;
+    }
+
+    public RuntimeAnimatorController GetAnimatorController(int index)
+    {
+        return animatorControllers[index];
     }
 }
 
@@ -307,6 +314,7 @@ public class SkillData
     public string name;
     public string content;
     public SkillType skillType;
+    public Elemental elemental;
     public float coolTime;
 }
 

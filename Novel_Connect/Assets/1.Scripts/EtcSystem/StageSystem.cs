@@ -59,6 +59,7 @@ public class StageSystem : MonoBehaviour
     public void AddList()
     {
         stagesDictionary.Add(0, new Town());
+        stagesDictionary.Add(1, new Guild());
 
     }
 

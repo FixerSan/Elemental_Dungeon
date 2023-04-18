@@ -163,7 +163,6 @@ public class MonsterV2 : MonoBehaviour, IHitable , IStatusEffect
         {
             monsterData.monsterHP = 0;
             StartCoroutine(DeadEffect());
-            
         }
     }
     public virtual IEnumerator DeadEffect()
@@ -238,20 +237,25 @@ public class MonsterV2 : MonoBehaviour, IHitable , IStatusEffect
 
     public IEnumerator CheckBurn(float duration)
     {
-        yield return new WaitForSeconds(duration);
-        statuses.isBurn = false;
-        CheckburnCoroutine = null;
+        if (monsterData.monsterState != MonsterState.Dead)
+        {
+            yield return new WaitForSeconds(duration);
+            statuses.isBurn = false;
+            CheckburnCoroutine = null;
+        }
     }
     public IEnumerator Burns(float damage)
     {
-        yield return new WaitForSeconds(0.8f);
-        GetDamage(damage);
-        spriteRenderer.color = Color.red;
-        yield return new WaitForSeconds(0.2f);
-        spriteRenderer.color = Color.white;
+        if(statuses.isBurn)
+        {
+            GetDamage(damage);
+            spriteRenderer.color = Color.red;
+            yield return new WaitForSeconds(0.2f);
+            spriteRenderer.color = Color.white;
 
-        if (statuses.isBurn)
+            yield return new WaitForSeconds(0.8f);
             StartCoroutine(Burns(damage));
+        }
     }
 }
 

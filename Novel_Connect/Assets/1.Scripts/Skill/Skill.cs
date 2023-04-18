@@ -11,16 +11,21 @@ public abstract class Skill<T> where T : class
     public float checkTime;
     public void Setup(T entity_,int index)
     {
-        SkillData skillData_ = DataBase.instance.GetSkillData(index);
+        //SkillData skillData_ = DataBase.instance.GetSkillData(index);
 
-        skillData.index = skillData_.index;
-        skillData.level = skillData_.level;
-        skillData.name = skillData_.name;
-        skillData.content = skillData_.content;
-        skillData.skillType = skillData_.skillType;
-        skillData.coolTime = skillData_.coolTime;
+        //skillData.index = skillData_.index;
+        //skillData.level = skillData_.level;
+        //skillData.name = skillData_.name;
+        //skillData.content = skillData_.content;
+        //skillData.skillType = skillData_.skillType;
+        //skillData.coolTime = skillData_.coolTime;
+        //임시로 함
+        skillData = new SkillData();
+        skillData.elemental = Elemental.Fire;
 
         entity = entity_;
+
+        SkillObjectPool.instance.Init(index);
     }
 
     public void LevelUp()

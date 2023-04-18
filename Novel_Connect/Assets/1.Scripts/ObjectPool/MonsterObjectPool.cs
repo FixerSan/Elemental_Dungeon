@@ -44,8 +44,8 @@ public class MonsterObjectPool : MonoBehaviour
     }
     public void Init(int initMonsterIndex,int initCount)
     {
-        Debug.Log("init»£√‚µ ");
-        monsterQueues.Add(initMonsterIndex, new Queue<GameObject>());
+        if(!monsterQueues.ContainsKey(initMonsterIndex))
+            monsterQueues.Add(initMonsterIndex, new Queue<GameObject>());
 
         for (int i = 0; i < initCount; i++)
         {

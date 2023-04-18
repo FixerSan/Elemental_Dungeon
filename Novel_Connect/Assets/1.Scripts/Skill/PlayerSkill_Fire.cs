@@ -8,7 +8,7 @@ namespace PlayerSkill_Fire
     {
         public override void Use()
         {
-
+            SkillObjectPool.instance.GetSkill(0);
         }
     }
 
@@ -16,7 +16,7 @@ namespace PlayerSkill_Fire
     {
         public override void Use()
         {
-
+            SkillObjectPool.instance.GetSkill(1);
         }
     }
 }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireSkill_1 : MonoBehaviour
+public class FireSkill_2_1 : MonoBehaviour
 {
     public float damage;
     public float knuckBackForce;
@@ -15,13 +15,8 @@ public class FireSkill_1 : MonoBehaviour
     {
         //나중에 데미지 배율, 넉백 거리, 스피드 등등은 스킬 데이터에서 가져올 예정
         duration = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length;
-        //knuckBackForce = 1;
+
         direction = PlayerController.instance.playerDirection;
-        if(direction == Direction.Left)
-        {
-            transform.eulerAngles = new Vector3(0, 180, 0);
-            speed = -speed; 
-        }
         StartCoroutine(SkillExit());
     }
 
@@ -38,12 +33,15 @@ public class FireSkill_1 : MonoBehaviour
 
     void MoveFront()
     {
-        transform.position = new Vector2(transform.position.x + speed, transform.position.y);
+        if(direction == Direction.Left)
+            transform.position = new Vector2(transform.position.x - speed, transform.position.y);
+        if(direction == Direction.Right)
+            transform.position = new Vector2(transform.position.x + speed, transform.position.y);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Monster"))
+        if (collision.CompareTag("Monster"))
         {
             MonsterV2 monster = collision.GetComponent<MonsterV2>();
             BattleSystem.instance.Calculate(Elemental.Fire, monster.monsterData.elemental, collision.GetComponent<IHitable>(), damage * PlayerController.instance.playerData.force);
@@ -57,9 +55,5 @@ public class FireSkill_1 : MonoBehaviour
     {
         Setup();
     }
-
-    private void OnDisable()
-    {
-        transform.position = Vector3.zero;
-    }
 }
+

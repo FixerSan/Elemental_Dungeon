@@ -4,44 +4,67 @@ using UnityEngine;
 
 public class CutSceneManager : MonoBehaviour
 {
-    public bool isClearTutorial = false;
-    private CameraScript m_Camera;
-    private PlayerController player;
-    private void Start()
+    #region Singleton, DontDestoryOnLoad;
+    private static CutSceneManager Instance;
+    public static CutSceneManager instance
     {
-        m_Camera = FindObjectOfType<CameraScript>();
-        player = FindObjectOfType<PlayerController>();
-        if (!isClearTutorial)
+        get
         {
-            //StartCoroutine(Tutorial());
+            if (Instance != null)
+                return Instance;
+            else
+                return null;
         }
     }
 
-    //IEnumerator Tutorial()
-    //{
-    //    DialogSystem dialogueSystem = GetComponent<DialogSystem>();
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
 
-    //    player.transform.position = new Vector3(39, 5.5f);
-    //    StartCoroutine(GameManager.instance.FadeOut());
-    //    yield return new WaitForSeconds(1f);
+        else
+            Destroy(gameObject);
+    }
+    #endregion
+    private CameraScript m_Camera;
+    private PlayerController player;
+    private DialogSystem dialogSystem;
+    private void Setup()
+    {
+        m_Camera = FindObjectOfType<CameraScript>();
+        player = PlayerController.instance;
+        dialogSystem = DialogSystem.instance;
+    }
 
-    //    m_Camera.ChangeState(CameraState.cutscene);
-    //    player.ChangeState(PlayerState.idle, false);
+    public IEnumerator Tutorial_1()
+    {
 
-    //    player.ChangeDirection(Direction.Left);
-    //    bool isWalking = true;
+        Setup();
 
-    //    while (isWalking)
-    //    {
-    //        if (player.playerState != PlayerState.walk)
-    //            player.ChangeState(PlayerState.walk, false);
-    //        isWalking = player.transform.position.x > 26f;
-    //        yield return new WaitForFixedUpdate();
-    //    }
-    //    player.ChangeState(PlayerState.idle, true);
-    //    player.rb.velocity = Vector3.zero;
+        player.transform.position = new Vector3(36.5f, 5.5f);
+        StartCoroutine(GameManager.instance.FadeOut());
+        yield return new WaitForSeconds(1f);
 
-    //    yield return new WaitForSeconds(1f);
-    //    dialogueSystem.UpdateDialog(0);
-    //}
+        m_Camera.ChangeState(CameraState.cutscene);
+        player.ChangeState(PlayerState.Idle);
+
+        player.ChangeDirection(Direction.Left);
+        bool isWalking = true;
+
+        while (isWalking)
+        {
+            if (player.playerState != PlayerState.Walk)
+                player.ChangeState(PlayerState.Walk);
+            isWalking = player.transform.position.x > 26f;
+            yield return new WaitForFixedUpdate();
+        }
+        player.ChangeState(PlayerState.Idle);
+        player.Stop();
+
+        yield return new WaitForSeconds(1f);
+        dialogSystem.UpdateDialog(0);
+    }
 }

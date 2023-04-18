@@ -41,6 +41,8 @@ public class PlayerController : MonoBehaviour, IHitable
     public Elemental elemental = Elemental.Default;
     public Direction playerDirection;
     public bool isGround = false;
+    public Transform checkGroundPos;
+    public Vector2 checkGroundSize;
     public bool isCanSliding = false;
 
     public Rigidbody2D rb;
@@ -67,6 +69,7 @@ public class PlayerController : MonoBehaviour, IHitable
     public float m_Time;
 
     public List<Skill<PlayerController>> skills = new List<Skill<PlayerController>>();
+    public List<Skill<PlayerController>> currentSkills = new List<Skill<PlayerController>>();
 
     private void Update()
     {
@@ -74,15 +77,66 @@ public class PlayerController : MonoBehaviour, IHitable
         CheckUpAndFall();
         CheckSkillCanUse();
         stateMachine.UpdateState();
+        CheckUseSkill();
     }
     public void Setup()
     {
-        playerDirection = Direction.Right;
+        AddSkill(0);
+        AddSkill(1);
+    }
+    public void CheckUseSkill()
+    {
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            if(currentSkills.Count > 0)
+                currentSkills[0].Use();
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            if (currentSkills.Count > 1)
+            currentSkills[1].Use();
+        }
+
+    }
+
+    public void CheckChangeElemental()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            if(elemental == Elemental.Default)
+                ChangeElemental(Elemental.Fire);
+            else
+                ChangeElemental(Elemental.Default);
+
+        }
+    }
+    public void ChangeElemental(Elemental elemental_)
+    {
+        //엘리멘탈을 가지고 있는지 체크
+        elemental = elemental_;
+        currentSkills = new List<Skill<PlayerController>>();
+
+        switch(elemental)
+        {
+            case Elemental.Fire:
+                foreach (var item in skills)
+                {
+                    if (item.skillData.elemental == elemental)
+                        currentSkills.Add(item);
+                        //엘리멘탈 변경 후 엘리멘탈에 맞는 애니메이션 컨트롤러로 변경
+                        animator.runtimeAnimatorController = DataBase.instance.GetAnimatorController(1);
+                }
+                break;
+            case Elemental.Default:
+                animator.runtimeAnimatorController = DataBase.instance.GetAnimatorController(0);
+                break;
+        }
     }
     public void CheckIsGround()
     {
         //아래로 체크 길이 만큼 체크, 레이어는 그라운드
-        RaycastHit2D[] hits = Physics2D.RaycastAll(gameObject.transform.position, Vector2.down, isGroundLength, groundLayer);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(checkGroundPos.position, checkGroundSize, 0, groundLayer);
 
         //그라운드가 체크 되지 않았을 때
         if (hits.Length == 0)
@@ -266,7 +320,7 @@ public class PlayerController : MonoBehaviour, IHitable
     public IEnumerator Jump(float jumpForce)
     {
         rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSeconds(0.2f);
         canJump = true;
     }
     //하단 점프 코루틴
@@ -357,6 +411,8 @@ public class PlayerController : MonoBehaviour, IHitable
         Gizmos.DrawWireCube(gameObject.transform.position, new Vector3(0, isGroundLength, 0));
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(attackPos.position, attackSize);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(checkGroundPos.position, checkGroundSize);
     }
     public void Hit(float damage)
     {
@@ -384,6 +440,13 @@ public class PlayerController : MonoBehaviour, IHitable
                     if (hitTarget.GetComponent<IHitable>() != null)
                     {
                         BattleSystem.instance.Calculate(elemental,hitTarget.GetComponent<IHitable>().GetElemental(), hitTarget.GetComponent<IHitable>(),playerData.force);
+                        switch(elemental)
+                        {
+                            case Elemental.Fire:
+                                if(hitTarget.GetComponent<IStatusEffect>() != null)
+                                    BattleSystem.instance.SetStatusEffect(hitTarget.GetComponent<IStatusEffect>(),StatusEffect.Burns,5,playerData.force*0.1f);
+                                break;
+                        }    
                     }
                 }
                 yield return new WaitForSeconds(0.2f);
@@ -397,6 +460,13 @@ public class PlayerController : MonoBehaviour, IHitable
                     if (hitTarget.GetComponent<IHitable>() != null)
                     {
                         BattleSystem.instance.Calculate(elemental, hitTarget.GetComponent<IHitable>().GetElemental(), hitTarget.GetComponent<IHitable>(), playerData.force);
+                        switch (elemental)
+                        {
+                            case Elemental.Fire:
+                                if (hitTarget.GetComponent<IStatusEffect>() != null)
+                                    BattleSystem.instance.SetStatusEffect(hitTarget.GetComponent<IStatusEffect>(), StatusEffect.Burns, 5, playerData.force * 0.1f);
+                                break;
+                        }
                     }
                 }
                 yield return new WaitForSeconds(0.3f);
@@ -410,6 +480,13 @@ public class PlayerController : MonoBehaviour, IHitable
                     if (hitTarget.GetComponent<IHitable>() != null)
                     {
                         BattleSystem.instance.Calculate(elemental, hitTarget.GetComponent<IHitable>().GetElemental(), hitTarget.GetComponent<IHitable>(), playerData.force);
+                        switch (elemental)
+                        {
+                            case Elemental.Fire:
+                                if (hitTarget.GetComponent<IStatusEffect>() != null)
+                                    BattleSystem.instance.SetStatusEffect(hitTarget.GetComponent<IStatusEffect>(), StatusEffect.Burns, 5, playerData.force * 0.1f);
+                                break;
+                        }
                     }
                 }
                 yield return new WaitForSeconds(0.2f);
@@ -428,7 +505,7 @@ public class PlayerController : MonoBehaviour, IHitable
             switch(playerDirection)
             {
                 case Direction.Left:
-                    rb.AddForce(Vector2.left *playerData.attackMoveForce, ForceMode2D.Impulse);
+                    rb.AddForce(Vector2.left * playerData.attackMoveForce, ForceMode2D.Impulse);
                     break;
 
                 case Direction.Right:

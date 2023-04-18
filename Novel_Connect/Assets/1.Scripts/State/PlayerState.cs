@@ -21,6 +21,7 @@ namespace PlayerStates
             entity.CheckMove();
             entity.CheckJump();
             entity.CheckAttack();
+            entity.CheckChangeElemental(); 
         }
     }
     public class Attack : State<PlayerController>
@@ -69,6 +70,8 @@ namespace PlayerStates
 
         public override void UpdateState(PlayerController entity)
         {
+            if(!entity.animator.GetBool("isWalking"))
+                entity.animator.SetBool("isWalking", true);
             entity.Move();
             entity.CheckMove();
             entity.CheckJump();

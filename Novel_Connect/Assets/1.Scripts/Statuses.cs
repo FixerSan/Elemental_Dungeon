@@ -4,5 +4,10 @@ using UnityEngine;
 
 public class Statuses
 {
-    public bool isBurn = false;    
+    public bool isBurn = false;  
+    
+    public void ExitAllEffect()
+    {
+        isBurn = false;
+    }
 }
