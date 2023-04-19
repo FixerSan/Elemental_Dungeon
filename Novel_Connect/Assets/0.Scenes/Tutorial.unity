@@ -12943,7 +12943,7 @@ GameObject:
   - component: {fileID: 842728267}
   - component: {fileID: 842728266}
   m_Layer: 0
-  m_Name: Square
+  m_Name: Princess
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

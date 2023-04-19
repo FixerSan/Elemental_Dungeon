@@ -7,13 +7,14 @@ public class Town : Stage
     //List<GameObject> monsters = new List<GameObject>();
     //[SerializeField]
     //private Transform monsterSpawnPos;
-    bool isFirstPlay = true;
+    //bool isFirstPlay = true;
     public override void Setup()
     {
-        if(isFirstPlay)
-        {
-            CutSceneManager.instance.StartCoroutine(CutSceneManager.instance.Tutorial_1());
-        }
+        //if(isFirstPlay)
+        //{
+
+            
+        //}
 
 
         //monsterSpawnPos = GameObject.Find("MonsterSpawnPos").transform;

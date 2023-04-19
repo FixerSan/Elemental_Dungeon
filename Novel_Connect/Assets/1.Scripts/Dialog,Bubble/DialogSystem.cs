@@ -90,6 +90,11 @@ public class DialogSystem : MonoBehaviour
 
     public void NextDialogSetting()
     {
+        if(currentDialog.nextIndex == -100)
+        {
+            SetAllClose();
+            return;
+        }
         if(currentDialog.nextIndex == -1)
         {
             OnClickBtn();
@@ -97,6 +102,35 @@ public class DialogSystem : MonoBehaviour
         }
         UpdateDialog(currentDialog.nextIndex);
     }
+
+    public void SelectBtn_1()
+    {
+        switch (currentDialog.index)
+        {
+            case 10000:
+                SetAllClose();
+                UpdateDialog(currentDialog.selectBtn_1Index);
+                break;
+        }   
+    }    
+    public void SelectBtn_2()
+    {
+        switch (currentDialog.index)
+        {
+            case 10000:
+                SetAllClose();
+                CanvasScript.instance.transform.Find("RosyStore").gameObject.SetActive(true);
+                break;
+        }
+    }    
+    public void SelectBtn_3()
+    {
+        //switch (currentDialog.index)
+        //{
+
+        //}
+    }
+
 
     private IEnumerator OnTypingText()
     {
@@ -152,9 +186,13 @@ public class DialogSystem : MonoBehaviour
     {
         switch(currentDialog.index)
         {
-            case 1001:
-                SetAllClose();
-                CanvasScript.instance.transform.Find("RosyStore").gameObject.SetActive(true);
+            //case 1001:
+            //    SetAllClose();
+            //    CanvasScript.instance.transform.Find("RosyStore").gameObject.SetActive(true);
+            //    break;
+
+            case 10000:
+                
                 break;
         }
     }

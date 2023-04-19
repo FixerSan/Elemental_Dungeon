@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     #region Singleton
     public static GameManager instance;
+    public bool isFirstPlay;
 
     private void Awake()
     {
@@ -22,13 +23,14 @@ public class GameManager : MonoBehaviour
         }
 
         Screen.SetResolution(1920,1080,true,120);
+        if (isFirstPlay)
+            StageSystem.instance.ChangeScene("Tutorial");
     }
     #endregion
 
     public bool MouseLayCheckUse = true;
     public Text talkText;
     public GameObject scanObject;
-    public Image fadePanel;
 
     public delegate void OnEnenyDeath(int index);
     public OnEnenyDeath onEnenyDeath;
@@ -151,35 +153,6 @@ public class GameManager : MonoBehaviour
             return false;
         }
     }
-
-    public IEnumerator FadeIn()
-    {
-        bool isStart = false;
-        fadePanel.gameObject.SetActive(true);
-        fadePanel.color = new Color(0, 0, 0, 0);
-        while (!isStart)
-        {
-            fadePanel.color = new Color(0, 0, 0, fadePanel.color.a + 0.02f);
-            if (fadePanel.color.a >= 1)
-                isStart = true;
-            yield return new WaitForSeconds(0.01f);
-        }
-    }
-
-    public IEnumerator FadeOut()
-    {
-        bool isEnd = false;
-        fadePanel.gameObject.SetActive(true);
-        fadePanel.color = new Color(0, 0, 0, 1);
-        while (!isEnd)
-        {
-            fadePanel.color = new Color(0, 0, 0, fadePanel.color.a - 0.02f);
-            if (fadePanel.color.a <= 0)
-                isEnd = true;
-            yield return new WaitForSeconds(0.01f);
-        }
-        fadePanel.gameObject.SetActive(false);
-    }
     
 
     public void SceneChange(int index)
@@ -197,7 +170,7 @@ public class GameManager : MonoBehaviour
     {
         //player.ChangeState(PlayerState.dontGetIput, true);
 
-        yield return StartCoroutine(FadeIn());
+        yield return StartCoroutine(ScreenEffect.instance.FadeIn());
 
         SceneManager.LoadScene(index);
         player.transform.position = pos;
@@ -208,6 +181,6 @@ public class GameManager : MonoBehaviour
 
         //player.ChangeState(PlayerState.idle, false);
 
-        yield return StartCoroutine(FadeOut());
+        yield return StartCoroutine(ScreenEffect.instance.FadeOut());
     }
 }

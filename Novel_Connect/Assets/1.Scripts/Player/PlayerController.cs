@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour, IHitable
     }
     public void Setup()
     {
+        playerData = new PlayerData(0);
         AddSkill(0);
         AddSkill(1);
     }

@@ -36,31 +36,36 @@ public class StageSystem : MonoBehaviour
     }
 
     #endregion
-    public int currentStageIndex;
-    public Dictionary<int, Stage> stagesDictionary = new Dictionary<int, Stage>();
+    public string currentStage;
+    public Dictionary<string, Stage> stagesDictionary = new Dictionary<string, Stage>();
 
     public void CallSetup(Scene scene , LoadSceneMode loadSceneMode)
     {
-        currentStageIndex = scene.buildIndex;
-        if (stagesDictionary[currentStageIndex] != null)
+        currentStage = scene.name;
+        if (stagesDictionary.ContainsKey(currentStage))
         {
-            stagesDictionary[currentStageIndex].Setup();
+            stagesDictionary[currentStage].Setup();
         }
     }
 
     public void Update()
     {
-        if (stagesDictionary[currentStageIndex] != null)
+        if (stagesDictionary.ContainsKey(currentStage))
         {
-            stagesDictionary[currentStageIndex].UpdateStage();
+            stagesDictionary[currentStage].UpdateStage();
         }
     }
 
     public void AddList()
     {
-        stagesDictionary.Add(0, new Town());
-        stagesDictionary.Add(1, new Guild());
+        stagesDictionary.Add("Town", new Town());
+        stagesDictionary.Add("Guild", new Guild());
+        stagesDictionary.Add("Tutorial" , new TutorialStage());
+    }
 
+    public void ChangeScene(string sceneName)
+    {
+        SceneManager.LoadScene(sceneName);
     }
 
 }

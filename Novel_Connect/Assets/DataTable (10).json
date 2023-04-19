@@ -3,13 +3,10 @@
     {
       "index": "1001",
       "name": "주인공",
-      "sentence": [
-        "이야",
-        "마을 좋네~ 이게 도시지"
-      ],
+      "sentence": "이야 마을 좋네~ 이게 도시지",
       "illustPath": "IllustSprites/Boy",
       "speakerUI_Index": "0",
-      "nextIndex": "-1",
+      "nextIndex": "-100",
       "nextBtnText": "다음",
       "selectBtn_1Index": null,
       "selectBtn_1Text": "None",
@@ -24,7 +21,7 @@
       "sentence": "앞 좀 보고 걸어 거슬리게;",
       "illustPath": "IllustSprites/Monster3",
       "speakerUI_Index": "0",
-      "nextIndex": "-1",
+      "nextIndex": "-100",
       "nextBtnText": "다음",
       "selectBtn_1Index": null,
       "selectBtn_1Text": "None",
@@ -66,10 +63,7 @@
     {
       "index": "1005",
       "name": "왕녀",
-      "sentence": [
-        "뭐야",
-        "너네가 이런다고 내가 가만히 있을 것 같아?"
-      ],
+      "sentence": "뭐야 너네가 이런다고 내가 가만히 있을 것 같아?",
       "illustPath": "IllustSprites/Girl",
       "speakerUI_Index": "0",
       "nextIndex": "1006",
@@ -147,7 +141,7 @@
       "sentence": "일루젼!!!",
       "illustPath": "IllustSprites/Girl",
       "speakerUI_Index": "0",
-      "nextIndex": "-1",
+      "nextIndex": "-100",
       "nextBtnText": "다음",
       "selectBtn_1Index": null,
       "selectBtn_1Text": "None",
@@ -177,7 +171,7 @@
       "sentence": "네? 방금.. 뭐라고.?",
       "illustPath": "IllustSprites/Boy",
       "speakerUI_Index": "0",
-      "nextIndex": "-1",
+      "nextIndex": "-100",
       "nextBtnText": "다음",
       "selectBtn_1Index": null,
       "selectBtn_1Text": "None",
@@ -189,13 +183,10 @@
     {
       "index": "1013",
       "name": "주인공",
-      "sentence": [
-        "힘을 빌려줘",
-        "이그"
-      ],
+      "sentence": "힘을 빌려줘 이그",
       "illustPath": "IllustSprites/Boy",
       "speakerUI_Index": "0",
-      "nextIndex": "-1",
+      "nextIndex": "-100",
       "nextBtnText": "다음",
       "selectBtn_1Index": null,
       "selectBtn_1Text": "None",
@@ -240,7 +231,7 @@
       "sentence": "근데 너…",
       "illustPath": "IllustSprites/Girl",
       "speakerUI_Index": "0",
-      "nextIndex": "-1",
+      "nextIndex": "-100",
       "nextBtnText": "다음",
       "selectBtn_1Index": null,
       "selectBtn_1Text": "None",
@@ -270,7 +261,7 @@
       "sentence": "서둘러 가셔야 합니다.",
       "illustPath": "IllustSprites/Warrior3",
       "speakerUI_Index": "0",
-      "nextIndex": "-1",
+      "nextIndex": "-100",
       "nextBtnText": "다음",
       "selectBtn_1Index": null,
       "selectBtn_1Text": "None",
@@ -300,7 +291,7 @@
       "sentence": "가시죠",
       "illustPath": "IllustSprites/Warrior3",
       "speakerUI_Index": "0",
-      "nextIndex": "1021",
+      "nextIndex": "-100",
       "nextBtnText": "대화 종료",
       "selectBtn_1Index": null,
       "selectBtn_1Text": "None",
@@ -402,10 +393,7 @@
     {
       "index": "1027",
       "name": "로시",
-      "sentence": [
-        "2층을 보면",
-        "5개의 방이 보일 거야. 그중 맨 왼쪽 첫 번째가 네가 쓸 방이야!"
-      ],
+      "sentence": "2층을 보면 5개의 방이 보일 거야. 그중 맨 왼쪽 첫 번째가 네가 쓸 방이야!",
       "illustPath": "IllustSprites/Rosy",
       "speakerUI_Index": "0",
       "nextIndex": "1028",
@@ -480,11 +468,7 @@
     {
       "index": "1032",
       "name": "로시",
-      "sentence": [
-        "퀘스트 게시판은 헌터 등급을 올리기 위한 NPC로부터 받는 임무야. 퀘스트에도 등급을 나누는데 하급 헌터를 시작으로 중급",
-        "상급",
-        "마스터 순서로 자신의 등급에 맞는 퀘스트만 받을 수 있어."
-      ],
+      "sentence": "퀘스트 게시판은 헌터 등급을 올리기 위한 NPC로부터 받는 임무야. 퀘스트에도 등급을 나누는데 하급 헌터를 시작으로 중급 상급 마스터 순서로 자신의 등급에 맞는 퀘스트만 받을 수 있어.",
       "illustPath": "IllustSprites/Rosy",
       "speakerUI_Index": "0",
       "nextIndex": "1033",
@@ -499,11 +483,7 @@
     {
       "index": "1033",
       "name": "로시",
-      "sentence": [
-        "하급미션은 E와D",
-        "중급은 B와D",
-        "상급은 A와B와C 그리고 마스터는 S와A 등급으로 나뉘어."
-      ],
+      "sentence": "하급미션은 E와D 중급은 B와D 상급은 A와B와C 그리고 마스터는 S와A 등급으로 나뉘어.",
       "illustPath": "IllustSprites/Rosy",
       "speakerUI_Index": "0",
       "nextIndex": "1028",
@@ -518,10 +498,7 @@
     {
       "index": "1034",
       "name": "로시",
-      "sentence": [
-        "헌터 등급은 캐릭터의 능력치를 나타내는 거야. 등급을 올릴수록 캐릭터의 스킬 공격력을 높일 수 있는 스킬 포인트를 얻고",
-        "높은 등급의 퀘스트를 수행해 더 많은 보상을 얻을 수 있어."
-      ],
+      "sentence": "헌터 등급은 캐릭터의 능력치를 나타내는 거야. 등급을 올릴수록 캐릭터의 스킬 공격력을 높일 수 있는 스킬 포인트를 얻고 높은 등급의 퀘스트를 수행해 더 많은 보상을 얻을 수 있어.",
       "illustPath": "IllustSprites/Rosy",
       "speakerUI_Index": "0",
       "nextIndex": "1028",
@@ -536,13 +513,40 @@
     {
       "index": "1035",
       "name": "로시",
-      "sentence": [
-        "그럼",
-        "화이팅!"
-      ],
+      "sentence": "그럼 화이팅!",
       "illustPath": "IllustSprites/Rosy",
       "speakerUI_Index": "0",
+      "nextIndex": "-100",
+      "nextBtnText": "대화 종료",
+      "selectBtn_1Index": "-1",
+      "selectBtn_1Text": "None",
+      "selectBtn_2Index": "-1",
+      "selectBtn_2Text": "None",
+      "selectBtn_3Index": "-1",
+      "selectBtn_3Text": "None"
+    },
+    {
+      "index": "10000",
+      "name": "로시",
+      "sentence": "어서와~ 오늘도 날 만나러 와 주었구나 무엇을 도와줄까?",
+      "illustPath": "IllustSprites/Rosy",
+      "speakerUI_Index": "1",
       "nextIndex": "-1",
+      "nextBtnText": "대화 하기",
+      "selectBtn_1Index": "10001",
+      "selectBtn_1Text": "대화 하기",
+      "selectBtn_2Index": "-1",
+      "selectBtn_2Text": "마석 판매",
+      "selectBtn_3Index": "-1",
+      "selectBtn_3Text": "None"
+    },
+    {
+      "index": "10001",
+      "name": "로시",
+      "sentence": "난 너랑 대화하고 싶지 않아 크크~",
+      "illustPath": "IllustSprites/Rosy",
+      "speakerUI_Index": "0",
+      "nextIndex": "-100",
       "nextBtnText": "대화 종료",
       "selectBtn_1Index": "-1",
       "selectBtn_1Text": "None",
@@ -552,160 +556,118 @@
       "selectBtn_3Text": "None"
     }
   ],
-  "speechBubble": [
+  "speechBubbleDatas": [
     {
       "index": "101",
       "name": "왕녀",
       "sentence": "하기 싫다고! 그만 쫓아와!!!",
-      "illustPath": "IllustSprites/Girl",
-      "speakerUI_Index": "0",
       "nextIndex": "102",
-      "nextBtnText": null,
-      "selectBtn_1Index": null,
-      "selectBtn_1Text": null
+      "path": null,
+      "duration": null
     },
     {
       "index": "102",
       "name": "주인공",
       "sentence": "아파라..",
-      "illustPath": "IllustSprites/Boy",
-      "speakerUI_Index": "0",
       "nextIndex": "103",
-      "nextBtnText": null,
-      "selectBtn_1Index": null,
-      "selectBtn_1Text": null
+      "path": null,
+      "duration": null
     },
     {
       "index": "103",
       "name": "주인공",
       "sentence": "???",
-      "illustPath": "IllustSprites/Boy",
-      "speakerUI_Index": "0",
       "nextIndex": "104",
-      "nextBtnText": null,
-      "selectBtn_1Index": null,
-      "selectBtn_1Text": null
+      "path": null,
+      "duration": null
     },
     {
       "index": "104",
       "name": "왕녀",
       "sentence": "어?",
-      "illustPath": "IllustSprites/Girl",
-      "speakerUI_Index": "0",
       "nextIndex": "105",
-      "nextBtnText": null,
-      "selectBtn_1Index": null,
-      "selectBtn_1Text": null
+      "path": null,
+      "duration": null
     },
     {
       "index": "105",
       "name": "괴한 1",
       "sentence": "?",
-      "illustPath": "IllustSprites/Monster1",
-      "speakerUI_Index": "0",
       "nextIndex": "106",
-      "nextBtnText": "필요없지않나?",
-      "selectBtn_1Index": null,
-      "selectBtn_1Text": null
+      "path": null,
+      "duration": null
     },
     {
       "index": "106",
       "name": "괴한 2",
       "sentence": "?",
-      "illustPath": "IllustSprites/Monster2",
-      "speakerUI_Index": "0",
       "nextIndex": "107",
-      "nextBtnText": null,
-      "selectBtn_1Index": null,
-      "selectBtn_1Text": null
+      "path": null,
+      "duration": null
     },
     {
       "index": "107",
       "name": "괴한 3",
       "sentence": "?",
-      "illustPath": "IllustSprites/Monster3",
-      "speakerUI_Index": "0",
       "nextIndex": "108",
-      "nextBtnText": null,
-      "selectBtn_1Index": null,
-      "selectBtn_1Text": null
+      "path": null,
+      "duration": null
     },
     {
       "index": "108",
       "name": "주인공",
       "sentence": "(?)",
-      "illustPath": "IllustSprites/Boy",
-      "speakerUI_Index": "0",
       "nextIndex": "109",
-      "nextBtnText": null,
-      "selectBtn_1Index": null,
-      "selectBtn_1Text": null
+      "path": null,
+      "duration": null
     },
     {
       "index": "109",
       "name": "왕녀",
       "sentence": "아!!!!!! 하.. 씨…",
-      "illustPath": "IllustSprites/Girl",
-      "speakerUI_Index": "0",
       "nextIndex": "110",
-      "nextBtnText": null,
-      "selectBtn_1Index": null,
-      "selectBtn_1Text": null
+      "path": null,
+      "duration": null
     },
     {
       "index": "110",
       "name": "괴한 3",
       "sentence": "광대인가?",
-      "illustPath": "IllustSprites/Monster3",
-      "speakerUI_Index": "0",
       "nextIndex": "111",
-      "nextBtnText": null,
-      "selectBtn_1Index": null,
-      "selectBtn_1Text": null
+      "path": null,
+      "duration": null
     },
     {
       "index": "111",
       "name": "괴한 1",
       "sentence": "으하하하하하. 멍청한 녀석이잖냐 (손을 들어 뺨을 치려 함)",
-      "illustPath": "IllustSprites/Monster1",
-      "speakerUI_Index": "0",
       "nextIndex": "112",
-      "nextBtnText": null,
-      "selectBtn_1Index": null,
-      "selectBtn_1Text": null
+      "path": null,
+      "duration": null
     },
     {
       "index": "112",
       "name": "괴한 2",
       "sentence": "으아아아아악!!!!!!",
-      "illustPath": "IllustSprites/Monster2",
-      "speakerUI_Index": "0",
       "nextIndex": "113",
-      "nextBtnText": null,
-      "selectBtn_1Index": null,
-      "selectBtn_1Text": null
+      "path": null,
+      "duration": null
     },
     {
       "index": "113",
       "name": "호위 무사 1",
       "sentence": "아가씨!!!!!!",
-      "illustPath": "IllustSprites/Warrior1",
-      "speakerUI_Index": "0",
       "nextIndex": "114",
-      "nextBtnText": null,
-      "selectBtn_1Index": null,
-      "selectBtn_1Text": null
+      "path": null,
+      "duration": null
     },
     {
       "index": "114",
       "name": "왕녀",
       "sentence": "이거 놔! 쟤한테 물어볼게 있다고!!!",
-      "illustPath": "IllustSprites/Girl",
-      "speakerUI_Index": "0",
       "nextIndex": "115",
-      "nextBtnText": null,
-      "selectBtn_1Index": null,
-      "selectBtn_1Text": null
+      "path": null,
+      "duration": null
     }
   ],
   "itemDatas": [
@@ -835,6 +797,21 @@
       "deadEffectDelay": null,
       "deadEffectTimeLength": null,
       "deadEffectCount": null
+    },
+    {
+      "monsterID": "0",
+      "monsterHP": "100",
+      "monsterSpeed": "3",
+      "monsterAttackForce": "0",
+      "monsterState": "0",
+      "monsterType": "1",
+      "monsterAttackPattern": "1",
+      "elemental": "0",
+      "direction": "0",
+      "canAttackLength": "1",
+      "deadEffectDelay": "2",
+      "deadEffectTimeLength": "3",
+      "deadEffectCount": "3"
     }
   ],
   "questDatas": [
@@ -1115,8 +1092,34 @@
       "walkSpeed": "10",
       "runSpeed": "0",
       "jumpForce": "8",
-      "jumpMoveForce": "0.15",
-      "attackMoveForce": "10"
+      "jumpMoveForce": "100",
+      "attackMoveForce": "3"
+    }
+  ],
+  "skillDatas": [
+    {
+      "index": "0",
+      "name": "돌진하는 말",
+      "level": "1",
+      "content": "None",
+      "skillType": "0",
+      "elemental": "8",
+      "coolTime": "25",
+      "iconPath": "None",
+      "skillDamage": "1",
+      "ccDamage": "0.1"
+    },
+    {
+      "index": "101",
+      "name": "불 뿜기",
+      "level": "1",
+      "content": "None",
+      "skillType": "0",
+      "elemental": "8",
+      "coolTime": "17",
+      "iconPath": "None",
+      "skillDamage": "1.5",
+      "ccDamage": "0.1"
     }
   ],
   "skillsDatas": [
@@ -1194,28 +1197,6 @@
       "abnormalStatus": null,
       "ccDamage": null,
       "illustPath": null
-    }
-  ],
-  "SkillData": [
-    {
-      "index": "0",
-      "name": "돌진하는 말",
-      "level": "1",
-      "content": "None",
-      "skillType": "0",
-      "elemental": "7",
-      "coolTime": "25",
-      "iconPath": "None"
-    },
-    {
-      "index": "101",
-      "name": "불 뿜기",
-      "level": "1",
-      "content": "None",
-      "skillType": "0",
-      "elemental": "7",
-      "coolTime": "17",
-      "iconPath": "None"
     }
   ]
 }

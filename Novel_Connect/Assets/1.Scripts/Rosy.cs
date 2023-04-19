@@ -6,6 +6,6 @@ public class Rosy : ClickableNPC
 {
     public override void Interaction()
     {
-        DialogSystem.instance.UpdateDialog(1001);
+        DialogSystem.instance.UpdateDialog(10000);
     }
 }

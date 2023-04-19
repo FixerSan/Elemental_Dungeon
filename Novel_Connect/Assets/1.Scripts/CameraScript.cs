@@ -4,16 +4,39 @@ using UnityEngine;
 
 public class CameraScript : MonoBehaviour
 {
+    #region Singleton;
+    private static CameraScript Instance;
+    public static CameraScript instance
+    {
+        get
+        {
+            if (Instance != null)
+                return Instance;
+
+            else
+                return null;
+        }
+    }
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+            Destroy(gameObject);
+        player = PlayerController.instance;
+    }
+    #endregion
+
     public Vector2 min, max;
     public float delayTime;
     private PlayerController player;
     public float playerPlusY;
 
     public CameraState cameraState;
-    private void Awake()
-    {
-        player = PlayerController.instance;
-    }
+
 
     private void FixedUpdate()
     {

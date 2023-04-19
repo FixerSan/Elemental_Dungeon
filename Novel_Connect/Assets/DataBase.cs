@@ -15,6 +15,7 @@ public class DataBase : MonoBehaviour
     public Dictionary<int, MonsterData> monsterDatas = new Dictionary<int, MonsterData>();
     public Dictionary<int, PlayerData> playerDatas = new Dictionary<int, PlayerData>();
     public Dictionary<int, SkillData> skillDatas = new Dictionary<int, SkillData>();
+    public Dictionary<int, SpeechBubbleData> speechBubbleDatas = new Dictionary<int, SpeechBubbleData>();
     public Dictionary<int, AudioClip> audioClips = new Dictionary<int, AudioClip>();
 
 
@@ -72,6 +73,14 @@ public class DataBase : MonoBehaviour
         {
             playerDatas.Add(item.index, item);
         }
+        foreach (var item in datas.skillDatas)
+        {
+            skillDatas.Add(item.index, item);
+        }
+        //foreach (var item in datas.speechBubbleDatas)
+        //{
+        //    speechBubbleDatas.Add(item.index, item);
+        //}
         //foreach (var item in datas.audioClipDatas)
         //{
         //    audioClips.Add(item.index, Resources.Load<AudioClip>(item.clipPath)) ;
@@ -127,6 +136,13 @@ public class DataBase : MonoBehaviour
         return null;
     }
 
+    public SpeechBubbleData GetSpeechBuble(int index)
+    {
+        if (speechBubbleDatas.ContainsKey(index))
+            return speechBubbleDatas[index];
+        return null;
+    }
+
     public RuntimeAnimatorController GetAnimatorController(int index)
     {
         return animatorControllers[index];
@@ -142,6 +158,8 @@ public class AllData
     public Quest[] questDatas;
     public MonsterData[] monsterDatas;
     public PlayerData[] playerDatas;
+    public SkillData[] skillDatas;
+    public SpeechBubbleData[] speechBubbleDatas;
     public AudioClipData[] audioClipDatas;
 }
 #endregion
@@ -156,8 +174,11 @@ public class Dialog
     public SpeakerUIType speakerUI_Index;
     public int nextIndex;
     public string nextBtnText;
+    public int selectBtn_1Index;
     public string selectBtn_1Text;
+    public int selectBtn_2Index;
     public string selectBtn_2Text;
+    public int selectBtn_3Index;
     public string selectBtn_3Text;
 }
 
@@ -306,7 +327,7 @@ public class MonsterData
         deadEffectCount = monsterData.deadEffectCount;
     }
 }
-
+[System.Serializable]
 public class SkillData
 {
     public int index;
@@ -317,11 +338,21 @@ public class SkillData
     public Elemental elemental;
     public float coolTime;
 }
-
+[System.Serializable]
 public class AudioClipData
 {
     public int index;
     public string clipPath;
+}
+[System.Serializable]
+public class SpeechBubbleData
+{
+    public int index;
+    public string name;
+    public string sentence;
+    public int nextIndex;
+    public string path;
+
 }
 
 public enum MonsterState
