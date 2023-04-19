@@ -27,20 +27,18 @@ public class CutSceneManager : MonoBehaviour
 
         else
             Destroy(gameObject);
-        AddCutScene(); 
     }
     #endregion
 
-    public Dictionary<string, CutScene> cutScenes = new Dictionary<string, CutScene>();
 
-    public void PlayCutScene(string cutSceneName)
+    public void AddCutScene(string name)
     {
-        cutScenes[cutSceneName].Play();
-    }
-
-
-    void AddCutScene()
-    {
-        cutScenes.Add("Tutorial", new Tutorial());
+        switch (name)
+        {
+            case "Tutorial" :
+                gameObject.AddComponent<Tutorial>();
+                break;
+        }
+            
     }
 }

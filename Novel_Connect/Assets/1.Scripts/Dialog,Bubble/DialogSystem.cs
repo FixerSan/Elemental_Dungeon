@@ -186,10 +186,10 @@ public class DialogSystem : MonoBehaviour
     {
         switch(currentDialog.index)
         {
-            //case 1001:
-            //    SetAllClose();
-            //    CanvasScript.instance.transform.Find("RosyStore").gameObject.SetActive(true);
-            //    break;
+            case 1001:
+                SetAllClose();
+                CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_3());
+                break;
 
             case 10000:
                 

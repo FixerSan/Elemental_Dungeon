@@ -6,7 +6,7 @@ public class TutorialStage : Stage
 {
     public override void Setup()
     {
-        CutSceneManager.instance.PlayCutScene("Tutorial");
+        CutSceneManager.instance.AddCutScene("Tutorial");
     }
 
     public override void UpdateStage()

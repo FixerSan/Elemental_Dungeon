@@ -77,10 +77,10 @@ public class DataBase : MonoBehaviour
         {
             skillDatas.Add(item.index, item);
         }
-        //foreach (var item in datas.speechBubbleDatas)
-        //{
-        //    speechBubbleDatas.Add(item.index, item);
-        //}
+        foreach (var item in datas.speechBubbleDatas)
+        {
+            speechBubbleDatas.Add(item.index, item);
+        }
         //foreach (var item in datas.audioClipDatas)
         //{
         //    audioClips.Add(item.index, Resources.Load<AudioClip>(item.clipPath)) ;
@@ -352,6 +352,7 @@ public class SpeechBubbleData
     public string sentence;
     public int nextIndex;
     public string path;
+    public float duration;
 
 }
 

@@ -7,10 +7,49 @@ public class Tutorial : CutScene
     private CameraScript m_Camera;
     private PlayerController player;
     private DialogSystem dialogSystem;
+    private Princess princess;
 
     public override void Play()
     {
-        
+        StartCoroutine(Tutorial_1());
+    }
+
+    private void Start()
+    {
+        Play();
+    }
+
+    public IEnumerator Tutorial_1()
+    {
+        Setup();
+
+        player.transform.position = new Vector3(36.5f, -1f);
+        StartCoroutine(ScreenEffect.instance.FadeOut());
+        player.ChangeState(PlayerState.Idle);
+        player.ChangeDirection(Direction.Left);
+        yield return new WaitForSeconds(1f);
+
+        player.ChangeState(PlayerState.Walk);
+        //여기까지는 되는데 이 다음 언틸이 체크가 안 되는 건지 튜토리얼 2가 안 돼요...
+        yield return new WaitUntil(() => player.transform.localPosition.x <= 18);
+        StartCoroutine(Tutorial_2());   
+    }
+
+    public IEnumerator Tutorial_2()
+    {
+        player.ChangeState(PlayerState.Idle);
+        player.Stop();
+        yield return new WaitForSeconds(1f);
+        dialogSystem.UpdateDialog(1001);
+    }
+    
+    public IEnumerator Tutorial_3()
+    {
+        SpeechBubbleSystem.instance.SetSpeechBuble(101, princess.transform, new Vector3(2.67f, 2.09f, 0));
+        yield return new WaitForSeconds(1f);
+        princess.direction = Direction.Right;
+        princess.isWalking = true;
+        yield return new WaitForSeconds(1f);
     }
 
     public override void Setup()
@@ -18,7 +57,7 @@ public class Tutorial : CutScene
         m_Camera = CameraScript.instance;
         player = PlayerController.instance;
         dialogSystem = DialogSystem.instance;
-
+        princess = FindObjectOfType<Princess>();
         index = 0;
     }
 }

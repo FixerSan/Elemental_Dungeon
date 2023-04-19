@@ -30,10 +30,12 @@ public class SpeechBubbleSystem : MonoBehaviour
     }
     #endregion
 
-    public void SetSpeechBuble(int index)
+    public void SetSpeechBuble(int index , Transform transform , Vector3 pos)
     {
-        SpeechBubbleData speechBubble = DataBase.instance.GetSpeechBuble(index);
+        GameObject speechBuble = SpeechBubbleObjectPool.instance.GetSpeechBuble(index);
 
-        
+        speechBuble.transform.SetParent(transform);
+
+        speechBuble.transform.localPosition = pos;
     }
 }
