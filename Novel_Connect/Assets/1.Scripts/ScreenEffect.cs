@@ -86,4 +86,9 @@ public class ScreenEffect : MonoBehaviour
         }
         fadePanel.gameObject.SetActive(false);
     }
+
+    public void Shake(float time)
+    {
+        CameraScript.instance.StartCoroutine(CameraScript.instance.Shake(time));
+    }
 }

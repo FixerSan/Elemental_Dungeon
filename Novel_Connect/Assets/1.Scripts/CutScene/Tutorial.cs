@@ -31,7 +31,7 @@ public class Tutorial : CutScene
 
         player.ChangeState(PlayerState.Walk);
         //여기까지는 되는데 이 다음 언틸이 체크가 안 되는 건지 튜토리얼 2가 안 돼요...
-        yield return new WaitUntil(() => player.transform.localPosition.x <= 18);
+        yield return new WaitUntil(() => player.transform.localPosition.x <= 17);
         StartCoroutine(Tutorial_2());   
     }
 
@@ -46,10 +46,19 @@ public class Tutorial : CutScene
     public IEnumerator Tutorial_3()
     {
         SpeechBubbleSystem.instance.SetSpeechBuble(101, princess.transform, new Vector3(2.67f, 2.09f, 0));
-        yield return new WaitForSeconds(1f);
         princess.direction = Direction.Right;
         princess.isWalking = true;
         yield return new WaitForSeconds(1f);
+    }
+
+    public IEnumerator Tutorial_4()
+    {
+        ScreenEffect.instance.Shake(0.5f);
+        yield return new WaitForSeconds(2f);
+        SpeechBubbleSystem.instance.SetSpeechBuble(102, player.transform, new Vector3(-1.5f, 3.5f, 0));
+
+        CameraScript.instance.ChangeState(CameraState.cutscene);
+        CameraScript.instance.StartCoroutine(CameraScript.instance.MoveToPos(new Vector3(-25, 3.916215f, -10f),Vector2.left));
     }
 
     public override void Setup()

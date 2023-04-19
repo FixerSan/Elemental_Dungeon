@@ -58,31 +58,27 @@ public class SpeechBubbleObjectPool : MonoBehaviour
         GameObject speechBuble;
         
         if(speechBubleQueue.Count > 0)
-        {
-            speechBuble.GetComponent<SpeechBuble>().data = data;
             speechBuble = speechBubleQueue.Dequeue();
-            speechBuble.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(data.path);
-            speechBuble.transform.SetParent(null);
-            speechBuble.SetActive(true);
-        }
 
         else
-        {
-            speechBuble.GetComponent<SpeechBuble>().data = data;
             speechBuble = Instantiate(speechBublePrefab);
-            speechBuble.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(data.path);
-            speechBuble.transform.SetParent(null);
-            speechBuble.SetActive(true);
-        }
+
+        speechBuble.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(data.path);
+        speechBuble.transform.SetParent(null);
+        speechBuble.SetActive(true);
+
+        SpeechBuble sb = speechBuble.GetComponent<SpeechBuble>();
+
+        sb.data = data;
+        sb.StartCoroutine(sb.Disable());
         return speechBuble;
     }
 
     public void ReturnSpeechBuble(GameObject speechBuble)
     {
-        speechBuble.SetActive(false);
+        speechBuble.transform.SetParent(transform);
         speechBuble.GetComponent<SpeechBuble>().data = null;
         speechBuble.transform.position = transform.position;
-        speechBuble.transform.SetParent(transform);
         speechBuble.GetComponent<SpriteRenderer>().sprite = null;
         speechBubleQueue.Enqueue(speechBuble);
     }

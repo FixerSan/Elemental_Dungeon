@@ -6,19 +6,14 @@ public class SpeechBuble : MonoBehaviour
 {
     public SpeechBubbleData data;
 
-    private void OnEnable()
-    {
-        StartCoroutine(Disable());
-    }
-
     private void OnDisable()
     {
-        SpeechBubbleObjectPool.instance.ReturnSpeechBuble(this.gameObject);
+
     }
 
-    IEnumerator Disable()
+    public IEnumerator Disable()
     {
         yield return new WaitForSeconds(data.duration);
-        gameObject.SetActive(false);
+        SpeechBubbleObjectPool.instance.ReturnSpeechBuble(this.gameObject);
     }
 }

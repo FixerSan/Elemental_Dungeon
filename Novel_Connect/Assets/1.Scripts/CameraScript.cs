@@ -37,11 +37,17 @@ public class CameraScript : MonoBehaviour
 
     public CameraState cameraState;
 
+    public bool isMove;
+    public float moveSpeed;
+    private Vector3 moveDirection;
+    public bool isShake;
+    public float shakeRange;
 
     private void FixedUpdate()
     {
         if (player == null)
             player = PlayerController.instance;
+
         switch (cameraState)
         {
             case CameraState.idle :
@@ -53,9 +59,46 @@ public class CameraScript : MonoBehaviour
 
                 transform.position = Vector3.Lerp(transform.position, targetPos, delayTime);
                 break;
+
             case CameraState.cutscene :
                 break;
         }
+
+
+        if(isShake)
+        {
+            float cameraPosX = Random.value * shakeRange * 2 - shakeRange;
+            float cameraPosY = Random.value * shakeRange * 2 - shakeRange;
+
+            Vector3 cameraPos = transform.position;
+            cameraPos.x += cameraPosX;
+            cameraPos.y += cameraPosY;
+            transform.position = cameraPos;
+        }
+
+        if (isMove)
+            Move(moveDirection);
+    }
+
+    public void Move(Vector3 direction)
+    {
+        transform.Translate(direction * Time.fixedDeltaTime * moveSpeed);
+    }
+
+    public IEnumerator Shake(float time)
+    {
+        isShake = true;
+        yield return new WaitForSeconds(time);
+        isShake = false;
+    }
+
+    public IEnumerator MoveToPos(Vector3 pos , Vector3 direction)
+    {
+        moveDirection = direction;
+        isMove = true;
+        yield return new WaitUntil(() => Vector3.Distance(transform.position , pos) <= 0.1f);
+        isMove = false;
+        moveDirection = Vector3.zero;
     }
 
     public void ChangeState(CameraState state)

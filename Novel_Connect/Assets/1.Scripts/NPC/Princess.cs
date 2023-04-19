@@ -42,7 +42,10 @@ public class Princess : MonoBehaviour
     {
         isWalking = false;
         rb.velocity = Vector2.zero;
+        CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_4());
     }
+
+
 }
 
 
