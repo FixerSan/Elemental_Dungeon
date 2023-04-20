@@ -19,8 +19,8 @@ TagManager:
   - Clickable
   - Ground
   - CollisionCheck
-  - 
-  - 
+  - Item
+  - NPC
   - 
   - 
   - 

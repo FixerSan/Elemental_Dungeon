@@ -61,6 +61,7 @@ public class StageSystem : MonoBehaviour
         stagesDictionary.Add("Town", new Town());
         stagesDictionary.Add("Guild", new Guild());
         stagesDictionary.Add("Tutorial" , new TutorialStage());
+        stagesDictionary.Add("Tutorial_2" , new TutorialStage());
     }
 
     public void ChangeScene(string sceneName)

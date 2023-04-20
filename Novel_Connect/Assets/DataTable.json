@@ -588,7 +588,7 @@
     {
       "index": "998",
       "name": "주인공",
-      "sentence": "하 칠칠맞기는 저기요!",
+      "sentence": "하아 칠칠맞기는 저기요!",
       "illustPath": "IllustSprites/Boy",
       "speakerUI_Index": "0",
       "nextIndex": "-1",
@@ -795,6 +795,14 @@
       "itemImagePath": "ItemSprites/Food/DenseCupcake",
       "count": "1",
       "maxCount": "64"
+    },
+    {
+      "itemID": "1000001",
+      "itemtType": "0",
+      "itemName": "정령이 담긴 오브",
+      "itemImagePath": "ItemSprites/Weapon & Tool/Sapphire Staff",
+      "count": "1",
+      "maxCount": "1"
     }
   ],
   "monsterDatas": [

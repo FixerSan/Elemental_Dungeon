@@ -186,6 +186,10 @@ public class DialogSystem : MonoBehaviour
     {
         switch(currentDialog.index)
         {
+            case 998:
+                SetAllClose();
+                CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_7());
+                break;
             case 1000:
                 SetAllClose();
                 CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_5());

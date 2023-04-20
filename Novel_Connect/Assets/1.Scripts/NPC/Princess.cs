@@ -52,6 +52,11 @@ public class Princess : MonoBehaviour
         }
     }
 
+    public void Stop()
+    {
+        rb.velocity = new Vector2(0, rb.velocity.y);
+    }
+
     private void Update()
     {
         Move();
