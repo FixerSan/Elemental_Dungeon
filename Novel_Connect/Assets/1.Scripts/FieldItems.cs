@@ -27,8 +27,21 @@ public class FieldItems : MonoBehaviour
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Player"))
+        {
+            if (Inventory.instance.AddItem(item.itemID))
+                DestroyItem();
+        }
+    }
+
     public void DestroyItem()
     {
+        if(item.itemID == 1000001)
+        {
+            CutSceneManager.instance.transform.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.transform.GetComponent<Tutorial>().Tutorial_9());
+        }
         Destroy(gameObject);
     }
 

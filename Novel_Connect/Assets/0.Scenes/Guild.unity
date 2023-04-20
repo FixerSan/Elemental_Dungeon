@@ -4869,7 +4869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d58d03ddf51cd74491ac08d23801452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStageIndex: 2
+  currentStage: 
 --- !u!114 &284358278
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4941,10 +4941,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97558dfcdb285324fa9a8b1295b7f396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFirstPlay: 0
   MouseLayCheckUse: 1
   talkText: {fileID: 0}
   scanObject: {fileID: 0}
-  fadePanel: {fileID: 213019946}
 --- !u!4 &284358283
 Transform:
   m_ObjectHideFlags: 0
@@ -8875,7 +8875,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -8951,6 +8951,10 @@ MonoBehaviour:
   delayTime: 0.2
   playerPlusY: 0
   cameraState: 0
+  isMove: 0
+  moveSpeed: 0
+  isShake: 0
+  shakeRange: 0
 --- !u!1 &529862674
 GameObject:
   m_ObjectHideFlags: 0
@@ -15387,7 +15391,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 915ac2b380098b54c96ce2bf60046e23, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.75
+  m_Volume: 0
   m_Pitch: 1
   Loop: 0
   Mute: 0

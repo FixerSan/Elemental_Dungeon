@@ -18,7 +18,6 @@ public class DataBase : MonoBehaviour
     public Dictionary<int, SpeechBubbleData> speechBubbleDatas = new Dictionary<int, SpeechBubbleData>();
     public Dictionary<int, AudioClip> audioClips = new Dictionary<int, AudioClip>();
 
-
     public RuntimeAnimatorController[] animatorControllers;
     //데이터베이스까지 같이 기능
     #region 싱글톤 및 DontDestroy

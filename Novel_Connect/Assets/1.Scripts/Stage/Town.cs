@@ -7,14 +7,13 @@ public class Town : Stage
     //List<GameObject> monsters = new List<GameObject>();
     //[SerializeField]
     //private Transform monsterSpawnPos;
-    //bool isFirstPlay = true;
+    bool isFirstPlay = true;
     public override void Setup()
     {
-        //if(isFirstPlay)
-        //{
-
-            
-        //}
+        if (isFirstPlay)
+        {
+            StageSystem.instance.ChangeScene("Tutorial");
+        }
 
 
         //monsterSpawnPos = GameObject.Find("MonsterSpawnPos").transform;
@@ -24,6 +23,8 @@ public class Town : Stage
         //{
         //    monsters.Add(MonsterObjectPool.instance.GetMonster(0, monsterSpawnPos.GetChild(i)));
         //}
+
+
     }
 
     public override void UpdateStage()

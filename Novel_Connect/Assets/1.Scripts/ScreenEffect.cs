@@ -56,7 +56,7 @@ public class ScreenEffect : MonoBehaviour
             fadePanel.color = new Color(0, 0, 0, fadePanel.color.a - 0.02f);
             if (fadePanel.color.a <= 0)
                 isEnd = true;
-            yield return new WaitForSeconds(0.01f);
+            yield return new WaitForSeconds(0.02f);
         }
         fadePanel.gameObject.SetActive(false);
     }

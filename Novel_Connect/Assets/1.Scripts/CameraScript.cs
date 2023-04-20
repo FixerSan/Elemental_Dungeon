@@ -27,6 +27,7 @@ public class CameraScript : MonoBehaviour
         else
             Destroy(gameObject);
         player = PlayerController.instance;
+        target = player.gameObject;
     }
     #endregion
 
@@ -34,6 +35,8 @@ public class CameraScript : MonoBehaviour
     public float delayTime;
     private PlayerController player;
     public float playerPlusY;
+
+    public GameObject target;
 
     public CameraState cameraState;
 
@@ -53,8 +56,8 @@ public class CameraScript : MonoBehaviour
             case CameraState.idle :
 
                 Vector3 targetPos = new Vector3(
-                    Mathf.Clamp(player.transform.position.x , min.x, max.x), 
-                    Mathf.Clamp(player.transform.position.y + playerPlusY, min.y , max.y), 
+                    Mathf.Clamp(target.transform.position.x , min.x, max.x), 
+                    Mathf.Clamp(target.transform.position.y + playerPlusY, min.y , max.y), 
                     transform.position.z);
 
                 transform.position = Vector3.Lerp(transform.position, targetPos, delayTime);
@@ -104,6 +107,11 @@ public class CameraScript : MonoBehaviour
     public void ChangeState(CameraState state)
     {
         cameraState = state;
+    }
+
+    public void ChangeTarget(GameObject target_)
+    {
+        target = target_;
     }
 }
 

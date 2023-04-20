@@ -9,6 +9,11 @@ public class Tutorial : CutScene
     private DialogSystem dialogSystem;
     private Princess princess;
 
+    private List<GameObject> townContentSprites = new List<GameObject>();
+    private SpriteRenderer mapText;
+
+    public GameObject fieldItem;
+
     public override void Play()
     {
         StartCoroutine(Tutorial_1());
@@ -19,47 +24,154 @@ public class Tutorial : CutScene
         Play();
     }
 
-    public IEnumerator Tutorial_1()
+    public IEnumerator Tutorial_1()         //바깥부터 걸어오는 것
     {
         Setup();
-
+        player.canControl = false;
         player.transform.position = new Vector3(36.5f, -1f);
+        for (int i = 0; i < 100; i++)
+        {
+            yield return new WaitForSeconds(0.01f);
+            mapText.color = new Color(255,255,255,mapText.color.a+0.01f);
+        }
         StartCoroutine(ScreenEffect.instance.FadeOut());
+
         player.ChangeState(PlayerState.Idle);
         player.ChangeDirection(Direction.Left);
-        yield return new WaitForSeconds(1f);
-
+        yield return new WaitForSeconds(3f);
         player.ChangeState(PlayerState.Walk);
+
+        for (int i = 0; i < 100; i++)
+        {
+            yield return new WaitForSeconds(0.01f);
+            mapText.color = new Color(255, 255, 255, mapText.color.a - 0.01f);
+        }
+
         //여기까지는 되는데 이 다음 언틸이 체크가 안 되는 건지 튜토리얼 2가 안 돼요...
         yield return new WaitUntil(() => player.transform.localPosition.x <= 17);
         StartCoroutine(Tutorial_2());   
     }
 
-    public IEnumerator Tutorial_2()
+    public IEnumerator Tutorial_2()     //재자리 멈추고 다이얼로그
     {
         player.ChangeState(PlayerState.Idle);
         player.Stop();
         yield return new WaitForSeconds(1f);
-        dialogSystem.UpdateDialog(1001);
+        dialogSystem.UpdateDialog(999);
     }
     
-    public IEnumerator Tutorial_3()
+    public IEnumerator Tutorial_3()     //왕녀랑 부딪치기
     {
-        SpeechBubbleSystem.instance.SetSpeechBuble(101, princess.transform, new Vector3(2.67f, 2.09f, 0));
+        yield return new WaitForSeconds(1f);
+        princess.gameObject.SetActive(true);
+        SpeechBubbleSystem.instance.SetSpeechBuble(101, princess.transform, new Vector3(0.838999987f, 0.670000017f, 0));
+        yield return new WaitForSeconds(0.25f);
         princess.direction = Direction.Right;
         princess.isWalking = true;
         yield return new WaitForSeconds(1f);
     }
 
-    public IEnumerator Tutorial_4()
+    public IEnumerator Tutorial_4()     //부딪치고 카메라 쉐이크
     {
         ScreenEffect.instance.Shake(0.5f);
+        fieldItem.SetActive(true);
+        fieldItem.GetComponent<Rigidbody2D>().AddForce(new Vector3(-2, 2, 0), ForceMode2D.Impulse);
         yield return new WaitForSeconds(2f);
         SpeechBubbleSystem.instance.SetSpeechBuble(102, player.transform, new Vector3(-1.5f, 3.5f, 0));
-
-        CameraScript.instance.ChangeState(CameraState.cutscene);
-        CameraScript.instance.StartCoroutine(CameraScript.instance.MoveToPos(new Vector3(-25, 3.916215f, -10f),Vector2.left));
+        yield return new WaitForSeconds(3f);
+        dialogSystem.UpdateDialog(1002);
     }
+
+
+    public IEnumerator Tutorial_5() //마을 설명
+    {
+        yield return new WaitForSeconds(1);
+        m_Camera.ChangeState(CameraState.cutscene);
+        m_Camera.StartCoroutine(m_Camera.MoveToPos(new Vector3(-25, 3.916215f, -10f), Vector2.left));
+
+        yield return new WaitUntil(() => m_Camera.transform.position.x <= 2.5f);
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(0.25f);
+        townContentSprites[0].SetActive(true);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+        Time.timeScale = 1;
+        townContentSprites[0].SetActive(false);
+
+        yield return new WaitUntil(() => m_Camera.transform.position.x <= -24.9f);
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(0.25f);
+        townContentSprites[1].SetActive(true);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+        Time.timeScale = 1;
+        townContentSprites[1].SetActive(false);
+
+        m_Camera.StartCoroutine(m_Camera.MoveToPos(new Vector3(-24.8f, -8.3f, -10f), new Vector2(0.0097483f,-1)));
+        yield return new WaitUntil(() => m_Camera.transform.position.y <= -8.25f);
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(0.25f);
+        townContentSprites[2].SetActive(true);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+        Time.timeScale = 1;
+        townContentSprites[2].SetActive(false);
+
+        m_Camera.StartCoroutine(m_Camera.MoveToPos(new Vector3(3, -8.3f, -10f), Vector2.right));
+
+        yield return new WaitUntil(() => m_Camera.transform.position.x >= 2.9f);
+        Time.timeScale = 0;
+        yield return new WaitForSecondsRealtime(0.25f);
+        townContentSprites[3].SetActive(true);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Space));
+        Time.timeScale = 1;
+        townContentSprites[3].SetActive(false);
+        yield return new WaitForSecondsRealtime(1f);
+        m_Camera.ChangeState(CameraState.idle);
+
+        StartCoroutine(Tutorial_3());
+    }
+
+    public IEnumerator Tutorial_6()     
+    {
+        yield return new WaitForSeconds(1f);
+        princess.direction = Direction.Left;
+        princess.isWalking = true;
+
+        yield return new WaitUntil(() => princess.transform.position.x <=  0);
+        princess.isWalking = false;
+
+        dialogSystem.UpdateDialog(1003);
+    }
+
+
+    public IEnumerator Tutorial_7() //아이템 떨어진 거 발견하고 나서 왕녀로 전환
+    {
+
+        yield return new WaitForSeconds(1f);
+        ScreenEffect.instance.StartCoroutine(ScreenEffect.instance.FadeIn());
+        yield return new WaitForSeconds(1f);
+        m_Camera.ChangeTarget(princess.gameObject);
+        yield return new WaitForSeconds(1f);
+        ScreenEffect.instance.StartCoroutine(ScreenEffect.instance.FadeOut());
+    }
+
+    public IEnumerator Tutorial_8()
+    {
+        yield return new WaitForSeconds(1f);
+        //화살표 소환 
+    }
+
+    public IEnumerator Tutorial_9()
+    {
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.I));
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.I));
+        dialogSystem.UpdateDialog(998);
+    }
+
+
+
+
+
+
+
 
     public override void Setup()
     {
@@ -67,6 +179,20 @@ public class Tutorial : CutScene
         player = PlayerController.instance;
         dialogSystem = DialogSystem.instance;
         princess = FindObjectOfType<Princess>();
+        princess.gameObject.SetActive(false);
         index = 0;
+
+
+        GameObject townContentHeader = GameObject.Find("TownContentSprite");
+
+        for (int i = 0; i < townContentHeader.transform.childCount; i++)
+        {
+            townContentSprites.Add(townContentHeader.transform.GetChild(i).gameObject);
+        }
+
+
+        mapText = CameraScript.instance.transform.GetChild(0).GetComponent<SpriteRenderer>();
+        fieldItem = GameObject.Find("FieldItem");
+        fieldItem.SetActive(false);
     }
 }

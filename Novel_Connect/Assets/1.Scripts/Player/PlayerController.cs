@@ -298,6 +298,8 @@ public class PlayerController : MonoBehaviour, IHitable
     //점프 중인지 체크
     public void CheckJump()
     {
+        if (!canControl)
+            return;
         //아래 키를 누르면서 점프를 했을 때 
         if (Input.GetKey(KeyCode.DownArrow))
         {
