@@ -23,10 +23,14 @@ public class MonsterObjectPool : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     #endregion
 
-    Dictionary<int, Queue<GameObject>> monsterQueues = new Dictionary<int, Queue<GameObject>>();
+    public Dictionary<int, Queue<GameObject>> monsterQueues = new Dictionary<int, Queue<GameObject>>();
     //public GameObject CreateTestMonster()
     //{
     //    GameObject monster = Instantiate(testMonsterPrefab);

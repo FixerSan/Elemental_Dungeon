@@ -23,6 +23,11 @@ public class SkillObjectPool : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     #endregion
 

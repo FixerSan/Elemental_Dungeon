@@ -8456,7 +8456,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3df46c74eb032a4d80e2430d4ce2412, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemID: 0
+  itemID: 1001
   itemPrice: 1500
 --- !u!224 &546511984
 RectTransform:

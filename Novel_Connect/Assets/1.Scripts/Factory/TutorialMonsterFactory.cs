@@ -23,6 +23,10 @@ public class TutorialMonsterFactory : MonsterFactory
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
     #endregion
     [SerializeField]
