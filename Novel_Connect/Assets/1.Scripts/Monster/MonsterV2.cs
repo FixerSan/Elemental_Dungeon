@@ -16,6 +16,7 @@ public class MonsterV2 : MonoBehaviour, IHitable , IStatusEffect
     public IEnumerator followCoroutin;
     public Vector2 attackSize;
     public bool isknukcBack = false;
+    public bool isCutScene = true;
 
     //public List<Status<MonsterV2>> statuses = new List<Status<MonsterV2>>();
     //public StatusMachine<MonsterV2> statusMachine = new StatusMachine<MonsterV2>();
@@ -109,14 +110,18 @@ public class MonsterV2 : MonoBehaviour, IHitable , IStatusEffect
     }
     public virtual void Stop()
     {
-        rb.velocity = Vector2.zero;
+        rb.velocity = new Vector2(0,rb.velocity.y);
     }
 
     public virtual IEnumerator Follow()
     {
-        LookAtPlayer();
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(Follow());
+        if(!isCutScene && monsterData.monsterState != MonsterState.Dead)
+        {
+            LookAtPlayer();
+        }
+            
     }
     public virtual void Hit(float damage)
     {
@@ -177,6 +182,7 @@ public class MonsterV2 : MonoBehaviour, IHitable , IStatusEffect
             //죽음 효과 시간에 맞추기 위해 대기
             yield return new WaitForSeconds(monsterData.deadEffectTimeLength / monsterData.deadEffectCount);
         }
+        GameManager.instance.onEnenyDeath.Invoke(monsterData.monsterID);
         MonsterObjectPool.instance.ReturnMonster(this.gameObject);
     }
 

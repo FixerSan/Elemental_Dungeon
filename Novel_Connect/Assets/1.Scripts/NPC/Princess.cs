@@ -71,6 +71,11 @@ public class Princess : MonoBehaviour
         CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_4());
     }
 
+    public void Tied()
+    {
+        animator.SetBool("isTied", true);
+    }
+
 
 }
 

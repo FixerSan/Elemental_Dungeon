@@ -9,11 +9,7 @@ public class ItemSystem : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < pos.Length; i++)
-        {
-            GameObject item = Instantiate(fieldItemPrefab, pos[i], Quaternion.identity);
-            item.GetComponent<FieldItems>().SetItem(DataBase.instance.datas.itemDatas[Random.Range(0, DataBase.instance.datas.itemDatas.Length)]);
-        }
+
     }
     private void Update()
     {

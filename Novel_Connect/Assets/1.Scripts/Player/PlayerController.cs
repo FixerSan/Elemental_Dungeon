@@ -360,7 +360,7 @@ public class PlayerController : MonoBehaviour, IHitable
         states.Add(new PlayerStates.Jump());
         states.Add(new PlayerStates.Fall());
         states.Add(new PlayerStates.SkillCasting());
-
+        states.Add(new PlayerStates.Sit());
     }
     public void AddSkill(int index)
     {
@@ -423,6 +423,8 @@ public class PlayerController : MonoBehaviour, IHitable
     }
     public void CheckAttack()
     {
+        if (!canControl)
+            return;
         //공격 애니메이션
         if (Input.GetKey(KeyCode.A))
         {
@@ -527,7 +529,7 @@ public class PlayerController : MonoBehaviour, IHitable
 
 
 //플레이어 상태 이넘
-public enum PlayerState { Idle, Attack, Walk, Jump, Fall, SkillCasting};
+public enum PlayerState { Idle, Attack, Walk, Jump, Fall, SkillCasting , Sit};
 
 
 public enum Direction { Left, Right };

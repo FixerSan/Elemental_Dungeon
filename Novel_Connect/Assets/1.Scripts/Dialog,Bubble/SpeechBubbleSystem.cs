@@ -37,6 +37,15 @@ public class SpeechBubbleSystem : MonoBehaviour
         speechBuble.transform.SetParent(transform);
         speechBuble.transform.localPosition = pos;
         speechBuble.transform.rotation = Quaternion.identity;
+    }
 
+    public void SetSpeechBuble(int index, Transform transform, Vector3 pos, float scale)
+    {
+        GameObject speechBuble = SpeechBubbleObjectPool.instance.GetSpeechBuble(index);
+
+        speechBuble.transform.localScale = new Vector3(scale,scale,scale);
+        speechBuble.transform.SetParent(transform);
+        speechBuble.transform.localPosition = pos;
+        speechBuble.transform.rotation = Quaternion.identity;
     }
 }

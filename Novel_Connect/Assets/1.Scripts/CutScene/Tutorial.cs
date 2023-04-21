@@ -14,6 +14,13 @@ public class Tutorial : CutScene
 
     public GameObject fieldItem;
     public GameObject portal;
+    public GameObject[] monsters = new GameObject[3];
+
+    private List<GameObject> tutorialContentSprites = new List<GameObject>();
+    public GameObject boss;
+    public Knight knight;
+
+    public GameObject arrow;
 
     public override void Setup()
     {
@@ -32,6 +39,12 @@ public class Tutorial : CutScene
             townContentSprites.Add(townContentHeader.transform.GetChild(i).gameObject);
         }
 
+        GameObject tutorialContentHeader = GameObject.Find("TutorialContents");
+        for (int i = 0; i < tutorialContentHeader.transform.childCount; i++)
+        {
+            tutorialContentSprites.Add(tutorialContentHeader.transform.GetChild(i).gameObject);
+        }
+
 
         mapText = CameraScript.instance.transform.GetChild(0).GetComponent<SpriteRenderer>();
         fieldItem = GameObject.Find("FieldItem");
@@ -39,6 +52,19 @@ public class Tutorial : CutScene
 
         portal = GameObject.Find("Portal");
         portal.SetActive(false);
+
+        boss = GameObject.Find("Boss");
+        boss.SetActive(false);
+
+        knight = FindObjectOfType<Knight>();
+        DontDestroyOnLoad(knight.gameObject);
+        knight.gameObject.SetActive(false);
+        DontDestroyOnLoad(boss);
+        DontDestroyOnLoad(tutorialContentHeader);
+
+
+        arrow = GameObject.Find("ArrowAnimation");
+        arrow.SetActive(false);
     }
 
 
@@ -46,7 +72,15 @@ public class Tutorial : CutScene
     {
         player = PlayerController.instance;
         dialogSystem = DialogSystem.instance;
+        m_Camera = CameraScript.instance;
         princess = FindObjectOfType<Princess>();
+        princess.GetComponent<BoxCollider2D>().enabled = false;
+        princess.GetComponent<Rigidbody2D>().gravityScale = 0;
+        princess.Tied();
+
+        monsters[0] = GameObject.Find("TutorialMonster");
+        monsters[1] = GameObject.Find("TutorialMonster (1)");
+        monsters[2] = GameObject.Find("TutorialMonster (2)");
     }
 
     public override void Play()
@@ -72,18 +106,22 @@ public class Tutorial : CutScene
             yield return new WaitForSeconds(0.01f);
             mapText.color = new Color(255,255,255,mapText.color.a+0.01f);
         }
-        StartCoroutine(ScreenEffect.instance.FadeOut());
 
-        player.ChangeState(PlayerState.Idle);
-        player.ChangeDirection(Direction.Left);
-        yield return new WaitForSeconds(3f);
-        player.ChangeState(PlayerState.Walk);
+        yield return new WaitForSeconds(2f); 
 
         for (int i = 0; i < 100; i++)
         {
             yield return new WaitForSeconds(0.01f);
             mapText.color = new Color(255, 255, 255, mapText.color.a - 0.01f);
         }
+
+        StartCoroutine(ScreenEffect.instance.FadeOut());
+
+        player.ChangeState(PlayerState.Idle);
+        player.ChangeDirection(Direction.Left);
+        player.ChangeState(PlayerState.Walk);
+
+
 
         //여기까지는 되는데 이 다음 언틸이 체크가 안 되는 건지 튜토리얼 2가 안 돼요...
         yield return new WaitUntil(() => player.transform.localPosition.x <= 17);
@@ -111,6 +149,7 @@ public class Tutorial : CutScene
 
     public IEnumerator Tutorial_4()     //부딪치고 카메라 쉐이크
     {
+        player.ChangeState(PlayerState.Sit);
         ScreenEffect.instance.Shake(0.5f);
         fieldItem.SetActive(true);
         fieldItem.GetComponent<Rigidbody2D>().AddForce(new Vector3(-2, 2, 0), ForceMode2D.Impulse);
@@ -177,6 +216,7 @@ public class Tutorial : CutScene
         princess.isWalking = false;
 
         dialogSystem.UpdateDialog(1003);
+        player.ChangeState(PlayerState.Idle);
     }
 
 
@@ -200,16 +240,27 @@ public class Tutorial : CutScene
         yield return new WaitForSeconds(1f);
         //화살표 소환 
         player.canControl = true;
+        tutorialContentSprites[4].transform.position = new Vector3(12.5f, 2, 0);
+        tutorialContentSprites[4].SetActive(true);
+        arrow.transform.position = new Vector3(11.6999998f, 0.439999998f, 0);
+        arrow.SetActive(true);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.LeftArrow));
+        tutorialContentSprites[4].SetActive(false);
     }
 
     public IEnumerator Tutorial_9()
     {
+        arrow.SetActive(false);
         player.canControl = false;
         player.ChangeState(PlayerState.Idle);
         player.Stop();
+
+        tutorialContentSprites[1].SetActive(true);
+        tutorialContentSprites[1].transform.position = new Vector3(7.3499999f, 2, 0);
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.I));
         yield return new WaitForSeconds(0.1f);
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.I));
+        tutorialContentSprites[1].SetActive(false);
         yield return new WaitForSeconds(1f);
         dialogSystem.UpdateDialog(998);
     }
@@ -233,14 +284,190 @@ public class Tutorial : CutScene
 
     public IEnumerator Tutorial_11()
     {
+
         Setup_2();
+        player.Stop();
+        m_Camera.ChangeState(CameraState.cutscene);
+        m_Camera.transform.position = new Vector3(-0.28f, 0, -10);
+        m_Camera.GetComponent<Camera>().orthographicSize = 5.7f;
+        player.canControl = false;
+        player.transform.position = new Vector3(8.27000046f, -4.94754791f, 0);
+        player.ChangeState(PlayerState.Sit);
         yield return new WaitForSeconds(1f);
         dialogSystem.UpdateDialog(1005);
     }
 
+    public IEnumerator Tutorial_12()
+    {
+        //Time.timeScale = f;
+        yield return new WaitForSeconds(1f);
+        SpeechBubbleSystem.instance.SetSpeechBuble(104, princess.transform, new Vector3(0.105999999f, 0.63f, 0), 0.7f);
+        yield return new WaitForSeconds(0.2f);
+        SpeechBubbleSystem.instance.SetSpeechBuble(105, monsters[0].transform, new Vector3(0.254999995f, 0.893999994f, 0), 0.7f);
+        yield return new WaitForSeconds(0.2f);
+        SpeechBubbleSystem.instance.SetSpeechBuble(105, monsters[1].transform, new Vector3(0.254999995f, 0.893999994f, 0), 0.7f);
+        yield return new WaitForSeconds(0.2f);
+        SpeechBubbleSystem.instance.SetSpeechBuble(105, monsters[2].transform, new Vector3(-0.223000005f, 0.893999994f, 0), 0.7f);
+        yield return new WaitForSeconds(0.2f);
+        SpeechBubbleSystem.instance.SetSpeechBuble(108, player.transform, new Vector3(-0.610000014f, 2.16000009f, 0), 0.7f);
+
+        yield return new WaitForSeconds(3f);
+        dialogSystem.UpdateDialog(997);
+    }
+
+    public IEnumerator Tutorial_13()
+    {
+        yield return new WaitForSeconds(1f);
+        SpeechBubbleSystem.instance.SetSpeechBuble(111, monsters[2].transform, new Vector3(-0.428142935f, 0.88257122f, 0), 0.7f);
+        yield return new WaitForSeconds(1f);
+        SpeechBubbleSystem.instance.SetSpeechBuble(110, monsters[0].transform, new Vector3(0.270285577f, 0.88257128f, 0), 0.7f);
+        yield return new WaitForSeconds(3f);
+        dialogSystem.UpdateDialog(996);
+    }
+
+    public IEnumerator Tutorial_14()
+    {
+        yield return new WaitForSeconds(1f);
+        monsters[1].GetComponent<Animator>().SetTrigger("FakeAttack");
+        yield return new WaitForSeconds(1f);
+        player.transform.position = new Vector3(-5.03000021f, -4.94754791f, 0);
+        player.ChangeState(PlayerState.Attack);
+        yield return new WaitForSeconds(1f);
+        SpeechBubbleSystem.instance.SetSpeechBuble(112, monsters[1].transform, new Vector3(0.425000012f, 0.879999995f, 0), 0.7f);
+
+        yield return new WaitForSeconds(3f);
+        dialogSystem.UpdateDialog(1011);
+    }
+
+    public IEnumerator Tutorial_15()
+    {
+        yield return new WaitForSeconds(1f);
+        Time.timeScale = 0f;
+        tutorialContentSprites[0].SetActive(true);
+        CameraScript.instance.ChangeState(CameraState.idle);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.A));
+        player.canControl = true;
+        for (int i = 0; i < monsters.Length; i++)
+        {
+            monsters[i].GetComponent<MonsterV2>().isCutScene = false;
+            monsters[i].GetComponent<AttackMonster>().stateMachine.ChangeState(monsters[i].GetComponent<AttackMonster>().states[(int)MonsterState.Follow]);
+        }
+        Time.timeScale = 1f;
+        tutorialContentSprites[0].SetActive(false);
+
+        yield return new WaitUntil(() => !monsters[0].activeSelf);
+        yield return new WaitUntil(() => !monsters[1].activeSelf);
+        yield return new WaitUntil(() => !monsters[2].activeSelf);
+
+        yield return new WaitForSeconds(1f);
+
+        dialogSystem.UpdateDialog(994);
+    }
+
+    public IEnumerator Tutorial_16()
+    {
+        yield return new WaitForSeconds(1f);
+        boss.transform.position = new Vector3(-9.85999966f, -4.97399902f, 0);
+        boss.SetActive(true);
+
+        yield return new WaitForSeconds(1f);
+        dialogSystem.UpdateDialog(993);
 
 
+    }
+
+    public IEnumerator Tutorial_17()
+    {
+        yield return new WaitForSeconds(1f);
+        dialogSystem.UpdateDialog(1013);
+    }
+
+    public IEnumerator Tutorial_18()
+    {
+        yield return new WaitForSeconds(1f);
+
+        tutorialContentSprites[5].SetActive(true);
+
+        boss.GetComponent<AttackMonster>().isCutScene = false;
+        boss.GetComponent<AttackMonster>().stateMachine.ChangeState(boss.GetComponent<AttackMonster>().states[(int)MonsterState.Follow]);
+        Time.timeScale = 0f;
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.F1));
+        tutorialContentSprites[5].SetActive(false);
+        yield return new WaitForSecondsRealtime(1f);
+        tutorialContentSprites[2].SetActive(true);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Q));
+        tutorialContentSprites[2].SetActive(false);
+        Time.timeScale = 1f;
+        yield return new WaitForSeconds(3f);
+        Time.timeScale = 0f;
+        tutorialContentSprites[3].SetActive(true);
+        yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.W));
+        Time.timeScale = 1f;
+        tutorialContentSprites[3].SetActive(false);
+
+        yield return new WaitUntil(() => !boss.activeSelf);
+
+        player.canControl = false;
+        player.transform.position = new Vector3(-3.79999995f, -4.94754791f, 0);
+
+        yield return new WaitForSeconds(1f);
+        dialogSystem.UpdateDialog(1014);
+    }
+
+    public IEnumerator Tutorial_19()
+    {
+        knight.gameObject.SetActive(true);
+        knight.transform.position = new Vector3(6.44f, -4.94754791f, 0);
+        m_Camera.ChangeTarget(knight.gameObject);
+        yield return new WaitForSeconds(1f);
+        SpeechBubbleSystem.instance.SetSpeechBuble(113, knight.transform, new Vector3(0.73f, 0.97f, 0), 0.7f);
+        yield return new WaitForSeconds(1f);
+        knight.isWalking = true;
+        yield return new WaitUntil(() => Vector2.Distance(knight.transform.position , new Vector3(-1.23000002f, -4.94754791f, 0)) <= 0.1f);
+        knight.isWalking = false;
+        yield return new WaitForSeconds(1f);
 
 
+        dialogSystem.UpdateDialog(1017);
+    }
 
+    public IEnumerator Tutorial_20()
+    {
+        yield return new WaitForSeconds(1f);
+        princess.gameObject.SetActive(false);
+        knight.GetComponent<Animator>().SetBool("isTaken", true);
+        SpeechBubbleSystem.instance.SetSpeechBuble(114, knight.transform, new Vector3(0.73f, 0.97f, 0), 0.7f);
+        knight.direction = Direction.Right;
+        knight.GetComponent<SpriteRenderer>().flipX = true;
+        knight.isWalking = true;
+        yield return new WaitUntil(() => Vector2.Distance(knight.transform.position, new Vector3(10.3400002f, -4.94670725f, 0)) <= 0.1f);
+        knight.gameObject.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        m_Camera.ChangeTarget(player.gameObject);
+        yield return new WaitForSeconds(1f);
+
+        dialogSystem.UpdateDialog(990);
+    }
+
+    public IEnumerator End()
+    {
+        ScreenEffect.instance.FadeIn();
+        yield return new WaitForSeconds(1f);
+        Destroy(princess.gameObject);
+        Destroy(knight.gameObject);
+        Destroy(monsters[0].gameObject);
+        Destroy(monsters[1].gameObject);
+        Destroy(monsters[2].gameObject);
+        Destroy(boss.gameObject);
+        foreach (var item in townContentSprites)
+        {
+            Destroy(item);
+        }
+        foreach (var item in tutorialContentSprites)
+        {
+            Destroy(item);
+        }
+        player.canControl = true;
+        StageSystem.instance.ChangeScene("Guild");
+    }
 }

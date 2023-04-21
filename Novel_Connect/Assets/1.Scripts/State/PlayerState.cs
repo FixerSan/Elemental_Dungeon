@@ -132,5 +132,24 @@ namespace PlayerStates
         }
     }
 
+    public class Sit : State<PlayerController>
+    {
+        public override void EnterState(PlayerController entity)
+        {
+            entity.playerState = PlayerState.Sit;
+            entity.animator.SetBool("isSit", true);
+        }
+
+        public override void ExitState(PlayerController entity)
+        {
+            entity.animator.SetBool("isSit", false);
+        }
+
+        public override void UpdateState(PlayerController entity)
+        {
+
+        }
+    }
+
 
 }
