@@ -10,6 +10,7 @@ public class Guild : Stage
         CameraScript.instance.min = new Vector2(- 10.41f, 0f);
         CameraScript.instance.max = new Vector2(15.96f, 0f);
         CameraScript.instance.playerPlusY = 0f;
+        MonsterObjectPool.instance.Init(0, 3);
     }
 
     public override void UpdateStage()

@@ -70,7 +70,7 @@ public class DataBase : MonoBehaviour
         }
         foreach (var item in datas.playerDatas)
         {
-            playerDatas.Add(item.index, item);
+            playerDatas.Add(item.level, item);
         }
         foreach (var item in datas.skillDatas)
         {
@@ -116,10 +116,10 @@ public class DataBase : MonoBehaviour
             return monsterDatas[index];
         return null;
     }
-    public PlayerData GetPlayerData(int index)
+    public PlayerData GetPlayerData(int level)
     {
-        if (playerDatas.ContainsKey(index))
-            return playerDatas[index];
+        if (playerDatas.ContainsKey(level))
+            return playerDatas[level];
         return null;
     }
     public SkillData GetSkillData(int index)

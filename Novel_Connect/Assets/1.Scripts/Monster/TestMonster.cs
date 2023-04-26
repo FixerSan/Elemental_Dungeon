@@ -111,7 +111,7 @@ public class TestMonster : MonsterV2
             monsterData.monsterHP = 0;
             StartCoroutine(DeadEffect());
             stateMachine.ChangeState(states[(int)MonsterState.Dead]);
-            statuses.ExitAllEffect();
+            //statuses.ExitAllEffect();
         }
     }
 

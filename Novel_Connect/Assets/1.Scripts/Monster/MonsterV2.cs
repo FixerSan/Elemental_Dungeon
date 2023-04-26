@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterV2 : MonoBehaviour, IHitable , IStatusEffect
+public class MonsterV2 : MonoBehaviour, IHitable
 {
     public MonsterData monsterData;
     public Animator animator;
@@ -21,7 +21,7 @@ public class MonsterV2 : MonoBehaviour, IHitable , IStatusEffect
     //public List<Status<MonsterV2>> statuses = new List<Status<MonsterV2>>();
     //public StatusMachine<MonsterV2> statusMachine = new StatusMachine<MonsterV2>();
 
-    public Statuses statuses = new Statuses();
+    //public Statuses statuses = new Statuses();
     public virtual void Awake()
     {
         animator = GetComponent<Animator>();
@@ -43,7 +43,7 @@ public class MonsterV2 : MonoBehaviour, IHitable , IStatusEffect
         if (monsterData.direction == Direction.Left)
         {
             monsterData.direction = Direction.Right;
-            transform.eulerAngles = new Vector3(0,0,0);
+            transform.eulerAngles = new Vector3(0, 0, 0);
         }
         else
         {
@@ -69,7 +69,7 @@ public class MonsterV2 : MonoBehaviour, IHitable , IStatusEffect
         PlayerController player = PlayerController.instance;
         if (player == null)
             return 0;
-        if(player.gameObject.transform.position.x > transform.position.x)
+        if (player.gameObject.transform.position.x > transform.position.x)
         {
             TurnDirection(Direction.Right);
             return 1;
@@ -84,7 +84,7 @@ public class MonsterV2 : MonoBehaviour, IHitable , IStatusEffect
     public virtual bool CheckCanMove()
     {
         checkTime += Time.deltaTime;
-        if(checkTime > stopDeley)
+        if (checkTime > stopDeley)
         {
             checkTime = 0;
             return true;
@@ -96,7 +96,7 @@ public class MonsterV2 : MonoBehaviour, IHitable , IStatusEffect
         if (monsterData.direction == Direction.Left)
             rb.velocity = new Vector2(monsterData.monsterSpeed * -1, rb.velocity.y);
         else if (monsterData.direction == Direction.Right)
-            rb.velocity = new Vector2(monsterData.monsterSpeed * 1 , rb.velocity.y);
+            rb.velocity = new Vector2(monsterData.monsterSpeed * 1, rb.velocity.y);
     }
     public virtual bool CheckCanStop()
     {
@@ -110,18 +110,18 @@ public class MonsterV2 : MonoBehaviour, IHitable , IStatusEffect
     }
     public virtual void Stop()
     {
-        rb.velocity = new Vector2(0,rb.velocity.y);
+        rb.velocity = new Vector2(0, rb.velocity.y);
     }
 
     public virtual IEnumerator Follow()
     {
         yield return new WaitForSeconds(0.5f);
         StartCoroutine(Follow());
-        if(!isCutScene && monsterData.monsterState != MonsterState.Dead)
+        if (!isCutScene && monsterData.monsterState != MonsterState.Dead)
         {
             LookAtPlayer();
         }
-            
+
     }
     public virtual void Hit(float damage)
     {
@@ -189,13 +189,13 @@ public class MonsterV2 : MonoBehaviour, IHitable , IStatusEffect
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(attackPos.position,attackSize);
+        Gizmos.DrawWireCube(attackPos.position, attackSize);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("PlayerHit"))
-            BattleSystem.instance.Calculate(monsterData.elemental, PlayerController.instance.elemental, PlayerController.instance , monsterData.monsterAttackForce);   
+            BattleSystem.instance.Calculate(monsterData.elemental, PlayerController.instance.elemental, PlayerController.instance, monsterData.monsterAttackForce);
     }
 
     public Elemental GetElemental()
@@ -211,58 +211,59 @@ public class MonsterV2 : MonoBehaviour, IHitable , IStatusEffect
         monsterData.monsterHP -= damage;
     }
 
-    IEnumerator burnCoroutine;
-    IEnumerator CheckburnCoroutine;
-    public virtual void SetStatusEffect(StatusEffect status, float duration, float damage)
-    {
-        switch(status)
-        {
-            case StatusEffect.Burns:
-                if(CheckburnCoroutine != null)
-                {
-                    StopCoroutine(CheckburnCoroutine);
-                    CheckburnCoroutine = null;
-                    CheckburnCoroutine = CheckBurn(duration);
-                    StartCoroutine(CheckburnCoroutine);
-                    return;
-                }
-                else
-                {
-                    statuses.isBurn = true;
-                    CheckburnCoroutine = CheckBurn(duration);
-                    StartCoroutine(CheckburnCoroutine);
-                    StartCoroutine(Burns(damage));
-                }
-                break;
+    //IEnumerator burnCoroutine;
+    //IEnumerator CheckburnCoroutine;
+    //public virtual void SetStatusEffect(StatusEffect status, float duration, float damage)
+    //{
+    //    switch(status)
+    //    {
+    //        case StatusEffect.Burns:
+    //            if(CheckburnCoroutine != null)
+    //            {
+    //                StopCoroutine(CheckburnCoroutine);
+    //                CheckburnCoroutine = null;
+    //                CheckburnCoroutine = CheckBurn(duration);
+    //                StartCoroutine(CheckburnCoroutine);
+    //                return;
+    //            }
+    //            else
+    //            {
+    //                statuses.isBurn = true;
+    //                CheckburnCoroutine = CheckBurn(duration);
+    //                StartCoroutine(CheckburnCoroutine);
+    //                StartCoroutine(Burns(damage));
+    //            }
+    //            break;
 
 
-        }
+    //    }
 
-        //statusMachine.SetStatus(statuses[(int)status], duration, damage);
-    }
+    //    //statusMachine.SetStatus(statuses[(int)status], duration, damage);
+    //}
 
-    public IEnumerator CheckBurn(float duration)
-    {
-        if (monsterData.monsterState != MonsterState.Dead)
-        {
-            yield return new WaitForSeconds(duration);
-            statuses.isBurn = false;
-            CheckburnCoroutine = null;
-        }
-    }
-    public IEnumerator Burns(float damage)
-    {
-        if(statuses.isBurn)
-        {
-            GetDamage(damage);
-            spriteRenderer.color = Color.red;
-            yield return new WaitForSeconds(0.2f);
-            spriteRenderer.color = Color.white;
+//    public IEnumerator CheckBurn(float duration)
+//    {
+//        if (monsterData.monsterState != MonsterState.Dead)
+//        {
+//            yield return new WaitForSeconds(duration);
+//            statuses.isBurn = false;
+//            CheckburnCoroutine = null;
+//        }
+//    }
+//    public IEnumerator Burns(float damage)
+//    {
+//        if(statuses.isBurn)
+//        {
+//            GetDamage(damage);
+//            spriteRenderer.color = Color.red;
+//            yield return new WaitForSeconds(0.2f);
+//            spriteRenderer.color = Color.white;
 
-            yield return new WaitForSeconds(0.8f);
-            StartCoroutine(Burns(damage));
-        }
-    }
+//            yield return new WaitForSeconds(0.8f);
+//            StartCoroutine(Burns(damage));
+//        }
+//    }
+//}
 }
 
 

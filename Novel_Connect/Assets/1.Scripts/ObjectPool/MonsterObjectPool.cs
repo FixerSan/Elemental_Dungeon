@@ -53,15 +53,20 @@ public class MonsterObjectPool : MonoBehaviour
 
         for (int i = 0; i < initCount; i++)
         {
+            GameObject monster = null;
             switch (initMonsterIndex)
             {
                 case 0:
-                    monsterQueues[initMonsterIndex].Enqueue(TestMonsterFactory.instance.Spawn(0));
+                    monster = TestMonsterFactory.instance.Spawn(0);
                     break;
-                //case 1:
-                //    monsterQueues[initMonsterIndex].Enqueue(CreateTestMonster_2());
-                //    break;
+                case 1:
+                    monster = TestMonsterFactory.instance.Spawn(1);
+                    break;
             }
+            monster.SetActive(false);
+            monster.transform.SetParent(transform);
+            monster.transform.position = transform.position;
+            monsterQueues[initMonsterIndex].Enqueue(monster);
         }
     }
     //풀에게 몬스터를 호출 하는 함수 , 맞는 몬스터 배열에 몬스터가 있으면 몬스터를 재 설정 하고 내보내기, 아니라면 생성과 재 설정 후 내보내기

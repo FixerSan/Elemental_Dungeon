@@ -85,21 +85,6 @@ public class PlayerController : MonoBehaviour, IHitable
         AddSkill(0);
         AddSkill(1);
     }
-    public void CheckUseSkill()
-    {
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            if(currentSkills.Count > 0)
-                currentSkills[0].Use();
-        }
-
-        if (Input.GetKeyDown(KeyCode.W))
-        {
-            if (currentSkills.Count > 1)
-            currentSkills[1].Use();
-        }
-
-    }
 
     public void CheckChangeElemental()
     {
@@ -524,6 +509,21 @@ public class PlayerController : MonoBehaviour, IHitable
     public Elemental GetElemental()
     {
         return elemental;
+    }
+    public void CheckUseSkill()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            if (currentSkills.Count > 0)
+                currentSkills[0].Use();
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            if (currentSkills.Count > 1)
+                currentSkills[1].Use();
+        }
+
     }
 }
 

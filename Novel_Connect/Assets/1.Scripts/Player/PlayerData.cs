@@ -12,9 +12,9 @@ public class PlayerData
     public float force;
     public float walkSpeed, runSpeed, jumpForce , jumpMoveForce , attackMoveForce;
 
-    public PlayerData(int index)
+    public PlayerData(int level)
     {
-        PlayerData data = DataBase.instance.GetPlayerData(index);
+        PlayerData data = DataBase.instance.GetPlayerData(level);
 
         index = data.index;
         level = data.level;

@@ -38,10 +38,10 @@ public class FieldItems : MonoBehaviour
 
     public void DestroyItem()
     {
-        if(item.itemID == 1000001)
-        {
-            CutSceneManager.instance.transform.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.transform.GetComponent<Tutorial>().Tutorial_9());
-        }
+        //if(item.itemID == 1000001)
+        //{
+        //    CutSceneManager.instance.transform.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.transform.GetComponent<Tutorial>().Tutorial_9());
+        //}
         Destroy(gameObject);
     }
 

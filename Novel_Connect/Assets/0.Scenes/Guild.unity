@@ -4910,8 +4910,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fieldItemPrefab: {fileID: 3471240163835044394, guid: 7141bb17b69fc3841be1b6476a16a5d3, type: 3}
   pos:
-  - {x: -10, y: -2.765001}
-  - {x: -12, y: -2.765001}
+  - {x: -10, y: -4.465769}
+  - {x: -12, y: -4.465769}
 --- !u!114 &284358281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12168,7 +12168,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 323603512, guid: c9c9bfe67feec4444aa2b435d5947181, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -21241,6 +21241,98 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1292673705}
   m_CullTransparentMesh: 1
+--- !u!1 &1295788983
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1295788985}
+  - component: {fileID: 1295788984}
+  m_Layer: 0
+  m_Name: Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1295788984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295788983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ceddd7b9e160c446b1b4793cca56b4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 0
+  playerData:
+    index: 0
+    level: 0
+    hp: 0
+    mp: 0
+    force: 0
+    walkSpeed: 0
+    runSpeed: 0
+    jumpForce: 0
+    jumpMoveForce: 0
+    attackMoveForce: 0
+  playerMovement:
+    player: {fileID: 0}
+    isGround: 0
+    isCanJump: 0
+    isSliding: 0
+    checkGroundPos: {fileID: 0}
+    checkGroundSize: {x: 0, y: 0}
+    groundLayer:
+      serializedVersion: 2
+      m_Bits: 0
+  playerInput:
+    player: {fileID: 0}
+    attackKey: 0
+    upKey: 0
+    downKey: 0
+    rightKey: 0
+    leftKey: 0
+    jumpKey: 0
+    elementalKey: 0
+    Skill_1Key: 0
+    Skill_2Key: 0
+    isCanControl: 1
+  playerAttack:
+    player: {fileID: 0}
+    attackPos: {fileID: 0}
+    attackSize: {x: 0, y: 0}
+    attackLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    canAttackDuration: 0
+  state: 0
+  direction: 0
+  elemental: 0
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  objectCollider: {fileID: 0}
+--- !u!4 &1295788985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295788983}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.113, y: -1.5899999, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1306214758
 GameObject:
   m_ObjectHideFlags: 0
