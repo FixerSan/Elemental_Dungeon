@@ -64,7 +64,7 @@ public class PlayerMovement
     public IEnumerator Jump(float jumpForce)
     {
         player.rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.1f);
         player.playerMovement.isCanJump = true;
     }
     public IEnumerator DownJump()
@@ -136,5 +136,11 @@ public class PlayerMovement
     public void Setup(PlayerControllerV3 player_)
     {
         player = player_;
+    }
+
+    public void Update()
+    {
+        CheckIsGround();
+        CheckUpAndFall();
     }
 }

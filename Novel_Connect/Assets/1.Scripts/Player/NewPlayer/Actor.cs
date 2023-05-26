@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class Actor : MonoBehaviour
 {
-    public Statuses<Actor> statuses;
+    public Statuses<Actor> statuses = new Statuses<Actor>();
     public virtual void Setup()
     {
         statuses.Setup(this);

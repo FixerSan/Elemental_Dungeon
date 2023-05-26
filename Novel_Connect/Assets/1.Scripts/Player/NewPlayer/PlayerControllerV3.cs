@@ -13,10 +13,10 @@ public class PlayerControllerV3 : Actor
     public Direction direction;
     public Elemental elemental;
 
-    public StateMachine<PlayerControllerV3> stateMachine;
-    public List<State<PlayerControllerV3>> states = new List<State<PlayerControllerV3>>();
+    public StateMachine<PlayerControllerV3> stateMachine= new StateMachine<PlayerControllerV3>();
+    public Dictionary<int, State<PlayerControllerV3>> states = new Dictionary<int, State<PlayerControllerV3>>();
     public Rigidbody2D rb;
-    public Animator animator;
+    public AnimationSystem anim;
     public GameObject objectCollider;
     public override void Hit(float damage)
     {
@@ -65,11 +65,33 @@ public class PlayerControllerV3 : Actor
     public override void Setup()
     {
         base.Setup();
-        animator = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<AnimationSystem>();
         playerData = new PlayerData(level);
         playerMovement.Setup(this);
         playerInput.Setup(this);
         playerAttack.Setup(this);
+
+        states.Add((int)PlayerState.Idle, new PlayerControllerV3States.Idle());
+        states.Add((int)PlayerState.Walk, new PlayerControllerV3States.Walk());
+        states.Add((int)PlayerState.Attack, new PlayerControllerV3States.Attack());
+        states.Add((int)PlayerState.Jump, new PlayerControllerV3States.Jump());
+        states.Add((int)PlayerState.Fall, new PlayerControllerV3States.Fall());
+        states.Add((int)PlayerState.SkillCasting, new PlayerControllerV3States.SkillCasting());
+
+        stateMachine.Setup(this,states[(int)PlayerState.Idle]);
+    }
+
+    public void Update()
+    {
+        stateMachine.UpdateState();
+        playerMovement.Update();
+    }
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(playerAttack.attackPos.position, playerAttack.attackSize);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(playerMovement.checkGroundPos.position, playerMovement.checkGroundSize);
     }
 }

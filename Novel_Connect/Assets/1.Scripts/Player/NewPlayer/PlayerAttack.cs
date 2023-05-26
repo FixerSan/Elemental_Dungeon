@@ -9,12 +9,13 @@ public class PlayerAttack
     public Vector2 attackSize;
     public LayerMask attackLayer;
     public float canAttackDuration;
+    public int attackCount;
 
     public IEnumerator attackCoroutine;
     IEnumerator AttackCoroutine()
     {
         //공격 단계에 따른 다른 공격 기능
-        switch (player.animator.GetInteger("AttackCount"))
+        switch (attackCount)
         {
             case 1: //1 타 공격 
                 yield return new WaitForSeconds(0.2f);
@@ -80,7 +81,7 @@ public class PlayerAttack
 
         //설정한 공격 단계 초기화 시간 만큼 기다린 후 공격 단계 초기화
         yield return new WaitForSeconds(canAttackDuration);
-        player.animator.SetInteger("AttackCount", 0);
+        attackCount = 0;
     }
 
     public void Setup(PlayerControllerV3 player_)

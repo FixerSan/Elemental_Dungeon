@@ -6,15 +6,15 @@ using UnityEngine;
 public class PlayerInput
 {
     public PlayerControllerV3 player;
-    public KeyCode attackKey;
-    public KeyCode upKey;
-    public KeyCode downKey;
-    public KeyCode rightKey;
-    public KeyCode leftKey;
-    public KeyCode jumpKey;
-    public KeyCode elementalKey;
-    public KeyCode Skill_1Key;
-    public KeyCode Skill_2Key;
+    public KeyCode attackKey = KeyCode.A;
+    public KeyCode upKey = KeyCode.UpArrow;
+    public KeyCode downKey = KeyCode.DownArrow;
+    public KeyCode rightKey = KeyCode.RightArrow;
+    public KeyCode leftKey = KeyCode.LeftArrow;
+    public KeyCode jumpKey = KeyCode.Space;
+    public KeyCode elementalKey = KeyCode.F1;
+    public KeyCode Skill_1Key = KeyCode.Q;
+    public KeyCode Skill_2Key = KeyCode.W;
 
     public bool isCanControl = true;
     public void CheckMove()

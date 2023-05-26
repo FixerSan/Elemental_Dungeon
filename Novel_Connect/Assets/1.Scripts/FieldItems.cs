@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FieldItems : MonoBehaviour
 {
-    public Item item;
+    public ItemData item;
     public SpriteRenderer spriteRenderer;
 
-    public void SetItem(Item _item)
+    public void SetItem(ItemData _item)
     {
         item.itemID = _item.itemID;
         item.itemName = _item.itemName;
@@ -18,11 +18,16 @@ public class FieldItems : MonoBehaviour
         spriteRenderer.sprite = Resources.Load<Sprite>(item.itemImagePath);
     }
 
+    public void Setup(int itemID)
+    {
+        item = new ItemData(itemID);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
-            if (Inventory.instance.AddItem(item.itemID))
+            if(collision.GetComponent<InventoryV2>().AddItem(item.itemID))
                 DestroyItem();
         }
     }
@@ -31,17 +36,13 @@ public class FieldItems : MonoBehaviour
     {
         if (collision.transform.CompareTag("Player"))
         {
-            if (Inventory.instance.AddItem(item.itemID))
+            if (collision.transform.GetComponent<InventoryV2>().AddItem(item.itemID))
                 DestroyItem();
         }
     }
 
     public void DestroyItem()
     {
-        //if(item.itemID == 1000001)
-        //{
-        //    CutSceneManager.instance.transform.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.transform.GetComponent<Tutorial>().Tutorial_9());
-        //}
         Destroy(gameObject);
     }
 

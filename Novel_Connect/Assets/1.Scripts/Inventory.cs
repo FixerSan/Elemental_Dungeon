@@ -25,7 +25,7 @@ public class Inventory : MonoBehaviour
     public int SlotCount;
     public float money = 100000;
 
-    public List<Item> items = new List<Item>();
+    public List<ItemData> items = new List<ItemData>();
     // Start is called before the first frame update
     void Start()
     {
@@ -47,7 +47,7 @@ public class Inventory : MonoBehaviour
 
         if (SlotCount > items.Count)
         {
-            Item item_ = new Item(index);
+            ItemData item_ = new ItemData(index);
             items.Add(item_);
             onChangeItem.Invoke(index);
             return true;

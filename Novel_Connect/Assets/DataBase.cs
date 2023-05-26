@@ -9,7 +9,7 @@ public class DataBase : MonoBehaviour
     public TextAsset data;
 
     public AllData datas;
-    public Dictionary<int, Item> items = new Dictionary<int, Item>();
+    public Dictionary<int, ItemData> items = new Dictionary<int, ItemData>();
     public Dictionary<int, Dialog> dialogs = new Dictionary<int, Dialog>();
     public Dictionary<int, Quest> quests = new Dictionary<int, Quest>();
     public Dictionary<int, MonsterData> monsterDatas = new Dictionary<int, MonsterData>();
@@ -92,7 +92,7 @@ public class DataBase : MonoBehaviour
     //TO DO datas의 변수들을 딕셔너리 형으로 바꿔서 반환 함수 기능 간략화
 
     //아이템 정보 반환
-    public Item GetItem(int index)
+    public ItemData GetItem(int index)
     {
         if (items.ContainsKey(index))
             return items[index];
@@ -153,7 +153,7 @@ public class DataBase : MonoBehaviour
 public class AllData
 {
     public Dialog[] dialogDatas;
-    public Item[] itemDatas;
+    public ItemData[] itemDatas;
     public Quest[] questDatas;
     public MonsterData[] monsterDatas;
     public PlayerData[] playerDatas;
@@ -211,7 +211,7 @@ public enum ItemtType
 }
 
 [System.Serializable]
-public class Item
+public class ItemData
 // Start is called before the first frame update
 {
     public int itemID;
@@ -221,10 +221,14 @@ public class Item
     public int count = 1;
     public int maxCount;
 
-
-    public Item(int index)
+    public void UseItem()
     {
-        Item item = DataBase.instance.GetItem(index);
+        
+    }
+
+    public ItemData(int index)
+    {
+        ItemData item = DataBase.instance.GetItem(index);
 
         itemID = item.itemID;
         itemtType = item.itemtType;

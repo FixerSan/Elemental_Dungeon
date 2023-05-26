@@ -4,21 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Slot : MonoBehaviour
+public abstract class Slot : MonoBehaviour
 {
-    public Item item;
-    public Image itemIcon;
-    public TextMeshProUGUI itemCountText;
-
-    public void UpdateSlotUI()
+    public ItemUI item;
+    public abstract void UpdateSlotUI();
+    public abstract void ResetSlot();
+    public void CreateItemUI(int itemID)
     {
-        itemIcon.color = Color.white;
-        itemIcon.sprite = Resources.Load<Sprite>(item.itemImagePath);
-        itemIcon.gameObject.SetActive(true);
-        if(item.count > 1)
-        {
-            itemCountText.text = "" + item.count;
-            itemCountText.transform.gameObject.SetActive(true);
-        }
+        item = Instantiate(Resources.Load<GameObject>("Prefabs/ItemUIPrefab")).GetComponent<ItemUI>();
+        item.transform.SetParent(transform);
+        item.rect.offsetMin = new Vector2(10, 10);
+        item.rect.offsetMax = new Vector2(-10, -10);
+        item.Setup(itemID, this);
     }
+    public void ResetItem()
+    {
+        item = null;
+    }
+
 }

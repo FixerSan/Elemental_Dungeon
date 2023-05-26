@@ -468,7 +468,7 @@ public class Tutorial : CutScene
             Destroy(item);
         }
         player.canControl = true;
-        Inventory.instance.items = new List<Item>();
+        Inventory.instance.items = new List<ItemData>();
         MonsterObjectPool.instance.monsterQueues = new Dictionary<int, Queue<GameObject>>();
         StageSystem.instance.ChangeScene("Guild");
     }

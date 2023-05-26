@@ -16,7 +16,7 @@ public class ShopInventory : MonoBehaviour
         slots = GetComponentsInChildren<Slot>();
         for (int i = 0; i < inventory.items.Count; i++)
         {
-            slots[i].item = inventory.items[i];
+            slots[i].item.item = inventory.items[i];
             slots[i].UpdateSlotUI();
         }
     }

@@ -108,7 +108,7 @@ public class GameManager : MonoBehaviour
 
         if(DataBase.instance.GetQuest(questID).type == QuestType.get)
         {
-            foreach(Item item in Inventory.instance.items)
+            foreach(ItemData item in Inventory.instance.items)
             {
                 if(item.itemID == DataBase.instance.GetQuest(questID).itemID)
                 {
