@@ -7,13 +7,13 @@ public class ShopInventory : MonoBehaviour
 {
     Inventory inventory;
     public TextMeshProUGUI moneyText;
-    public Slot[] slots;
+    public BaseSlot[] slots;
 
     public void RedrawSlotUI(int item)
     {
         inventory = Inventory.instance;
 
-        slots = GetComponentsInChildren<Slot>();
+        slots = GetComponentsInChildren<BaseSlot>();
         for (int i = 0; i < inventory.items.Count; i++)
         {
             slots[i].item.item = inventory.items[i];

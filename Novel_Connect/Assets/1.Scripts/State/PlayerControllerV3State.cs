@@ -9,7 +9,6 @@ namespace PlayerControllerV3States
         public override void EnterState(PlayerControllerV3 entity)
         {
             entity.state = PlayerState.Idle;
-            entity.anim.PlayAnimation("Idle");
         }
 
         public override void ExitState(PlayerControllerV3 entity)
@@ -31,12 +30,12 @@ namespace PlayerControllerV3States
         public override void EnterState(PlayerControllerV3 entity)
         {
             entity.state = PlayerState.Walk;
-            entity.anim.PlayAnimation("Walk");
+            entity.anim.SetBool("isRun", true);
         }
 
         public override void ExitState(PlayerControllerV3 entity)
         {
-
+            entity.anim.SetBool("isRun", false);
         }
 
         public override void UpdateState(PlayerControllerV3 entity)
@@ -51,12 +50,12 @@ namespace PlayerControllerV3States
         public override void EnterState(PlayerControllerV3 entity)
         {
             entity.state = PlayerState.Jump;
-            entity.anim.PlayAnimation("Jump");
+            entity.anim.SetBool("isJump", true);
         }
 
         public override void ExitState(PlayerControllerV3 entity)
         {
-
+            
         }
 
         public override void UpdateState(PlayerControllerV3 entity)
@@ -70,13 +69,12 @@ namespace PlayerControllerV3States
         public override void EnterState(PlayerControllerV3 entity)
         {
             entity.state = PlayerState.Fall;
-            entity.anim.PlayAnimation("Fall");
 
         }
 
         public override void ExitState(PlayerControllerV3 entity)
         {
-
+            entity.anim.SetBool("isJump", false);
         }
 
         public override void UpdateState(PlayerControllerV3 entity)

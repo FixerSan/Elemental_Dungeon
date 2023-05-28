@@ -22,12 +22,12 @@ public class CameraScript : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            transform.SetParent(null);
             DontDestroyOnLoad(gameObject);
         }
         else
             Destroy(gameObject);
-        player = PlayerController.instance;
-        target = player.gameObject;
+        target = GameObject.Find("Player");
     }
     #endregion
 

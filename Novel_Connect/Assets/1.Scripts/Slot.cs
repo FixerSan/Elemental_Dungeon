@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public abstract class Slot : MonoBehaviour
+public abstract class BaseSlot : MonoBehaviour
 {
     public ItemUI item;
     public abstract void UpdateSlotUI();

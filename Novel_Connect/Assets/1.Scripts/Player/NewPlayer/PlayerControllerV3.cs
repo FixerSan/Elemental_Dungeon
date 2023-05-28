@@ -11,14 +11,13 @@ public class PlayerControllerV3 : Actor
     public PlayerAttack playerAttack;
     public PlayerState state;
     public Direction direction;
-    public Elemental elemental;
 
     public StateMachine<PlayerControllerV3> stateMachine= new StateMachine<PlayerControllerV3>();
     public Dictionary<int, State<PlayerControllerV3>> states = new Dictionary<int, State<PlayerControllerV3>>();
     public Rigidbody2D rb;
-    public AnimationSystem anim;
+    public Animator anim;
     public GameObject objectCollider;
-    public override void Hit(float damage)
+    public override void GetDamage(float damage)
     {
 
     }
@@ -66,7 +65,7 @@ public class PlayerControllerV3 : Actor
     {
         base.Setup();
         rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<AnimationSystem>();
+        anim = GetComponent<Animator>();
         playerData = new PlayerData(level);
         playerMovement.Setup(this);
         playerInput.Setup(this);

@@ -7195,6 +7195,7 @@ MonoBehaviour:
   max: {x: 21.8, y: 5.8}
   delayTime: 0.2
   playerPlusY: 5
+  target: {fileID: 0}
   cameraState: 0
   isMove: 0
   moveSpeed: 0

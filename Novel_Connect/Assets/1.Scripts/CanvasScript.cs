@@ -16,6 +16,7 @@ public class CanvasScript : MonoBehaviour
         else
         {
             instance = this;
+            transform.SetParent(null);
             DontDestroyOnLoad(gameObject);
         }
     }

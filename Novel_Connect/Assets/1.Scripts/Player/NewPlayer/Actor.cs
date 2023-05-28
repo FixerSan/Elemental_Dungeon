@@ -5,9 +5,14 @@ using UnityEngine;
 public abstract class Actor : MonoBehaviour
 {
     public Statuses<Actor> statuses = new Statuses<Actor>();
+    public Elemental elemental;
+    private void Awake()
+    {
+        Setup();
+    }
     public virtual void Setup()
     {
-        statuses.Setup(this);
+        
     }
-    public abstract void Hit(float damage);
+    public abstract void GetDamage(float damage);
 }

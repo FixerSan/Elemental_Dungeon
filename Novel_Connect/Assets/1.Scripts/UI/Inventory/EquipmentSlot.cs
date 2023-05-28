@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class EquipmentSlot : Slot, IPointerEnterHandler, IDropHandler, IPointerExitHandler
+public class EquipmentSlot : BaseSlot, IPointerEnterHandler, IDropHandler, IPointerExitHandler
 {
     public Image itemIcon;
     public RectTransform rect;

@@ -8,15 +8,15 @@ public class ItemUI : DraggableUI
     public ItemData item;
     public Image icon;
     public TMPro.TextMeshProUGUI itemCountText; 
-    public Slot m_Slot;
+    public BaseSlot m_Slot;
 
-    public void ChangeSlot(Slot slot)
+    public void ChangeSlot(BaseSlot slot)
     {
         m_Slot.ResetItem();
         m_Slot = slot;
     }
 
-    public void Setup(int itemID,Slot slot)
+    public void Setup(int itemID, BaseSlot slot)
     {
         item = new ItemData(itemID);
         m_Slot = slot;
@@ -32,7 +32,7 @@ public class ItemUI : DraggableUI
         }
     }
 
-    public Slot GetParentSlot()
+    public BaseSlot GetParentSlot()
     {
         return m_Slot;
     }

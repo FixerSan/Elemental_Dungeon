@@ -57,10 +57,8 @@ public class MonsterObjectPool : MonoBehaviour
             switch (initMonsterIndex)
             {
                 case 0:
-                    monster = TestMonsterFactory.instance.Spawn(0);
                     break;
                 case 1:
-                    monster = TestMonsterFactory.instance.Spawn(1);
                     break;
             }
             monster.SetActive(false);
@@ -89,25 +87,7 @@ public class MonsterObjectPool : MonoBehaviour
             switch(monsterIndex)
             {
                 case 0:
-                    var monster = TestMonsterFactory.instance.Spawn(0);
-                    monster.transform.SetParent(null);
-                    monster.transform.position = spawnPos;
-                    monster.SetActive(true);
-                    return monster;
-                case 1:
-                    var monster_2 = TestMonsterFactory.instance.Spawn(1);
-                    monster_2.transform.SetParent(null);
-                    monster_2.transform.position = spawnPos;
-                    monster_2.SetActive(true);
-                    return monster_2;
-
-                case 10001:
-                    var monster_3 = TutorialMonsterFactory.instance.Spawn(10001);
-                    monster_3.transform.SetParent(null);
-                    monster_3.transform.position = spawnPos;
-                    monster_3.SetActive(true);
-                    monster_3.GetComponent<AttackMonster>().Setup();
-                    return monster_3;
+                    return null;
 
                 default:
                     return null;

@@ -23,20 +23,23 @@ public class InventoryPresenter : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            transform.SetParent(null);
             DontDestroyOnLoad(gameObject);
         }
 
         else
             Destroy(gameObject);
 
-        slots = slotHeader.GetComponentsInChildren<Slot>();
+        slots = slotHeader.GetComponentsInChildren<BaseSlot>();
+        inventory = FindObjectOfType<InventoryV2>(); 
         inventory.onGetItem += CheckItemUI;
+
     }
     #endregion
-    [SerializeField] private InventoryV2 inventory;
     [SerializeField] private Transform slotHeader;
+    private InventoryV2 inventory;
 
-    private Slot[] slots;
+    private BaseSlot[] slots;
 
     private void OnDisable()
     {

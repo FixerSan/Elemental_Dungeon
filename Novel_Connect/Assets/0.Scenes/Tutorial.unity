@@ -353,15 +353,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1554777521}
-  itemCountText: {fileID: 1013858741}
 --- !u!114 &21992266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -526,15 +517,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1235284881}
-  itemCountText: {fileID: 1027138393}
 --- !u!114 &22682199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -937,15 +919,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 471099082}
-  itemCountText: {fileID: 902603323}
 --- !u!114 &35606043
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1064,7 +1037,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7734693919954306112, guid: 2bae7d8d182562244b61f5415d78f84b, type: 3}
       propertyPath: m_RootOrder
-      value: 21
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 7734693919954306112, guid: 2bae7d8d182562244b61f5415d78f84b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2618,15 +2591,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1425816643}
-  itemCountText: {fileID: 391221651}
 --- !u!114 &125169095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3743,15 +3707,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1708874985}
-  itemCountText: {fileID: 1169562915}
 --- !u!114 &169110855
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4020,8 +3975,8 @@ RectTransform:
   - {fileID: 1280820324}
   - {fileID: 1835879323}
   - {fileID: 787777029}
-  m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_Father: {fileID: 1295582830}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -4382,12 +4337,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 207241355}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1518.875, y: 457.6514, z: -4.312334}
+  m_LocalPosition: {x: 1512.9503, y: 460.5021, z: -4.312334}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_Father: {fileID: 1295582830}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &211120923
 GameObject:
@@ -4522,15 +4477,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 113890720}
-  itemCountText: {fileID: 2045783035}
 --- !u!114 &211885439
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4706,7 +4652,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &222077958
 GameObject:
@@ -4802,12 +4748,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 222077958}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -14.244162, y: 11.595793, z: -0.17452595}
+  m_LocalPosition: {x: -20.168835, y: 14.446499, z: -0.17452595}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_Father: {fileID: 1295582830}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &245762988
 GameObject:
@@ -6668,7 +6614,7 @@ Transform:
   - {fileID: 1692833742}
   - {fileID: 2014396805}
   m_Father: {fileID: 0}
-  m_RootOrder: 20
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &433597134
 GameObject:
@@ -6725,15 +6671,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1017682841}
-  itemCountText: {fileID: 1799244187}
 --- !u!114 &433597137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6974,15 +6911,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 437048927}
-  itemCountText: {fileID: 248882008}
 --- !u!114 &461043653
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9000,15 +8928,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1574671773}
-  itemCountText: {fileID: 130183659}
 --- !u!114 &613879775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9214,7 +9133,7 @@ GameObject:
   m_IsActive: 1
 --- !u!95 &634529417
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9231,7 +9150,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!212 &634529418
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9297,7 +9216,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &637419465
 GameObject:
@@ -10968,15 +10887,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1427792081}
-  itemCountText: {fileID: 1290902090}
 --- !u!114 &756426195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11129,15 +11039,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1108936234}
-  itemCountText: {fileID: 1722427845}
 --- !u!114 &760363303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11977,15 +11878,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 93673252}
-  itemCountText: {fileID: 754219438}
 --- !u!114 &794858348
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12150,15 +12042,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 2130076100}
-  itemCountText: {fileID: 78514266}
 --- !u!114 &814006549
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12620,15 +12503,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 2049971527}
-  itemCountText: {fileID: 40327444}
 --- !u!114 &849171109
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12869,15 +12743,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 891487183}
-  itemCountText: {fileID: 1975575784}
 --- !u!114 &859376057
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13848,15 +13713,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 951603607}
-  itemCountText: {fileID: 1660730952}
 --- !u!114 &913451376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14259,15 +14115,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1060547205}
-  itemCountText: {fileID: 356343663}
 --- !u!114 &929506794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15067,13 +14914,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002542126}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.924672, y: -2.8507066, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1295582830}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1005111187
 GameObject:
@@ -15130,15 +14977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1369826187}
-  itemCountText: {fileID: 645066800}
 --- !u!114 &1005111190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16034,15 +15872,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1773459093}
-  itemCountText: {fileID: 1530897600}
 --- !u!114 &1030152034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16924,15 +16753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 997891014}
-  itemCountText: {fileID: 1022561431}
 --- !u!114 &1093949900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17903,15 +17723,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 2070207330}
-  itemCountText: {fileID: 736717171}
 --- !u!114 &1148823725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19146,15 +18957,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 123812445}
-  itemCountText: {fileID: 568160397}
 --- !u!114 &1219390565
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19319,15 +19121,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1005201849}
-  itemCountText: {fileID: 559599457}
 --- !u!114 &1220189174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20362,6 +20155,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1290902088}
   m_CullTransparentMesh: 1
+--- !u!1 &1295582829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1295582830}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1295582830
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1295582829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.924672, y: -2.8507066, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1002542129}
+  - {fileID: 1682905687}
+  - {fileID: 207241357}
+  - {fileID: 222077964}
+  - {fileID: 178026979}
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1313593174
 GameObject:
   m_ObjectHideFlags: 0
@@ -21300,15 +21129,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1995145543}
-  itemCountText: {fileID: 1905969400}
 --- !u!114 &1332571792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21473,15 +21293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1699222449}
-  itemCountText: {fileID: 1119006328}
 --- !u!114 &1334005733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21960,15 +21771,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1222379798}
-  itemCountText: {fileID: 194458233}
 --- !u!114 &1349465972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22217,15 +22019,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 784874759}
-  itemCountText: {fileID: 1965735143}
 --- !u!114 &1359791498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22677,15 +22470,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1816789479}
-  itemCountText: {fileID: 338270959}
 --- !u!114 &1374019644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23478,15 +23262,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1582957512}
-  itemCountText: {fileID: 1433533938}
 --- !u!114 &1422645281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24313,15 +24088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 618868269}
-  itemCountText: {fileID: 126870176}
 --- !u!114 &1486987999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24486,15 +24252,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 356900186}
-  itemCountText: {fileID: 1633543662}
 --- !u!114 &1492143706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24659,15 +24416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1724102492}
-  itemCountText: {fileID: 1166881797}
 --- !u!114 &1494102186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25226,15 +24974,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1967754957}
-  itemCountText: {fileID: 2063573282}
 --- !u!114 &1523245856
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26116,15 +25855,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 638268943}
-  itemCountText: {fileID: 168441444}
 --- !u!114 &1560884462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27217,15 +26947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1554055959}
-  itemCountText: {fileID: 75964317}
 --- !u!114 &1624796232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28262,12 +27983,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1682905677}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -16.515625, y: -2.8413699, z: 0.18874264}
+  m_LocalPosition: {x: -22.440296, y: 0.00933671, z: 0.18874264}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_Father: {fileID: 1295582830}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1692833741
 GameObject:
@@ -29077,15 +28798,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1601962466}
-  itemCountText: {fileID: 1327336975}
 --- !u!114 &1711716913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30076,15 +29788,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 382980421}
-  itemCountText: {fileID: 663856672}
 --- !u!114 &1754585526
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -31171,7 +30874,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 19
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1835879319
 GameObject:
@@ -31576,15 +31279,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1560847480}
-  itemCountText: {fileID: 790467238}
 --- !u!114 &1880678782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32303,15 +31997,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 2031623024}
-  itemCountText: {fileID: 1313593176}
 --- !u!114 &1933181530
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32843,15 +32528,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 247763812}
-  itemCountText: {fileID: 911467378}
 --- !u!114 &1948528075
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33756,15 +33432,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 579146718}
-  itemCountText: {fileID: 507685969}
 --- !u!114 &1986534719
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34005,15 +33672,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1219095803}
-  itemCountText: {fileID: 1032036734}
 --- !u!114 &1999287658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34915,15 +34573,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 2127907452}
-  itemCountText: {fileID: 1585289357}
 --- !u!114 &2031925114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35432,15 +35081,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1188559948}
-  itemCountText: {fileID: 150624062}
 --- !u!114 &2053771339
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35605,15 +35245,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1340879304}
-  itemCountText: {fileID: 1412100042}
 --- !u!114 &2059864647
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35913,15 +35544,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1083602625}
-  itemCountText: {fileID: 1323997196}
 --- !u!114 &2063770785
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36374,15 +35996,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1442682157}
-  itemCountText: {fileID: 1732974400}
 --- !u!114 &2101447194
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36957,15 +36570,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff9745c6d97a6ed4da244f78f68d2809, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item:
-    itemID: 0
-    itemtType: 0
-    itemName: 
-    itemImagePath: 
-    count: 0
-    maxCount: 0
-  itemIcon: {fileID: 1369649727}
-  itemCountText: {fileID: 1383383831}
 --- !u!114 &2138002391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37165,7 +36769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2492416299818206637, guid: ca40d7bb4a81e864fb1cfd16d8d78d55, type: 3}
       propertyPath: m_RootOrder
-      value: 22
+      value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 2492416299818206637, guid: ca40d7bb4a81e864fb1cfd16d8d78d55, type: 3}
       propertyPath: m_LocalPosition.x
