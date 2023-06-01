@@ -6,6 +6,7 @@ public class InventoryPresenter : MonoBehaviour
 {
     #region S
     private static InventoryPresenter Instance;
+
     public static InventoryPresenter instance
     {
         get
@@ -20,6 +21,8 @@ public class InventoryPresenter : MonoBehaviour
 
     private void Awake()
     {
+        inventory = FindObjectOfType<InventoryV2>(); 
+        inventory.onGetItem += CheckItemUI;
         if (Instance == null)
         {
             Instance = this;
@@ -29,10 +32,9 @@ public class InventoryPresenter : MonoBehaviour
 
         else
             Destroy(gameObject);
+    
 
         slots = slotHeader.GetComponentsInChildren<BaseSlot>();
-        inventory = FindObjectOfType<InventoryV2>(); 
-        inventory.onGetItem += CheckItemUI;
 
     }
     #endregion

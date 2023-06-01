@@ -38,10 +38,10 @@ public class FireSkill_1 : MonoBehaviour
         {
             if (item.CompareTag("Player"))
                 break;
-            IHitable hiter = item.GetComponent<IHitable>();
+            Actor hiter = item.GetComponent<Actor>();
             if (hiter != null)
             {
-                BattleSystem.instance.Calculate(Elemental.Fire, hiter.GetElemental(), hiter, breathDamage);
+                BattleSystem.instance.Calculate(Elemental.Fire, hiter.elemental, hiter, breathDamage);
                 if (item.GetComponent<IStatusEffect>() != null)
                     BattleSystem.instance.SetStatusEffect(item.GetComponent<IStatusEffect>(), StatusEffect.Burns, burnsDuration, PlayerController.instance.playerData.force * 0.1f);
             }

@@ -59,14 +59,21 @@ public class PlayerControllerV3 : Actor
     private void Awake()
     {
         Setup();
+        DontDestroyOnLoad(gameObject);
     }
 
     public override void Setup()
     {
-        base.Setup();
+        if(GameManager.instance.player == null)
+        {
+            GameManager.instance.player = this;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        playerData = new PlayerData(level);
         playerMovement.Setup(this);
         playerInput.Setup(this);
         playerAttack.Setup(this);
@@ -79,6 +86,9 @@ public class PlayerControllerV3 : Actor
         states.Add((int)PlayerState.SkillCasting, new PlayerControllerV3States.SkillCasting());
 
         stateMachine.Setup(this,states[(int)PlayerState.Idle]);
+        playerData = new PlayerData(level);
+
+
     }
 
     public void Update()

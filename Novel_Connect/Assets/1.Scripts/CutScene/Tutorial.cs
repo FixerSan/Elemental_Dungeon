@@ -85,9 +85,9 @@ public class Tutorial : CutScene
 
     public override void Play()
     {
-        if(StageSystem.instance.currentStage == "Tutorial")
+        if(SceneManager.instance.GetCurrentSceneClassName() == "Tutorial")
             StartCoroutine(Tutorial_1());
-        if (StageSystem.instance.currentStage == "Tutorial_2")
+        if (SceneManager.instance.GetCurrentSceneClassName() == "Tutorial_2")
             StartCoroutine(Tutorial_11());
     }
 
@@ -349,8 +349,8 @@ public class Tutorial : CutScene
         player.canControl = true;
         for (int i = 0; i < monsters.Length; i++)
         {
-            monsters[i].GetComponent<MonsterV2>().isCutScene = false;
-            monsters[i].GetComponent<AttackMonster>().stateMachine.ChangeState(monsters[i].GetComponent<AttackMonster>().states[(int)MonsterState.Follow]);
+            //monsters[i].GetComponent<MonsterV2>().isCutScene = false;
+            //monsters[i].GetComponent<AttackMonster>().stateMachine.ChangeState(monsters[i].GetComponent<AttackMonster>().states[(int)MonsterState.Follow]);
         }
         Time.timeScale = 1f;
         tutorialContentSprites[0].SetActive(false);
@@ -388,8 +388,8 @@ public class Tutorial : CutScene
 
         tutorialContentSprites[5].SetActive(true);
 
-        boss.GetComponent<AttackMonster>().isCutScene = false;
-        boss.GetComponent<AttackMonster>().stateMachine.ChangeState(boss.GetComponent<AttackMonster>().states[(int)MonsterState.Follow]);
+        //boss.GetComponent<AttackMonster>().isCutScene = false;
+        //boss.GetComponent<AttackMonster>().stateMachine.ChangeState(boss.GetComponent<AttackMonster>().states[(int)MonsterState.Follow]);
         Time.timeScale = 0f;
         yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.F1));
         tutorialContentSprites[5].SetActive(false);
@@ -470,6 +470,6 @@ public class Tutorial : CutScene
         player.canControl = true;
         Inventory.instance.items = new List<ItemData>();
         MonsterObjectPool.instance.monsterQueues = new Dictionary<int, Queue<GameObject>>();
-        StageSystem.instance.ChangeScene("Guild");
+        SceneManager.instance.LoadScene("Guild");
     }
 }

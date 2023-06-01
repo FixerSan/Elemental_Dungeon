@@ -97,7 +97,7 @@ public class MonsterObjectPool : MonoBehaviour
 
     public void ReturnMonster(GameObject monster)
     {
-        int monsterIndex = monster.GetComponent<MonsterV2>().monsterData.monsterID;
+        int monsterIndex = monster.GetComponent<BaseMonster>().monsterData.monsterID;
         monster.gameObject.SetActive(false);
         monster.transform.SetParent(transform);
         if(!monsterQueues.ContainsKey(monsterIndex))

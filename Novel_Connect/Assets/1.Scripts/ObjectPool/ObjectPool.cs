@@ -28,7 +28,7 @@ public class ObjectPool : MonoBehaviour
     [SerializeField]
     private GameObject poolingObjectPrefab;
 
-    Queue<MonsterV2> poolingObjectQueue = new Queue<MonsterV2>();
+    Queue<BaseMonster> poolingObjectQueue = new Queue<BaseMonster>();
     private void Init(int initCount)
     {
         for (int i = 0; i < initCount; i++)
@@ -37,15 +37,15 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    private MonsterV2 CreateNewObject()
+    private BaseMonster CreateNewObject()
     {
-        var newObj = Instantiate(poolingObjectPrefab).GetComponent<MonsterV2>();
+        var newObj = Instantiate(poolingObjectPrefab).GetComponent<BaseMonster>();
         newObj.gameObject.SetActive(false);
         newObj.transform.SetParent(transform);
         return newObj;
     }
 
-    public static MonsterV2 GetObject()
+    public static BaseMonster GetObject()
     {
         if (Instance.poolingObjectQueue.Count > 0)
         {
@@ -63,7 +63,7 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
-    public static void ReturnObject(MonsterV2 obj)
+    public static void ReturnObject(BaseMonster obj)
     {
         obj.gameObject.SetActive(false);
         obj.transform.SetParent(Instance.transform);

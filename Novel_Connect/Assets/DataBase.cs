@@ -17,8 +17,11 @@ public class DataBase : MonoBehaviour
     public Dictionary<int, SkillData> skillDatas = new Dictionary<int, SkillData>();
     public Dictionary<int, SpeechBubbleData> speechBubbleDatas = new Dictionary<int, SpeechBubbleData>();
     public Dictionary<int, AudioClip> audioClips = new Dictionary<int, AudioClip>();
+    public Dictionary<string, PortalData> portalSpots = new Dictionary<string, PortalData>();
 
     public RuntimeAnimatorController[] animatorControllers;
+
+    public List<PortalData> portalSpotList = new List<PortalData>();
     //데이터베이스까지 같이 기능
     #region 싱글톤 및 DontDestroy
     private static DataBase Instance;
@@ -45,7 +48,10 @@ public class DataBase : MonoBehaviour
         }
 
         else
+        {
             Destroy(gameObject);
+            return;
+        }
         Setup();
     }
 
@@ -80,6 +86,10 @@ public class DataBase : MonoBehaviour
         foreach (var item in datas.speechBubbleDatas)
         {
             speechBubbleDatas.Add(item.index, item);
+        }
+        foreach (var item in portalSpotList)
+        {
+            portalSpots.Add(item.portal_name, item);    
         }
         //foreach (var item in datas.audioClipDatas)
         //{
@@ -146,6 +156,11 @@ public class DataBase : MonoBehaviour
     public RuntimeAnimatorController GetAnimatorController(int index)
     {
         return animatorControllers[index];
+    }
+
+    public PortalData GetPortalSpot(string portSpotName)
+    {
+        return portalSpots[portSpotName];
     }
 }
 
@@ -300,11 +315,9 @@ public class MonsterData
     public float monsterHP;
     public float monsterSpeed;
     public float monsterAttackForce;
-    public MonsterState monsterState;
     public MonsterAttackType monsterType;
     public MonsterAttackPattern monsterAttackPattern;
     public Elemental elemental;
-    public Direction direction;
     public float canAttackLength;
 
     public float deadEffectDelay;
@@ -319,11 +332,9 @@ public class MonsterData
         monsterHP = monsterData.monsterHP;
         monsterSpeed = monsterData.monsterSpeed;
         monsterAttackForce = monsterData.monsterAttackForce;
-        monsterState = monsterData.monsterState;
         monsterType = monsterData.monsterType;
         monsterAttackPattern = monsterData.monsterAttackPattern;
         elemental = monsterData.elemental;
-        direction = monsterData.direction;
         canAttackLength = monsterData.canAttackLength;
 
         deadEffectDelay = monsterData.deadEffectDelay;
@@ -357,7 +368,15 @@ public class SpeechBubbleData
     public int nextIndex;
     public string path;
     public float duration;
-
+}
+[System.Serializable]
+[CreateAssetMenu(menuName = "Containers/PortalData")]
+public class PortalData : ScriptableObject
+{
+    public string portal_name;
+    public string sceneName;
+    public Vector2 portPos;
+    public Direction direction;
 }
 
 public enum MonsterState

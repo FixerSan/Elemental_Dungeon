@@ -56,14 +56,14 @@ public class QuestSlot : MonoBehaviour
             contentUI.transform.GetChild(0).GetComponent<QuestYesButton>().nowQuest = this;
         }
 
-        else
-        {
-            if(GameManager.instance.DoneQuest(quest.questID))
-            {
-                quest = null;
-                UpdateSlotUI();
-            }
-        }
+        //else
+        //{
+        //    if(GameManager.instance.DoneQuest(quest.questID))
+        //    {
+        //        quest = null;
+        //        UpdateSlotUI();
+        //    }
+        //}
     }
 
     public void AddQuest()

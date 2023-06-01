@@ -429,7 +429,7 @@ public class PlayerController : MonoBehaviour, IHitable
                 {
                     if (hitTarget.GetComponent<IHitable>() != null)
                     {
-                        BattleSystem.instance.Calculate(elemental,hitTarget.GetComponent<IHitable>().GetElemental(), hitTarget.GetComponent<IHitable>(),playerData.force);
+                        BattleSystem.instance.Calculate(elemental,hitTarget.GetComponent<Actor>().elemental, hitTarget.GetComponent<Actor>(),playerData.force);
                         switch(elemental)
                         {
                             case Elemental.Fire:
@@ -449,7 +449,7 @@ public class PlayerController : MonoBehaviour, IHitable
                 {
                     if (hitTarget.GetComponent<IHitable>() != null)
                     {
-                        BattleSystem.instance.Calculate(elemental, hitTarget.GetComponent<IHitable>().GetElemental(), hitTarget.GetComponent<IHitable>(), playerData.force);
+                        BattleSystem.instance.Calculate(elemental, hitTarget.GetComponent<Actor>().elemental, hitTarget.GetComponent<Actor>(), playerData.force);
                         switch (elemental)
                         {
                             case Elemental.Fire:
@@ -469,7 +469,7 @@ public class PlayerController : MonoBehaviour, IHitable
                 {
                     if (hitTarget.GetComponent<IHitable>() != null)
                     {
-                        BattleSystem.instance.Calculate(elemental, hitTarget.GetComponent<IHitable>().GetElemental(), hitTarget.GetComponent<IHitable>(), playerData.force);
+                        BattleSystem.instance.Calculate(elemental, hitTarget.GetComponent<Actor>().elemental, hitTarget.GetComponent<Actor>(), playerData.force);
                         switch (elemental)
                         {
                             case Elemental.Fire:

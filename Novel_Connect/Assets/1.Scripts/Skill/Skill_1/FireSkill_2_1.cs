@@ -43,8 +43,8 @@ public class FireSkill_2_1 : MonoBehaviour
     {
         if (collision.CompareTag("Monster"))
         {
-            MonsterV2 monster = collision.GetComponent<MonsterV2>();
-            BattleSystem.instance.Calculate(Elemental.Fire, monster.monsterData.elemental, collision.GetComponent<IHitable>(), damage * PlayerController.instance.playerData.force);
+            BaseMonster monster = collision.GetComponent<BaseMonster>();
+            BattleSystem.instance.Calculate(Elemental.Fire, monster.monsterData.elemental, collision.GetComponent<Actor>(), damage * PlayerController.instance.playerData.force);
             BattleSystem.instance.SetStatusEffect(collision.GetComponent<IStatusEffect>(), StatusEffect.Burns, burnsDuration, PlayerController.instance.playerData.force / 5);
             monster.KnockBack(direction, knuckBackForce, 0);
 

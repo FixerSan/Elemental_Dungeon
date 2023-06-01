@@ -5,19 +5,19 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/0.Scenes/Tutorial.unity
     guid: a0ab39a80246fb24f9f05f2d21710a3b
-  - enabled: 0
+  - enabled: 1
     path: Assets/0.Scenes/Tutorial_2.unity
     guid: 8ec7622b894510245abbbfc3d7fc8f37
-  - enabled: 0
+  - enabled: 1
     path: Assets/0.Scenes/Guild.unity
     guid: 4ec707adc56353d4bab5cc860fd877c1
-  - enabled: 0
-    path: Assets/0.Scenes/Town.unity
+  - enabled: 1
+    path: Assets/0.Scenes/OldTown.unity
     guid: f31434022dc635047a335075cc0038a9
   - enabled: 1
-    path: Assets/0.Scenes/Refactoring.unity
+    path: Assets/0.Scenes/Town.unity
     guid: 40ec6659d5df6124eb22d872d2749080
   m_configObjects: {}

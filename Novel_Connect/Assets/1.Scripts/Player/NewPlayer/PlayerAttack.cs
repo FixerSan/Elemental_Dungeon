@@ -24,7 +24,7 @@ public class PlayerAttack
                 {
                     if (hitTarget.GetComponent<IHitable>() != null)
                     {
-                        BattleSystem.instance.Calculate(player.elemental, hitTarget.GetComponent<IHitable>().GetElemental(), hitTarget.GetComponent<IHitable>(), player.playerData.force);
+                        BattleSystem.instance.Calculate(player.elemental, hitTarget.GetComponent<IHitable>().GetElemental(), hitTarget.GetComponent<Actor>(), player.playerData.force);
                         switch (player.elemental)
                         {
                             case Elemental.Fire:
@@ -44,7 +44,7 @@ public class PlayerAttack
                 {
                     if (hitTarget.GetComponent<IHitable>() != null)
                     {
-                        BattleSystem.instance.Calculate(player.elemental, hitTarget.GetComponent<IHitable>().GetElemental(), hitTarget.GetComponent<IHitable>(), player.playerData.force);
+                        BattleSystem.instance.Calculate(player.elemental, hitTarget.GetComponent<IHitable>().GetElemental(), hitTarget.GetComponent<Actor>(), player.playerData.force);
                         switch (player.elemental)
                         {
                             case Elemental.Fire:
@@ -64,7 +64,7 @@ public class PlayerAttack
                 {
                     if (hitTarget.GetComponent<IHitable>() != null)
                     {
-                        BattleSystem.instance.Calculate(player.elemental, hitTarget.GetComponent<IHitable>().GetElemental(), hitTarget.GetComponent<IHitable>(), player.playerData.force);
+                        BattleSystem.instance.Calculate(player.elemental, hitTarget.GetComponent<IHitable>().GetElemental(), hitTarget.GetComponent<Actor>(), player.playerData.force);
                         switch (player.elemental)
                         {
                             case Elemental.Fire:

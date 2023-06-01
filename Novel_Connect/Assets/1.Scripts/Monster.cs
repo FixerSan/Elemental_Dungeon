@@ -34,7 +34,7 @@ public class Monster : MonoBehaviour
     {
 
 
-        GameManager.instance.onEnenyDeath.Invoke(id);
+        //GameManager.instance.onEnenyDeath.Invoke(id);
         Destroy(gameObject);
     }
 

@@ -10,9 +10,6 @@ public abstract class Actor : MonoBehaviour
     {
         Setup();
     }
-    public virtual void Setup()
-    {
-        
-    }
+    public abstract void Setup();
     public abstract void GetDamage(float damage);
 }

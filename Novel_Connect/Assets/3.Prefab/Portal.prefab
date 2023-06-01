@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3131133541672711652}
   - component: {fileID: 3131133541672711653}
   - component: {fileID: 3131133541672711654}
-  - component: {fileID: 3131133541672711655}
+  - component: {fileID: 3876599683601956272}
   m_Layer: 0
   m_Name: Portal
   m_TagString: Untagged
@@ -102,7 +102,7 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1, y: 2}
   m_Direction: 0
---- !u!114 &3131133541672711655
+--- !u!114 &3876599683601956272
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,4 +114,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cff534b3814e7b40bd4765202de9108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneIndex: 1
+  warpSceneName: 
+  portObject: {fileID: 0}

@@ -27,7 +27,7 @@ public class BattleSystem : MonoBehaviour
 
     public float amageMultiplier;
 
-    public void Calculate(Elemental attackerElemental, Elemental hiterElemental, IHitable hiter, float damage)
+    public void Calculate(Elemental attackerElemental, Elemental hiterElemental, Actor hiter, float damage)
     {
         float calculatedDamage = damage;
 
@@ -81,7 +81,7 @@ public class BattleSystem : MonoBehaviour
         }
 
         // 데미지 적용
-        hiter.Hit(calculatedDamage);
+        hiter.GetDamage(calculatedDamage);
     }
 
     public void SetStatusEffect(IStatusEffect hiter,StatusEffect status, float duration, float damage)
