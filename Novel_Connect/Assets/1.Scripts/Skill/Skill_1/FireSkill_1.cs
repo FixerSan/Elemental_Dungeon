@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FireSkill_1 : MonoBehaviour
 {
+    public PlayerControllerV3 player => FindObjectOfType<PlayerControllerV3>();
     public float breathDamage;
     public float burnsDuration;
     public Transform breathPos;
@@ -11,14 +12,14 @@ public class FireSkill_1 : MonoBehaviour
     public LayerMask attackLayer;
     void Setup()
     {
-        transform.eulerAngles = PlayerController.instance.transform.eulerAngles;
+        transform.eulerAngles = player.transform.eulerAngles;
         if(transform.rotation.y == 0)
         {
-            transform.position = PlayerController.instance.transform.position + new Vector3(3f, -1.85f, 0) ;
+            transform.position = player.transform.position + new Vector3(3f, -1.85f, 0) ;
         }
         else
         {
-            transform.position = PlayerController.instance.transform.position + new Vector3(-3f, -1.85f, 0);
+            transform.position = player.transform.position + new Vector3(-3f, -1.85f, 0);
         }    
     }
 
@@ -42,8 +43,8 @@ public class FireSkill_1 : MonoBehaviour
             if (hiter != null)
             {
                 BattleSystem.instance.Calculate(Elemental.Fire, hiter.elemental, hiter, breathDamage);
-                if (item.GetComponent<IStatusEffect>() != null)
-                    BattleSystem.instance.SetStatusEffect(item.GetComponent<IStatusEffect>(), StatusEffect.Burns, burnsDuration, PlayerController.instance.playerData.force * 0.1f);
+                if (item.GetComponent<Actor>() != null)
+                    BattleSystem.instance.SetStatusEffect(hiter, StatusEffect.Burns, burnsDuration);
             }
         }
         yield return new WaitForSeconds(endTime - 1f);

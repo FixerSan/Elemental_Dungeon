@@ -42,6 +42,7 @@ namespace PlayerControllerV3States
         {
             entity.playerInput.CheckMove();
             entity.playerInput.CheckJump();
+            entity.playerInput.CheckAttack();
             entity.playerMovement.Move();
         }
     }
@@ -88,13 +89,27 @@ namespace PlayerControllerV3States
     {
         public override void EnterState(PlayerControllerV3 entity)
         {
+            if (entity.state == PlayerState.Walk)
+                entity.playerMovement.Stop();
             entity.state = PlayerState.Attack;
+            entity.playerAttack.attackCount++;
+            if (entity.playerAttack.attackCount > 4)
+            {
+                entity.playerAttack.attackCount = 1;
+            }
+            entity.anim.SetBool("isAttack", true);
+            entity.anim.SetInteger("AttackCount", entity.playerAttack.attackCount);
 
+            if (entity.playerAttack.attackCoroutine != null)
+            {
+                entity.StopCoroutine(entity.playerAttack.attackCoroutine);
+            }
+            entity.playerAttack.attackCoroutine = entity.StartCoroutine(entity.playerAttack.AttackCoroutine());
         }
 
         public override void ExitState(PlayerControllerV3 entity)
         {
-
+            entity.anim.SetBool("isAttack", false);
         }
 
         public override void UpdateState(PlayerControllerV3 entity)

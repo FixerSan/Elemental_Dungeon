@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class FireSkill_2_1 : MonoBehaviour
 {
+    public PlayerControllerV3 player => FindObjectOfType<PlayerControllerV3>();
     public float damage;
     public float knuckBackForce;
     public float speed;
@@ -16,7 +17,7 @@ public class FireSkill_2_1 : MonoBehaviour
         //나중에 데미지 배율, 넉백 거리, 스피드 등등은 스킬 데이터에서 가져올 예정
         duration = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length;
 
-        direction = PlayerController.instance.playerDirection;
+        direction = player.direction;
         StartCoroutine(SkillExit());
     }
 
@@ -44,8 +45,9 @@ public class FireSkill_2_1 : MonoBehaviour
         if (collision.CompareTag("Monster"))
         {
             BaseMonster monster = collision.GetComponent<BaseMonster>();
-            BattleSystem.instance.Calculate(Elemental.Fire, monster.monsterData.elemental, collision.GetComponent<Actor>(), damage * PlayerController.instance.playerData.force);
-            BattleSystem.instance.SetStatusEffect(collision.GetComponent<IStatusEffect>(), StatusEffect.Burns, burnsDuration, PlayerController.instance.playerData.force / 5);
+            Actor actor = monster.GetComponent<Actor>();
+            BattleSystem.instance.Calculate(Elemental.Fire, actor.elemental, actor, actor.statuses.force);
+            BattleSystem.instance.SetStatusEffect(actor, StatusEffect.Burns, burnsDuration);
             monster.KnockBack(direction, knuckBackForce, 0);
 
         }

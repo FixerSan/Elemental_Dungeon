@@ -33,7 +33,6 @@ public class CameraScript : MonoBehaviour
 
     public Vector2 min, max;
     public float delayTime;
-    private PlayerController player;
     public float playerPlusY;
 
     public GameObject target;
@@ -48,9 +47,6 @@ public class CameraScript : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (player == null)
-            player = PlayerController.instance;
-
         switch (cameraState)
         {
             case CameraState.idle :

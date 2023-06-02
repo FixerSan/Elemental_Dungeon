@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace PlayerSkill_Fire
 {
-    public class Skill_1 : Skill<PlayerController>
+    public class Skill_1 : Skill<PlayerControllerV3>
     {
         public override void Use()
         {
@@ -12,7 +12,7 @@ namespace PlayerSkill_Fire
         }
     }
 
-    public class Skill_2 : Skill<PlayerController>
+    public class Skill_2 : Skill<PlayerControllerV3>
     {
         public override void Use()
         {

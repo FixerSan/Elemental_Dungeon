@@ -16,6 +16,7 @@ public class BattleSystem : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            transform.SetParent(null);
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -84,8 +85,8 @@ public class BattleSystem : MonoBehaviour
         hiter.GetDamage(calculatedDamage);
     }
 
-    public void SetStatusEffect(IStatusEffect hiter,StatusEffect status, float duration, float damage)
+    public void SetStatusEffect(Actor hiter,StatusEffect status, float duration)
     {
-        hiter.SetStatusEffect(status, duration, damage);
+        //hiter.SetStatusEffect(status, duration, damage);
     }
 }

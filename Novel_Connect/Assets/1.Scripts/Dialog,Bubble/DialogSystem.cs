@@ -184,76 +184,76 @@ public class DialogSystem : MonoBehaviour
     }
     public void OnClickBtn()
     {
-        switch(currentDialog.index)
-        {
-            case 996:
-                SetAllClose();
-                CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_14());
-                break;
+        //switch(currentDialog.index)
+        //{
+        //    case 996:
+        //        SetAllClose();
+        //        CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_14());
+        //        break;
 
-            case 997:
-                SetAllClose();
-                CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_13());
-                break;
+        //    case 997:
+        //        SetAllClose();
+        //        CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_13());
+        //        break;
 
-            case 998:
-                SetAllClose();
-                CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_7());
-                break;
-            case 1000:
-                SetAllClose();
-                CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_5());
-                break;
+        //    case 998:
+        //        SetAllClose();
+        //        CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_7());
+        //        break;
+        //    case 1000:
+        //        SetAllClose();
+        //        CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_5());
+        //        break;
 
-            case 1002:
-                SetAllClose();
-                CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_6());
-                break;
+        //    case 1002:
+        //        SetAllClose();
+        //        CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_6());
+        //        break;
 
-            case 1004:
-                SetAllClose();
-                CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_8());
-                break;
-            case 1010:
-                SetAllClose();
-                CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_12());
-                break;
+        //    case 1004:
+        //        SetAllClose();
+        //        CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_8());
+        //        break;
+        //    case 1010:
+        //        SetAllClose();
+        //        CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_12());
+        //        break;
 
-            case 995:
-                SetAllClose();
-                CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_15());
-                break;
+        //    case 995:
+        //        SetAllClose();
+        //        CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_15());
+        //        break;
 
-            case 994:
-                SetAllClose();
-                CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_16());
-                break;
+        //    case 994:
+        //        SetAllClose();
+        //        CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_16());
+        //        break;
 
-            case 991:
-                SetAllClose();
-                CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_17());
-                break;
+        //    case 991:
+        //        SetAllClose();
+        //        CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_17());
+        //        break;
 
-            case 1013:
-                SetAllClose();
-                CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_18());
-                break;
+        //    case 1013:
+        //        SetAllClose();
+        //        CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_18());
+        //        break;
 
-            case 1016:
-                SetAllClose();
-                CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_19());
-                break;
+        //    case 1016:
+        //        SetAllClose();
+        //        CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_19());
+        //        break;
 
-            case 1020:
-                SetAllClose();
-                CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_20());
-                break;
+        //    case 1020:
+        //        SetAllClose();
+        //        CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_20());
+        //        break;
 
-            case 990:
-                SetAllClose();
-                CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().End());
-                break;
-        }
+        //    case 990:
+        //        SetAllClose();
+        //        CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().End());
+        //        break;
+        //}
     }
 }
 

@@ -110,11 +110,6 @@ public class PlayerInput
         //공격 애니메이션
         if (Input.GetKey(attackKey))
         {
-            if(player.playerAttack.attackCoroutine != null)
-            {
-                player.StopCoroutine(player.playerAttack.attackCoroutine);
-                player.playerAttack.attackCoroutine = null;
-            }
             player.ChangeState(PlayerState.Attack);
         }
     }

@@ -41,10 +41,7 @@ public class MonsterObjectPool : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            GetMonster(0, PlayerController.instance.transform.position);
-        }
+
     }
     public void Init(int initMonsterIndex,int initCount)
     {

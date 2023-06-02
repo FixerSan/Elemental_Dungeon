@@ -5,7 +5,7 @@ using UnityEngine;
 public class BaseMonster : Actor
 {
     public MonsterData monsterData;
-    public StateMachine<BaseMonster> stateMachine;
+    public StateMachine<BaseMonster> stateMachine = new StateMachine<BaseMonster>();
     public Animator animator;
     public Direction direction;
     public MonsterState state;
@@ -21,11 +21,17 @@ public class BaseMonster : Actor
 
     public override void Setup()
     {
-        monsterData = new MonsterData(0);
+        animator = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+
+        //monsterData = new MonsterData(0);
         states = new State<BaseMonster>[6];
         statuses.Setup(this);
-        statuses.hp = monsterData.monsterHP;
+        statuses.maxHp = monsterData.monsterHP;
+        statuses.currentHp = statuses.maxHp;
         statuses.speed = monsterData.monsterSpeed;
+        statuses.force = monsterData.monsterAttackForce;
 
         elemental = monsterData.elemental;
 
@@ -37,6 +43,11 @@ public class BaseMonster : Actor
         states[(int)MonsterState.Dead] = new BaseMonsterState.Dead();
 
         stateMachine.Setup(this, states[(int)MonsterState.Idle]);
+    }
+
+    public void FixedUpdate()
+    {
+        stateMachine.UpdateState();
     }
 
     public virtual bool CheckCanMove()
@@ -127,13 +138,14 @@ public class BaseMonster : Actor
 
     public override void GetDamage(float damage)
     {
-        if (statuses.hp <= 0)   return;
+        if (statuses.currentHp <= 0)   return;
 
-        statuses.hp -= damage;
-        if(statuses.hp <= 0)
+        statuses.currentHp -= damage;
+        if(statuses.currentHp <= 0)
         {
-            statuses.hp = 0;
+            statuses.currentHp = 0;
             ChangeState(MonsterState.Dead);
+            return;
         }
         ChangeState(MonsterState.Hit);
     }
@@ -144,10 +156,7 @@ public class BaseMonster : Actor
         rb.velocity = new Vector2(0, rb.velocity.y);
         rb.AddForce(-LookAtPlayer() * Vector2.right * 2f, ForceMode2D.Impulse);
         rb.AddForce(Vector2.up * 3f, ForceMode2D.Impulse);
-        if (state == MonsterState.Dead)
-            StopCoroutine(hitCoroutine);
-
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f);
 
         if (monsterData.monsterAttackPattern == MonsterAttackPattern.NotAttack)
             ChangeState(MonsterState.Idle);
@@ -176,5 +185,10 @@ public class BaseMonster : Actor
     public void ChangeState(MonsterState state)
     {
         stateMachine.ChangeState(states[(int)state]);
+    }
+
+    public override void SetTarget(GameObject target_)
+    {
+        target = target_;
     }
 }

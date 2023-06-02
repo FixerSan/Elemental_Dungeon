@@ -8,13 +8,13 @@ public class FireSkill_2 : MonoBehaviour
     private GameObject skill_2_1;
     [SerializeField]
     private GameObject skill_2_2;
-
+    PlayerControllerV3 player => FindObjectOfType<PlayerControllerV3>();
 
 
     void Setup()
     {
-        transform.eulerAngles = PlayerController.instance.transform.eulerAngles;
-        transform.position = PlayerController.instance.transform.position;
+        transform.eulerAngles = player.transform.eulerAngles;
+        transform.position = player.transform.position;
 
         skill_2_1.transform.localPosition = Vector3.zero;
         skill_2_1.SetActive(true);

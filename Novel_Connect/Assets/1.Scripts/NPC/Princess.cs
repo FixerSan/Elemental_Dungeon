@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class Princess : MonoBehaviour
 {
+    
     public Rigidbody2D rb;
     public Direction direction;
     public bool isWalking;
     Animator animator;
+    PlayerControllerV3 player => FindObjectOfType<PlayerControllerV3>();
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -20,7 +23,7 @@ public class Princess : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Falldown();
-            PlayerController.instance.Stop();
+            player.playerMovement.Stop();
         }
     }
 
@@ -68,7 +71,7 @@ public class Princess : MonoBehaviour
         animator.SetBool("isFalldown", true);
         isWalking = false;
         rb.velocity = Vector2.zero;
-        CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_4());
+        //CutSceneManager.instance.gameObject.GetComponent<Tutorial>().StartCoroutine(CutSceneManager.instance.gameObject.GetComponent<Tutorial>().Tutorial_4());
     }
 
     public void Tied()

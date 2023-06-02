@@ -72,6 +72,7 @@ public class PlayerControllerV3 : Actor
         {
             Destroy(gameObject);
         }
+        statuses.Setup(this);
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerMovement.Setup(this);
@@ -87,8 +88,10 @@ public class PlayerControllerV3 : Actor
 
         stateMachine.Setup(this,states[(int)PlayerState.Idle]);
         playerData = new PlayerData(level);
-
-
+        statuses.maxHp = playerData.hp;
+        statuses.currentHp = statuses.maxHp;
+        statuses.speed = playerData.walkSpeed;
+        statuses.force = playerData.force;
     }
 
     public void Update()
@@ -99,8 +102,16 @@ public class PlayerControllerV3 : Actor
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
-        Gizmos.DrawWireCube(playerAttack.attackPos.position, playerAttack.attackSize);
+        Gizmos.DrawWireCube(playerAttack.attackPos.position, playerAttack.attackPos.localScale);
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube(playerMovement.checkGroundPos.position, playerMovement.checkGroundSize);
     }
+
+    public override void SetTarget(GameObject target)
+    {
+    }
 }
+public enum PlayerState { Idle, Attack, Walk, Jump, Fall, SkillCasting, Sit };
+
+
+public enum Direction { Left, Right };

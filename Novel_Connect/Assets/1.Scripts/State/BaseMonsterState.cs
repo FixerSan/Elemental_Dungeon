@@ -140,7 +140,10 @@ namespace BaseMonsterState
         public override void EnterState(BaseMonster entity)
         {
             entity.state = MonsterState.Dead;
-
+            if (entity.hitCoroutine != null)
+                entity.StopCoroutine(entity.hitCoroutine);
+            if (entity.followCoroutine != null)
+                entity.StopCoroutine(entity.followCoroutine);
         }
 
         public override void UpdateState(BaseMonster entity)
