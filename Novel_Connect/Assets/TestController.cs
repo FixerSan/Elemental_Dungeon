@@ -10,16 +10,11 @@ public class TestController : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Q))
-            anim.PlayAnimation("Idle");
+            DialogSystem.Instance.UpdateDialog(1008);
         if (Input.GetKeyDown(KeyCode.W))
-            anim.PlayAnimation("Walk");
-        if (Input.GetKeyDown(KeyCode.E))
-            anim.StopAnimation();
+        {
+            SceneManager.instance.LoadScene("Guild");
+        }
 
-        if (Input.GetKeyDown(KeyCode.R))
-            inventory.AddItem(1);
-
-        if (Input.GetKeyDown(KeyCode.T))
-            inventory.AddItem(2);
     }
 }

@@ -23,11 +23,17 @@ public class PortalSystem : MonoBehaviour
     #endregion
     public void PortOject(GameObject portObject, string portSpotName)
     {
+        StartCoroutine(PortCoroutine(portObject, portSpotName));
+    }
+
+    IEnumerator PortCoroutine(GameObject portObject, string portSpotName)
+    {
         PortalData portalData = DataBase.instance.GetPortalSpot(portSpotName);
 
+        yield return StartCoroutine(ScreenEffect.instance.FadeIn(1.5f));
         SceneManager.instance.LoadScene(portalData.sceneName);
         portObject.transform.position = portalData.portPos;
-        if(portalData.direction == Direction.Left)
+        if (portalData.direction == Direction.Left)
         {
             portObject.transform.eulerAngles = new Vector3(0, 180, 0);
         }
@@ -35,6 +41,6 @@ public class PortalSystem : MonoBehaviour
         {
             portObject.transform.eulerAngles = new Vector3(0, 0, 0);
         }
-
+        yield return StartCoroutine(ScreenEffect.instance.FadeOut(1.5f));
     }
 }

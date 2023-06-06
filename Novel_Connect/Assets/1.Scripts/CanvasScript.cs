@@ -29,7 +29,7 @@ public class CanvasScript : MonoBehaviour
 
     private void Start()
     {
-        AllClearUI();
+        //AllClearUI();
     }
 
     private void Update()

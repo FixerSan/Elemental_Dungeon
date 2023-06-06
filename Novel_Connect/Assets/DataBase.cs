@@ -16,7 +16,7 @@ public class DataBase : MonoBehaviour
     public Dictionary<int, PlayerData> playerDatas = new Dictionary<int, PlayerData>();
     public Dictionary<int, SkillData> skillDatas = new Dictionary<int, SkillData>();
     public Dictionary<int, SpeechBubbleData> speechBubbleDatas = new Dictionary<int, SpeechBubbleData>();
-    public Dictionary<int, AudioClip> audioClips = new Dictionary<int, AudioClip>();
+    public Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>();
     public Dictionary<string, PortalData> portalSpots = new Dictionary<string, PortalData>();
 
     public RuntimeAnimatorController[] animatorControllers;
@@ -91,10 +91,10 @@ public class DataBase : MonoBehaviour
         {
             portalSpots.Add(item.portal_name, item);    
         }
-        //foreach (var item in datas.audioClipDatas)
-        //{
-        //    audioClips.Add(item.index, Resources.Load<AudioClip>(item.clipPath)) ;
-        //}
+        foreach (var item in datas.audioClipDatas)
+        {
+            audioClips.Add(item.name, Resources.Load<AudioClip>(item.path));
+        }
 
     }
 
@@ -139,10 +139,10 @@ public class DataBase : MonoBehaviour
             return skillDatas[index];
         return null;
     }
-    public AudioClip GetAudioClip(int index)
+    public AudioClip GetAudioClip(string name)
     {
-        if (audioClips.ContainsKey(index))
-            return audioClips[index];
+        if (audioClips.ContainsKey(name))
+            return audioClips[name];
         return null;
     }
 
@@ -186,29 +186,26 @@ public class Dialog
     public string name;
     public string sentence;
     public string illustPath;
-    public SpeakerUIType speakerUI_Index;
+    public int speakerUIindex;
     public int nextIndex;
     public string nextBtnText;
-    public int selectBtn_1Index;
     public string selectBtn_1Text;
-    public int selectBtn_2Index;
     public string selectBtn_2Text;
-    public int selectBtn_3Index;
     public string selectBtn_3Text;
 }
 
 [System.Serializable]
-public struct SpeakerUI
+public class SpeakerUI
 {
+    public int speakerType;
     public GameObject header;
-    public Image imgCharacter;
-    public Image imageDialogue;
-    public TextMeshProUGUI textName;
-    public TextMeshProUGUI textDialogue;
-    public SpeakerUIType type;
-    public GameObject nextBtn;
+    public Image characterImage;
+    public Image dialoguePanel;
+    public TextMeshProUGUI nameText;
+    public TextMeshProUGUI dialogueText;
     public GameObject selectBtn_1;
     public GameObject selectBtn_2;
+    public GameObject selectBtn_3;
 }
 
 public enum SpeakerUIType
@@ -356,8 +353,8 @@ public class SkillData
 [System.Serializable]
 public class AudioClipData
 {
-    public int index;
-    public string clipPath;
+    public string name;
+    public string path;
 }
 [System.Serializable]
 public class SpeechBubbleData

@@ -33,59 +33,33 @@ public class ScreenEffect : MonoBehaviour
     #endregion
     public Image fadePanel;
 
-    public IEnumerator FadeIn()
+    public IEnumerator FadeIn(float fadeTime)
     {
-        bool isStart = false;
         fadePanel.gameObject.SetActive(true);
         fadePanel.color = new Color(0, 0, 0, 0);
-        while (!isStart)
+        while (fadePanel.color.a < 1)
         {
-            fadePanel.color = new Color(0, 0, 0, fadePanel.color.a + 0.02f);
-            if (fadePanel.color.a >= 1)
-                isStart = true;
-            yield return new WaitForSeconds(0.01f);
+            fadePanel.color = new Color(0, 0, 0, fadePanel.color.a + Time.deltaTime / fadeTime);
+            yield return null;
         }
     }
 
-    public IEnumerator FadeOut()
+    public IEnumerator FadeOut(float fadeTime)
     {
-        bool isEnd = false;
         fadePanel.gameObject.SetActive(true);
         fadePanel.color = new Color(0, 0, 0, 1);
-        while (!isEnd)
+        while (fadePanel.color.a > 0)
         {
-            fadePanel.color = new Color(0, 0, 0, fadePanel.color.a - 0.02f);
-            if (fadePanel.color.a <= 0)
-                isEnd = true;
-            yield return new WaitForSeconds(0.02f);
+            fadePanel.color = new Color(0, 0, 0, fadePanel.color.a - Time.deltaTime / fadeTime);
+            yield return null;
         }
         fadePanel.gameObject.SetActive(false);
     }
 
-    public IEnumerator FadeInOut()
+    public IEnumerator FadeInOut(float fadeTime)
     {
-        bool isStart = false;
-        fadePanel.gameObject.SetActive(true);
-        fadePanel.color = new Color(0, 0, 0, 0);
-        while (!isStart)
-        {
-            fadePanel.color = new Color(0, 0, 0, fadePanel.color.a + 0.02f);
-            if (fadePanel.color.a >= 1)
-                isStart = true;
-            yield return new WaitForSeconds(0.01f);
-        }
-
-        bool isEnd = false;
-        fadePanel.gameObject.SetActive(true);
-        fadePanel.color = new Color(0, 0, 0, 1);
-        while (!isEnd)
-        {
-            fadePanel.color = new Color(0, 0, 0, fadePanel.color.a - 0.02f);
-            if (fadePanel.color.a <= 0)
-                isEnd = true;
-            yield return new WaitForSeconds(0.01f);
-        }
-        fadePanel.gameObject.SetActive(false);
+        yield return StartCoroutine(FadeIn(fadeTime));
+        yield return StartCoroutine(FadeOut(fadeTime));
     }
 
     public void Shake(float time)
