@@ -18,7 +18,7 @@ public class PlayerAttack
         switch (attackCount)
         {
             case 1: //1 타 공격 
-                yield return new WaitForSeconds(0.18f);
+                yield return new WaitForSeconds(0.18f/1.5f);
                 Collider2D[] collider2Ds_1 = Physics2D.OverlapBoxAll(attackPos.position, attackPos.localScale, 0, attackLayer);
                 foreach (Collider2D hitTarget in collider2Ds_1)
                 {
@@ -35,11 +35,11 @@ public class PlayerAttack
                         }
                     }
                 }
-                yield return new WaitForSeconds(0.3f);
+                yield return new WaitForSeconds(0.3f/1.5f);
                 break;
 
-            case 2://2 타 공격
-                yield return new WaitForSeconds(0.21f);
+            case 2://1.5f 타 공격
+                yield return new WaitForSeconds(0.21f/1.5f);
                 Collider2D[] collider2Ds_2 = Physics2D.OverlapBoxAll(attackPos.position, attackPos.localScale, 0, attackLayer);
                 foreach (Collider2D hitTarget in collider2Ds_2)
                 {
@@ -57,7 +57,7 @@ public class PlayerAttack
                         }
                     }
                 }
-                yield return new WaitForSeconds(0.35f);
+                yield return new WaitForSeconds(0.35f/1.5f);
                 foreach (Collider2D hitTarget in collider2Ds_2)
                 {
                     Actor hitActor = hitTarget.GetComponent<Actor>();
@@ -74,11 +74,11 @@ public class PlayerAttack
                         }
                     }
                 }
-                yield return new WaitForSeconds(0.35f);
+                yield return new WaitForSeconds(0.35f/1.5f);
                 break;
 
             case 3: //3타 공격
-                yield return new WaitForSeconds(0.84f);
+                yield return new WaitForSeconds(0.84f/1.5f);
                 Collider2D[] collider2Ds_3 = Physics2D.OverlapBoxAll(attackPos.position, attackPos.localScale, 0, attackLayer);
                 foreach (Collider2D hitTarget in collider2Ds_3)
                 {
@@ -96,11 +96,11 @@ public class PlayerAttack
                         }
                     }
                 }
-                yield return new WaitForSeconds(0.35f);
+                yield return new WaitForSeconds(0.35f/1.5f);
                 break;
 
             case 4: //3타 공격
-                yield return new WaitForSeconds(0.84f);
+                yield return new WaitForSeconds(0.84f/1.5f);
                 Collider2D[] collider2Ds_4 = Physics2D.OverlapBoxAll(attackPos.position, attackPos.localScale, 0, attackLayer);
                 foreach (Collider2D hitTarget in collider2Ds_4)
                 {
@@ -118,7 +118,7 @@ public class PlayerAttack
                         }
                     }
                 }
-                yield return new WaitForSeconds(0.66f);
+                yield return new WaitForSeconds(0.66f/1.5f);
                 break;
         }
         player.ChangeState(PlayerState.Idle);

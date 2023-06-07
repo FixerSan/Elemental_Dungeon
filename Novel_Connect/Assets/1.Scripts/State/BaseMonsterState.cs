@@ -144,6 +144,9 @@ namespace BaseMonsterState
                 entity.StopCoroutine(entity.hitCoroutine);
             if (entity.followCoroutine != null)
                 entity.StopCoroutine(entity.followCoroutine);
+
+            if (entity.deadCoroutine == null)
+                entity.Dead();
         }
 
         public override void UpdateState(BaseMonster entity)

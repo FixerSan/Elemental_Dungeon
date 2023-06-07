@@ -16,5 +16,9 @@ public class TestController : MonoBehaviour
             SceneManager.instance.LoadScene("Guild");
         }
 
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            ObjectPool.instance.GetMonster(10001,Vector3.zero);
+        }
     }
 }

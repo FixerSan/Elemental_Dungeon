@@ -4,7 +4,34 @@ using UnityEngine;
 
 public class MonsterFactory: MonoBehaviour
 {
-    [SerializeField]private GameObject testMonsterPrefab;
+    #region Sington
+    private static MonsterFactory Instance;
+    public static MonsterFactory instance
+    {
+        get
+        {
+            if (Instance != null)
+                return Instance;
+            return null;
+        }
+    }
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            transform.SetParent(null);
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    }
+    #endregion
+
+    [SerializeField]private GameObject baseMonsterPrefab;
 
     public GameObject Spawn(int index)
     {
@@ -19,7 +46,11 @@ public class MonsterFactory: MonoBehaviour
         switch (index)
         {
             case 0:
-                monster = Instantiate(testMonsterPrefab).GetComponent<BaseMonster>();
+                monster = Instantiate(baseMonsterPrefab).GetComponent<BaseMonster>();
+                monster.monsterData = new MonsterData(index);
+                break;
+            case 10001:
+                monster = Instantiate(baseMonsterPrefab).GetComponent<BaseMonster>();
                 monster.monsterData = new MonsterData(index);
                 break;
         }

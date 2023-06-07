@@ -21,6 +21,7 @@ public class MonsterObjectPool : MonoBehaviour
         if(Instance == null)
         {
             Instance = this;
+            transform.SetParent(null);
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -29,35 +30,17 @@ public class MonsterObjectPool : MonoBehaviour
         }
     }
     #endregion
-
+    #region Monster
     public Dictionary<int, Queue<GameObject>> monsterQueues = new Dictionary<int, Queue<GameObject>>();
-    //public GameObject CreateTestMonster()
-    //{
-    //    GameObject monster = Instantiate(testMonsterPrefab);
-    //    monster.SetActive(false);
-    //    monster.transform.SetParent(transform);
-    //    return monster;
-    //}
-
-    private void Update()
-    {
-
-    }
     public void Init(int initMonsterIndex,int initCount)
     {
         if(!monsterQueues.ContainsKey(initMonsterIndex))
             monsterQueues.Add(initMonsterIndex, new Queue<GameObject>());
 
+
         for (int i = 0; i < initCount; i++)
         {
-            GameObject monster = null;
-            switch (initMonsterIndex)
-            {
-                case 0:
-                    break;
-                case 1:
-                    break;
-            }
+            GameObject monster = MonsterFactory.instance.Spawn(initMonsterIndex);
             monster.SetActive(false);
             monster.transform.SetParent(transform);
             monster.transform.position = transform.position;
@@ -72,7 +55,7 @@ public class MonsterObjectPool : MonoBehaviour
 
         if(monsterQueues[monsterIndex].Count > 0)
         {
-            var monster = monsterQueues[monsterIndex].Dequeue();
+            GameObject monster = monsterQueues[monsterIndex].Dequeue();
             monster.transform.SetParent(null);
             monster.transform.position = spawnPos;
             monster.gameObject.SetActive(true);
@@ -81,14 +64,11 @@ public class MonsterObjectPool : MonoBehaviour
 
         else
         {
-            switch(monsterIndex)
-            {
-                case 0:
-                    return null;
-
-                default:
-                    return null;
-            }
+            GameObject monster = MonsterFactory.instance.Spawn(monsterIndex);
+            monster.transform.SetParent(null);
+            monster.transform.position = spawnPos;
+            monster.gameObject.SetActive(true);
+            return monster;
         }
     }
 
@@ -102,6 +82,7 @@ public class MonsterObjectPool : MonoBehaviour
             monsterQueues.Add(monsterIndex, new Queue<GameObject>());
         }
         monsterQueues[monsterIndex].Enqueue(monster);
-        Debug.Log(monsterQueues[monsterIndex].Count);
     }
+
+    #endregion
 }

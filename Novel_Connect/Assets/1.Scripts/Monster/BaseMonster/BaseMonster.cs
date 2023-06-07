@@ -25,7 +25,7 @@ public class BaseMonster : Actor
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
 
-        //monsterData = new MonsterData(0);
+        monsterData = DataBase.instance.GetMonsterData(10001);
         states = new State<BaseMonster>[6];
         statuses.Setup(this);
         statuses.maxHp = monsterData.monsterHP;
@@ -43,6 +43,12 @@ public class BaseMonster : Actor
         states[(int)MonsterState.Dead] = new BaseMonsterState.Dead();
 
         stateMachine.Setup(this, states[(int)MonsterState.Idle]);
+
+        spriteRenderer.color = Color.white;
+    }
+    private void OnEnable()
+    {
+        Setup();
     }
 
     public void FixedUpdate()
@@ -141,6 +147,7 @@ public class BaseMonster : Actor
         if (statuses.currentHp <= 0)   return;
 
         statuses.currentHp -= damage;
+        ObjectPool.instance.GetDamageText(damage, this.transform);
         if(statuses.currentHp <= 0)
         {
             statuses.currentHp = 0;
@@ -179,7 +186,23 @@ public class BaseMonster : Actor
         rb.velocity = new Vector2(0, rb.velocity.y);
         rb.AddForce(intDirection * Vector2.right * xKnockBackforce, ForceMode2D.Impulse);
         rb.AddForce(Vector2.up * yKnockBackforce, ForceMode2D.Impulse);
+    }
 
+    public Coroutine deadCoroutine;
+    public void Dead()
+    {
+        deadCoroutine = StartCoroutine(DeadCoroutine(3));
+    }
+    public IEnumerator DeadCoroutine(float fadeTime)
+    {
+        while(spriteRenderer.color.a > 0)
+        {
+            spriteRenderer.color = new Color(spriteRenderer.color.r, spriteRenderer.color.g, spriteRenderer.color.b, spriteRenderer.color.a - Time.deltaTime / fadeTime);
+            yield return null;
+        }
+
+        ObjectPool.instance.ReturnMonster(this.gameObject);
+        deadCoroutine = null;
     }
 
     public void ChangeState(MonsterState state)
