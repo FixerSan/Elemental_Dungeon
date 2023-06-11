@@ -18,10 +18,11 @@ public class DataBase : MonoBehaviour
     public Dictionary<int, SpeechBubbleData> speechBubbleDatas = new Dictionary<int, SpeechBubbleData>();
     public Dictionary<string, AudioClip> audioClips = new Dictionary<string, AudioClip>();
     public Dictionary<string, PortalData> portalSpots = new Dictionary<string, PortalData>();
-
+    public Dictionary<string, SoundProfileData> soundProfiles = new Dictionary<string, SoundProfileData>();
     public RuntimeAnimatorController[] animatorControllers;
 
     public List<PortalData> portalSpotList = new List<PortalData>();
+    public List<SoundProfileData> soundProfilelist = new List<SoundProfileData>();
     //데이터베이스까지 같이 기능
     #region 싱글톤 및 DontDestroy
     private static DataBase Instance;
@@ -89,11 +90,15 @@ public class DataBase : MonoBehaviour
         }
         foreach (var item in portalSpotList)
         {
-            portalSpots.Add(item.portal_name, item);    
+            portalSpots.Add(item.portal_name, item);
         }
         foreach (var item in datas.audioClipDatas)
         {
             audioClips.Add(item.name, Resources.Load<AudioClip>(item.path));
+        }
+        foreach (var item in soundProfilelist)
+        {
+            soundProfiles.Add(item.name, item);
         }
 
     }
@@ -161,6 +166,11 @@ public class DataBase : MonoBehaviour
     public PortalData GetPortalSpot(string portSpotName)
     {
         return portalSpots[portSpotName];
+    }
+
+    public SoundProfileData GetSoundProfileData(string SoundProfileDataName)
+    {
+        return soundProfiles[SoundProfileDataName];
     }
 }
 
@@ -366,19 +376,10 @@ public class SpeechBubbleData
     public string path;
     public float duration;
 }
-[System.Serializable]
-[CreateAssetMenu(menuName = "Containers/PortalData")]
-public class PortalData : ScriptableObject
-{
-    public string portal_name;
-    public string sceneName;
-    public Vector2 portPos;
-    public Direction direction;
-}
 
 public enum MonsterState
 {
-    Idle, Patrol, Hit, Attack, Follow, Dead , KnockBack
+    Idle, Patrol, Hit, Attack, Follow, Dead , KnockBack, Hold
 }
 
 public enum MonsterAttackType

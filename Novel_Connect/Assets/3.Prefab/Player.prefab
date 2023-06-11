@@ -56,7 +56,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.13, y: 0.03889937}
+  m_Size: {x: 0.16553402, y: 0.03889937}
   m_EdgeRadius: 0
 --- !u!1 &252231592667481431
 GameObject:
@@ -172,6 +172,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ceddd7b9e160c446b1b4793cca56b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startHealth: 100
+  healthBar: {fileID: 0}
   statuses:
     currentHp: 0
     maxHp: 0
@@ -199,7 +201,7 @@ MonoBehaviour:
     isCanJump: 1
     isSliding: 0
     checkGroundPos: {fileID: 252231593210128469}
-    checkGroundSize: {x: 1, y: 0.17}
+    checkGroundSize: {x: 0.64, y: 0.17}
     groundLayer:
       serializedVersion: 2
       m_Bits: 256
@@ -228,6 +230,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   anim: {fileID: 0}
   objectCollider: {fileID: 1301995839}
+  canHitDuration: 1
 --- !u!114 &9172141487382745822
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -260,7 +263,7 @@ Rigidbody2D:
   m_Material: {fileID: 6200000, guid: ce5722fc906deb4478700f551c9f6b3b, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!61 &252231592837550466
 BoxCollider2D:
@@ -328,7 +331,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -908184652706834838, guid: 77bfe661dd39ec24b9cf5e0f02794d6a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
@@ -350,7 +353,7 @@ Animator:
   m_GameObject: {fileID: 1111230839255462215}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: ccb8d06bdc3fad84892c5ba7cc8eee65, type: 2}
+  m_Controller: {fileID: 9100000, guid: 413d98d0b76240e46b76e4494005fd81, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

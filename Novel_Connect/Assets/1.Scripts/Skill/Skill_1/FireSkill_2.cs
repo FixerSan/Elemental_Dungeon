@@ -29,6 +29,6 @@ public class FireSkill_2 : MonoBehaviour
 
     public void Disable()
     {
-        SkillObjectPool.instance.ReturnSkill(this.gameObject, 1);
+        ObjectPool.instance.ReturnSkill(this.gameObject, 1);
     }
 }

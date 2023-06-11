@@ -62,8 +62,18 @@ public class ScreenEffect : MonoBehaviour
         yield return StartCoroutine(FadeOut(fadeTime));
     }
 
-    public void Shake(float time)
+    public void Shake(float force ,float time)
     {
-        CameraScript.instance.StartCoroutine(CameraScript.instance.Shake(time));
+        CameraScript.instance.StartCoroutine(CameraScript.instance.Shake(force,time));
+    }    
+    
+    public void ShakeHorizontal(float force ,float time)
+    {
+        CameraScript.instance.StartCoroutine(CameraScript.instance.ShakeHorizontal(force,time));
+    }    
+    
+    public void ShakeVertical(float force ,float time)
+    {
+        CameraScript.instance.StartCoroutine(CameraScript.instance.ShakeVertical(force,time));
     }
 }

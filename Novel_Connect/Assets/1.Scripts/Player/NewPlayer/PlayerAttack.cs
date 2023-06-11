@@ -9,9 +9,42 @@ public class PlayerAttack
     public LayerMask attackLayer;
     public float canAttackDuration;
 
+    public List<Skill<PlayerControllerV3>> skills = new List<Skill<PlayerControllerV3>>();
+
     public int attackCount;
 
     public Coroutine attackCoroutine;
+    public void AttackActor()
+    {
+        Collider2D[] collider2Ds_1 = Physics2D.OverlapBoxAll(attackPos.position, attackPos.localScale, 0, attackLayer);
+        foreach (Collider2D hitTarget in collider2Ds_1)
+        {
+            if (hitTarget.CompareTag("Player")) continue;
+            #region Actor
+            Actor hitActor = hitTarget.GetComponent<Actor>();
+            if (hitActor != null)
+            {
+                BattleSystem.instance.Calculate(player.elemental, hitActor.elemental, hitActor, player.statuses.force);
+                hitActor.SetTarget(player.gameObject);
+                switch (player.elemental)
+                {
+                    case Elemental.Fire:
+                        BattleSystem.instance.SetStatusEffect(hitActor, StatusEffect.Burns, 5);
+                        break;
+                }
+                continue;
+            }
+            #endregion
+            #region HitableObejct
+            HitableObejct hitableObejct = hitTarget.GetComponent<HitableObejct>();
+            if (hitableObejct)
+            {
+                hitableObejct.GetDamage(player.statuses.force);
+
+            }
+            #endregion
+        }
+    }
     public IEnumerator AttackCoroutine()
     {
         //공격 단계에 따른 다른 공격 기능
@@ -19,105 +52,27 @@ public class PlayerAttack
         {
             case 1: //1 타 공격 
                 yield return new WaitForSeconds(0.18f/1.5f);
-                Collider2D[] collider2Ds_1 = Physics2D.OverlapBoxAll(attackPos.position, attackPos.localScale, 0, attackLayer);
-                foreach (Collider2D hitTarget in collider2Ds_1)
-                {
-                    Actor hitActor = hitTarget.GetComponent<Actor>();
-                    if (hitActor != null)
-                    {
-                        BattleSystem.instance.Calculate(player.elemental, hitActor.elemental, hitActor, player.statuses.force);
-                        hitActor.SetTarget(player.gameObject);
-                        switch (player.elemental)
-                        {
-                            case Elemental.Fire:
-                                    BattleSystem.instance.SetStatusEffect(hitActor, StatusEffect.Burns, 5);
-                                break;
-                        }
-                    }
-                }
+                AttackActor();
                 yield return new WaitForSeconds(0.3f/1.5f);
                 break;
 
             case 2://1.5f 타 공격
                 yield return new WaitForSeconds(0.21f/1.5f);
-                Collider2D[] collider2Ds_2 = Physics2D.OverlapBoxAll(attackPos.position, attackPos.localScale, 0, attackLayer);
-                foreach (Collider2D hitTarget in collider2Ds_2)
-                {
-                    Actor hitActor = hitTarget.GetComponent<Actor>();
-                    if (hitActor != null)
-                    {
-                        BattleSystem.instance.Calculate(player.elemental, hitActor.elemental, hitActor, player.statuses.force);
-                        hitActor.SetTarget(player.gameObject);
-                        switch (player.elemental)
-                        {
-                            case Elemental.Fire:
-                                if (hitTarget.GetComponent<IStatusEffect>() != null)
-                                    BattleSystem.instance.SetStatusEffect(hitActor, StatusEffect.Burns, 5);
-                                break;
-                        }
-                    }
-                }
+                AttackActor();
                 yield return new WaitForSeconds(0.35f/1.5f);
-                foreach (Collider2D hitTarget in collider2Ds_2)
-                {
-                    Actor hitActor = hitTarget.GetComponent<Actor>();
-                    if (hitActor != null)
-                    {
-                        BattleSystem.instance.Calculate(player.elemental, hitActor.elemental, hitActor, player.statuses.force);
-                        hitActor.SetTarget(player.gameObject);
-                        switch (player.elemental)
-                        {
-                            case Elemental.Fire:
-                                if (hitTarget.GetComponent<IStatusEffect>() != null)
-                                    BattleSystem.instance.SetStatusEffect(hitActor, StatusEffect.Burns, 5);
-                                break;
-                        }
-                    }
-                }
+                AttackActor();
                 yield return new WaitForSeconds(0.35f/1.5f);
                 break;
 
             case 3: //3타 공격
                 yield return new WaitForSeconds(0.84f/1.5f);
-                Collider2D[] collider2Ds_3 = Physics2D.OverlapBoxAll(attackPos.position, attackPos.localScale, 0, attackLayer);
-                foreach (Collider2D hitTarget in collider2Ds_3)
-                {
-                    Actor hitActor = hitTarget.GetComponent<Actor>();
-                    if (hitActor != null)
-                    {
-                        BattleSystem.instance.Calculate(player.elemental, hitActor.elemental, hitActor, player.statuses.force);
-                        hitActor.SetTarget(player.gameObject);
-                        switch (player.elemental)
-                        {
-                            case Elemental.Fire:
-                                if (hitTarget.GetComponent<IStatusEffect>() != null)
-                                    BattleSystem.instance.SetStatusEffect(hitActor, StatusEffect.Burns, 5);
-                                break;
-                        }
-                    }
-                }
+                AttackActor();
                 yield return new WaitForSeconds(0.35f/1.5f);
                 break;
 
             case 4: //3타 공격
                 yield return new WaitForSeconds(0.84f/1.5f);
-                Collider2D[] collider2Ds_4 = Physics2D.OverlapBoxAll(attackPos.position, attackPos.localScale, 0, attackLayer);
-                foreach (Collider2D hitTarget in collider2Ds_4)
-                {
-                    Actor hitActor = hitTarget.GetComponent<Actor>();
-                    if (hitActor != null)
-                    {
-                        BattleSystem.instance.Calculate(player.elemental, hitActor.elemental, hitActor, player.statuses.force);
-                        hitActor.SetTarget(player.gameObject);
-                        switch (player.elemental)
-                        {
-                            case Elemental.Fire:
-                                if (hitTarget.GetComponent<IStatusEffect>() != null)
-                                    BattleSystem.instance.SetStatusEffect(hitActor, StatusEffect.Burns, 5);
-                                break;
-                        }
-                    }
-                }
+                AttackActor();
                 yield return new WaitForSeconds(0.66f/1.5f);
                 break;
         }
@@ -129,7 +84,6 @@ public class PlayerAttack
         attackCount = 0;
         player.anim.SetInteger("AttackCount", attackCount);
     }
-
     public void Setup(PlayerControllerV3 player_)
     {
         player = player_;

@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 61f7ece7ce8fa61489853a72d665fde9, type: 3}
   m_Name: Town_1
-  m_EditorClassIdentifier: Assembly-CSharp::PortalData
+  m_EditorClassIdentifier: 
   portal_name: Town_1
   sceneName: Guild
   portPos: {x: 23.68026, y: -4.461893}

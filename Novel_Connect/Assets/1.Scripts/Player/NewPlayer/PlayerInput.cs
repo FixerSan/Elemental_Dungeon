@@ -94,6 +94,8 @@ public class PlayerInput
     }
     public void CheckChangeElemental()
     {
+        if (!isCanControl)
+            return;
         if (Input.GetKeyDown(elementalKey))
         {
             if (player.elemental == Elemental.Default)
@@ -115,18 +117,18 @@ public class PlayerInput
     }
     public void CheckUseSkill()
     {
-        //    if (Input.GetKeyDown(KeyCode.Q))
-        //    {
-        //        if (currentSkills.Count > 0)
-        //            currentSkills[0].Use();
-        //    }
+        if (!isCanControl) return;
+        if (Input.GetKeyDown(Skill_1Key))
+        {
+            if (player.playerAttack.skills.Count > 0)
+                player.playerAttack.skills[0].Use();
+        }
 
-        //    if (Input.GetKeyDown(KeyCode.W))
-        //    {
-        //        if (currentSkills.Count > 1)
-        //            currentSkills[1].Use();
-        //    }
-
+        if (Input.GetKeyDown(Skill_2Key))
+        {
+            if (player.playerAttack.skills.Count > 1)
+                player.playerAttack.skills[1].Use();
+        }
     }
     public void Setup(PlayerControllerV3 player_)
     {

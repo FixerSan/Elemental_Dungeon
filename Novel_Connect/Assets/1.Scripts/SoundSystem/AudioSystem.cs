@@ -44,7 +44,25 @@ public class AudioSystem : MonoBehaviour
     public void PlayOneShot(string audioName)
     {
         AudioClip clip = DataBase.instance.GetAudioClip(audioName);
-        if (!clip) return; effectSource.clip = clip;
+        if (!clip) return; 
+        effectSource.clip = clip;
+        effectSource.volume = effectVolume;
+        effectSource.PlayOneShot(effectSource.clip);
+    }
+
+    public void PlayOneShot(AudioClip clip)
+    {
+        if (!clip) return;
+        effectSource.clip = clip;
+        effectSource.volume = effectVolume;
+        effectSource.PlayOneShot(effectSource.clip);
+    }
+
+    public void PlayOneShotSoundProfile(string soundProfileName)
+    {
+        AudioClip clip = DataBase.instance.GetSoundProfileData(soundProfileName).GetRandomClip();
+        if (!clip) return;
+        effectSource.clip = clip;
         effectSource.volume = effectVolume;
         effectSource.PlayOneShot(effectSource.clip);
     }

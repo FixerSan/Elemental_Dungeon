@@ -17,10 +17,31 @@ public class PlayerControllerV3 : Actor
     public Rigidbody2D rb;
     public Animator anim;
     public GameObject objectCollider;
+
+    public float canHitDuration;
+
+    bool isCanHit = true;
     public override void GetDamage(float damage)
     {
-
+        if (!isCanHit) return;
+        isCanHit = false;
+        StartCoroutine(CheckCanHit());
+        anim.SetTrigger("HitEffect");
+        if (state != PlayerState.Idle) return;
+        ChangeState(PlayerState.Hit);
     }
+
+    IEnumerator CheckCanHit()
+    {
+        yield return new WaitForSeconds(canHitDuration);
+        isCanHit = true;
+    }
+    public IEnumerator BackIdle(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ChangeState(PlayerState.Idle);
+    }
+
     public void ChangeState(PlayerState playerState_)
     {
         stateMachine.ChangeState(states[(int)playerState_]);
@@ -35,26 +56,33 @@ public class PlayerControllerV3 : Actor
     }
     public void ChangeElemental(Elemental elemental_)
     {
-        //ÀÀ ´Ù½Ã ¸¸µé¾î~
-        ////¿¤¸®¸àÅ»À» °¡Áö°í ÀÖ´ÂÁö Ã¼Å©
-        //elemental = elemental_;
-        //currentSkills = new List<Skill<PlayerController>>();
+        playerInput.isCanControl = false;
+        //¿¤¸®¸àÅ»À» °¡Áö°í ÀÖ´ÂÁö Ã¼Å©
+        elemental = elemental_;
+        playerAttack.skills = new List<Skill<PlayerControllerV3>>();
 
-        //switch (elemental)
-        //{
-        //    case Elemental.Fire:
-        //        foreach (var item in skills)
-        //        {
-        //            if (item.skillData.elemental == elemental)
-        //                currentSkills.Add(item);
-        //            //¿¤¸®¸àÅ» º¯°æ ÈÄ ¿¤¸®¸àÅ»¿¡ ¸Â´Â ¾Ö´Ï¸ÞÀÌ¼Ç ÄÁÆ®·Ñ·¯·Î º¯°æ
-        //            animator.runtimeAnimatorController = DataBase.instance.GetAnimatorController(1);
-        //        }
-        //        break;
-        //    case Elemental.Default:
-        //        animator.runtimeAnimatorController = DataBase.instance.GetAnimatorController(0);
-        //        break;
-        //}
+        switch (elemental)
+        {
+            case Elemental.Fire:
+                playerAttack.skills.Add(new PlayerSkill_Fire.Skill_1());
+                playerAttack.skills.Add(new PlayerSkill_Fire.Skill_2());
+                anim.runtimeAnimatorController = DataBase.instance.GetAnimatorController(1);
+                break;
+
+            case Elemental.Default:
+                playerAttack.skills.Clear();
+                anim.runtimeAnimatorController = DataBase.instance.GetAnimatorController(0);
+                break;
+        }
+
+        float curAnimTime = anim.GetCurrentAnimatorStateInfo(0).length;
+        StartCoroutine(SetCanMoveControl(true,curAnimTime));
+    }
+
+    public IEnumerator SetCanMoveControl(bool visible,float time)
+    {
+        yield return new WaitForSeconds(time);
+        playerInput.isCanControl = visible;
     }
     private void Awake()
     {
@@ -85,6 +113,7 @@ public class PlayerControllerV3 : Actor
         states.Add((int)PlayerState.Jump, new PlayerControllerV3States.Jump());
         states.Add((int)PlayerState.Fall, new PlayerControllerV3States.Fall());
         states.Add((int)PlayerState.SkillCasting, new PlayerControllerV3States.SkillCasting());
+        states.Add((int)PlayerState.Hit, new PlayerControllerV3States.Hit());
 
         stateMachine.Setup(this,states[(int)PlayerState.Idle]);
         playerData = new PlayerData(level);
@@ -109,9 +138,10 @@ public class PlayerControllerV3 : Actor
 
     public override void SetTarget(GameObject target)
     {
+
     }
 }
-public enum PlayerState { Idle, Attack, Walk, Jump, Fall, SkillCasting, Sit };
+public enum PlayerState { Idle, Attack, Walk, Jump, Fall, SkillCasting, Sit, Hit };
 
 
 public enum Direction { Left, Right };

@@ -48,7 +48,7 @@ public class FireSkill_1 : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(endTime - 1f);
-        SkillObjectPool.instance.ReturnSkill(this.gameObject, 0);
+        ObjectPool.instance.ReturnSkill(this.gameObject, 0);
     }
 
     private void OnDrawGizmos()

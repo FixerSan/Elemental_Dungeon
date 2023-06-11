@@ -8,6 +8,7 @@ TagManager:
   - FxTemporaire
   - Item
   - PlayerHit
+  - Ground
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - CollisionCheck
   - Item
   - NPC
-  - 
+  - Effect
   - 
   - 
   - 
@@ -45,9 +46,12 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Map
-    uniqueID: 2027581281
-    locked: 0
   - name: Player
     uniqueID: 2435335399
+    locked: 0
+  - name: Monster
+    uniqueID: 2919385045
+    locked: 0
+  - name: Map
+    uniqueID: 2027581281
     locked: 0

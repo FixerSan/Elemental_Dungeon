@@ -22,6 +22,7 @@ namespace PlayerControllerV3States
             entity.playerInput.CheckJump();
             entity.playerInput.CheckAttack();
             entity.playerInput.CheckChangeElemental();
+            entity.playerInput.CheckUseSkill();
         }
     }
 
@@ -134,6 +135,28 @@ namespace PlayerControllerV3States
         public override void UpdateState(PlayerControllerV3 entity)
         {
 
+        }
+    }
+
+    public class Hit : State<PlayerControllerV3>
+    {
+        public override void EnterState(PlayerControllerV3 entity)
+        {
+            entity.state = PlayerState.Hit;
+            entity.anim.SetBool("isHit", true);
+            entity.StartCoroutine(entity.BackIdle(0.5f));
+        }
+
+        public override void ExitState(PlayerControllerV3 entity)
+        {
+            entity.anim.SetBool("isHit", false);
+        }
+
+        public override void UpdateState(PlayerControllerV3 entity)
+        {
+            entity.playerInput.CheckMove();
+            entity.playerInput.CheckJump();
+            entity.playerInput.CheckAttack();
         }
     }
 }

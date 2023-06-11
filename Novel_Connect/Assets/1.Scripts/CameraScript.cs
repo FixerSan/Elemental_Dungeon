@@ -42,7 +42,9 @@ public class CameraScript : MonoBehaviour
     public bool isMove;
     public float moveSpeed;
     private Vector3 moveDirection;
-    public bool isShake;
+    bool isShake;
+    bool isShakeHorizontal;
+    bool isShakeVertical;
     public float shakeRange;
 
     private void FixedUpdate()
@@ -64,7 +66,15 @@ public class CameraScript : MonoBehaviour
         }
 
 
-        if(isShake)
+        CheckShake();
+
+        if (isMove)
+            Move(moveDirection);
+    }
+
+    void CheckShake()
+    {
+        if (isShake)
         {
             float cameraPosX = Random.value * shakeRange * 2 - shakeRange;
             float cameraPosY = Random.value * shakeRange * 2 - shakeRange;
@@ -75,8 +85,23 @@ public class CameraScript : MonoBehaviour
             transform.position = cameraPos;
         }
 
-        if (isMove)
-            Move(moveDirection);
+        if (isShakeHorizontal)
+        {
+            float cameraPosY = Random.value * shakeRange * 2 - shakeRange;
+
+            Vector3 cameraPos = transform.position;
+            cameraPos.y += cameraPosY;
+            transform.position = cameraPos;
+        }
+
+        if (isShakeVertical)
+        {
+            float cameraPosX = Random.value * shakeRange * 2 - shakeRange;
+
+            Vector3 cameraPos = transform.position;
+            cameraPos.x += cameraPosX;
+            transform.position = cameraPos;
+        }
     }
 
     public void Move(Vector3 direction)
@@ -84,11 +109,28 @@ public class CameraScript : MonoBehaviour
         transform.Translate(direction * Time.fixedDeltaTime * moveSpeed);
     }
 
-    public IEnumerator Shake(float time)
+    public IEnumerator Shake(float force,float time)
     {
+        shakeRange = force;
         isShake = true;
         yield return new WaitForSeconds(time);
         isShake = false;
+    }
+
+    public IEnumerator ShakeHorizontal(float force, float time)
+    {
+        shakeRange = force;
+        isShakeHorizontal = true;
+        yield return new WaitForSeconds(time);
+        isShakeHorizontal = false;
+    }
+    
+    public IEnumerator ShakeVertical(float force, float time)
+    {
+        shakeRange = force;
+        isShakeVertical = true;
+        yield return new WaitForSeconds(time);
+        isShakeVertical = false;
     }
 
     public IEnumerator MoveToPos(Vector3 pos , Vector3 direction)

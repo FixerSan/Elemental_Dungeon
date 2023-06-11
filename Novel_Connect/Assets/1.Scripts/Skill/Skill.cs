@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Skill<T> where T : class 
+public abstract class Skill<T> where T : class
 {
     public T entity;
     public SkillData skillData;
 
     public bool isCanUse = true;
     public float checkTime;
+
     public void Setup(T entity_,int index)
     {
         //SkillData skillData_ = DataBase.instance.GetSkillData(index);
@@ -25,7 +26,7 @@ public abstract class Skill<T> where T : class
 
         entity = entity_;
 
-        SkillObjectPool.instance.Init(index);
+        ObjectPool.instance.InitSkill(index);
     }
 
     public void LevelUp()

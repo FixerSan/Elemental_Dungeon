@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum AudioActionType
 {
-    Attack,
+    Effect,
     Button,
     BGM
 }

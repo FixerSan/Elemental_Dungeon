@@ -61,6 +61,13 @@ public class SceneManager : MonoBehaviour
     {
         if (sceneName == "Guild") return gameObject.AddComponent<GuildScene>();
         if (sceneName == "Town") return gameObject.AddComponent<TownScene>();
+        if (sceneName == "Cave") return gameObject.AddComponent<CaveScene>();
+        return null;
+    }
+
+    public BaseScene GetCurrentScene()
+    {
+        if (sceneDictionary.ContainsKey(currentSceneName)) return sceneDictionary[currentSceneName];
         return null;
     }
 
@@ -70,6 +77,7 @@ public class SceneManager : MonoBehaviour
         {
             if (sceneName == "Guild") Destroy(GetComponent<GuildScene>());
             if (sceneName == "Town") Destroy(GetComponent<TownScene>());
+            if (sceneName == "Cave") Destroy(GetComponent<CaveScene>());
             sceneDictionary.Remove(sceneName);
         }
     }

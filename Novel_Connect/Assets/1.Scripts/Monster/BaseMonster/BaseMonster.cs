@@ -10,14 +10,18 @@ public class BaseMonster : Actor
     public Direction direction;
     public MonsterState state;
 
-    protected State<BaseMonster>[] states;
+    protected Dictionary<int, State<BaseMonster>> states = new Dictionary<int, State<BaseMonster>>();
     protected SpriteRenderer spriteRenderer;
     protected Rigidbody2D rb;
     protected float checkTime;
+    protected float rStopDelay;
+    protected float rMoveDelay;
     protected GameObject target;
 
     public float moveDeley;
     public float stopDeley;
+
+    protected bool isHasHpBar = false;
 
     public override void Setup()
     {
@@ -26,7 +30,7 @@ public class BaseMonster : Actor
         rb = GetComponent<Rigidbody2D>();
 
         monsterData = DataBase.instance.GetMonsterData(10001);
-        states = new State<BaseMonster>[6];
+        states = new Dictionary<int, State<BaseMonster>>();
         statuses.Setup(this);
         statuses.maxHp = monsterData.monsterHP;
         statuses.currentHp = statuses.maxHp;
@@ -35,18 +39,26 @@ public class BaseMonster : Actor
 
         elemental = monsterData.elemental;
 
-        states[(int)MonsterState.Idle] = new BaseMonsterState.Idle();
-        states[(int)MonsterState.Patrol] = new BaseMonsterState.Patrol();
-        states[(int)MonsterState.Hit] = new BaseMonsterState.Hit();
-        states[(int)MonsterState.Follow] = new BaseMonsterState.Follow();
-        states[(int)MonsterState.Attack] = new BaseMonsterState.Attack();
-        states[(int)MonsterState.Dead] = new BaseMonsterState.Dead();
-
-        stateMachine.Setup(this, states[(int)MonsterState.Idle]);
+        states.Add((int)MonsterState.Idle, new BaseMonsterState.Idle());
+        states.Add((int)MonsterState.Patrol, new BaseMonsterState.Patrol());
+        states.Add((int)MonsterState.Hit, new BaseMonsterState.Hit());
+        states.Add((int)MonsterState.Follow, new BaseMonsterState.Follow());
+        states.Add((int)MonsterState.Attack, new BaseMonsterState.Attack());
+        states.Add((int)MonsterState.Dead, new BaseMonsterState.Dead());
 
         spriteRenderer.color = Color.white;
+
+        rStopDelay = Random.Range(stopDeley - 0.2f, stopDeley);
+        rMoveDelay = Random.Range(moveDeley - 0.2f, moveDeley);
+        checkTime = 0;
+
+        target = null;
+        isHasHpBar = false;
+        stateMachine.Setup(this, states[(int)MonsterState.Idle]);
+
+        direction = (Direction)Random.Range(0, 2);
     }
-    private void OnEnable()
+    public void OnEnable()
     {
         Setup();
     }
@@ -59,7 +71,7 @@ public class BaseMonster : Actor
     public virtual bool CheckCanMove()
     {
         checkTime += Time.deltaTime;
-        if (checkTime > stopDeley)
+        if (checkTime > rStopDelay)
         {
             checkTime = 0;
             return true;
@@ -69,7 +81,7 @@ public class BaseMonster : Actor
     public virtual bool CheckCanStop()
     {
         checkTime += Time.deltaTime;
-        if (checkTime > moveDeley)
+        if (checkTime > rMoveDelay)
         {
             checkTime = 0;
             return true;
@@ -148,6 +160,11 @@ public class BaseMonster : Actor
 
         statuses.currentHp -= damage;
         ObjectPool.instance.GetDamageText(damage, this.transform);
+        if(!isHasHpBar)
+        {
+            isHasHpBar = true;
+            ObjectPool.instance.GetHpBar(this);
+        }
         if(statuses.currentHp <= 0)
         {
             statuses.currentHp = 0;
@@ -161,7 +178,7 @@ public class BaseMonster : Actor
     public IEnumerator HitEffect()
     {
         rb.velocity = new Vector2(0, rb.velocity.y);
-        rb.AddForce(-LookAtPlayer() * Vector2.right * 2f, ForceMode2D.Impulse);
+        KnuckBack();
         rb.AddForce(Vector2.up * 3f, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.75f);
 
@@ -173,6 +190,11 @@ public class BaseMonster : Actor
             ChangeState(MonsterState.Follow);
 
         hitCoroutine = null;
+    }
+
+    public void KnuckBack()
+    {
+        rb.AddForce(-LookAtPlayer() * Vector2.right * 2f, ForceMode2D.Impulse);
     }
 
     public virtual void KnockBack(Direction direction, float xKnockBackforce, float yKnockBackforce)
@@ -214,4 +236,31 @@ public class BaseMonster : Actor
     {
         target = target_;
     }
+    public virtual void CheckAround()
+    {
+
+    }
+
+    public virtual void CheckCanAttack()
+    {
+
+    }
+
+    public virtual void Attack()
+    {
+
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (state == MonsterState.Dead) return;
+        if(collision.CompareTag("Player"))
+        {
+            Actor player = collision.GetComponent<Actor>();
+
+            BattleSystem.instance.Calculate(elemental,player.elemental,player,statuses.force);
+        }
+    }
 }
+
+

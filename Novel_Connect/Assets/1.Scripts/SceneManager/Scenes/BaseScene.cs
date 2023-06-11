@@ -19,4 +19,9 @@ public class BaseScene : MonoBehaviour
     {
 
     }
+
+    public virtual void TriggerEffect(int index)
+    {
+
+    }
 }

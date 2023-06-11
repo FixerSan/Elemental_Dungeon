@@ -535,6 +535,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7739083bd7c931f418f0fafc94058509, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageTextPrefab: {fileID: 6670750141338341846, guid: 33ff8dde92351754fadd5e3e66e61460, type: 3}
+  hpBarPrefab: {fileID: 6439942657581927289, guid: 6728a10e709c1ed41b4fbd293f174bff, type: 3}
 --- !u!1 &252777074365641414
 GameObject:
   m_ObjectHideFlags: 0
@@ -4213,7 +4215,7 @@ Canvas:
   m_GameObject: {fileID: 2811212743653465142}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 2811212745335980044}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
@@ -19750,7 +19752,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2811212744797498753
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26279,7 +26281,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2811212745335980047}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 307.5299, y: -103.62776, z: -63.85847}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -26313,7 +26315,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 9
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -26358,7 +26360,7 @@ MonoBehaviour:
   isMove: 0
   moveSpeed: 0
   isShake: 0
-  shakeRange: 0
+  shakeRange: 1
 --- !u!1 &2811212745357081102
 GameObject:
   m_ObjectHideFlags: 0
@@ -28873,8 +28875,10 @@ MonoBehaviour:
   - {fileID: 9100000, guid: 845ab786fd52ea94f9b8704ca534af3d, type: 2}
   - {fileID: 9100000, guid: 913d2193f5664574ab218bdabd84bd64, type: 2}
   portalSpotList:
-  - {fileID: 11400000, guid: 7e02600fd644236458be9bfaea337407, type: 2}
-  - {fileID: 11400000, guid: 69f0adf10bdbef94ba110475d8ce94e0, type: 2}
+  - {fileID: 11400000, guid: 3038b9e777ddda447b6e9433e114f18d, type: 2}
+  - {fileID: 11400000, guid: 79fa7f413c987da478ef186bc547bd80, type: 2}
+  soundProfilelist:
+  - {fileID: 11400000, guid: 7b3ea56a45de41a4fabfc1926dadd946, type: 2}
 --- !u!1 &2811212745562170543
 GameObject:
   m_ObjectHideFlags: 0
@@ -30649,7 +30653,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b2abb32a6811f4c93f7d121c4f2e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testMonsterPrefab: {fileID: 0}
+  baseMonsterPrefab: {fileID: 6787089466079359444, guid: 57cb3a19d2fdffb459496f1f4fc7dba6, type: 3}
 --- !u!1 &8354929086552932962
 GameObject:
   m_ObjectHideFlags: 0
