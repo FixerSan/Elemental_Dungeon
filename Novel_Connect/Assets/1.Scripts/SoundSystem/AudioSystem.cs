@@ -66,6 +66,16 @@ public class AudioSystem : MonoBehaviour
         effectSource.volume = effectVolume;
         effectSource.PlayOneShot(effectSource.clip);
     }
+
+    public void PlayOneShotSoundProfile(string soundProfileName,int index)
+    {
+        AudioClip clip = DataBase.instance.GetSoundProfileData(soundProfileName).GetClipIndex(index);
+        if (!clip) return;
+        effectSource.clip = clip;
+        effectSource.volume = effectVolume;
+        effectSource.PlayOneShot(effectSource.clip);
+    }
+
     //버튼과 같은 인터렉션음 호출
     public void PlayOneShotButton(string audioName)
     {

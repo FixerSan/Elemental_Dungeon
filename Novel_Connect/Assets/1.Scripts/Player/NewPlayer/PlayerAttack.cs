@@ -17,6 +17,7 @@ public class PlayerAttack
     public void AttackActor()
     {
         Collider2D[] collider2Ds_1 = Physics2D.OverlapBoxAll(attackPos.position, attackPos.localScale, 0, attackLayer);
+        AudioSystem.Instance.PlayOneShotSoundProfile("AttackClips", attackCount - 1);
         foreach (Collider2D hitTarget in collider2Ds_1)
         {
             if (hitTarget.CompareTag("Player")) continue;
@@ -24,8 +25,9 @@ public class PlayerAttack
             Actor hitActor = hitTarget.GetComponent<Actor>();
             if (hitActor != null)
             {
-                BattleSystem.instance.Calculate(player.elemental, hitActor.elemental, hitActor, player.statuses.force);
+                
                 hitActor.SetTarget(player.gameObject);
+                BattleSystem.instance.HitCalculate(player.elemental, hitActor.elemental, hitActor, player.statuses.force);
                 switch (player.elemental)
                 {
                     case Elemental.Fire:
@@ -52,6 +54,7 @@ public class PlayerAttack
         {
             case 1: //1 Å¸ °ø°Ý 
                 yield return new WaitForSeconds(0.18f/1.5f);
+
                 AttackActor();
                 yield return new WaitForSeconds(0.3f/1.5f);
                 break;

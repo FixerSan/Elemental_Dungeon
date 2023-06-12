@@ -81,4 +81,9 @@ public class Centipede : Actor
         if (collision.CompareTag("Player"))
             Attack(collision);
     }
+
+    public override void Hit(float damage)
+    {
+        throw new System.NotImplementedException();
+    }
 }

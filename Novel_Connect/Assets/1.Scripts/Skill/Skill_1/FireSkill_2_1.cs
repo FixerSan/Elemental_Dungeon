@@ -46,7 +46,8 @@ public class FireSkill_2_1 : MonoBehaviour
         {
             BaseMonster monster = collision.GetComponent<BaseMonster>();
             Actor actor = monster.GetComponent<Actor>();
-            BattleSystem.instance.Calculate(Elemental.Fire, actor.elemental, actor, actor.statuses.force);
+            actor.SetTarget(player.gameObject);
+            BattleSystem.instance.HitCalculate(Elemental.Fire, actor.elemental, actor, player.statuses.force);
             BattleSystem.instance.SetStatusEffect(actor, StatusEffect.Burns, burnsDuration);
             monster.KnockBack(direction, knuckBackForce, 0);
 
@@ -56,6 +57,7 @@ public class FireSkill_2_1 : MonoBehaviour
     private void OnEnable()
     {
         Setup();
+        AudioSystem.Instance.PlayOneShot(Resources.Load<AudioClip>("AudioClips/FireSkills/Fire2"));
     }
 }
 

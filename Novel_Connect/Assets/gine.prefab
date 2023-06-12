@@ -980,7 +980,7 @@ MonoBehaviour:
   canDistance: 3
   centipede: {fileID: 2025025783}
   rotationSpeed: 25
-  moveSpeed: 20
+  moveSpeed: 16
   golePos: {x: 0, y: 0, z: 0}
   isCanMove: 1
   isUp: 1
@@ -1200,8 +1200,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 401c89eb0ff12ff4fa3c25a4f585bfc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 100
-  healthBar: {fileID: 0}
   statuses:
     currentHp: 0
     maxHp: 0
@@ -1210,6 +1208,7 @@ MonoBehaviour:
     entity: {fileID: 0}
     isburn: 0
     burnTime: 0
+  hpBarPos: {fileID: 0}
   elemental: 7
   movePos: {fileID: 1979751491}
   upPoses:

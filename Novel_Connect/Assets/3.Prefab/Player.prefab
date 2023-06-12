@@ -172,8 +172,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ceddd7b9e160c446b1b4793cca56b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startHealth: 100
-  healthBar: {fileID: 0}
   statuses:
     currentHp: 0
     maxHp: 0
@@ -182,7 +180,8 @@ MonoBehaviour:
     entity: {fileID: 0}
     isburn: 0
     burnTime: 0
-  elemental: 0
+  hpBarPos: {fileID: 0}
+  elemental: 7
   level: 1
   playerData:
     index: 0
@@ -226,7 +225,7 @@ MonoBehaviour:
     canAttackDuration: 1
     attackCount: 0
   state: 0
-  direction: 0
+  direction: 1
   rb: {fileID: 0}
   anim: {fileID: 0}
   objectCollider: {fileID: 1301995839}
@@ -353,7 +352,7 @@ Animator:
   m_GameObject: {fileID: 1111230839255462215}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 413d98d0b76240e46b76e4494005fd81, type: 2}
+  m_Controller: {fileID: 9100000, guid: ccb8d06bdc3fad84892c5ba7cc8eee65, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

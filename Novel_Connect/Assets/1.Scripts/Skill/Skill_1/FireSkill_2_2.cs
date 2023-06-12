@@ -20,8 +20,12 @@ public class FireSkill_2_2 : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        //if (collision.CompareTag("Monster"))
-            //BattleSystem.instance.SetStatusEffect(collision.GetComponent<IStatusEffect>(), StatusEffect.Burns, burnsDuration, PlayerController.instance.playerData.force / 5);
+        if (collision.CompareTag("Monster"))
+        {
+            Actor hiter = collision.GetComponent<Actor>();
+            hiter.SetTarget(FindObjectOfType<PlayerControllerV3>().gameObject);
+            BattleSystem.instance.SetStatusEffect(hiter, StatusEffect.Burns, 5);
+        }
     }
 
     private void OnEnable()

@@ -37,14 +37,16 @@ public class FireSkill_1 : MonoBehaviour
         Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(breathPos.position, breathSize, 0, attackLayer);
         foreach (var item in collider2Ds)
         {
-            if (item.CompareTag("Player"))
-                break;
-            Actor hiter = item.GetComponent<Actor>();
-            if (hiter != null)
+            if (item.CompareTag("Monster"))
             {
-                BattleSystem.instance.Calculate(Elemental.Fire, hiter.elemental, hiter, breathDamage);
-                if (item.GetComponent<Actor>() != null)
-                    BattleSystem.instance.SetStatusEffect(hiter, StatusEffect.Burns, burnsDuration);
+                Actor hiter = item.GetComponent<Actor>();
+                if (hiter != null)
+                {
+                    hiter.SetTarget(player.gameObject);
+                    BattleSystem.instance.HitCalculate(Elemental.Fire, hiter.elemental, hiter, breathDamage);
+                    if (item.GetComponent<Actor>() != null)
+                        BattleSystem.instance.SetStatusEffect(hiter, StatusEffect.Burns, burnsDuration);
+                }
             }
         }
         yield return new WaitForSeconds(endTime - 1f);

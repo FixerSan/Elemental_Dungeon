@@ -41,4 +41,9 @@ public class FollowFoward : HitableObejct
 
         targetPos = slowPos;
     }
+
+    public override void Hit(float damage)
+    {
+        throw new System.NotImplementedException();
+    }
 }

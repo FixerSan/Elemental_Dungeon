@@ -24,7 +24,7 @@ public class Bat : BaseMonster
         statuses.currentHp = statuses.maxHp;
         statuses.speed = monsterData.monsterSpeed;
         statuses.force = monsterData.monsterAttackForce;
-
+        statuses.Setup(this);
         states = new Dictionary<int, State<BaseMonster>>();
 
         states.Add((int)MonsterState.Hold, new BaseMonsterState.Hold());
@@ -34,6 +34,7 @@ public class Bat : BaseMonster
         states.Add((int)MonsterState.Dead, new BaseMonsterState.Dead());
 
         stateMachine.Setup(this, states[(int)MonsterState.Hold]);
+
     }
 
     public override void CheckAround()
@@ -54,6 +55,7 @@ public class Bat : BaseMonster
     {
         LookAtPlayer();
         animator.SetBool("isDetect", true);
+        AudioSystem.Instance.PlayOneShotSoundProfile("Bat_Hit");
         yield return new WaitForSeconds(0.2f);
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length - 0.2f);
 
@@ -94,6 +96,18 @@ public class Bat : BaseMonster
         isCanAttack = true;
     }
 
+    public override void Hit(float damage)
+    {
+        GetDamage(damage);
+        if (statuses.currentHp <= 0)
+        {
+            statuses.currentHp = 0;
+            ChangeState(MonsterState.Dead);
+            return;
+        }
+        ChangeState(MonsterState.Hit);
+    }
+
     public override void GetDamage(float damage)
     {
         if (statuses.currentHp <= 0) return;
@@ -113,8 +127,6 @@ public class Bat : BaseMonster
             return;
         }
         AudioSystem.Instance.PlayOneShotSoundProfile("Bat_Hit");
-        if (state != MonsterState.Follow) return;
-        ChangeState(MonsterState.Hit);
     }
 
     private void OnDrawGizmos()

@@ -101,5 +101,10 @@ public class RotateToTarget : HitableObejct
         else
             direction.y = cDIr.y * (-1);
     }
+
+    public override void Hit(float damage)
+    {
+        throw new System.NotImplementedException();
+    }
 }
 

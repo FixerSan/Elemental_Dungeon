@@ -11,8 +11,6 @@ public class Statuses
 
     public Actor entity;
 
-    public bool isburn;
-    public float burnTime;
     
     public void Setup(Actor entity_)
     {
@@ -24,13 +22,19 @@ public class Statuses
         burnTime = 0;
     }
 
+    public void Update()
+    {
+        CheckBurn();
+    }
+    public bool isburn;
+    public float burnTime;
+
     public Coroutine burnCoroutine;
 
     public void SetBurn(float time)
     {
-        if(burnCoroutine != null)
+        if(burnCoroutine == null)
         {
-            entity.StopCoroutine(burnCoroutine);
             burnCoroutine = entity.StartCoroutine(Burn());
         }
 

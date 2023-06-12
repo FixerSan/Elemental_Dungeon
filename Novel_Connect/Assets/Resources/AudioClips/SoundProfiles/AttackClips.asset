@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e94b34ef62f039444bc490f4d8c01f7b, type: 3}
+  m_Name: AttackClips
+  m_EditorClassIdentifier: 
+  audioType: 0
+  randomClipList:
+  - {fileID: 8300000, guid: eac08474e68df374a9f201e22c362796, type: 3}
+  - {fileID: 8300000, guid: 85bcda116ba17b14fbab6665f14942c5, type: 3}
+  - {fileID: 8300000, guid: e86eac12e8affde4b96a21b831b632ec, type: 3}
+  - {fileID: 8300000, guid: 5bd5235f260cd5c4f953e2144c97eb46, type: 3}

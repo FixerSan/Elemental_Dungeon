@@ -8,8 +8,10 @@ public class CaveScene : BaseScene
 
     protected override void Setup()
     {
-        centipede.gameObject.SetActive(false);
+        //centipede.gameObject.SetActive(false);
         ObjectPool.instance.InitHpBar(5);
+
+        checkAudioDuration = audioDuration;
     }
 
     public override void TriggerEffect(int index)
@@ -22,4 +24,26 @@ public class CaveScene : BaseScene
                 break;
         }
     }
+
+
+    float audioDuration = 5;
+    float checkAudioDuration;
+    float checkTime;
+    private void FixedUpdate()
+    {
+        CheckEffectSound();
+    }
+
+    void CheckEffectSound()
+    {
+        checkTime += Time.deltaTime;
+        if (checkTime > checkAudioDuration)
+        {
+            checkTime = 0;
+            checkAudioDuration = Random.Range(audioDuration + 1, audioDuration + 1);
+            AudioSystem.Instance.PlayOneShotSoundProfile("Water_CaveDrip");
+        }
+    }
+
+
 }

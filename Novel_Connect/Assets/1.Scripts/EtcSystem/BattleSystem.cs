@@ -85,8 +85,71 @@ public class BattleSystem : MonoBehaviour
         hiter.GetDamage(calculatedDamage);
     }
 
+    public void HitCalculate(Elemental attackerElemental, Elemental hiterElemental, Actor hiter, float damage)
+    {
+        float calculatedDamage = damage;
+
+        // 속성에 따라 데미지 계산
+        switch (hiterElemental)
+        {
+            case Elemental.Water:
+                if (attackerElemental == Elemental.Wind || attackerElemental == Elemental.Glass || attackerElemental == Elemental.Electric)
+                {
+                    calculatedDamage *= amageMultiplier;
+                }
+                break;
+            case Elemental.Wind:
+                if (attackerElemental == Elemental.Glass || attackerElemental == Elemental.Ice)
+                {
+                    calculatedDamage *= amageMultiplier;
+                }
+                break;
+            case Elemental.Rock:
+                if (attackerElemental == Elemental.Water || attackerElemental == Elemental.Poison || attackerElemental == Elemental.Electric)
+                {
+                    calculatedDamage *= amageMultiplier;
+                }
+                break;
+            case Elemental.Glass:
+                if (attackerElemental == Elemental.Wind || attackerElemental == Elemental.Ice || attackerElemental == Elemental.Poison)
+                {
+                    calculatedDamage *= amageMultiplier;
+                }
+                break;
+            case Elemental.Electric:
+                if (attackerElemental == Elemental.Wind || attackerElemental == Elemental.Ice || attackerElemental == Elemental.Poison)
+                {
+                    calculatedDamage *= amageMultiplier;
+                }
+                break;
+            case Elemental.Ice:
+                if (attackerElemental == Elemental.Rock)
+                {
+                    calculatedDamage *= amageMultiplier;
+                }
+                break;
+            case Elemental.Poison:
+                if (attackerElemental == Elemental.Rock)
+                {
+                    calculatedDamage *= amageMultiplier;
+                }
+                break;
+            default:
+                break;
+        }
+
+        // 데미지 적용
+        hiter.Hit(calculatedDamage);
+    }
+
+
     public void SetStatusEffect(Actor hiter,StatusEffect status, float duration)
     {
-        //hiter.SetStatusEffect(status, duration, damage);
+        switch(status)
+        {
+            case StatusEffect.Burns:
+                hiter.statuses.SetBurn(duration);
+                break;
+        }
     }
 }

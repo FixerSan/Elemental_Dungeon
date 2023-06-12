@@ -29,7 +29,7 @@ public class BaseMonster : Actor
         spriteRenderer = GetComponent<SpriteRenderer>();
         rb = GetComponent<Rigidbody2D>();
 
-        monsterData = DataBase.instance.GetMonsterData(10001);
+        //monsterData = DataBase.instance.GetMonsterData(10001);
         states = new Dictionary<int, State<BaseMonster>>();
         statuses.Setup(this);
         statuses.maxHp = monsterData.monsterHP;
@@ -66,6 +66,7 @@ public class BaseMonster : Actor
     public void FixedUpdate()
     {
         stateMachine.UpdateState();
+        statuses.Update();
     }
 
     public virtual bool CheckCanMove()
@@ -153,6 +154,17 @@ public class BaseMonster : Actor
         LookAtPlayer();
         StartCoroutine(Follow());
     }
+    public override void Hit(float damage)
+    {
+        GetDamage(damage);
+        if (statuses.currentHp <= 0)
+        {
+            statuses.currentHp = 0;
+            ChangeState(MonsterState.Dead);
+            return;
+        }
+        ChangeState(MonsterState.Hit);
+    }
 
     public override void GetDamage(float damage)
     {
@@ -165,13 +177,13 @@ public class BaseMonster : Actor
             isHasHpBar = true;
             ObjectPool.instance.GetHpBar(this);
         }
-        if(statuses.currentHp <= 0)
+
+        if (statuses.currentHp <= 0)
         {
             statuses.currentHp = 0;
             ChangeState(MonsterState.Dead);
             return;
         }
-        ChangeState(MonsterState.Hit);
     }
 
     public Coroutine hitCoroutine;
@@ -261,6 +273,7 @@ public class BaseMonster : Actor
             BattleSystem.instance.Calculate(elemental,player.elemental,player,statuses.force);
         }
     }
+
 }
 
 

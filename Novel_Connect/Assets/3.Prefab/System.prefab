@@ -537,6 +537,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageTextPrefab: {fileID: 6670750141338341846, guid: 33ff8dde92351754fadd5e3e66e61460, type: 3}
   hpBarPrefab: {fileID: 6439942657581927289, guid: 6728a10e709c1ed41b4fbd293f174bff, type: 3}
+  fireSkill_1: {fileID: 4355045764145714419, guid: 577cafa8b07137741a32f04f49484c66, type: 3}
+  fireSkill_2: {fileID: 3166295816537748360, guid: 0932690ce542ea14b91810842b355ba8, type: 3}
 --- !u!1 &252777074365641414
 GameObject:
   m_ObjectHideFlags: 0
@@ -26359,7 +26361,6 @@ MonoBehaviour:
   cameraState: 0
   isMove: 0
   moveSpeed: 0
-  isShake: 0
   shakeRange: 1
 --- !u!1 &2811212745357081102
 GameObject:
@@ -28872,13 +28873,15 @@ MonoBehaviour:
     speechBubbleDatas: []
     audioClipDatas: []
   animatorControllers:
-  - {fileID: 9100000, guid: 845ab786fd52ea94f9b8704ca534af3d, type: 2}
-  - {fileID: 9100000, guid: 913d2193f5664574ab218bdabd84bd64, type: 2}
+  - {fileID: 9100000, guid: ccb8d06bdc3fad84892c5ba7cc8eee65, type: 2}
+  - {fileID: 9100000, guid: 413d98d0b76240e46b76e4494005fd81, type: 2}
   portalSpotList:
   - {fileID: 11400000, guid: 3038b9e777ddda447b6e9433e114f18d, type: 2}
   - {fileID: 11400000, guid: 79fa7f413c987da478ef186bc547bd80, type: 2}
   soundProfilelist:
   - {fileID: 11400000, guid: 7b3ea56a45de41a4fabfc1926dadd946, type: 2}
+  - {fileID: 11400000, guid: cd061e521ee61694aa1110c3db524104, type: 2}
+  - {fileID: 11400000, guid: 85317abe53f7cfb4c96fbe7206a98a67, type: 2}
 --- !u!1 &2811212745562170543
 GameObject:
   m_ObjectHideFlags: 0

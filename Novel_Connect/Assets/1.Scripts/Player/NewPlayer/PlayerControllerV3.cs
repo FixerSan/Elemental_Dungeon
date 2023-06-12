@@ -140,6 +140,11 @@ public class PlayerControllerV3 : Actor
     {
 
     }
+
+    public override void Hit(float damage)
+    {
+        throw new System.NotImplementedException();
+    }
 }
 public enum PlayerState { Idle, Attack, Walk, Jump, Fall, SkillCasting, Sit, Hit };
 

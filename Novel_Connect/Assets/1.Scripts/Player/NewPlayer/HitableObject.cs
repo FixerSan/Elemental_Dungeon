@@ -5,4 +5,6 @@ using UnityEngine;
 public abstract class HitableObejct : MonoBehaviour
 {
     public abstract void GetDamage(float damage);
+
+    public abstract void Hit(float damage);
 }
