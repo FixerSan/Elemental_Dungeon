@@ -61,11 +61,14 @@ public class PlayerMovement
     {
         player.rb.velocity = new Vector2(0, player.rb.velocity.y);
     }
+    public Coroutine jumpCoroutine;
     public IEnumerator Jump(float jumpForce)
     {
+        player.rb.velocity = Vector2.zero;
         player.rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.1f);
         player.playerMovement.isCanJump = true;
+        jumpCoroutine = null;
     }
     public IEnumerator DownJump()
     {

@@ -1156,7 +1156,7 @@
     "force": 5,
     "walkSpeed": 10,
     "runSpeed": 0,
-    "jumpForce": 8,
+    "jumpForce": 9,
     "jumpMoveForce": 100,
     "attackMoveForce": 3
    }

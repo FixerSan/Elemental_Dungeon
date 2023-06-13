@@ -94,6 +94,7 @@ namespace BaseMonsterState
         {
             entity.Move();
             entity.CheckCanAttack();
+            entity.CheckJump();
         }
 
         public override void ExitState(BaseMonster entity)

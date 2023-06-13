@@ -69,6 +69,7 @@ public class PlayerInput
             player.playerMovement.Move();
         }
     }
+
     public void CheckJump()
     {
         if (!isCanControl)
@@ -85,11 +86,11 @@ public class PlayerInput
             }
         }
         //그라운드 상태이면서 점프가 가능할 때
-        if (player.playerMovement.isGround && player.playerMovement.isCanJump &&Input.GetKey(jumpKey))
+        if (player.playerMovement.isGround && player.playerMovement.isCanJump &&Input.GetKey(jumpKey) && player.playerMovement.jumpCoroutine == null)
         {
             //점프 불가능 상태 및 점프 실행
             player.playerMovement.isCanJump = false;
-            player.StartCoroutine(player.playerMovement.Jump(player.playerData.jumpForce));
+            player.playerMovement.jumpCoroutine = player.StartCoroutine(player.playerMovement.Jump(player.playerData.jumpForce));
         }
     }
     public void CheckChangeElemental()

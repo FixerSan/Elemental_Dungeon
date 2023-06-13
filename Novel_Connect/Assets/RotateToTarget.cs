@@ -5,6 +5,7 @@ using UnityEngine;
 public class RotateToTarget : HitableObejct
 {
     public Transform target;
+    public Transform nextTarget;
     public float canDistance;
     public Centipede centipede;
     public float rotationSpeed;
@@ -15,41 +16,36 @@ public class RotateToTarget : HitableObejct
 
     public bool isCanMove =  true;
     public bool isUp = true;
-    bool isMoving = false;
+
+    public float moveDelay;
     public LineRendererSystem line => FindObjectOfType<LineRendererSystem>();
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if(isCanMove)
-        {
-            isCanMove = false;
-            centipede.SetTarget(null);
-            direction = target.position - transform.position;
-            dsdsd(direction);
-        }
-
-   
-        Move();
+        Move(); 
     }
 
     public void Move()
     {
+        if (!target || !isCanMove) return;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
 
         if(Vector2.Distance(transform.position,target.position) > 0.5f)
+        {
             transform.position = new Vector3(transform.position.x+direction.x * moveSpeed * Time.deltaTime, transform.position.y + direction.y * moveSpeed* Time.deltaTime);
+        }
         else
         {
-            isCanMove = true;
+            StartCoroutine(MoveDelay(moveDelay));
         }
     }
 
     private void OnEnable()
     {
-        StopAllCoroutines();
         isCanMove = false;
+        StopAllCoroutines();
         StartCoroutine(MoveDelay(2));
     }
 
@@ -58,16 +54,23 @@ public class RotateToTarget : HitableObejct
         direction = Vector2.zero;
     }
 
-    
     IEnumerator MoveDelay(float delay)
     {
+        isCanMove = false;
         yield return new WaitForSeconds(delay);
+        centipede.SetTarget(null);
+        line.Play(gameObject.transform.position, nextTarget.position);
+        yield return new WaitForSeconds(delay);
+        line.Stop();
+        target = nextTarget;
+        direction = target.position - transform.position;
+        dsdsd(direction);
         isCanMove = true;
     }
 
     public void ChangeTarget(Transform target_)
     {
-        target = target_;
+        nextTarget = target_;
         isUp = !isUp;
     }
 

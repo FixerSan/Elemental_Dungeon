@@ -79,6 +79,23 @@ public class BaseMonster : Actor
         }
         return false;
     }
+
+    public void CheckJump()
+    {
+        if(rb.velocity.x == 0)
+        {
+            jumpCoroutine = StartCoroutine(JumpCoroutine());
+        }
+    }
+
+    public Coroutine jumpCoroutine;
+    public virtual IEnumerator JumpCoroutine()
+    {
+        rb.AddForce(Vector2.up * 9 , ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.1f);
+        jumpCoroutine = null;
+    }
+
     public virtual bool CheckCanStop()
     {
         checkTime += Time.deltaTime;
