@@ -10,6 +10,7 @@ TagManager:
   - PlayerHit
   - Ground
   - Target
+  - BrokeTrigger
   layers:
   - Default
   - TransparentFX

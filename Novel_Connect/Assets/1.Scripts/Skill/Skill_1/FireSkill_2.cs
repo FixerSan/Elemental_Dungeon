@@ -13,6 +13,8 @@ public class FireSkill_2 : MonoBehaviour
 
     void Setup()
     {
+        AudioSystem.Instance.PlayOneShotSoundProfile("Main_Character_Transform_Fire", 2);
+
         transform.eulerAngles = player.transform.eulerAngles;
         transform.position = player.transform.position;
 

@@ -12,6 +12,33 @@ public class Bat : BaseMonster
     public float attackDelay;
     private bool isCanAttack = true;
 
+    float soundCheckTime;
+
+    private void Update()
+    {
+        CheckMoveSoundDuration();
+    }
+
+    public void CheckMoveSoundDuration()
+    {
+        if (state == MonsterState.Follow)
+        {
+            if (soundCheckTime == 0)
+            {
+                AudioSystem.Instance.PlayOneShotSoundProfile("Bat_Move");
+            }
+            soundCheckTime += Time.deltaTime;
+            if (soundCheckTime > 0.57f)
+            {
+                soundCheckTime = 0;
+            }
+        }
+
+        else if (soundCheckTime != 0)
+        {
+            soundCheckTime = 0;
+        }
+    }
 
     public override void Setup()
     {
@@ -55,7 +82,6 @@ public class Bat : BaseMonster
     {
         LookAtPlayer();
         animator.SetBool("isDetect", true);
-        AudioSystem.Instance.PlayOneShotSoundProfile("Bat_Hit");
         yield return new WaitForSeconds(0.2f);
         yield return new WaitForSeconds(animator.GetCurrentAnimatorStateInfo(0).length - 0.2f);
 
@@ -77,6 +103,7 @@ public class Bat : BaseMonster
         Stop();
         LookAtPlayer();
         Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(attackPos.position, attackSize, 0, checkAroundLayer);
+        AudioSystem.Instance.PlayOneShot(Resources.Load<AudioClip>("AudioClips/Monster/Bat/Bat_Attack/Bat_Attack_1"));
         foreach (var coll in collider2Ds)
         {
             if (coll.CompareTag("Player"))
@@ -123,10 +150,10 @@ public class Bat : BaseMonster
         {
             statuses.currentHp = 0;
             ChangeState(MonsterState.Dead);
-            AudioSystem.Instance.PlayOneShotSoundProfile("Bat_Hit");
+            AudioSystem.Instance.PlayOneShot(Resources.Load<AudioClip>("AudioClips/Monster/Bat/Bat_Taking_Damage/Bat_Taking_Damage_1"));
             return;
         }
-        AudioSystem.Instance.PlayOneShotSoundProfile("Bat_Hit");
+        AudioSystem.Instance.PlayOneShot(Resources.Load<AudioClip>("AudioClips/Monster/Bat/Bat_Taking_Damage/Bat_Taking_Damage_1"));
     }
 
     private void OnDrawGizmos()

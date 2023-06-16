@@ -62,7 +62,7 @@ public class BaseMonster : Actor
         Setup();
     }
 
-    public void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         stateMachine.UpdateState();
         statuses.Update();

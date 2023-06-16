@@ -19,7 +19,6 @@ public class PlayerAttack
     public void AttackActor()
     {
         Collider2D[] collider2Ds_1 = Physics2D.OverlapBoxAll(attackPos.position, attackPos.localScale, 0, attackLayer);
-        AudioSystem.Instance.PlayOneShotSoundProfile("AttackClips", attackCount - 1);
         foreach (Collider2D hitTarget in collider2Ds_1)
         {
             if (hitTarget.CompareTag("Player")) continue;
@@ -55,13 +54,14 @@ public class PlayerAttack
         switch (attackCount)
         {
             case 1: //1 타 공격 
+                AudioSystem.Instance.PlayOneShotSoundProfile("Main_Character_Attack", attackCount - 1);
                 yield return new WaitForSeconds(0.18f/1.5f);
-
                 AttackActor();
                 yield return new WaitForSeconds(0.3f/1.5f);
                 break;
 
             case 2://1.5f 타 공격
+                AudioSystem.Instance.PlayOneShotSoundProfile("Main_Character_Attack", attackCount - 1);
                 yield return new WaitForSeconds(0.21f/1.5f);
                 AttackActor();
                 yield return new WaitForSeconds(0.35f/1.5f);
@@ -70,12 +70,14 @@ public class PlayerAttack
                 break;
 
             case 3: //3타 공격
+                AudioSystem.Instance.PlayOneShotSoundProfile("Main_Character_Attack", attackCount - 1);
                 yield return new WaitForSeconds(0.84f/1.5f);
                 AttackActor();
                 yield return new WaitForSeconds(0.35f/1.5f);
                 break;
 
             case 4: //3타 공격
+                AudioSystem.Instance.PlayOneShotSoundProfile("Main_Character_Attack", attackCount - 1);
                 yield return new WaitForSeconds(0.84f/1.5f);
                 AttackActor();
                 yield return new WaitForSeconds(0.66f/1.5f);

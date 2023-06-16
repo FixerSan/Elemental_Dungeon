@@ -19,6 +19,7 @@ public class IceSpear : MonoBehaviour
     private void Awake()
     {
         lr.enabled = false;
+        boxCollder.enabled = false;
     }
 
     public void SkillSetup(IceBosSkill_1 parent_)
@@ -78,6 +79,7 @@ public class IceSpear : MonoBehaviour
 
     public void SkillStart(Vector2 direction)
     {
+        boxCollder.enabled = true;
         rb.AddForce(direction * addForcePower, ForceMode2D.Impulse);
         StartCoroutine(ReturnDelay(returnDelayTime));
     }

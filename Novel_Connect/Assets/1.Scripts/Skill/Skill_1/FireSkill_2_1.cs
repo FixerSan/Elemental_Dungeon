@@ -57,7 +57,6 @@ public class FireSkill_2_1 : MonoBehaviour
     private void OnEnable()
     {
         Setup();
-        AudioSystem.Instance.PlayOneShot(Resources.Load<AudioClip>("½ºÅ³2"));
     }
 }
 

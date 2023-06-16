@@ -73,7 +73,7 @@ public class Statuses
         if(isburn)
         {
             entity.GetDamage(maxHp * 0.02f);
-            AudioSystem.Instance.PlayOneShot(Resources.Load<AudioClip>("Fire Damage"));
+            AudioSystem.Instance.PlayOneShot(Resources.Load<AudioClip>("AudioClips/Monster/General/Fire_Damage_1"));
         }
         yield return new WaitForSeconds(1);
         if (burnCoroutine != null)

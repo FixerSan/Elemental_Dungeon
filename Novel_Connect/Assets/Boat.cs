@@ -77,7 +77,9 @@ public class Boat : MonoBehaviour
 
     void DeSetParentPlayer()
     {
+        if (!player) return;
         player.transform.SetParent(null);
+        DontDestroyOnLoad(player.gameObject);
         player = null;
         isMove = false;
         StopAllCoroutines();
@@ -105,6 +107,11 @@ public class Boat : MonoBehaviour
         if(player.playerInput.isCanControl)
         {
             player.playerInput.isCanControl = false;
+        }
+        if(player.state != PlayerState.Idle)
+        {
+            player.ChangeState(PlayerState.Idle);
+            player.playerMovement.Stop();
         }
         player.transform.position = new Vector3(transform.position.x, player.transform.position.y);
     }

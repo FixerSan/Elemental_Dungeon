@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Tilemaps;
 
 public class SpriteEffect : MonoBehaviour
 {
@@ -56,6 +57,15 @@ public class SpriteEffect : MonoBehaviour
         while (sr.color.a > 0)
         {
             sr.color = new Color(sr.color.r, sr.color.g, sr.color.b, sr.color.a - Time.deltaTime / fadeTime);
+            yield return null;
+        }
+    }
+
+    public IEnumerator FadeOutCoroutine(Tilemap tm, float fadeTime)
+    {
+        while (tm.color.a > 0)
+        {
+            tm.color = new Color(tm.color.r, tm.color.g, tm.color.b, tm.color.a - Time.deltaTime / fadeTime);
             yield return null;
         }
     }
