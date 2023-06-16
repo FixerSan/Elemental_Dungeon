@@ -12,6 +12,7 @@ public class ItemEffect
                 Debug.Log("아이템 아이디 1번 아이템의 스킬이 사용됨");
                 return true;
             default:
+
                 return false;
         }
     }

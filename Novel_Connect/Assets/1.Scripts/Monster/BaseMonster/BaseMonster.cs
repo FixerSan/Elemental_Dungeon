@@ -7,7 +7,6 @@ public class BaseMonster : Actor
     public MonsterData monsterData;
     public StateMachine<BaseMonster> stateMachine = new StateMachine<BaseMonster>();
     public Animator animator;
-    public Direction direction;
     public MonsterState state;
 
     protected Dictionary<int, State<BaseMonster>> states = new Dictionary<int, State<BaseMonster>>();

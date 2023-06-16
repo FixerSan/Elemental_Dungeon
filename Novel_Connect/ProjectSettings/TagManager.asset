@@ -56,6 +56,9 @@ TagManager:
   - name: Monster
     uniqueID: 2919385045
     locked: 0
+  - name: Line
+    uniqueID: 1099502547
+    locked: 0
   - name: FrontMapLayer
     uniqueID: 943836191
     locked: 0

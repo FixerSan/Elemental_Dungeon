@@ -33,6 +33,7 @@ public class FireSkill_1 : MonoBehaviour
     IEnumerator Breath()
     {
         float endTime = GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length;
+        AudioSystem.Instance.PlayOneShot(Resources.Load<AudioClip>("½ºÅ³1"));
         yield return new WaitForSeconds(1f);
         Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(breathPos.position, breathSize, 0, attackLayer);
         foreach (var item in collider2Ds)

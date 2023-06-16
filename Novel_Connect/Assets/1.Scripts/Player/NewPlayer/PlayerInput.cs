@@ -15,6 +15,7 @@ public class PlayerInput
     public KeyCode elementalKey = KeyCode.F1;
     public KeyCode Skill_1Key = KeyCode.Q;
     public KeyCode Skill_2Key = KeyCode.W;
+    public KeyCode BendKey = KeyCode.LeftControl;
 
     public bool isCanControl = true;
     public void CheckMove()
@@ -49,7 +50,41 @@ public class PlayerInput
             player.ChangeState(PlayerState.Idle);
         }
     }
-    public void CheckJumpMove()
+
+    public void CheckBendMove()
+    {
+        if (!isCanControl)
+            return;
+
+        if (Input.GetKey(leftKey) && Input.GetKey(rightKey))
+        {
+            if (player.state != PlayerState.Bend)
+                player.ChangeState(PlayerState.Bend);
+        }
+
+        else if (Input.GetKey(rightKey))
+        {
+            player.ChangeDirection(Direction.Right);
+            if (player.state != PlayerState.WalkBend)
+                player.ChangeState(PlayerState.WalkBend);
+        }
+
+        else if (Input.GetKey(leftKey))
+        {
+            player.ChangeDirection(Direction.Left);
+            if (player.state != PlayerState.WalkBend)
+                player.ChangeState(PlayerState.WalkBend);
+        }
+
+        if (Input.GetKeyUp(leftKey) || Input.GetKeyUp(rightKey))
+        {
+            if (player.state == PlayerState.WalkBend)
+                player.playerMovement.Stop();
+            player.ChangeState(PlayerState.Bend);
+        }
+    }
+
+    public void CheckEtcMove()
     {
         if (!isCanControl)
             return;
@@ -129,6 +164,81 @@ public class PlayerInput
         {
             if (player.playerAttack.skills.Count > 1)
                 player.playerAttack.skills[1].Use();
+        }
+    }
+
+    public void CheckStartLadder()
+    {
+        if (!isCanControl)
+            return;
+        if (Input.GetKey(upKey) && player.playerMovement.isCanUseLadder)
+        {
+            player.ChangeState(PlayerState.StartLadder);
+        }
+    }
+
+    public void CheckUseLadder()
+    {
+        if (!isCanControl)
+            return;
+        if (Input.GetKeyUp(upKey) || Input.GetKeyUp(downKey))
+        {
+            player.playerMovement.UseIdleLadder();
+        }
+
+        else if(Input.GetKey(upKey) && Input.GetKey(downKey))
+        {
+            player.playerMovement.UseIdleLadder();
+        }
+
+        else if (Input.GetKey(upKey))
+        {
+            player.playerMovement.UseUpLadder();
+        }
+
+        else if(Input.GetKey(downKey))
+        {
+            player.playerMovement.UseDownLadder();
+        }
+
+        if(Input.GetKeyDown(jumpKey))
+        {
+            player.ChangeState(PlayerState.EndLadder);
+            if (Input.GetKey(leftKey))
+            {
+                
+            }
+        }
+    }
+
+    public void CheckEndLadder()
+    {
+        if(player.playerMovement.ladder == null)
+        {
+            player.ChangeState(PlayerState.EndLadder);
+        }
+    }
+
+    public void CheckBend()
+    {
+        if (!isCanControl)
+            return;
+        if (Input.GetKeyDown(BendKey))
+        {
+            if(player.state == PlayerState.Bend || player.state == PlayerState.WalkBend)
+            {
+                player.ChangeState(PlayerState.EndBend);
+            }
+
+            else
+            {
+                player.ChangeState(PlayerState.StartBend);
+            }
+        }
+
+        if(player.state == PlayerState.Bend && Input.GetKeyDown(jumpKey))
+        {
+            player.ChangeState(PlayerState.EndBend);
         }
     }
     public void Setup(PlayerControllerV3 player_)

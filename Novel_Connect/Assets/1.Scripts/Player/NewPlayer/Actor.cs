@@ -7,6 +7,7 @@ public abstract class Actor : HitableObejct
     public Statuses statuses = new Statuses();
     public Transform hpBarPos;
     public Elemental elemental = Elemental.Default;
+    public Direction direction;
     private void Awake()
     {
         Setup();

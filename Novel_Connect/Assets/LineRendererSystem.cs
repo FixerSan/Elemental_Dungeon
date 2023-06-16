@@ -17,7 +17,6 @@ public class LineRendererSystem : MonoBehaviour
     public void Play(Vector3 from, Vector3 to)
     {
         line.enabled = true;
-
         line.SetPosition(0, from);
         line.SetPosition(1, to);
     }

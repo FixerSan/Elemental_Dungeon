@@ -19,10 +19,13 @@ namespace PlayerControllerV3States
         public override void UpdateState(PlayerControllerV3 entity)
         {
             entity.playerInput.CheckMove();
+            entity.playerMovement.CheckUpAndFall();
             entity.playerInput.CheckJump();
             entity.playerInput.CheckAttack();
             entity.playerInput.CheckChangeElemental();
             entity.playerInput.CheckUseSkill();
+            entity.playerInput.CheckStartLadder();
+            entity.playerInput.CheckBend();
         }
     }
 
@@ -42,9 +45,13 @@ namespace PlayerControllerV3States
         public override void UpdateState(PlayerControllerV3 entity)
         {
             entity.playerInput.CheckMove();
+            entity.playerMovement.CheckUpAndFall();
             entity.playerInput.CheckJump();
             entity.playerInput.CheckAttack();
+            entity.playerInput.CheckChangeElemental();
             entity.playerMovement.Move();
+            entity.playerInput.CheckStartLadder();
+            entity.playerInput.CheckBend();
         }
     }
     public class Jump : State<PlayerControllerV3>
@@ -53,16 +60,20 @@ namespace PlayerControllerV3States
         {
             entity.state = PlayerState.Jump;
             entity.anim.SetBool("isJump", true);
+            entity.collisionCollider_Up.SetActive(false);
         }
 
         public override void ExitState(PlayerControllerV3 entity)
         {
             entity.anim.SetBool("isJump", false);
+            entity.collisionCollider_Up.SetActive(true);
         }
 
         public override void UpdateState(PlayerControllerV3 entity)
         {
-            entity.playerInput.CheckJumpMove();
+            entity.playerMovement.CheckUpAndFall();
+            entity.playerInput.CheckEtcMove();
+            entity.playerInput.CheckStartLadder();
         }
     }
 
@@ -72,16 +83,21 @@ namespace PlayerControllerV3States
         {
             entity.state = PlayerState.Fall;
             entity.anim.SetBool("isFall", true);
+            entity.collisionCollider_Up.SetActive(false);
         }
 
         public override void ExitState(PlayerControllerV3 entity)
         {
             entity.anim.SetBool("isFall", false);
+            entity.collisionCollider_Up.SetActive(true);
         }
 
         public override void UpdateState(PlayerControllerV3 entity)
         {
-            entity.playerInput.CheckJumpMove();
+            entity.playerMovement.CheckUpAndFall();
+            entity.playerInput.CheckEtcMove();
+            entity.playerInput.CheckStartLadder();
+
         }
     }
 
@@ -159,4 +175,136 @@ namespace PlayerControllerV3States
             entity.playerInput.CheckAttack();
         }
     }
+
+    public class StartLadder : State<PlayerControllerV3>
+    {
+        public override void EnterState(PlayerControllerV3 entity)
+        {
+            entity.state = PlayerState.StartLadder;
+            entity.playerMovement.UseStartLadder();
+        }
+
+        public override void ExitState(PlayerControllerV3 entity)
+        {
+
+        }
+
+        public override void UpdateState(PlayerControllerV3 entity)
+        {
+
+        }
+    }
+
+    public class UseLadder : State<PlayerControllerV3>
+    {
+        public override void EnterState(PlayerControllerV3 entity)
+        {
+            entity.state = PlayerState.UseLadder;
+        }
+
+        public override void ExitState(PlayerControllerV3 entity)
+        {
+        }
+
+        public override void UpdateState(PlayerControllerV3 entity)
+        {
+            entity.playerInput.CheckUseLadder();
+            entity.playerInput.CheckEndLadder();
+        }
+    }
+
+    public class EndLadder : State<PlayerControllerV3>
+    {
+        public override void EnterState(PlayerControllerV3 entity)
+        {
+            entity.state = PlayerState.EndLadder;
+            entity.playerMovement.UseEndLadder();
+        }
+
+        public override void ExitState(PlayerControllerV3 entity)
+        {
+        }
+
+        public override void UpdateState(PlayerControllerV3 entity)
+        {
+        }
+    }
+
+    public class StartBend : State<PlayerControllerV3>
+    {
+        public override void EnterState(PlayerControllerV3 entity)
+        {
+            entity.state = PlayerState.StartBend;
+            entity.playerMovement.StartBend();
+        }
+
+        public override void ExitState(PlayerControllerV3 entity)
+        {
+
+        }
+
+        public override void UpdateState(PlayerControllerV3 entity)
+        {
+        }
+    }
+
+    public class Bend : State<PlayerControllerV3>
+    {
+        public override void EnterState(PlayerControllerV3 entity)
+        {
+            entity.state = PlayerState.Bend;
+        }
+
+        public override void ExitState(PlayerControllerV3 entity)
+        {
+        }
+
+        public override void UpdateState(PlayerControllerV3 entity)
+        {
+            entity.playerInput.CheckBend();
+            entity.playerInput.CheckBendMove();
+        }
+    }
+
+    public class WalkBend : State<PlayerControllerV3>
+    {
+        public override void EnterState(PlayerControllerV3 entity)
+        {
+            entity.state = PlayerState.WalkBend;
+            entity.anim.SetBool("isWalk", true);
+        }
+
+        public override void ExitState(PlayerControllerV3 entity)
+        {
+            entity.anim.SetBool("isWalk", false);
+        }
+
+        public override void UpdateState(PlayerControllerV3 entity)
+        {
+            entity.playerInput.CheckBendMove();
+            entity.playerInput.CheckBend();
+            entity.playerMovement.Move();
+        }
+    }
+
+    public class EndBend : State<PlayerControllerV3>
+    {
+        public override void EnterState(PlayerControllerV3 entity)
+        {
+            entity.state = PlayerState.EndBend;
+            entity.playerMovement.EndBend();
+        }
+
+        public override void ExitState(PlayerControllerV3 entity)
+        {
+        }
+
+        public override void UpdateState(PlayerControllerV3 entity)
+        {
+        }
+    }
+
+
+
+
 }

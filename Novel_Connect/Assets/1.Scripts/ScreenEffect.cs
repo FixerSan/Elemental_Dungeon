@@ -50,7 +50,7 @@ public class ScreenEffect : MonoBehaviour
         fadePanel.color = new Color(0, 0, 0, 1);
         while (fadePanel.color.a > 0)
         {
-            fadePanel.color = new Color(0, 0, 0, fadePanel.color.a - Time.deltaTime / fadeTime);
+            fadePanel.color = new Color(fadePanel.color.r, fadePanel.color.g, fadePanel.color.b, fadePanel.color.a - Time.deltaTime / fadeTime);
             yield return null;
         }
         fadePanel.gameObject.SetActive(false);

@@ -9,6 +9,8 @@ public class PlayerAttack
     public LayerMask attackLayer;
     public float canAttackDuration;
 
+    public GameObject fireStartSkill;
+
     public List<Skill<PlayerControllerV3>> skills = new List<Skill<PlayerControllerV3>>();
 
     public int attackCount;
