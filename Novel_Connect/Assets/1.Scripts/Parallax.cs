@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Parallax : MonoBehaviour
 {
-    public GameObject camera_;
-    public float cameraPosition;
+    private GameObject camera_;
+    private float cameraPosition;
     public float moveSpeed;
 
     private float change;

@@ -51,6 +51,9 @@ TagManager:
   - name: BackMapLayer
     uniqueID: 4013116431
     locked: 0
+  - name: Tile
+    uniqueID: 3423764667
+    locked: 0
   - name: Player
     uniqueID: 2435335399
     locked: 0

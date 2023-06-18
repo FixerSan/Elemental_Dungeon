@@ -196,7 +196,7 @@ GameObject:
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
-  m_Icon: {fileID: 0}
+  m_Icon: {fileID: 3936346786652291628, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
@@ -243,6 +243,7 @@ MonoBehaviour:
     burnTime: 0
   hpBarPos: {fileID: 0}
   elemental: 7
+  direction: 1
   level: 1
   playerData:
     index: 0
@@ -290,14 +291,13 @@ MonoBehaviour:
     fireStartSkill: {fileID: 5855071236313504573, guid: 423cde9b49174df48870c0df3371c6e7, type: 3}
     attackCount: 0
   state: 0
-  direction: 1
   rb: {fileID: 0}
   anim: {fileID: 0}
   collisionCollider_Up: {fileID: 403084538}
   collisionCollider_Down: {fileID: 1301995839}
   collisionCollider_Up_pos_Idle: {fileID: 8041572568817919546}
   collisionCollider_Up_pos_Bend: {fileID: 4969407093834843390}
-  canHitDuration: 1
+  canHitDuration: 0.1
   playerGravityScale: 0
 --- !u!114 &9172141487382745822
 MonoBehaviour:
@@ -398,7 +398,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1859631897
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: -1
   m_Sprite: {fileID: -908184652706834838, guid: 77bfe661dd39ec24b9cf5e0f02794d6a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

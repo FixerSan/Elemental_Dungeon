@@ -91,6 +91,20 @@ public class PlayerAttack
         attackCount = 0;
         player.anim.SetInteger("AttackCount", attackCount);
     }
+
+    public void UseSkill()
+    {
+        player.anim.SetTrigger("UseSkill");
+        player.StartCoroutine(UseSkillCoroutine());
+    }
+
+    public IEnumerator UseSkillCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        float delay = player.anim.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(delay - 0.1f);
+        player.ChangeState(PlayerState.Idle);
+    }
     public void Setup(PlayerControllerV3 player_)
     {
         player = player_;

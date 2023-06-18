@@ -49,6 +49,7 @@ namespace PlayerControllerV3States
             entity.playerInput.CheckJump();
             entity.playerInput.CheckAttack();
             entity.playerInput.CheckChangeElemental();
+            entity.playerInput.CheckUseSkill();
             entity.playerMovement.Move();
             entity.playerInput.CheckStartLadder();
             entity.playerInput.CheckBend();
@@ -140,7 +141,8 @@ namespace PlayerControllerV3States
         public override void EnterState(PlayerControllerV3 entity)
         {
             entity.state = PlayerState.SkillCasting;
-
+            entity.playerMovement.Stop();
+            entity.playerAttack.UseSkill();
         }
 
         public override void ExitState(PlayerControllerV3 entity)
@@ -303,8 +305,4 @@ namespace PlayerControllerV3States
         {
         }
     }
-
-
-
-
 }
