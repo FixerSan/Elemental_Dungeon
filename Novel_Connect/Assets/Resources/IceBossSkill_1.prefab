@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1250202735502127106}
   - component: {fileID: 1250202735502127107}
   - component: {fileID: 1250202735502127108}
+  - component: {fileID: 1293230672}
   m_Layer: 0
   m_Name: IceSpear (2)
   m_TagString: Untagged
@@ -28,14 +29,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250202735502127110}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -3.1700134, y: 0.5700073, z: 0}
-  m_LocalScale: {x: 0.52270013, y: 2.4370892, z: 0.5227}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.95, y: 1, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1250202737041339123}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1250202735502127104
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -74,10 +75,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1859631897
-  m_SortingLayer: 2
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 7482667652216324306, guid: 408c6319d56e2674f87a957eebe9c5bb, type: 3}
+  m_SortingLayerID: 2133685873
+  m_SortingLayer: 6
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 5710695640030339319, guid: 51e720f585dfc2f4aa11f815d3a1e443, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -125,8 +126,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.43554688}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.06, y: 0.13}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -191,9 +192,9 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 2133685873
+  m_SortingLayer: 6
+  m_SortingOrder: -1
   m_Positions:
   - {x: 324.558, y: -190.26, z: 0}
   - {x: 334.558, y: -190.26, z: 1}
@@ -252,6 +253,26 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!95 &1293230672
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250202735502127110}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 86ae0bcf1f3a45542aee624354b93525, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1250202736204675709
 GameObject:
   m_ObjectHideFlags: 0
@@ -266,6 +287,7 @@ GameObject:
   - component: {fileID: 1250202736204675705}
   - component: {fileID: 1250202736204675706}
   - component: {fileID: 1250202736204675707}
+  - component: {fileID: 1428108284}
   m_Layer: 0
   m_Name: IceSpear (1)
   m_TagString: Untagged
@@ -280,14 +302,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250202736204675709}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -3.8380017, y: 1.5700073, z: 0}
-  m_LocalScale: {x: 0.52270013, y: 2.4370892, z: 0.5227}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3, y: 2.5, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1250202737041339123}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1250202736204675687
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -326,10 +348,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1859631897
-  m_SortingLayer: 2
+  m_SortingLayerID: 2133685873
+  m_SortingLayer: 6
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 408c6319d56e2674f87a957eebe9c5bb, type: 3}
+  m_Sprite: {fileID: 5710695640030339319, guid: 51e720f585dfc2f4aa11f815d3a1e443, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -377,8 +399,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.43554688}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.06, y: 0.13}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -443,9 +465,9 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 2133685873
+  m_SortingLayer: 6
+  m_SortingOrder: -1
   m_Positions:
   - {x: 324.558, y: -190.26, z: 0}
   - {x: 334.558, y: -190.26, z: 1}
@@ -504,6 +526,26 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!95 &1428108284
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250202736204675709}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 86ae0bcf1f3a45542aee624354b93525, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1250202736412488756
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,6 +560,7 @@ GameObject:
   - component: {fileID: 1250202736412488767}
   - component: {fileID: 1250202736412488755}
   - component: {fileID: 1250202736412488766}
+  - component: {fileID: 937677080}
   m_Layer: 0
   m_Name: IceSpear
   m_TagString: Untagged
@@ -532,14 +575,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1250202736412488756}
-  m_LocalRotation: {x: -0, y: -0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -3.17, y: 2.57, z: 0}
-  m_LocalScale: {x: 0.52270013, y: 2.4370892, z: 0.5227}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.45, y: 4, z: 0}
+  m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1250202737041339123}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1250202736412488753
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -578,10 +621,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1859631897
-  m_SortingLayer: 2
-  m_SortingOrder: -2
-  m_Sprite: {fileID: 7482667652216324306, guid: 408c6319d56e2674f87a957eebe9c5bb, type: 3}
+  m_SortingLayerID: 2133685873
+  m_SortingLayer: 6
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 5710695640030339319, guid: 51e720f585dfc2f4aa11f815d3a1e443, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -629,8 +672,8 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0.43554688}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1, y: 1}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.06, y: 0.13}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -695,9 +738,9 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 2133685873
+  m_SortingLayer: 6
+  m_SortingOrder: -1
   m_Positions:
   - {x: 324.558, y: -190.26, z: 0}
   - {x: 334.558, y: -190.26, z: 1}
@@ -756,6 +799,26 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!95 &937677080
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1250202736412488756}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 86ae0bcf1f3a45542aee624354b93525, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &1250202737041339124
 GameObject:
   m_ObjectHideFlags: 0
@@ -809,3 +872,4 @@ MonoBehaviour:
   - {fileID: 1250202735502127107}
   shotDuration: 0.2
   actor: {fileID: 0}
+  direction: 0

@@ -2,7 +2,17 @@ fileFormatVersion: 2
 guid: 51e720f585dfc2f4aa11f815d3a1e443
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Ice
+    second: {fileID: 7400000, guid: 17686569ad6248b489e311debbba0a00, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Ice_Call
+    second: {fileID: 7400000, guid: fd36eba76a20f7d408ebee8c80e99f05, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -93,7 +103,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 0
+  platformSettingsDirtyTick: 638227181737376157
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,8 +129,8 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: "23_06_16_\uBCF4\uC2A4\uC5BC\uC74C_\uC815\uBBFC\uC9C0_Frame_0"
     originalName: 
-    pivot: {x: 0.24999999, y: -0.6923077}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -139,8 +149,8 @@ ScriptedImporter:
     uvTransform: {x: 35, y: 108}
   - name: "23_06_16_\uBCF4\uC2A4\uC5BC\uC74C_\uC815\uBBFC\uC9C0_Frame_1"
     originalName: 
-    pivot: {x: 0.2142857, y: -0.4375}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -159,8 +169,8 @@ ScriptedImporter:
     uvTransform: {x: 35, y: 84}
   - name: "23_06_16_\uBCF4\uC2A4\uC5BC\uC74C_\uC815\uBBFC\uC9C0_Frame_2"
     originalName: 
-    pivot: {x: 0.2142857, y: -0.04}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -179,8 +189,8 @@ ScriptedImporter:
     uvTransform: {x: 20, y: 84}
   - name: "23_06_16_\uBCF4\uC2A4\uC5BC\uC74C_\uC815\uBBFC\uC9C0_Frame_3"
     originalName: 
-    pivot: {x: 0.18749999, y: -0.06896552}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -199,8 +209,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 84}
   - name: "23_06_16_\uBCF4\uC2A4\uC5BC\uC74C_\uC815\uBBFC\uC9C0_Frame_4"
     originalName: 
-    pivot: {x: 0.5810811, y: -1.875}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -219,8 +229,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 68}
   - name: "23_06_16_\uBCF4\uC2A4\uC5BC\uC74C_\uC815\uBBFC\uC9C0_Frame_5"
     originalName: 
-    pivot: {x: 0.5697675, y: -1.1818181}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -239,8 +249,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 4}
   - name: "23_06_16_\uBCF4\uC2A4\uC5BC\uC74C_\uC815\uBBFC\uC9C0_Frame_6"
     originalName: 
-    pivot: {x: 0.5, y: -2}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -259,8 +269,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 23}
   - name: "23_06_16_\uBCF4\uC2A4\uC5BC\uC74C_\uC815\uBBFC\uC9C0_Frame_7"
     originalName: 
-    pivot: {x: 0.5, y: -2}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -279,8 +289,8 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 38}
   - name: "23_06_16_\uBCF4\uC2A4\uC5BC\uC74C_\uC815\uBBFC\uC9C0_Frame_8"
     originalName: 
-    pivot: {x: 0.5, y: -2}
-    alignment: 9
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
@@ -380,7 +390,40 @@ ScriptedImporter:
       spriteId: a4f4c9e2ebe557348ae94fb7572098d2
     linkedCells: []
     parentIndex: -1
-  platformSettings: []
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
   canvasSize: {x: 45, y: 34}

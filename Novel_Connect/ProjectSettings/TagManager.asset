@@ -54,11 +54,17 @@ TagManager:
   - name: Tile
     uniqueID: 3423764667
     locked: 0
+  - name: Monster
+    uniqueID: 2919385045
+    locked: 0
   - name: Player
     uniqueID: 2435335399
     locked: 0
-  - name: Monster
-    uniqueID: 2919385045
+  - name: Boss
+    uniqueID: 2244411927
+    locked: 0
+  - name: Effect
+    uniqueID: 2133685873
     locked: 0
   - name: Line
     uniqueID: 1099502547

@@ -8,7 +8,6 @@ public class IceBosSkill_1 : MonoBehaviour
     public float shotDuration;
     public Actor actor;
     public Direction direction;
-
     public void Setup(Actor actor_)
     {
         actor = actor_;

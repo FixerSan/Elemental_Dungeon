@@ -33,20 +33,20 @@ public class IceSpear : MonoBehaviour
         Vector2 direction_;
         if (parent.direction == Direction.Right)
         {
-            angle = -90;
+            angle = 180;
             pos2 = new Vector3(transform.position.x + lineRendererLength, transform.position.y,transform.position.z);
             direction_ = Vector2.right;
         }
         else
         {
-            angle = 90;
+            angle = 0;
             pos2 = new Vector3(transform.position.x - lineRendererLength, transform.position.y, transform.position.z);
             direction_ = Vector2.left;
         }
         transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
 
-        lr.startWidth = 0.5f;
+        lr.startWidth = 0.3f;
         lr.SetPosition(0, transform.position);
         lr.SetPosition(1, pos2);
         lr.enabled = true;

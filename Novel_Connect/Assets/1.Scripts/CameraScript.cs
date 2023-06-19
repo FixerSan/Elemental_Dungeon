@@ -28,10 +28,10 @@ public class CameraScript : MonoBehaviour
         else
             Destroy(gameObject);
         target = GameObject.Find("Player");
-        camera = GetComponent<Camera>();
+        camera_ = GetComponent<Camera>();
     }
     #endregion
-    Camera camera;
+    Camera camera_;
 
     public Vector2 min, max;
     public float delayTime;
@@ -146,11 +146,11 @@ public class CameraScript : MonoBehaviour
 
     public float GetSize()
     {
-        return camera.orthographicSize;
+        return camera_.orthographicSize;
     }
     public void ChangeSize(float size)
     {
-        camera.orthographicSize = size;
+        camera_.orthographicSize = size;
     }
     public void ChangeState(CameraState state)
     {
