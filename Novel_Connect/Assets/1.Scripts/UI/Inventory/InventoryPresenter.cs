@@ -21,8 +21,10 @@ public class InventoryPresenter : MonoBehaviour
 
     private void Awake()
     {
-        inventory = FindObjectOfType<InventoryV2>(); 
+        inventory = FindObjectOfType<InventoryV2>();
+        RedrawGold();
         inventory.onGetItem += CheckItemUI;
+        inventory.OnChangeGold += RedrawGold;
         if (Instance == null)
         {
             Instance = this;
@@ -37,16 +39,17 @@ public class InventoryPresenter : MonoBehaviour
         slots = slotHeader.GetComponentsInChildren<BaseSlot>();
 
     }
-    #endregion
-    [SerializeField] private Transform slotHeader;
-    private InventoryV2 inventory;
-
-    private BaseSlot[] slots;
-
     private void OnDisable()
     {
         inventory.onGetItem -= CheckItemUI;
+        inventory.OnChangeGold -= RedrawGold;
     }
+    #endregion
+    [SerializeField] private Transform slotHeader;
+    private InventoryV2 inventory;
+    [SerializeField] private TMPro.TextMeshProUGUI goldText;
+    private BaseSlot[] slots;
+
 
     public void CheckItemUI(int itemID)
     {
@@ -58,6 +61,11 @@ public class InventoryPresenter : MonoBehaviour
                 break;
             }
         }
+    }
+
+    public void RedrawGold()
+    {
+        goldText.text = inventory.gold.ToString();
     }
 
     public void UseItem(int itemID)

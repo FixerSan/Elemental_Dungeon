@@ -24,4 +24,14 @@ public class BaseScene : MonoBehaviour
     {
 
     }
+
+    public virtual void SceneEvent(int index)
+    {
+
+    }
+
+    private void OnDestroy()
+    {
+        Clear();
+    }
 }

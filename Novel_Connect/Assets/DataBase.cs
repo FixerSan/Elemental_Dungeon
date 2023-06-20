@@ -311,7 +311,7 @@ public enum QuestState
 
 public enum QuestType
 {
-    kill, talk, get
+    kill, talk, get, clear
 }
 
 #endregion

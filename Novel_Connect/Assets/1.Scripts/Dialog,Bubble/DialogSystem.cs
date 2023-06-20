@@ -39,6 +39,8 @@ public class DialogSystem : MonoBehaviour
     private Dialog currentDialog;
     private bool isTypingEffect;
 
+    public bool isOpen = false;
+
     private void Update()
     {
         //CheckSkip();
@@ -65,12 +67,14 @@ public class DialogSystem : MonoBehaviour
         {
             SetActiveObject(speakers[i], false);
             isTypingEffect = false;
+            isOpen = false;
         }
     }
 
     //다이얼로그 호출 함수, 인덱스로 다이얼로그를 구별하여 호출
     public void UpdateDialog(int dialogIndex)
     {
+        isOpen = true;
         currentDialog = DataBase.instance.GetDialog(dialogIndex);
         currentSpeakerUI_Index = currentDialog.speakerUIindex;
 
@@ -173,10 +177,14 @@ public class DialogSystem : MonoBehaviour
         SetAllClose();
         switch (currentDialog.index)
         {
-            case 0:
+            case 1045:
+                SceneManager.instance.GetCurrentScene().SceneEvent(0);
+                return;
+            case 1046:
+                SceneManager.instance.GetCurrentScene().SceneEvent(1);
                 return;
         }
-        if (currentDialog.nextIndex == -1)
+        if (currentDialog.nextIndex == -100)
         {
             SetAllClose();
             return;
@@ -192,7 +200,8 @@ public class DialogSystem : MonoBehaviour
         //현재 실행중인 인덱스에 알 맞는 특수 코드 호출
         switch (currentDialog.index)
         {
-            case 0:
+            case 1048:
+                UpdateDialog(1049);
                 break;
         }
     }
@@ -204,7 +213,8 @@ public class DialogSystem : MonoBehaviour
         SetAllClose();
         switch (currentDialog.index)
         {
-            case 0:
+            case 1048:
+                UpdateDialog(1051);
                 break;
         }
     }
@@ -214,9 +224,11 @@ public class DialogSystem : MonoBehaviour
     {
         PlayInteractionSound();
         //현재 실행중인 인덱스에 알 맞는 특수 코드 호출
+        SetAllClose();
         switch (currentDialog.index)
         {
-            case 0:
+            case 1048:
+                UpdateDialog(1052);
                 break;
         }
     }

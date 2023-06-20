@@ -17,6 +17,8 @@ public class BaseBoss : Actor
 
     private float checkTime;
 
+    public float canAttackRange;
+
     public float attackPeriod;
     public int canAttackCount = 2;
     public Transform attackPos;
@@ -45,11 +47,11 @@ public class BaseBoss : Actor
 
         //monsterData = DataBase.instance.GetMonsterData(10001);
         states = new Dictionary<int, State<BaseBoss>>();
-        statuses.Setup(this);
         statuses.maxHp = monsterData.monsterHP;
         statuses.currentHp = statuses.maxHp;
         statuses.speed = monsterData.monsterSpeed;
         statuses.force = monsterData.monsterAttackForce;
+        statuses.Setup(this);
 
         elemental = monsterData.elemental;
 
@@ -69,17 +71,20 @@ public class BaseBoss : Actor
         target = null;
 
         stateMachine.Setup(this, states[(int)BossState.Create]);
+        SetTarget(FindObjectOfType<PlayerControllerV3>().gameObject);
     }
 
     private void FixedUpdate()
     {
         stateMachine.UpdateState();
         statuses.Update();
+        CheckDead();
     }
 
     public override void GetDamage(float damage)
     {
         animator.SetTrigger("HitEffect");
+        statuses.currentHp -= damage;
     }
 
     public override void Hit(float damage)
@@ -92,6 +97,35 @@ public class BaseBoss : Actor
         target = target_;
     }
 
+    public virtual void TurnDirection(Direction direction_)
+    {
+        direction = direction_;
+        if (direction == Direction.Left)
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
+        }
+        else
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        }
+    }
+
+    public virtual int LookAtPlayer()
+    {
+        if (target == null)
+            return 0;
+        if (target.transform.position.x > transform.position.x)
+        {
+            TurnDirection(Direction.Right);
+            return 1;
+        }
+
+        else
+        {
+            TurnDirection(Direction.Left);
+            return -1;
+        }
+    }
     public void ChangeState(BossState state)
     {
         stateMachine.ChangeState(states[(int)state]);
@@ -261,11 +295,79 @@ public class BaseBoss : Actor
         ChangeState(BossState.Idle);
     }
 
+    public void Stop()
+    {
+        rb.velocity = new Vector2(0, rb.velocity.y);
+    }
+
+    public void CheckTargetDistance()
+    {
+        if (Vector2.Distance(transform.position, target.transform.position) > canAttackRange)
+        {
+            if (state == BossState.Idle)
+            {
+                ChangeState(BossState.Follow);
+            }
+        }
+        else if (state == BossState.Follow)
+        {
+            ChangeState(BossState.Idle);
+        }
+    }
+    public void Move()
+    {
+        if(direction == Direction.Right)
+        {
+            rb.velocity = new Vector2(statuses.nowSpeed * 1 , rb.velocity.y);
+        }
+        if (direction == Direction.Left)
+        {
+            rb.velocity = new Vector2(statuses.nowSpeed * -1, rb.velocity.y);
+        }
+    }
+
+    public void Move(int direction)
+    {
+        if(state == BossState.Follow)
+            rb.velocity = new Vector2(statuses.nowSpeed * direction, rb.velocity.y);
+    }
+
+    public void CheckDead()
+    {
+        if(statuses.currentHp <= 0 && state != BossState.Dead)
+        {
+            ChangeState(BossState.Dead);
+        }
+    }
+
+    public void Dead()
+    {
+        StopAllCoroutines();
+        rb.gravityScale = 0f;
+        Stop();
+        GetComponent<BoxCollider2D>().enabled = false;
+        animator.SetTrigger("Dead");
+        StartCoroutine(DeadCoroutine());
+    }
+
+    public IEnumerator DeadCoroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        float currentAnimationLength = animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(currentAnimationLength-0.1f);
+        Destroy(gameObject);
+    }
+
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(attackPos.position, attackSize);
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(skill_2Pos.position,skill_2Size);
+    }
+
+    private void OnDestroy()
+    {
+        MonsterSystem.instance.OnDeadBoss(0);
     }
 }

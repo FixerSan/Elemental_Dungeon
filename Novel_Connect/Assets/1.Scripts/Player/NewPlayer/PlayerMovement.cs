@@ -23,49 +23,49 @@ public class PlayerMovement
             case PlayerState.Walk:
                 if (player.direction == Direction.Right)
                 {
-                    player.rb.velocity = new Vector2(player.playerData.walkSpeed, player.rb.velocity.y);
+                    player.rb.velocity = new Vector2(player.statuses.nowSpeed, player.rb.velocity.y);
                 }
                 else if (player.direction == Direction.Left)
                 {
-                    player.rb.velocity = new Vector2(-player.playerData.walkSpeed, player.rb.velocity.y);
+                    player.rb.velocity = new Vector2(-player.statuses.nowSpeed, player.rb.velocity.y);
                 }
                 break;
             case PlayerState.Jump:
                 if (player.direction == Direction.Right)
                 {
                     player.rb.AddForce(Vector2.right * player.playerData.jumpMoveForce * Time.fixedDeltaTime);
-                    if (player.rb.velocity.x > player.playerData.walkSpeed)
-                        player.rb.velocity = new Vector2(player.playerData.walkSpeed, player.rb.velocity.y);
+                    if (player.rb.velocity.x > player.statuses.nowSpeed)
+                        player.rb.velocity = new Vector2(player.statuses.nowSpeed, player.rb.velocity.y);
                 }
                 else if (player.direction == Direction.Left)
                 {
                     player.rb.AddForce(Vector2.left * player.playerData.jumpMoveForce * Time.fixedDeltaTime);
-                    if (player.rb.velocity.x < -player.playerData.walkSpeed)
-                        player.rb.velocity = new Vector2(-player.playerData.walkSpeed, player.rb.velocity.y);
+                    if (player.rb.velocity.x < -player.statuses.nowSpeed)
+                        player.rb.velocity = new Vector2(-player.statuses.nowSpeed, player.rb.velocity.y);
                 }
                 break;
             case PlayerState.Fall:
                 if (player.direction == Direction.Right)
                 {
                     player.rb.AddForce(Vector2.right * player.playerData.jumpMoveForce * Time.fixedDeltaTime);
-                    if (player.rb.velocity.x > player.playerData.walkSpeed)
-                        player.rb.velocity = new Vector2(player.playerData.walkSpeed, player.rb.velocity.y);
+                    if (player.rb.velocity.x > player.statuses.nowSpeed)
+                        player.rb.velocity = new Vector2(player.statuses.nowSpeed, player.rb.velocity.y);
                 }
                 else if (player.direction == Direction.Left)
                 {
                     player.rb.AddForce(Vector2.left * player.playerData.jumpMoveForce * Time.fixedDeltaTime);
-                    if (player.rb.velocity.x < -player.playerData.walkSpeed)
-                        player.rb.velocity = new Vector2(-player.playerData.walkSpeed, player.rb.velocity.y);
+                    if (player.rb.velocity.x < -player.statuses.nowSpeed)
+                        player.rb.velocity = new Vector2(-player.statuses.nowSpeed, player.rb.velocity.y);
                 }
                 break;
             case PlayerState.WalkBend:
                 if (player.direction == Direction.Right)
                 {
-                    player.rb.velocity = new Vector2(player.playerData.walkSpeed/2, player.rb.velocity.y);
+                    player.rb.velocity = new Vector2(player.statuses.nowSpeed / 2, player.rb.velocity.y);
                 }
                 else if (player.direction == Direction.Left)
                 {
-                    player.rb.velocity = new Vector2(-player.playerData.walkSpeed/2, player.rb.velocity.y);
+                    player.rb.velocity = new Vector2(-player.statuses.nowSpeed / 2, player.rb.velocity.y);
                 }
                 break;
         }

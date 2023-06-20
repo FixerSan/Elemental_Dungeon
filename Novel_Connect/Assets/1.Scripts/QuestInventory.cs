@@ -14,27 +14,36 @@ public class QuestInventory : MonoBehaviour
             return;
         }
         instance = this;
+        transform.SetParent(null);
+        DontDestroyOnLoad(gameObject);
     }
     #endregion
-    public delegate void OnChangeQuest();
-    public OnChangeQuest onChangeQuest;
+    public System.Action OnChangeQuest;
 
-    public int questCount = 3;
+    public int maxQuestCount = 3;
     public float servicePoint;
 
     public List<Quest> quests;
 
     public bool AddQuest(Quest quest)
     {
-        if(quests.Count < questCount)
+        if(quests.Count < maxQuestCount)
         {
             quest.state = QuestState.Proceeding;
             quests.Add(quest);
-            if (onChangeQuest != null)
-                onChangeQuest.Invoke();
+            OnChangeQuest?.Invoke();
             return true;
         }
         return false;
     }
 
+    public void AddServicePoint(int addPoint)
+    {
+        servicePoint += addPoint;
+    }
+
+    public void RemoveServicePoint(int removePoint)
+    {
+        servicePoint += removePoint;
+    }
 }

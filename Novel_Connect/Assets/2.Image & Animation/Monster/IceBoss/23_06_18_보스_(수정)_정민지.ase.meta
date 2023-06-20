@@ -2,7 +2,57 @@ fileFormatVersion: 2
 guid: 4a12cb1900f7d7949914c1ae1ff44d2f
 ScriptedImporter:
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Appearance
+    second: {fileID: 7400000, guid: b7e1e558f84e37b419348b6b30603f9c, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Attack 1
+    second: {fileID: 7400000, guid: 90d79a8e7298b5145bd513f590c5add6, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Attack 2
+    second: {fileID: 7400000, guid: 2cbe505eb5195ce4da74b1bf37a658c6, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Skill 1
+    second: {fileID: 7400000, guid: 6e3f16b0a4dba9c40985b24cd891ba9a, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Skill 2-1
+    second: {fileID: 7400000, guid: 201de6c5b8b626e4baefee340f53281b, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Skill 2-2
+    second: {fileID: 7400000, guid: 2469caa2e1095854babe294f15ed0cab, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Sword_Call
+    second: {fileID: 7400000, guid: b5e29c5fe10b90c4f80e127863d2b71a, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: die
+    second: {fileID: 7400000, guid: fea860af53377bd4bafcdfeccef5c0ce, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: idle
+    second: {fileID: 7400000, guid: a45da929d2520f74ca9ee66f4274e760, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: walking
+    second: {fileID: 7400000, guid: 3506c152f421abf418ea243f67f4f09a, type: 2}
   serializedVersion: 2
   userData: 
   assetBundleName: 
@@ -93,7 +143,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638227087614077316
+  platformSettingsDirtyTick: 638227937354910740
   textureAssetName: 
   singleSpriteImportData:
   - name: 

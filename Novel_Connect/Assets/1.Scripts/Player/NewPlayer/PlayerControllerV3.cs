@@ -108,7 +108,6 @@ public class PlayerControllerV3 : Actor
         {
             Destroy(gameObject);
         }
-        statuses.Setup(this);
         rb = GetComponent<Rigidbody2D>();
         playerGravityScale = rb.gravityScale;
         anim = GetComponent<Animator>();
@@ -121,6 +120,7 @@ public class PlayerControllerV3 : Actor
         statuses.currentHp = statuses.maxHp;
         statuses.speed = playerData.walkSpeed;
         statuses.force = playerData.force;
+        statuses.Setup(this);
 
         collisionCollider_Down = transform.Find("CollisionCollider_Down").gameObject;
         collisionCollider_Up = transform.Find("CollisionCollider_Up").gameObject;
@@ -149,13 +149,6 @@ public class PlayerControllerV3 : Actor
     {
         stateMachine.UpdateState();
         playerMovement.Update();
-
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            GameObject Test = Instantiate(Resources.Load<GameObject>("IceBossSkill_1"));
-
-            Test.GetComponent<IceBosSkill_1>().Setup(this);
-        }
     }
     private void OnDrawGizmos()
     {

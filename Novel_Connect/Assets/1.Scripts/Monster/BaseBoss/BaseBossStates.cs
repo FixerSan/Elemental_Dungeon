@@ -56,6 +56,7 @@ namespace BaseBossState
 
         public override void UpdateState(BaseBoss entity)
         {
+            entity.CheckTargetDistance();
             entity.CheckSkill_1CoolTime();
             entity.CheckCanUseSkill_1();
             entity.CheckSkill_2CoolTime();
@@ -69,15 +70,19 @@ namespace BaseBossState
         public override void EnterState(BaseBoss entity)
         {
             entity.state = BossState.Follow;
+            entity.animator.SetBool("isWalk", true);
         }
 
         public override void ExitState(BaseBoss entity)
         {
-
+            entity.animator.SetBool("isWalk", false) ;
+            entity.Stop();
         }
 
         public override void UpdateState(BaseBoss entity)
         {
+            entity.Move(entity.LookAtPlayer());
+            entity.CheckTargetDistance();
             entity.CheckSkill_1CoolTime();
             entity.CheckSkill_2CoolTime();
             entity.CheckAttackTime();
@@ -89,6 +94,7 @@ namespace BaseBossState
         public override void EnterState(BaseBoss entity)
         {
             entity.state = BossState.Skill_1Cast;
+            entity.LookAtPlayer();
             entity.Skill_1();
         }
 
@@ -128,6 +134,7 @@ namespace BaseBossState
         public override void EnterState(BaseBoss entity)
         {
             entity.state = BossState.Attack;
+            entity.LookAtPlayer();
             entity.StartAttack();
         }
 
@@ -168,6 +175,7 @@ namespace BaseBossState
         public override void EnterState(BaseBoss entity)
         {
             entity.state = BossState.Dead;
+            entity.Dead();
         }
 
         public override void ExitState(BaseBoss entity)

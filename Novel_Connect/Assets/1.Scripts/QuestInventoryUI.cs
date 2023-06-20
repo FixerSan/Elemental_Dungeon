@@ -24,9 +24,9 @@ public class QuestInventoryUI : MonoBehaviour
 
         slots = slotHolder.GetComponentsInChildren<QuestSlot>();
 
-        questInventory.onChangeQuest += RedrawText;
-        QuestSystem.instance.onChangeCurrentQuest += RedrawText;
-        QuestSystem.instance.onChangeCurrentQuest += RedrawQuest;
+        questInventory.OnChangeQuest += RedrawText;
+        QuestSystem.instance.OnChangeCurrentQuest += RedrawText;
+        QuestSystem.instance.OnChangeCurrentQuest += RedrawQuest;
     }
 
     private void RedrawQuest()

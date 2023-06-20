@@ -45,12 +45,11 @@ public class FireSkill_2_1 : MonoBehaviour
         if (collision.CompareTag("Monster"))
         {
             BaseMonster monster = collision.GetComponent<BaseMonster>();
-            Actor actor = monster.GetComponent<Actor>();
+            Actor actor = collision.GetComponent<Actor>();
             actor.SetTarget(player.gameObject);
             BattleSystem.instance.HitCalculate(Elemental.Fire, actor.elemental, actor, player.statuses.force);
             BattleSystem.instance.SetStatusEffect(actor, StatusEffect.Burns, burnsDuration);
-            monster.KnockBack(direction, knuckBackForce, 0);
-
+            if(monster) monster.KnockBack(direction, knuckBackForce, 0);
         }
     }
 

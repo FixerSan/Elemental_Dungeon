@@ -109,9 +109,9 @@ public class BaseMonster : Actor
     public virtual void Move()
     {
         if (direction == Direction.Left)
-            rb.velocity = new Vector2(statuses.speed * -1, rb.velocity.y);
+            rb.velocity = new Vector2(statuses.nowSpeed * -1, rb.velocity.y);
         else if (direction == Direction.Right)
-            rb.velocity = new Vector2(statuses.speed * 1, rb.velocity.y);
+            rb.velocity = new Vector2(statuses.nowSpeed * 1, rb.velocity.y);
     }
 
     public void Stop()

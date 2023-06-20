@@ -60,6 +60,7 @@ public class SceneManager : MonoBehaviour
     public BaseScene AddSceneClass(string sceneName)
     {
         if (sceneName == "Guild") return gameObject.AddComponent<GuildScene>();
+        if (sceneName == "CutSceneGuild") return gameObject.AddComponent<CutSceneGuildScene>();
         if (sceneName == "Town") return gameObject.AddComponent<TownScene>();
         if (sceneName == "Cave") return gameObject.AddComponent<CaveScene>();
         return null;

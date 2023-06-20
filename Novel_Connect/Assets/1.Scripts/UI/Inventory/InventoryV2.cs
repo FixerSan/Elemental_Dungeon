@@ -10,6 +10,8 @@ public class InventoryV2 : MonoBehaviour
     public OnGetItem onGetItem;
     public delegate void OnRemoveItem(int itemID);
     public OnRemoveItem onRemoveItem;
+    public int gold;
+    public System.Action OnChangeGold;
 
     public void ArrangeItems()
     {
@@ -97,6 +99,19 @@ public class InventoryV2 : MonoBehaviour
         {
             itemEffect.UseItem(itemID);
         }
+    }
+
+
+    public void AddGold(int addGold)
+    {
+        gold += addGold;
+        OnChangeGold();
+    }
+
+    public void RemoveGold(int removeGold)
+    {
+        gold -= removeGold;
+        OnChangeGold();
     }
 
 }

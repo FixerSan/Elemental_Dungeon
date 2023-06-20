@@ -22,35 +22,29 @@ public class QuestSystem : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
+            transform.SetParent(null);
             DontDestroyOnLoad(gameObject);
         }
         else
             Destroy(gameObject);
+        inventory = FindObjectOfType<InventoryV2>();
     }
     #endregion
 
-    public delegate void OnChangeCurrentQuest();
-    public OnChangeCurrentQuest onChangeCurrentQuest;
+    public System.Action OnChangeCurrentQuest;
 
-    public List<Quest> current_Quest;
+    public List<Quest> current_Quest = new List<Quest>();
+    public InventoryV2 inventory;
     public float m_Time;
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Debug.Log("l´­¸²");
-            AddQuest();
-        }
-    }
     private void FixedUpdate()
     {
-        m_Time += Time.deltaTime;
-        if (m_Time >= 300)
-        {
-            m_Time = 0;
-            AddQuest();
-        }
+        //m_Time += Time.deltaTime;
+        //if (m_Time >= 300)
+        //{
+        //    m_Time = 0;
+        //    AddQuest();
+        //}
     }
     public void AddQuest()
     {
@@ -75,10 +69,8 @@ public class QuestSystem : MonoBehaviour
         Debug.Log(quests.Length);
         Quest quest_ = new Quest(DataBase.instance.datas.questDatas[i].questID);
         current_Quest.Add(quest_);
-        if (onChangeCurrentQuest != null)
-            onChangeCurrentQuest.Invoke();
+        OnChangeCurrentQuest?.Invoke();
     }
-
     public Quest GetQuest(int index)
     {
         foreach (Quest quest in DataBase.instance.datas.questDatas)
@@ -88,6 +80,48 @@ public class QuestSystem : MonoBehaviour
         }
 
         return null;
+    }
+
+    public void CheckDoneKillQuest(int index)
+    {
+
+    }
+
+    public void CheckDoneClearQuest(int index)
+    {
+        foreach (var quest in QuestInventory.instance.quests)
+        {
+            if(quest.questID == index)
+            {
+                quest.state = QuestState.after;
+                OnChangeCurrentQuest?.Invoke();
+            }
+        }
+    }
+
+    public bool DoneQuest(int index)
+    {
+        foreach (var quest in current_Quest)
+        {
+            if(quest.questID == index)
+            {
+                inventory.AddGold(((int)quest.pay));
+                QuestInventory.instance.AddServicePoint(((int)quest.servicePoint));
+                current_Quest.Remove(quest);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void OnEnable()
+    {
+        MonsterSystem.instance.OnDeadBoss += CheckDoneClearQuest;
+    }
+
+    private void OnDisable()
+    {
+        MonsterSystem.instance.OnDeadBoss -= CheckDoneClearQuest;
     }
 }
 

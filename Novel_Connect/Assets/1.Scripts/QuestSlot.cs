@@ -46,8 +46,8 @@ public class QuestSlot : MonoBehaviour
 
     public void OnClickButton()
     {
-        if(quest.questSpritePath == "None")
-            return;
+        if (quest == null) return;
+        if(quest.questSpritePath == "None") return;
         if(quest.state != QuestState.after)
         {
             active = !active;
@@ -56,14 +56,14 @@ public class QuestSlot : MonoBehaviour
             contentUI.transform.GetChild(0).GetComponent<QuestYesButton>().nowQuest = this;
         }
 
-        //else
-        //{
-        //    if(GameManager.instance.DoneQuest(quest.questID))
-        //    {
-        //        quest = null;
-        //        UpdateSlotUI();
-        //    }
-        //}
+        else
+        {
+            if (QuestPresenter.instance.DoneQuest(quest.questID))
+            {
+                quest = null;
+                UpdateSlotUI();
+            }
+        }
     }
 
     public void AddQuest()

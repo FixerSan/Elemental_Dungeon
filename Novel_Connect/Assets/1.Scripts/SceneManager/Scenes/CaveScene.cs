@@ -22,6 +22,21 @@ public class CaveScene : BaseScene
         {
             cameraPoses.Add(c_Pos.name, c_Pos);
         }
+        MonsterSystem.instance.OnDeadBoss += SceneEvent;
+    }
+
+    protected override void Clear()
+    {
+        MonsterSystem.instance.OnDeadBoss -= SceneEvent;
+    }
+
+    public override void SceneEvent(int i)
+    {
+        switch(i)
+        {
+            case 0:
+                break;  
+        }
     }
 
     public override void TriggerEffect(int index)
