@@ -42,9 +42,15 @@ public class CaveScene : BaseScene
         switch (i)
         {
             case 0:
-
+                StartCoroutine(SceneEvent_0());
                 break;
         }
+    }
+
+    public IEnumerator SceneEvent_0()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.instance.LoadScene("Guild");
     }
 
     public override void TriggerEffect(int index)

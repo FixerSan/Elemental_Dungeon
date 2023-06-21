@@ -29161,6 +29161,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 174861c059a825940b64cb70cf7f6fb7, type: 2}
   - {fileID: 11400000, guid: eecd16e514ba9274f94dd013d932a572, type: 2}
   - {fileID: 11400000, guid: 30ceeb6f55efff6438fa39164ad7017b, type: 2}
+  - {fileID: 11400000, guid: 37353a36c08509f42aa404d405a403e4, type: 2}
   soundProfilelist:
   - {fileID: 11400000, guid: a264b418307ea58428360598dc266f60, type: 2}
   - {fileID: 11400000, guid: f1aa8224e8103db4db05ef0a00b5832e, type: 2}

@@ -21,13 +21,19 @@ public class PortalSystem : MonoBehaviour
         }
     }
     #endregion
+
+    public Coroutine portCoroutine;
     public void PortOject(GameObject portObject, string portSpotName)
     {
-        StartCoroutine(PortCoroutine(portObject, portSpotName));
+        if (portCoroutine != null) return;
+        portCoroutine = StartCoroutine(PortCoroutine(portObject, portSpotName));
     }
 
     IEnumerator PortCoroutine(GameObject portObject, string portSpotName)
     {
+        GameManager.instance.player.playerInput.isCanControl = false;
+        GameManager.instance.player.ChangeState(PlayerState.Idle);
+        GameManager.instance.player.playerMovement.Stop();
         PortalData portalData = DataBase.instance.GetPortalSpot(portSpotName);
 
         yield return StartCoroutine(ScreenEffect.instance.FadeIn(1f));
@@ -41,6 +47,8 @@ public class PortalSystem : MonoBehaviour
         {
             portObject.transform.eulerAngles = new Vector3(0, 0, 0);
         }
+        GameManager.instance.player.playerInput.isCanControl = true;
         yield return StartCoroutine(ScreenEffect.instance.FadeOut(1f));
+        portCoroutine = null;
     }
 }

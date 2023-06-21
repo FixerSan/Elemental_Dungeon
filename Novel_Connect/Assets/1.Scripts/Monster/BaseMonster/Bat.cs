@@ -21,6 +21,7 @@ public class Bat : BaseMonster
 
     public void CheckMoveSoundDuration()
     {
+        if (Vector2.Distance(GameManager.instance.player.transform.position, transform.position) > 10f) return;
         if (state == MonsterState.Follow)
         {
             if (soundCheckTime == 0)

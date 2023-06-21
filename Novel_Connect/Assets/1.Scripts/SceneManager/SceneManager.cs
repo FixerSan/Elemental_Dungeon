@@ -77,6 +77,7 @@ public class SceneManager : MonoBehaviour
         if(sceneDictionary.ContainsKey(sceneName))
         {
             if (sceneName == "Guild") Destroy(GetComponent<GuildScene>());
+            //if (sceneName == "CutSceneGuild") Destroy(GetComponent<CutSceneGuildScene>());
             if (sceneName == "Town") Destroy(GetComponent<TownScene>());
             if (sceneName == "Cave") Destroy(GetComponent<CaveScene>());
             sceneDictionary.Remove(sceneName);

@@ -44,6 +44,7 @@ public class Slime : BaseMonster
 
     public void CheckMoveSoundDuration()
     {
+        if (Vector2.Distance(GameManager.instance.player.transform.position, transform.position) > 10f) return;
         if (state == MonsterState.Patrol)
         {
             if (soundCheckTime == 0)
