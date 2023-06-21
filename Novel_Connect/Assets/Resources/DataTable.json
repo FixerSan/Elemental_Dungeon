@@ -650,6 +650,93 @@
     "selectBtn_1Text": "None",
     "selectBtn_2Text": "None",
     "selectBtn_3Text": "None"
+   },
+   {
+    "index": -3
+   },
+   {
+    "index": 2000,
+    "name": "주인공",
+    "sentence": "으윽... 잘좀 보내주시지..",
+    "illustPath": "IllustSprites\/Boy",
+    "speakerUIindex": 0,
+    "nextIndex": -100,
+    "nextBtnText": "대화 종료",
+    "selectBtn_1Text": "None",
+    "selectBtn_2Text": "None",
+    "selectBtn_3Text": "None"
+   },
+   {
+    "index": 2001,
+    "name": "불 정령",
+    "sentence": "아~",
+    "illustPath": "IllustSprites\/Elemental",
+    "speakerUIindex": 0,
+    "nextIndex": -1,
+    "nextBtnText": "다음",
+    "selectBtn_1Text": "None",
+    "selectBtn_2Text": "None",
+    "selectBtn_3Text": "None"
+   },
+   {
+    "index": 2002,
+    "name": "주인공",
+    "sentence": "?",
+    "illustPath": "IllustSprites\/Boy",
+    "speakerUIindex": 0,
+    "nextIndex": -1,
+    "nextBtnText": "다음",
+    "selectBtn_1Text": "None",
+    "selectBtn_2Text": "None",
+    "selectBtn_3Text": "None"
+   },
+   {
+    "index": 2003,
+    "name": "불 정령",
+    "sentence": "나 때는 말이야",
+    "illustPath": "IllustSprites\/Elemental",
+    "speakerUIindex": 0,
+    "nextIndex": -1,
+    "nextBtnText": "다음",
+    "selectBtn_1Text": "None",
+    "selectBtn_2Text": "None",
+    "selectBtn_3Text": "None"
+   },
+   {
+    "index": 2004,
+    "name": "주인공",
+    "sentence": "또 시작이네",
+    "illustPath": "IllustSprites\/Boy",
+    "speakerUIindex": 0,
+    "nextIndex": -1,
+    "nextBtnText": "다음",
+    "selectBtn_1Text": "None",
+    "selectBtn_2Text": "None",
+    "selectBtn_3Text": "None"
+   },
+   {
+    "index": 2005,
+    "name": "불 정령",
+    "sentence": "들어봐",
+    "illustPath": "IllustSprites\/Elemental",
+    "speakerUIindex": 0,
+    "nextIndex": -1,
+    "nextBtnText": "다음",
+    "selectBtn_1Text": "None",
+    "selectBtn_2Text": "None",
+    "selectBtn_3Text": "None"
+   },
+   {
+    "index": 2006,
+    "name": "주인공",
+    "sentence": ";;",
+    "illustPath": "IllustSprites\/Boy",
+    "speakerUIindex": 0,
+    "nextIndex": -100,
+    "nextBtnText": "대화 종료",
+    "selectBtn_1Text": "None",
+    "selectBtn_2Text": "None",
+    "selectBtn_3Text": "None"
    }
   ],
   "speechBubbleDatas":[
@@ -864,14 +951,6 @@
     "maxCount": 1
    },
    {
-    "itemID": 90013,
-    "itemtType": 3,
-    "itemName": "마석",
-    "itemImagePath": "ItemSprites\/Ore & Gem\/MaSuck",
-    "count": 1,
-    "maxCount": 1
-   },
-   {
     "itemID": 90014,
     "itemtType": 3,
     "itemName": "스레드크랩의 독",
@@ -915,19 +994,41 @@
     "itemID": 90019,
     "itemtType": 3,
     "itemName": "지네의 독",
-    "itemImagePath": "ItemSprites\/Etc\/CentipedePoison"
+    "itemImagePath": "ItemSprites\/Etc\/CentipedePoison",
+    "count": 1,
+    "maxCount": 1
    },
    {
     "itemID": 90020,
     "itemtType": 3,
     "itemName": "샤드랙스의 핵",
-    "itemImagePath": "ItemSprites\/Etc\/ShardraxHack"
+    "itemImagePath": "ItemSprites\/Etc\/ShardraxHack",
+    "count": 1,
+    "maxCount": 1
    },
    {
-    "itemID": 90021,
+    "itemID": 6,
     "itemtType": 3,
     "itemName": "오브",
-    "itemImagePath": "ItemSprites\/Etc\/Orb"
+    "itemImagePath": "ItemSprites\/Etc\/Orb",
+    "count": 1,
+    "maxCount": 1
+   },
+   {
+    "itemID": 100,
+    "itemtType": 3,
+    "itemName": "토템 보석",
+    "itemImagePath": "ItemSprites\/Ore & Gem\/Sapphire",
+    "count": 1,
+    "maxCount": 1
+   },
+   {
+    "itemID": 101,
+    "itemtType": 3,
+    "itemName": "마석",
+    "itemImagePath": "ItemSprites\/Ore & Gem\/MaSuck",
+    "count": 1,
+    "maxCount": 64
    }
   ],
   "monsterDatas":[

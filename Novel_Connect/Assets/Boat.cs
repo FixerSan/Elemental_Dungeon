@@ -85,7 +85,7 @@ public class Boat : MonoBehaviour
         StopAllCoroutines();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if(isMove)
         {
@@ -97,11 +97,13 @@ public class Boat : MonoBehaviour
     {
         if(direction == Direction.Right)
         {
+            transform.eulerAngles = new Vector3(0, 0, 0);
             rb.velocity = new Vector2(moveForce , 0);
         }
 
         if (direction == Direction.Left)
         {
+            transform.eulerAngles = new Vector3(0, 180, 0);
             rb.velocity = new Vector2(-moveForce, 0);
         }
         if(player.playerInput.isCanControl)

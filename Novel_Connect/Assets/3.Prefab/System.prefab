@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &183055466
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 183055467}
+  - component: {fileID: 183055468}
+  m_Layer: 0
+  m_Name: TotemSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &183055467
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183055466}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2811212743919072218}
+  m_RootOrder: 21
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &183055468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 183055466}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26f07ccd0566cd47bd43e9191bb01b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &335288008
 GameObject:
   m_ObjectHideFlags: 0
@@ -413,9 +457,9 @@ LineRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -871202629
+  m_SortingLayer: 2
+  m_SortingOrder: -10
   m_Positions:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 1}
@@ -728,6 +772,50 @@ MonoBehaviour:
   hpBarPrefab: {fileID: 6439942657581927289, guid: 6728a10e709c1ed41b4fbd293f174bff, type: 3}
   fireSkill_1: {fileID: 4355045764145714419, guid: 577cafa8b07137741a32f04f49484c66, type: 3}
   fireSkill_2: {fileID: 3166295816537748360, guid: 0932690ce542ea14b91810842b355ba8, type: 3}
+--- !u!1 &1618433415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1618433416}
+  - component: {fileID: 1618433417}
+  m_Layer: 0
+  m_Name: ChestSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1618433416
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618433415}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2811212743919072218}
+  m_RootOrder: 20
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1618433417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618433415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfc3e47da06afe647a1d2b67ce3f8fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1820142861
 GameObject:
   m_ObjectHideFlags: 0
@@ -2281,6 +2369,7 @@ GameObject:
   - component: {fileID: 2811212743518881143}
   - component: {fileID: 2811212743518881136}
   - component: {fileID: 2811212743518881137}
+  - component: {fileID: 79621300}
   m_Layer: 5
   m_Name: Slot (2)
   m_TagString: Untagged
@@ -2419,6 +2508,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &79621300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212743518880908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212743523671286
 GameObject:
   m_ObjectHideFlags: 0
@@ -3692,6 +3794,7 @@ GameObject:
   - component: {fileID: 2811212743612690053}
   - component: {fileID: 2811212743612690054}
   - component: {fileID: 2811212743612690055}
+  - component: {fileID: 10846835}
   m_Layer: 5
   m_Name: Slot (10)
   m_TagString: Untagged
@@ -3830,6 +3933,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &10846835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212743612690050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212743620300435
 GameObject:
   m_ObjectHideFlags: 0
@@ -4545,6 +4661,7 @@ GameObject:
   - component: {fileID: 2811212743656208274}
   - component: {fileID: 2811212743656208275}
   - component: {fileID: 2811212743656208300}
+  - component: {fileID: 320215155}
   m_Layer: 5
   m_Name: Slot (17)
   m_TagString: Untagged
@@ -4683,6 +4800,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &320215155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212743656208303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212743659190540
 GameObject:
   m_ObjectHideFlags: 0
@@ -4907,6 +5037,7 @@ GameObject:
   - component: {fileID: 2811212743662177682}
   - component: {fileID: 2811212743662177683}
   - component: {fileID: 2811212743662177708}
+  - component: {fileID: 651950681}
   m_Layer: 5
   m_Name: Slot
   m_TagString: Untagged
@@ -5045,6 +5176,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &651950681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212743662177711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212743671696419
 GameObject:
   m_ObjectHideFlags: 0
@@ -5210,6 +5354,7 @@ GameObject:
   - component: {fileID: 2811212743679430286}
   - component: {fileID: 2811212743679430287}
   - component: {fileID: 2811212743679430280}
+  - component: {fileID: 1779072766}
   m_Layer: 5
   m_Name: Slot (13)
   m_TagString: Untagged
@@ -5348,6 +5493,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &1779072766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212743679430283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212743690707664
 GameObject:
   m_ObjectHideFlags: 0
@@ -5753,6 +5911,7 @@ GameObject:
   - component: {fileID: 2811212743700105455}
   - component: {fileID: 2811212743700105448}
   - component: {fileID: 2811212743700105449}
+  - component: {fileID: 15998601}
   m_Layer: 5
   m_Name: Slot (21)
   m_TagString: Untagged
@@ -5891,6 +6050,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &15998601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212743700105444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212743701667315
 GameObject:
   m_ObjectHideFlags: 0
@@ -6026,6 +6198,7 @@ GameObject:
   - component: {fileID: 2811212743705182582}
   - component: {fileID: 2811212743705182583}
   - component: {fileID: 2811212743705182576}
+  - component: {fileID: 1560253450}
   m_Layer: 5
   m_Name: Slot (22)
   m_TagString: Untagged
@@ -6164,6 +6337,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &1560253450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212743705182579}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212743714505218
 GameObject:
   m_ObjectHideFlags: 0
@@ -8115,6 +8301,7 @@ GameObject:
   - component: {fileID: 2811212743826911156}
   - component: {fileID: 2811212743826911157}
   - component: {fileID: 2811212743826911158}
+  - component: {fileID: 2142812661}
   m_Layer: 5
   m_Name: Slot (15)
   m_TagString: Untagged
@@ -8253,6 +8440,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &2142812661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212743826911153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212743836257535
 GameObject:
   m_ObjectHideFlags: 0
@@ -9100,6 +9300,8 @@ Transform:
   - {fileID: 1299472702}
   - {fileID: 4068454722919225363}
   - {fileID: 7676941210005354542}
+  - {fileID: 1618433416}
+  - {fileID: 183055467}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9192,6 +9394,7 @@ GameObject:
   - component: {fileID: 2811212743927511431}
   - component: {fileID: 2811212743927511424}
   - component: {fileID: 2811212743927511425}
+  - component: {fileID: 1086452358}
   m_Layer: 5
   m_Name: Slot (8)
   m_TagString: Untagged
@@ -9330,6 +9533,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &1086452358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212743927511452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212743931274495
 GameObject:
   m_ObjectHideFlags: 0
@@ -9526,6 +9742,7 @@ GameObject:
   - component: {fileID: 2811212743936604017}
   - component: {fileID: 2811212743936604018}
   - component: {fileID: 2811212743936604019}
+  - component: {fileID: 1625494124}
   m_Layer: 5
   m_Name: Slot (9)
   m_TagString: Untagged
@@ -9664,6 +9881,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &1625494124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212743936603790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212743940689816
 GameObject:
   m_ObjectHideFlags: 0
@@ -9812,6 +10042,7 @@ GameObject:
   - component: {fileID: 2811212743946800429}
   - component: {fileID: 2811212743946800430}
   - component: {fileID: 2811212743946800431}
+  - component: {fileID: 750072341}
   m_Layer: 5
   m_Name: Slot (23)
   m_TagString: Untagged
@@ -9950,6 +10181,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &750072341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212743946800426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212743965392350
 GameObject:
   m_ObjectHideFlags: 0
@@ -11113,6 +11357,7 @@ GameObject:
   - component: {fileID: 2811212744074636983}
   - component: {fileID: 2811212744074636976}
   - component: {fileID: 2811212744074636977}
+  - component: {fileID: 70758214}
   m_Layer: 5
   m_Name: Slot (14)
   m_TagString: Untagged
@@ -11251,6 +11496,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &70758214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212744074637004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212744085004771
 GameObject:
   m_ObjectHideFlags: 0
@@ -12011,6 +12269,7 @@ GameObject:
   - component: {fileID: 2811212744199538050}
   - component: {fileID: 2811212744199538051}
   - component: {fileID: 2811212744199538076}
+  - component: {fileID: 1163719838}
   m_Layer: 5
   m_Name: Slot (7)
   m_TagString: Untagged
@@ -12149,6 +12408,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &1163719838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212744199538079}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212744200726702
 GameObject:
   m_ObjectHideFlags: 0
@@ -12162,6 +12434,7 @@ GameObject:
   - component: {fileID: 2811212744200726673}
   - component: {fileID: 2811212744200726674}
   - component: {fileID: 2811212744200726675}
+  - component: {fileID: 987141816}
   m_Layer: 5
   m_Name: Slot (18)
   m_TagString: Untagged
@@ -12300,6 +12573,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &987141816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212744200726702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212744210656607
 GameObject:
   m_ObjectHideFlags: 0
@@ -12845,6 +13131,7 @@ GameObject:
   - component: {fileID: 2811212744255248229}
   - component: {fileID: 2811212744255248230}
   - component: {fileID: 2811212744255248231}
+  - component: {fileID: 1266069139}
   m_Layer: 5
   m_Name: Slot (12)
   m_TagString: Untagged
@@ -12971,6 +13258,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &1266069139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212744255248226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212744260719723
 GameObject:
   m_ObjectHideFlags: 0
@@ -14497,6 +14797,7 @@ GameObject:
   - component: {fileID: 2811212744423638048}
   - component: {fileID: 2811212744423638049}
   - component: {fileID: 2811212744423638050}
+  - component: {fileID: 948490835}
   m_Layer: 5
   m_Name: Slot (3)
   m_TagString: Untagged
@@ -14635,6 +14936,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &948490835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212744423638077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212744442451670
 GameObject:
   m_ObjectHideFlags: 0
@@ -14859,6 +15173,7 @@ GameObject:
   - component: {fileID: 2811212744456067953}
   - component: {fileID: 2811212744456067954}
   - component: {fileID: 2811212744456067955}
+  - component: {fileID: 1206524813}
   m_Layer: 5
   m_Name: Slot (11)
   m_TagString: Untagged
@@ -14997,6 +15312,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &1206524813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212744456067726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212744467164371
 GameObject:
   m_ObjectHideFlags: 0
@@ -16489,6 +16817,7 @@ GameObject:
   - component: {fileID: 2811212744619688608}
   - component: {fileID: 2811212744619688609}
   - component: {fileID: 2811212744619688610}
+  - component: {fileID: 527544396}
   m_Layer: 5
   m_Name: Slot (4)
   m_TagString: Untagged
@@ -16627,6 +16956,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &527544396
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212744619688637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212744622617874
 GameObject:
   m_ObjectHideFlags: 0
@@ -17569,6 +17911,7 @@ GameObject:
   - component: {fileID: 2811212744679012554}
   - component: {fileID: 2811212744679012555}
   - component: {fileID: 2811212744679012548}
+  - component: {fileID: 1324385417}
   m_Layer: 5
   m_Name: Slot (6)
   m_TagString: Untagged
@@ -17707,6 +18050,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &1324385417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212744679012551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212744680835105
 GameObject:
   m_ObjectHideFlags: 0
@@ -17720,6 +18076,7 @@ GameObject:
   - component: {fileID: 2811212744680835108}
   - component: {fileID: 2811212744680835109}
   - component: {fileID: 2811212744680835110}
+  - component: {fileID: 1666889529}
   m_Layer: 5
   m_Name: Slot (1)
   m_TagString: Untagged
@@ -17858,6 +18215,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &1666889529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212744680835105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212744691322460
 GameObject:
   m_ObjectHideFlags: 0
@@ -21622,6 +21992,7 @@ GameObject:
   - component: {fileID: 2811212744961394474}
   - component: {fileID: 2811212744961394475}
   - component: {fileID: 2811212744961394468}
+  - component: {fileID: 1262562469}
   m_Layer: 5
   m_Name: Slot (5)
   m_TagString: Untagged
@@ -21760,6 +22131,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &1262562469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212744961394471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212744974756367
 GameObject:
   m_ObjectHideFlags: 0
@@ -25670,6 +26054,7 @@ GameObject:
   - component: {fileID: 2811212745306461915}
   - component: {fileID: 2811212745306461908}
   - component: {fileID: 2811212745306461909}
+  - component: {fileID: 1055107820}
   m_Layer: 5
   m_Name: Slot (19)
   m_TagString: Untagged
@@ -25808,6 +26193,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &1055107820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212745306461904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212745307451849
 GameObject:
   m_ObjectHideFlags: 0
@@ -26228,8 +26626,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2811212745335980047}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 307.5299, y: -103.62776, z: -63.85847}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -28132,6 +28530,7 @@ GameObject:
   - component: {fileID: 2811212745512613648}
   - component: {fileID: 2811212745512613649}
   - component: {fileID: 2811212745512613650}
+  - component: {fileID: 1175097273}
   m_Layer: 5
   m_Name: Slot (20)
   m_TagString: Untagged
@@ -28270,6 +28669,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &1175097273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212745512613677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212745518478694
 GameObject:
   m_ObjectHideFlags: 0
@@ -28283,6 +28695,7 @@ GameObject:
   - component: {fileID: 2811212745518478697}
   - component: {fileID: 2811212745518478698}
   - component: {fileID: 2811212745518478699}
+  - component: {fileID: 95921599}
   m_Layer: 5
   m_Name: Slot (16)
   m_TagString: Untagged
@@ -28421,6 +28834,19 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_EffectDistance: {x: 5, y: -5}
   m_UseGraphicAlpha: 1
+--- !u!114 &95921599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2811212745518478694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e91c5e51d2538c46ba250145790ff47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
 --- !u!1 &2811212745550707787
 GameObject:
   m_ObjectHideFlags: 0
@@ -28734,6 +29160,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1ce13e7be855cf74d8643070993f3f93, type: 2}
   - {fileID: 11400000, guid: 174861c059a825940b64cb70cf7f6fb7, type: 2}
   - {fileID: 11400000, guid: eecd16e514ba9274f94dd013d932a572, type: 2}
+  - {fileID: 11400000, guid: 30ceeb6f55efff6438fa39164ad7017b, type: 2}
   soundProfilelist:
   - {fileID: 11400000, guid: a264b418307ea58428360598dc266f60, type: 2}
   - {fileID: 11400000, guid: f1aa8224e8103db4db05ef0a00b5832e, type: 2}

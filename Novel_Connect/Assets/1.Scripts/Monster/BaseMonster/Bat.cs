@@ -72,6 +72,7 @@ public class Bat : BaseMonster
             if(coll.CompareTag("Player"))
             {
                 SetTarget(coll.gameObject);
+                rb.gravityScale = 1;
                 if(detectCoroutine == null)
                     detectCoroutine = StartCoroutine(Detect());
             }

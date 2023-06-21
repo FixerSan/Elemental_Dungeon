@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Centipede : Actor
 {
+    public SpriteRenderer[] spriteRenderers;
+    public Color color;
     public RotateToTarget movement => transform.GetChild(0).GetComponent<RotateToTarget>();
     public Transform movePos;
     public List<Transform> upPoses;
@@ -15,10 +17,12 @@ public class Centipede : Actor
     private void Awake()
     {
         movePos.SetParent(null);
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
     }
     public override void GetDamage(float damage)
     {
         if (statuses.currentHp <= 0 || !isCanHit)    return;
+        StartCoroutine(HitEffect());
         isCanHit = false;
         statuses.currentHp -= damage;
         AudioSystem.Instance.PlayOneShot(Resources.Load<AudioClip>("AudioClips/FootAudioClip/Foot_Conc2_SneakerLand01"));
@@ -84,6 +88,43 @@ public class Centipede : Actor
 
     public override void Hit(float damage)
     {
-        throw new System.NotImplementedException();
+        StartCoroutine(HitEffect());
     }
+
+    public IEnumerator HitEffect()
+    {
+        foreach (var sr in spriteRenderers)
+        {
+            UpdateHitEffect(sr, true);
+        }
+
+        yield return new WaitForSeconds(0.1f);
+
+        foreach (var sr in spriteRenderers)
+        {
+            DisableHitEffect(sr, false);
+        }
+    }
+
+    void UpdateHitEffect(SpriteRenderer spriteRenderer  , bool outline)
+    {
+        MaterialPropertyBlock mpb = new MaterialPropertyBlock();
+        spriteRenderer.GetPropertyBlock(mpb);
+        mpb.SetFloat("_Outline", outline ? 1f : 0);
+        mpb.SetColor("_OutlineColor", color);
+        mpb.SetFloat("_OutlineSize", 16);
+        spriteRenderer.SetPropertyBlock(mpb);
+    }
+
+    void DisableHitEffect(SpriteRenderer spriteRenderer, bool outline)
+    {
+        MaterialPropertyBlock mpb = new MaterialPropertyBlock();
+        spriteRenderer.GetPropertyBlock(mpb);
+        mpb.SetFloat("_Outline", outline ? 1f : 0);
+        mpb.SetColor("_OutlineColor", color);
+        mpb.SetFloat("_OutlineSize", 16);
+        spriteRenderer.SetPropertyBlock(mpb);
+    }
+
+
 }

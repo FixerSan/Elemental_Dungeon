@@ -30,7 +30,7 @@ public class PortalSystem : MonoBehaviour
     {
         PortalData portalData = DataBase.instance.GetPortalSpot(portSpotName);
 
-        yield return StartCoroutine(ScreenEffect.instance.FadeIn(1.5f));
+        yield return StartCoroutine(ScreenEffect.instance.FadeIn(1f));
         SceneManager.instance.LoadScene(portalData.sceneName);
         portObject.transform.position = portalData.portPos;
         if (portalData.direction == Direction.Left)
@@ -41,6 +41,6 @@ public class PortalSystem : MonoBehaviour
         {
             portObject.transform.eulerAngles = new Vector3(0, 0, 0);
         }
-        yield return StartCoroutine(ScreenEffect.instance.FadeOut(1.5f));
+        yield return StartCoroutine(ScreenEffect.instance.FadeOut(1f));
     }
 }

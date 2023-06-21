@@ -24,6 +24,7 @@ public class InventoryPresenter : MonoBehaviour
         inventory = FindObjectOfType<InventoryV2>();
         RedrawGold();
         inventory.onGetItem += CheckItemUI;
+        inventory.onRemoveItem += CheckRemoveItemUI;
         inventory.OnChangeGold += RedrawGold;
         if (Instance == null)
         {
@@ -37,11 +38,11 @@ public class InventoryPresenter : MonoBehaviour
     
 
         slots = slotHeader.GetComponentsInChildren<BaseSlot>();
-
     }
     private void OnDisable()
     {
         inventory.onGetItem -= CheckItemUI;
+        inventory.onRemoveItem -= CheckRemoveItemUI;
         inventory.OnChangeGold -= RedrawGold;
     }
     #endregion
@@ -58,6 +59,19 @@ public class InventoryPresenter : MonoBehaviour
             if (slots[i].item == null)
             {
                 slots[i].CreateItemUI(itemID);
+                break;
+            }
+        }
+    }
+
+    public void CheckRemoveItemUI(int itemID)
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i].item == null) continue;
+            if (slots[i].item.item.itemID == itemID)
+            {
+                slots[i].RemoveItemUI();
                 break;
             }
         }

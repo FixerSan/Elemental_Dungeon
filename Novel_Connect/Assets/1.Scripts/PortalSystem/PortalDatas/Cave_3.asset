@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portal_name: Cave_3
   sceneName: Cave
-  portPos: {x: 370.41, y: -148.19}
+  portPos: {x: 388.7, y: -119.9819}
   direction: 0

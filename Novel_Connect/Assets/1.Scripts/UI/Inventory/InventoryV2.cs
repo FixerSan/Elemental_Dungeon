@@ -114,4 +114,17 @@ public class InventoryV2 : MonoBehaviour
         OnChangeGold();
     }
 
+    public bool CheckHasItem(int itemID)
+    {
+        foreach (var item in items)
+        {
+            if(item.itemID == itemID)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
 }
