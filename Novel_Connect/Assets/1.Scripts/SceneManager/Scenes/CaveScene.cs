@@ -10,6 +10,12 @@ public class CaveScene : BaseScene
     Dictionary<string, Transform> cameraPoses = new Dictionary<string, Transform>();
     protected override void Setup()
     {
+        CameraScript.instance.max = new Vector2(10000, 10000);
+        CameraScript.instance.min = new Vector2(-10000, -10000);
+        CameraScript.instance.ChangeSize(9);
+        CameraScript.instance.playerPlusY = 5;
+
+        GameManager.instance.player.transform.position = new Vector3(11.7f,36,0);
         centipede.gameObject.SetActive(false);
         ObjectPool.instance.InitHpBar(5);
 
@@ -225,10 +231,10 @@ public class CaveScene : BaseScene
         CameraScript.instance.max = new Vector2(302.7f, CameraScript.instance.max.y);
     }
 
-    public IEnumerator SceneEvent_0()
-    {
+    //public IEnumerator SceneEvent_0()
+    //{
         
-    }
+    //}
 
 
     float audioDuration = 5;
