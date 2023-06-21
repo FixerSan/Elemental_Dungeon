@@ -32,6 +32,7 @@ public class QuestInventory : MonoBehaviour
             quest.state = QuestState.Proceeding;
             quests.Add(quest);
             OnChangeQuest?.Invoke();
+            QuestSystem.instance.AddQuestEvent(quest.questID);
             return true;
         }
         return false;

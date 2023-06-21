@@ -638,6 +638,18 @@
     "selectBtn_1Text": "None",
     "selectBtn_2Text": "None",
     "selectBtn_3Text": "None"
+   },
+   {
+    "index": 1054,
+    "name": "관리자",
+    "sentence": "지금 바로 던전으로 보내줄게~",
+    "illustPath": "IllustSprites\/QuestAdmin",
+    "speakerUIindex": 0,
+    "nextIndex": -1,
+    "nextBtnText": "대화 종료",
+    "selectBtn_1Text": "None",
+    "selectBtn_2Text": "None",
+    "selectBtn_3Text": "None"
    }
   ],
   "speechBubbleDatas":[
@@ -1020,7 +1032,7 @@
     "force": 5,
     "walkSpeed": 10,
     "runSpeed": 0,
-    "jumpForce": 9,
+    "jumpForce": 12,
     "jumpMoveForce": 100,
     "attackMoveForce": 3
    }

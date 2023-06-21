@@ -43,7 +43,7 @@ public class DialogSystem : MonoBehaviour
 
     private void Update()
     {
-        //CheckSkip();
+        CheckSkip();
     }
 
     //클릭시 적히는 효과 취소, 한 번에 적힘
@@ -182,6 +182,9 @@ public class DialogSystem : MonoBehaviour
                 return;
             case 1046:
                 SceneManager.instance.GetCurrentScene().SceneEvent(1);
+                return;
+            case 1054:
+                SceneManager.instance.GetCurrentScene().SceneEvent(3);
                 return;
         }
         if (currentDialog.nextIndex == -100)

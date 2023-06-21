@@ -13,7 +13,7 @@ public class CutSceneGuildScene : BaseScene
         CameraScript.instance.max = new Vector2(15.96f, 0f);
         CameraScript.instance.playerPlusY = 0f;
         npcs = GameObject.Find("NPCs");
-        //npcs.transform.GetChild(2).gameObject.SetActive(false);
+        npcs.transform.GetChild(2).gameObject.SetActive(false);
         etcObject = GameObject.Find("ETCObject");
         QuestSystem.instance.AddQuest();
     }
@@ -25,8 +25,17 @@ public class CutSceneGuildScene : BaseScene
             case 0:
                 StartCoroutine(Event_1());
                 break;
+
             case 1:
                 StartCoroutine(Event_2());
+                break;
+
+            case 2:
+                StartCoroutine(Event_3());
+                break;
+
+            case 3:
+                StartCoroutine(Event_4());
                 break;
         }
     }
@@ -50,5 +59,21 @@ public class CutSceneGuildScene : BaseScene
         CameraScript.instance.max = new Vector2(15.96f, 0f);
         CameraScript.instance.ChangeSize(5f);
         npcs.transform.GetChild(2).gameObject.SetActive(true);
+    }
+
+    IEnumerator Event_3()
+    {
+        yield return new WaitUntil(() => !CanvasScript.instance.transform.GetChild(5).gameObject.activeSelf);
+        yield return new WaitForSeconds(1);
+        DialogSystem.Instance.UpdateDialog(1054);
+    }
+
+    IEnumerator Event_4()
+    {
+        yield return new WaitForSeconds(1);
+        yield return StartCoroutine(ScreenEffect.instance.FadeIn(1));
+        SceneManager.instance.LoadScene("Cave");
+        yield return new WaitForSeconds(1); 
+        yield return StartCoroutine(ScreenEffect.instance.FadeOut(1));
     }
 }

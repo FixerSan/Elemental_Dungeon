@@ -77,7 +77,12 @@ public class CanvasScript : MonoBehaviour
 
     bool CanClickCheck()
     {
-        if (DialogSystem.Instance.isOpen) return false;
+        if (DialogSystem.Instance.isOpen)
+        {
+            canClickNPC = null;
+            return false;
+        }
+
         foreach (var item in nomalUIs)
         {
             if(item.activeSelf == true)

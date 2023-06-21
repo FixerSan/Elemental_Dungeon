@@ -86,7 +86,7 @@ public class QuestPresenter : MonoBehaviour
         questInventory.OnChangeQuest += RedrawBord;
     }
 
-    private void OnDisable()
+    private void OnDestroy()
     {
         QuestSystem.instance.OnChangeCurrentQuest -= RedrawSlot;
         questInventory.OnChangeQuest -= RedrawBord;

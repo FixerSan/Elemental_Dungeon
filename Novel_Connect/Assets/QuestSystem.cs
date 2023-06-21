@@ -123,5 +123,15 @@ public class QuestSystem : MonoBehaviour
     {
         MonsterSystem.instance.OnDeadBoss -= CheckDoneClearQuest;
     }
+
+    public void AddQuestEvent(int questID)
+    {
+        switch(questID)
+        {
+            case 0:
+                SceneManager.instance.GetCurrentScene().SceneEvent(2);
+                break;
+        }
+    }
 }
 
