@@ -3768,6 +3768,8 @@ MonoBehaviour:
   animatorControllers:
   - {fileID: 9100000, guid: 845ab786fd52ea94f9b8704ca534af3d, type: 2}
   - {fileID: 9100000, guid: 913d2193f5664574ab218bdabd84bd64, type: 2}
+  portalSpotList: []
+  soundProfilelist: []
 --- !u!4 &298795807
 Transform:
   m_ObjectHideFlags: 0
@@ -6537,7 +6539,6 @@ MonoBehaviour:
   cameraState: 0
   isMove: 0
   moveSpeed: 0
-  isShake: 0
   shakeRange: 0
 --- !u!1 &522258874
 GameObject:
@@ -10282,6 +10283,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 403084540, guid: 64c7e0ccebbd4d34685dcf39340a02c5, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1301995840, guid: 64c7e0ccebbd4d34685dcf39340a02c5, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 252231592837550466, guid: 64c7e0ccebbd4d34685dcf39340a02c5, type: 3}
       propertyPath: m_Size.x
       value: 0.32
@@ -10377,6 +10386,14 @@ PrefabInstance:
     - target: {fileID: 1111230839255462217, guid: 64c7e0ccebbd4d34685dcf39340a02c5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4969407093834843390, guid: 64c7e0ccebbd4d34685dcf39340a02c5, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8041572568817919546, guid: 64c7e0ccebbd4d34685dcf39340a02c5, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 64c7e0ccebbd4d34685dcf39340a02c5, type: 3}
@@ -13000,7 +13017,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -24231,7 +24248,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -26033,7 +26050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2b2abb32a6811f4c93f7d121c4f2e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testMonsterPrefab: {fileID: 0}
+  baseMonsterPrefab: {fileID: 0}
 --- !u!1 &1753673256
 GameObject:
   m_ObjectHideFlags: 0
@@ -31661,7 +31678,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -31934,6 +31951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotHeader: {fileID: 120415049}
+  goldText: {fileID: 0}
 --- !u!1 &2136696192
 GameObject:
   m_ObjectHideFlags: 0
