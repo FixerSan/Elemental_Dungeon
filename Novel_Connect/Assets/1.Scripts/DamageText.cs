@@ -18,6 +18,8 @@ public class DamageText : MonoBehaviour
     {
         textMeshPro.color = Color.white;
         textMeshPro.text = Mathf.Round(damage).ToString();
+        textMeshPro.sortingLayerID = SortingLayer.NameToID("Monster");
+        textMeshPro.sortingOrder = 10;
         StartCoroutine(FadeOut());
     }
 

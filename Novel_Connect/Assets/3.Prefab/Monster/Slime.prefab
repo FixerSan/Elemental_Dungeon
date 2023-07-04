@@ -68,7 +68,7 @@ MonoBehaviour:
   direction: 0
   monsterData:
     monsterID: 0
-    monsterHP: 100
+    monsterHP: 10
     monsterSpeed: 5
     monsterAttackForce: 0
     monsterType: 0

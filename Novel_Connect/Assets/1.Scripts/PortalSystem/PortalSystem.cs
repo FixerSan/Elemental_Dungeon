@@ -31,12 +31,14 @@ public class PortalSystem : MonoBehaviour
 
     IEnumerator PortCoroutine(GameObject portObject, string portSpotName)
     {
+        GameManager.instance.player.anim.SetBool("isPort", true);
         GameManager.instance.player.playerInput.isCanControl = false;
         GameManager.instance.player.ChangeState(PlayerState.Idle);
         GameManager.instance.player.playerMovement.Stop();
         PortalData portalData = DataBase.instance.GetPortalSpot(portSpotName);
 
         yield return StartCoroutine(ScreenEffect.instance.FadeIn(1f));
+        GameManager.instance.player.anim.SetBool("isPort", false);
         SceneManager.instance.LoadScene(portalData.sceneName);
         portObject.transform.position = portalData.portPos;
         if (portalData.direction == Direction.Left)
