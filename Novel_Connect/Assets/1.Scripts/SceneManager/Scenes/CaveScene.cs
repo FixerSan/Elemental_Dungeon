@@ -50,7 +50,7 @@ public class CaveScene : BaseScene
     public IEnumerator SceneEvent_0()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.instance.LoadScene("Guild");
+        SceneManager.instance.LoadScene("Cave");
     }
 
     public override void TriggerEffect(int index)
@@ -109,6 +109,7 @@ public class CaveScene : BaseScene
     public IEnumerator Trigger_0()
     {
         CameraScript.instance.max = new Vector2(174.84f, 10000);
+        CameraScript.instance.min = new Vector2(-1000000, -10000);
         ScreenEffect.instance.ShakeHorizontal(0.5f, 0.3f);
         yield return new WaitForSeconds(1f);
         DialogSystem.Instance.UpdateDialog(2000);
