@@ -8,6 +8,10 @@ namespace PlayerSkill_Fire
     {
         public override void Use()
         {
+            if (skillData == null) skillData = new SkillData();
+            skillData.coolTime = 5;
+            checkTime = 5;
+            isCanUse = false;
             ObjectPool.instance.GetSkill(0);
         }
     }
@@ -16,6 +20,10 @@ namespace PlayerSkill_Fire
     {
         public override void Use()
         {
+            if(skillData == null)   skillData = new SkillData();
+            skillData.coolTime = 5;
+            checkTime = 5;
+            isCanUse = false;
             ObjectPool.instance.GetSkill(1);
         }
     }

@@ -9,9 +9,10 @@ public class PlayerControllerV3 : Actor
     public PlayerMovement playerMovement;
     public PlayerInput playerInput;
     public PlayerAttack playerAttack;
+    public PlayerSound playerSound;
     public PlayerState state;
 
-    public StateMachine<PlayerControllerV3> stateMachine= new StateMachine<PlayerControllerV3>();
+    public StateMachine<PlayerControllerV3> stateMachine = new StateMachine<PlayerControllerV3>();
     public Dictionary<int, State<PlayerControllerV3>> states = new Dictionary<int, State<PlayerControllerV3>>();
     public Rigidbody2D rb;
     public Animator anim;
@@ -76,7 +77,7 @@ public class PlayerControllerV3 : Actor
         anim.SetTrigger("ChangeExit");
         yield return new WaitForSeconds(0.1f);
         float delay = anim.GetCurrentAnimatorStateInfo(0).length;
-        yield return new WaitForSeconds(delay-0.1f);
+        yield return new WaitForSeconds(delay - 0.1f);
         anim.runtimeAnimatorController = DataBase.instance.GetAnimatorController(0);
         playerInput.isCanControl = true;
     }
@@ -86,11 +87,15 @@ public class PlayerControllerV3 : Actor
         playerAttack.skills.Add(new PlayerSkill_Fire.Skill_1());
         playerAttack.skills.Add(new PlayerSkill_Fire.Skill_2());
         anim.runtimeAnimatorController = DataBase.instance.GetAnimatorController(1);
+        ChangeState(PlayerState.SkillCasting);
+        float delay = anim.GetCurrentAnimatorStateInfo(0).length;
         AudioSystem.Instance.PlayOneShot(Resources.Load<AudioClip>("AudioClips/Element Fire Transform"));
         yield return new WaitForSeconds(0.2f);
         GameObject startSkill = Instantiate(playerAttack.fireStartSkill);
         startSkill.transform.position = transform.position;
         playerInput.isCanControl = true;
+        yield return new WaitForSeconds(delay-0.2f);
+        ChangeState(PlayerState.Idle);
     }
     private void Awake()
     {
@@ -100,7 +105,7 @@ public class PlayerControllerV3 : Actor
 
     public override void Setup()
     {
-        if(GameManager.instance.player == null)
+        if (GameManager.instance.player == null)
         {
             GameManager.instance.player = this;
         }
@@ -114,6 +119,7 @@ public class PlayerControllerV3 : Actor
         playerMovement.Setup(this);
         playerInput.Setup(this);
         playerAttack.Setup(this);
+        playerSound.Setup(this);
 
         playerData = new PlayerData(level);
         statuses.maxHp = playerData.hp;
@@ -142,13 +148,14 @@ public class PlayerControllerV3 : Actor
         states.Add((int)PlayerState.Bend, new PlayerControllerV3States.Bend());
         states.Add((int)PlayerState.WalkBend, new PlayerControllerV3States.WalkBend());
         states.Add((int)PlayerState.EndBend, new PlayerControllerV3States.EndBend());
-        stateMachine.Setup(this,states[(int)PlayerState.Idle]);
+        stateMachine.Setup(this, states[(int)PlayerState.Idle]);
     }
 
     public void Update()
     {
         stateMachine.UpdateState();
         playerMovement.Update();
+        playerAttack.Update();
     }
     private void OnDrawGizmos()
     {
@@ -178,8 +185,13 @@ public class PlayerControllerV3 : Actor
         if (state != PlayerState.Idle) return;
         ChangeState(PlayerState.Hit);
     }
+
+    public void PlayAudioClip()
+    {
+        playerSound.PlayAudioClip();
+    }
 }
-public enum PlayerState { Idle, Attack, Walk, Jump, Fall, SkillCasting, Sit, Hit , StartLadder, UseLadder, EndLadder, StartBend , Bend , WalkBend , EndBend };
+public enum PlayerState { Idle, Attack, Walk, Jump, Fall, SkillCasting, Sit, Hit, StartLadder, UseLadder, EndLadder, StartBend, Bend, WalkBend, EndBend };
 
 
 public enum Direction { Left, Right };

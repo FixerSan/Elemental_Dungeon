@@ -158,7 +158,7 @@ public class PlayerInput
         {
             if (player.playerAttack.skills.Count > 0)
             {
-                player.playerAttack.skills[0].Use();
+                player.playerAttack.UseSkill_1();
             }
         }
 
@@ -166,8 +166,7 @@ public class PlayerInput
         {
             if (player.playerAttack.skills.Count > 1)
             {
-                player.playerAttack.skills[1].Use();
-                player.ChangeState(PlayerState.SkillCasting);
+                player.playerAttack.UseSkill_2();
             }
         }
     }

@@ -50,7 +50,7 @@ public class CaveScene : BaseScene
     public IEnumerator SceneEvent_0()
     {
         yield return new WaitForSeconds(3);
-        SceneManager.instance.LoadScene("Cave");
+        SceneManager.instance.LoadScene("EndScene");
     }
 
     public override void TriggerEffect(int index)

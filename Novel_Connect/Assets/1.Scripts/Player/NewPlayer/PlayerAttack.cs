@@ -16,6 +16,7 @@ public class PlayerAttack
     public int attackCount;
 
     public Coroutine attackCoroutine;
+
     public void AttackActor()
     {
         Collider2D[] collider2Ds_1 = Physics2D.OverlapBoxAll(attackPos.position, attackPos.localScale, 0, attackLayer);
@@ -54,14 +55,12 @@ public class PlayerAttack
         switch (attackCount)
         {
             case 1: //1 타 공격 
-                AudioSystem.Instance.PlayOneShotSoundProfile("Main_Character_Attack", attackCount - 1);
                 yield return new WaitForSeconds(0.18f/1.5f);
                 AttackActor();
                 yield return new WaitForSeconds(0.3f/1.5f);
                 break;
 
             case 2://1.5f 타 공격
-                AudioSystem.Instance.PlayOneShotSoundProfile("Main_Character_Attack", attackCount - 1);
                 yield return new WaitForSeconds(0.21f/1.5f);
                 AttackActor();
                 yield return new WaitForSeconds(0.35f/1.5f);
@@ -70,14 +69,12 @@ public class PlayerAttack
                 break;
 
             case 3: //3타 공격
-                AudioSystem.Instance.PlayOneShotSoundProfile("Main_Character_Attack", attackCount - 1);
                 yield return new WaitForSeconds(0.84f/1.5f);
                 AttackActor();
                 yield return new WaitForSeconds(0.35f/1.5f);
                 break;
 
             case 4: //3타 공격
-                AudioSystem.Instance.PlayOneShotSoundProfile("Main_Character_Attack", attackCount - 1);
                 yield return new WaitForSeconds(0.84f/1.5f);
                 AttackActor();
                 yield return new WaitForSeconds(0.66f/1.5f);
@@ -92,18 +89,51 @@ public class PlayerAttack
         player.anim.SetInteger("AttackCount", attackCount);
     }
 
-    public void UseSkill()
+    public void UseSkill_1()
     {
+        if (!skills[0].isCanUse) return;
+        skills[0].Use();
+        player.ChangeState(PlayerState.SkillCasting);
+        player.playerMovement.Stop();
         player.anim.SetTrigger("UseSkill");
-        player.StartCoroutine(UseSkillCoroutine());
+        player.StartCoroutine(UseSkill_1Coroutine());
     }
 
-    public IEnumerator UseSkillCoroutine()
+    public IEnumerator UseSkill_1Coroutine()
     {
         yield return new WaitForSeconds(0.1f);
         float delay = player.anim.GetCurrentAnimatorStateInfo(0).length;
         yield return new WaitForSeconds(delay - 0.1f);
         player.ChangeState(PlayerState.Idle);
+    }
+
+    public void UseSkill_2()
+    {
+        if (!skills[1].isCanUse) return;
+        skills[1].Use();
+        player.ChangeState(PlayerState.SkillCasting);
+        player.playerMovement.Stop();
+        player.anim.SetTrigger("UseSkill");
+        player.StartCoroutine(UseSkill_2Coroutine());
+    }
+
+    public IEnumerator UseSkill_2Coroutine()
+    {
+        yield return new WaitForSeconds(0.1f);
+        float delay = player.anim.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(delay - 0.1f);
+        player.ChangeState(PlayerState.Idle);
+    }
+
+    public void Update()
+    {
+        if(skills.Count > 0)
+        {
+            foreach (var skill in skills)
+            {
+                skill.CheckCanUse();
+            }
+        }
     }
     public void Setup(PlayerControllerV3 player_)
     {

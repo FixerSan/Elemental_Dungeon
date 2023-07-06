@@ -52,8 +52,8 @@ public abstract class Skill<T> where T : class
             return;
         else
         {
-            checkTime += Time.deltaTime;
-            if (checkTime >= skillData.coolTime)
+            checkTime -= Time.deltaTime;
+            if (checkTime <= 0)
                 isCanUse = true;
         }
     }

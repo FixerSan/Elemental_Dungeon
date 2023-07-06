@@ -53,7 +53,7 @@ public class TestController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
-            player.transform.position = triggers[9].position;
+            player.transform.position = triggers[13].position;
         }
     }
 

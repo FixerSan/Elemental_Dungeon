@@ -6,7 +6,7 @@ public class StateMachine<T> where T : class
 {
     private T ownerEntity;
     public State<T> beforeState;
-    private State<T> currentState;
+    public State<T> currentState;
 
     public void Setup(T owner, State<T> firstState)
     {

@@ -141,8 +141,6 @@ namespace PlayerControllerV3States
         public override void EnterState(PlayerControllerV3 entity)
         {
             entity.state = PlayerState.SkillCasting;
-            entity.playerMovement.Stop();
-            entity.playerAttack.UseSkill();
         }
 
         public override void ExitState(PlayerControllerV3 entity)
