@@ -84,7 +84,7 @@ public class PlayerControllerV3 : Actor
         anim.runtimeAnimatorController = DataBase.instance.GetAnimatorController(1);
         ChangeState(PlayerState.SkillCasting);
         float delay = anim.GetCurrentAnimatorStateInfo(0).length;
-        AudioSystem.Instance.PlayOneShot(Resources.Load<AudioClip>("AudioClips/Element Fire Transform"));
+        AudioSystem.Instance.PlayOneShotSoundProfile("Main_Character_Transform_Fire", 0);
         yield return new WaitForSeconds(0.2f);
         GameObject startSkill = Instantiate(playerAttack.fireStartSkill);
         startSkill.transform.position = transform.position;
