@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e94b34ef62f039444bc490f4d8c01f7b, type: 3}
+  m_Name: IceBoss_Effect
+  m_EditorClassIdentifier: 
+  audioType: 0
+  randomClipList:
+  - {fileID: 8300000, guid: 59a7890a10964d441acc7311672338dc, type: 3}
+  - {fileID: 8300000, guid: 2a10431b1648a7d4f8dadd76646e5cab, type: 3}
+  - {fileID: 8300000, guid: 9f0fdf9b9a51c4c46ae4d1846c582f05, type: 3}
+  - {fileID: 8300000, guid: dee7d6ac915efb144a63daf69468ae31, type: 3}
+  - {fileID: 8300000, guid: 866e2dffc0ad1f74a9fa8ab8a6f1d7c3, type: 3}
+  - {fileID: 8300000, guid: 20df2e2fb2c62ca41bac52294701a60c, type: 3}
+  - {fileID: 8300000, guid: b8212d968cafc7a458d5de64b6be4b1a, type: 3}

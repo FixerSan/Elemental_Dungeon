@@ -16,11 +16,14 @@ public class BaseMonster : Actor
     protected float rStopDelay;
     protected float rMoveDelay;
     protected GameObject target;
+    protected bool isHasHpBar = false;
+
 
     public float moveDeley;
     public float stopDeley;
-
-    protected bool isHasHpBar = false;
+    public Transform attackPos;
+    public Vector2 attackSize;
+    public LayerMask attackLayer;
 
     public override void Setup()
     {
@@ -279,17 +282,12 @@ public class BaseMonster : Actor
 
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+    public IEnumerator AttackCoroutine()
     {
-        if (state == MonsterState.Dead) return;
-        if(collision.CompareTag("Player"))
-        {
-            Actor player = collision.GetComponent<Actor>();
-
-            BattleSystem.instance.Calculate(elemental,player.elemental,player,statuses.force);
-        }
+        Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(attackPos.position, attackSize, 0, attackLayer);
+        yield return new WaitForSeconds(0.2f);
+        StartCoroutine(AttackCoroutine());
     }
-
 }
 
 

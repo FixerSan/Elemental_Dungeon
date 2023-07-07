@@ -7,8 +7,6 @@ public class Bat : BaseMonster
     public Vector2 checkAroundSize;
     public LayerMask checkAroundLayer;
     public float canAttackDuration;
-    public Vector2 attackSize;
-    public Transform attackPos;
     public float attackDelay;
     private bool isCanAttack = true;
 

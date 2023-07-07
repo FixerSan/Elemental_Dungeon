@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e94b34ef62f039444bc490f4d8c01f7b, type: 3}
-  m_Name: Main_Character_Jump
+  m_Name: Main_Character_Jump_Start
   m_EditorClassIdentifier: 
   audioType: 0
   randomClipList:

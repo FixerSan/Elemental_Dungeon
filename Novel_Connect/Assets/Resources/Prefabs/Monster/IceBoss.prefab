@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4042283717220910407}
-  - component: {fileID: 3838737670809340201}
+  - component: {fileID: 4090531877077377810}
   - component: {fileID: 7429236787505474222}
   - component: {fileID: 4996461897061070722}
   - component: {fileID: 133384242345038345}
@@ -100,7 +100,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3838737670809340201
+--- !u!114 &4090531877077377810
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,12 +109,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3887988633793981730}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 146c0cd921c5cf44dbc95c83d190031b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7d3c6672d84cc0a41b264d7f7399ab24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   statuses:
-    currentHp: 0
-    maxHp: 0
+    currentHp: 100
+    maxHp: 100
     speed: 0
     nowSpeed: 0
     force: 0

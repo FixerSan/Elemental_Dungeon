@@ -27,11 +27,6 @@ public class PlayerControllerV3 : Actor
 
     bool isCanHit = true;
 
-    IEnumerator CheckCanHit()
-    {
-        yield return new WaitForSeconds(canHitDuration);
-        isCanHit = true;
-    }
     public IEnumerator BackIdle(float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -172,18 +167,24 @@ public class PlayerControllerV3 : Actor
 
     public override void Hit(float damage)
     {
-        anim.SetTrigger("HitEffect");
+        if (!isCanHit) return;
+        isCanHit = false;
+        GetDamage(damage);
         if (state != PlayerState.Idle) return;
         ChangeState(PlayerState.Hit);
     }
     public override void GetDamage(float damage)
     {
-        if (!isCanHit) return;
-        isCanHit = false;
         StartCoroutine(CheckCanHit());
-        anim.SetTrigger("HitEffect");
+        int hash = Animator.StringToHash("HitEffect");
+        anim.SetTrigger(hash);
         if (state != PlayerState.Idle) return;
         ChangeState(PlayerState.Hit);
+    }
+    IEnumerator CheckCanHit()
+    {
+        yield return new WaitForSeconds(canHitDuration);
+        isCanHit = true;
     }
 
     public void PlayAudioClip()

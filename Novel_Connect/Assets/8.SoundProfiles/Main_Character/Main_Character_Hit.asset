@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e94b34ef62f039444bc490f4d8c01f7b, type: 3}
+  m_Name: Main_Character_Hit
+  m_EditorClassIdentifier: 
+  audioType: 0
+  randomClipList:
+  - {fileID: 8300000, guid: f1f85c168eefced45a421d3e3928840d, type: 3}
+  - {fileID: 8300000, guid: 1e7c5cc707594ad469505840d24d0fb8, type: 3}
+  - {fileID: 8300000, guid: 8803d80a70bf8534294fb9c48b33e9ab, type: 3}
+  - {fileID: 8300000, guid: b63bab3cc7b71c34ea503869b92000ee, type: 3}

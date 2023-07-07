@@ -213,7 +213,7 @@ MonoBehaviour:
   direction: 0
   monsterData:
     monsterID: 0
-    monsterHP: 10
+    monsterHP: 25
     monsterSpeed: 5
     monsterAttackForce: 0
     monsterType: 0
@@ -227,6 +227,11 @@ MonoBehaviour:
   state: 0
   moveDeley: 1
   stopDeley: 1
+  attackPos: {fileID: 577282630}
+  attackSize: {x: 2.97, y: 2.78}
+  attackLayer:
+    serializedVersion: 2
+    m_Bits: 0
   checkAroundSize: {x: 8.14, y: 20.76}
   checkAroundLayer:
     serializedVersion: 2
