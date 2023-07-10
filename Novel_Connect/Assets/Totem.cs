@@ -2,22 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Totem : MonoBehaviour
+public class Totem : InteractableObject
 {
     Animator animator => GetComponent<Animator>();
     public int totemIndex;
-    bool isUsed = false;
-    bool isCanOpen = false;
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F) && !isUsed && isCanOpen)
-        {
-            Use();
-        }
-    }
 
-    void Use()
+    public override void Interaction()
     {
         if (!TotemSystem.Instance.CheckCanUse(totemIndex)) return;
         animator.SetTrigger("On");
@@ -29,7 +19,7 @@ public class Totem : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            isCanOpen = true;
+            isCanUse = true;
         }
     }
 
@@ -37,7 +27,7 @@ public class Totem : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            isCanOpen = false;
+            isCanUse = false;
         }
     }
 }

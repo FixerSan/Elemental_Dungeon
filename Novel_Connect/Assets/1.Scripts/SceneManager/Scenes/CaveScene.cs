@@ -15,7 +15,7 @@ public class CaveScene : BaseScene
         CameraScript.instance.ChangeSize(9);
         CameraScript.instance.playerPlusY = 5;
 
-        GameManager.instance.player.transform.position = new Vector3(11.7f,36,0);
+        GameManager.instance.player.transform.position = new Vector3(12f,50,0);
         centipede.gameObject.SetActive(false);
         ObjectPool.instance.InitHpBar(5);
 
@@ -30,6 +30,13 @@ public class CaveScene : BaseScene
             cameraPoses.Add(c_Pos.name, c_Pos);
         }
         MonsterSystem.instance.OnDeadBoss += SceneEvent;
+        StartCoroutine(SetupCoroutine());
+    }
+
+    IEnumerator SetupCoroutine()
+    {
+        yield return new WaitForSeconds(1);
+        DialogSystem.Instance.UpdateDialog(2000);
     }
 
     protected override void Clear()
@@ -43,6 +50,8 @@ public class CaveScene : BaseScene
         {
             case 0:
                 StartCoroutine(SceneEvent_0());
+                break;
+            case 1:
                 break;
         }
     }
@@ -112,28 +121,15 @@ public class CaveScene : BaseScene
         CameraScript.instance.min = new Vector2(-1000000, -10000);
         ScreenEffect.instance.ShakeHorizontal(0.5f, 0.3f);
         yield return new WaitForSeconds(1f);
-        DialogSystem.Instance.UpdateDialog(2000);
+        DialogSystem.Instance.UpdateDialog(2001);
     }
 
     public IEnumerator Trigger_1()
     {
-        GameManager.instance.player.playerInput.isCanControl = false;
+        yield return null;
         GameManager.instance.player.ChangeState(PlayerState.Idle);
         GameManager.instance.player.playerMovement.Stop();
         CameraScript.instance.max = new Vector2(321, CameraScript.instance.max.y);
-        yield return new WaitForSeconds(1f);
-        CameraScript.instance.ChangeTarget(cameraPoses["CameraPos_0"].gameObject);
-        yield return new WaitForSeconds(1f);
-        while (Vector2.Distance(cameraPoses["CameraPos_0"].position, cameraPoses["CameraPos_1"].position) > 0.1f)
-        {
-            yield return null;
-            cameraPoses["CameraPos_0"].position = Vector2.MoveTowards(cameraPoses["CameraPos_0"].position, cameraPoses["CameraPos_1"].position, Time.deltaTime * 10);
-        }
-        yield return new WaitForSeconds(1f);
-
-        CameraScript.instance.ChangeTarget(GameManager.instance.player.gameObject);
-        GameManager.instance.player.playerInput.isCanControl = true;
-
     }
 
     public IEnumerator Trigger_2()
@@ -225,11 +221,16 @@ public class CaveScene : BaseScene
     {
         CameraScript.instance.min = new Vector2(340, -200);
         CameraScript.instance.max = new Vector2(384, CameraScript.instance.max.y);
+        GameManager.instance.player.playerInput.isCanControl = false;
+        GameManager.instance.player.ChangeState(PlayerState.Idle);
+        GameManager.instance.player.playerMovement.Stop();
         yield return new WaitForSeconds(1);
         iceBoss.gameObject.SetActive(true);
         CameraScript.instance.ChangeTarget(iceBoss.gameObject);
         yield return new WaitForSeconds(3f);
         CameraScript.instance.ChangeTarget(GameManager.instance.player.gameObject);
+        yield return new WaitForSeconds(1);
+        GameManager.instance.player.playerInput.isCanControl = true;
     }
     public IEnumerator Trigger_13()
     {

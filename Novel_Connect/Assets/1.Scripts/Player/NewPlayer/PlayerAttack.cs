@@ -22,6 +22,7 @@ public class PlayerAttack
         Collider2D[] collider2Ds_1 = Physics2D.OverlapBoxAll(attackPos.position, attackPos.localScale, 0, attackLayer);
         foreach (Collider2D hitTarget in collider2Ds_1)
         {
+            Debug.Log(hitTarget.gameObject.name);
             if (hitTarget.CompareTag("Player")) continue;
             #region Actor
             Actor hitActor = hitTarget.GetComponent<Actor>();
@@ -44,7 +45,6 @@ public class PlayerAttack
             if (hitableObejct)
             {
                 hitableObejct.GetDamage(player.statuses.force);
-
             }
             #endregion
         }

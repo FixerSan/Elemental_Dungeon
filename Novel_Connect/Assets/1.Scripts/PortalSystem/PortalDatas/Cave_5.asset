@@ -15,4 +15,4 @@ MonoBehaviour:
   portal_name: Cave_5
   sceneName: Cave
   portPos: {x: 330, y: -205}
-  direction: 0
+  direction: 1

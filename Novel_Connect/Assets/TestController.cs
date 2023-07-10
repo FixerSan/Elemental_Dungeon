@@ -51,9 +51,20 @@ public class TestController : MonoBehaviour
         {
             player.transform.position = triggers[8].position;
         }
+
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
             player.transform.position = triggers[13].position;
+        }
+
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            AudioSystem.Instance.FadeInMusic("BGM",0, 2);
+        }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            AudioSystem.Instance.FadeInMusic("BGM", 1,2);
         }
     }
 

@@ -109,9 +109,9 @@ public class AudioSystem : MonoBehaviour
         audioSource.Stop();
     }
     //음악 페이드인, 아웃으로 호출
-    public void FadeInMusic(string audioName, float fadeTime)
+    public void FadeInMusic(string profileName, int index, float fadeTime)
     {
-        AudioClip newMusic = DataBase.instance.GetAudioClip(audioName);
+        AudioClip newMusic = DataBase.instance.GetSoundProfileData(profileName).GetClipIndex(index);
         if (!newMusic) return;
         if (fadeInMusicflag) return;
 

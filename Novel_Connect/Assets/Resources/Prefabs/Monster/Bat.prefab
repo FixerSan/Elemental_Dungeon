@@ -237,8 +237,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   canAttackDuration: 3
-  attackSize: {x: 2.97, y: 2.78}
-  attackPos: {fileID: 577282630}
   attackDelay: 3
 --- !u!212 &461870891759896277
 SpriteRenderer:
@@ -329,7 +327,7 @@ Rigidbody2D:
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: ce5722fc906deb4478700f551c9f6b3b, type: 2}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
