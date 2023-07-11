@@ -146,6 +146,13 @@ public class PlayerControllerV3 : Actor
         stateMachine.Setup(this, states[(int)PlayerState.Idle]);
     }
 
+    public void StopAndCantInput()
+    {
+        playerInput.isCanControl = false;
+        ChangeState(PlayerState.Idle);
+        playerMovement.Stop();
+    }
+
     public void Update()
     {
         stateMachine.UpdateState();

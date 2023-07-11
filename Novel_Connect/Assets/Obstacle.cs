@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Obstacle : HitableObejct
 {
+    public bool isUseTriggerEvent;
+    public int triggerIndex;
     public float hp;
     public override void GetDamage(float damage)
     {
@@ -21,6 +23,7 @@ public class Obstacle : HitableObejct
 
     void DestroyObejct()
     {
+        if(isUseTriggerEvent) SceneManager.instance.GetCurrentScene().TriggerEffect(triggerIndex);
         Destroy(gameObject);
     }
 

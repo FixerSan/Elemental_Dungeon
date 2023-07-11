@@ -186,6 +186,15 @@ public class DialogSystem : MonoBehaviour
             case 1054:
                 SceneManager.instance.GetCurrentScene().SceneEvent(3);
                 return;
+            case 2002:
+                SceneManager.instance.GetCurrentScene().TriggerEffect(14);
+                return;
+            case 2020:
+                SceneManager.instance.GetCurrentScene().TriggerEffect(16);
+                return;
+            case 2022:
+                SceneManager.instance.GetCurrentScene().TriggerEffect(16);
+                return;
         }
         if (currentDialog.nextIndex == -100)
         {

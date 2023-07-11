@@ -8,8 +8,21 @@ public class CaveScene : BaseScene
     BaseBoss iceBoss => FindObjectOfType<BaseBoss>(true);
     GameObject brokeTrigger_1 = null;
     Dictionary<string, Transform> cameraPoses = new Dictionary<string, Transform>();
+
+    PlayerControllerV3 player => GameManager.instance.player;
+
+    float audioDuration = 5;
+    float checkAudioDuration;
+    float checkAudioTime;
+
+    float cameraShakeDuration = 10;
+    float checkCameraShakeTime;
+    float checkCameraShakeDuration;
+
+    bool isCanCameraShake = false;
     protected override void Setup()
     {
+        player.StopAndCantInput();
         CameraScript.instance.max = new Vector2(10000, 10000);
         CameraScript.instance.min = new Vector2(-10000, -10000);
         CameraScript.instance.ChangeSize(9);
@@ -39,6 +52,36 @@ public class CaveScene : BaseScene
         DialogSystem.Instance.UpdateDialog(2000);
     }
 
+    private void FixedUpdate()
+    {
+        CheckEffectSound();
+        CheckCameraShake();
+    }
+
+    void CheckEffectSound()
+    {
+        checkAudioTime += Time.deltaTime;
+        if (checkAudioTime > checkAudioDuration)
+        {
+            checkAudioTime = 0;
+            //checkAudioDuration = Random.Range(audioDuration + 1, audioDuration + 1);
+            //AudioSystem.Instance.PlayOneShotSoundProfile("Water_CaveDrip");
+        }
+    }
+
+    void CheckCameraShake()
+    {
+        if (!isCanCameraShake) return;
+        checkCameraShakeTime += Time.deltaTime;
+        if (checkCameraShakeTime > checkCameraShakeDuration)
+        {
+            checkCameraShakeTime = 0;
+            checkCameraShakeDuration = Random.Range(cameraShakeDuration + 3f, cameraShakeDuration + 3f);
+            ScreenEffect.instance.Shake(0.1f, 1);
+        }
+    }
+    
+
     protected override void Clear()
     {
         MonsterSystem.instance.OnDeadBoss -= SceneEvent;
@@ -50,8 +93,6 @@ public class CaveScene : BaseScene
         {
             case 0:
                 StartCoroutine(SceneEvent_0());
-                break;
-            case 1:
                 break;
         }
     }
@@ -111,6 +152,18 @@ public class CaveScene : BaseScene
                 break;
             case 13:
                 StartCoroutine(Trigger_13());
+                break;
+            case 14:
+                StartCoroutine(Trigger_14());
+                break;
+            case 15:
+                StartCoroutine(Trigger_15());
+                break;
+            case 16:
+                StartCoroutine(Trigger_16());
+                break;
+            case 17:
+                StartCoroutine(Trigger_17());
                 break;
         }
     }
@@ -238,31 +291,40 @@ public class CaveScene : BaseScene
         CameraScript.instance.min = new Vector2(255.9f, -145.9506f);
         CameraScript.instance.max = new Vector2(302.7f, CameraScript.instance.max.y);
     }
+    public IEnumerator Trigger_14()
+    {
+        yield return new WaitForSeconds(2);
+        player.ChangeDirection(Direction.Right);
+        player.ChangeState(PlayerState.Walk);
+        yield return new WaitForSeconds(1.5f);
+        player.StopAndCantInput();
+        yield return new WaitForSeconds(1f);
+        DialogSystem.Instance.UpdateDialog(2003);
+    }
 
-    //public IEnumerator SceneEvent_0()
-    //{
+    public IEnumerator Trigger_15()
+    {
+        player.StopAndCantInput();
+        ScreenEffect.instance.Shake(0.1f, 1);
         
-    //}
-
-
-    float audioDuration = 5;
-    float checkAudioDuration;
-    float checkTime;
-    private void FixedUpdate()
-    {
-        CheckEffectSound();
+        yield return new WaitForSeconds(2);
+        DialogSystem.Instance.UpdateDialog(2021);
     }
 
-    void CheckEffectSound()
+    public IEnumerator Trigger_16()
     {
-        checkTime += Time.deltaTime;
-        if (checkTime > checkAudioDuration)
-        {
-            checkTime = 0;
-            //checkAudioDuration = Random.Range(audioDuration + 1, audioDuration + 1);
-            //AudioSystem.Instance.PlayOneShotSoundProfile("Water_CaveDrip");
-        }
+        yield return new WaitForSeconds(1);
+        player.playerInput.isCanControl = true;
     }
+
+    public IEnumerator Trigger_17()
+    {
+        player.StopAndCantInput();
+        yield return new WaitForSeconds(1);
+        DialogSystem.Instance.UpdateDialog(2023);
+    }
+
+
 
 
 }
