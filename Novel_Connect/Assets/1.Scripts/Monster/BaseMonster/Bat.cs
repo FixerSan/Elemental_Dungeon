@@ -60,7 +60,6 @@ public class Bat : BaseMonster
         states.Add((int)MonsterState.Dead, new BaseMonsterState.Dead());
 
         stateMachine.Setup(this, states[(int)MonsterState.Hold]);
-
     }
 
     public override void CheckAround()
@@ -114,7 +113,7 @@ public class Bat : BaseMonster
         }
         attackCoroutine=StartCoroutine(AttackCoroutine());
     }
-    public IEnumerator AttackCoroutine()
+    public new IEnumerator AttackCoroutine()
     {
         float animLength = animator.GetCurrentAnimatorStateInfo(0).length;
         yield return new WaitForSeconds(animLength);

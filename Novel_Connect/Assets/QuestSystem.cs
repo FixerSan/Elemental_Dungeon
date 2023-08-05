@@ -121,6 +121,7 @@ public class QuestSystem : MonoBehaviour
 
     private void OnDisable()
     {
+        if (!MonsterSystem.instance) return;
         MonsterSystem.instance.OnDeadBoss -= CheckDoneClearQuest;
     }
 

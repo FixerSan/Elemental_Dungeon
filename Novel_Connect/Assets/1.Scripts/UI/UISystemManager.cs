@@ -20,10 +20,28 @@ public class UISystemManager : MonoBehaviour
             transform.SetParent(null);
             DontDestroyOnLoad(gameObject);
         }
+
+        FindPopups();
     }
     #endregion
     private Stack<UIPopup> popupStack = new Stack<UIPopup>();
-    public List<UIPopup> uIPopups;//0 = Inventory
+    private Dictionary<string, UIPopup> popups = new Dictionary<string, UIPopup>();
+
+    private void FindPopups()
+    {
+        UIPopup[] popups_ = FindObjectsOfType<UIPopup>(true);
+        for (int i = 0; i < popups_.Length; i++)
+        {
+            popups.Add(popups_[i].gameObject.name, popups_[i]);
+        }
+    }
+
+    public UIPopup GetUIPopup(string popupName)
+    {
+        if (popups.ContainsKey(popupName))
+            return popups[popupName];
+        return null; 
+    }
 
     public void ExitLastPopup()
     {
@@ -33,11 +51,25 @@ public class UISystemManager : MonoBehaviour
         }
     }
 
+    public void ExitPopup(string popupName)
+    {
+        EnterPopup(GetUIPopup(popupName));
+        ExitLastPopup();
+    }
+
     public void EnterPopup(UIPopup popup)
     {
         popup.gameObject.SetActive(true);
         popupStack.Push(popup);
     }
+
+    public void EnterPopup(string popupName)
+    {
+        UIPopup popup = GetUIPopup(popupName);
+        popup.gameObject.SetActive(true);
+        popupStack.Push(popup);
+    }
+
 
     private void Update()
     {
@@ -57,13 +89,13 @@ public class UISystemManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.I))
         {
-            if (uIPopups[0].gameObject.activeSelf)
+            if (GetUIPopup("InventoryUI").gameObject.activeSelf)
             {
-                EnterPopup(uIPopups[0]);
+                EnterPopup(GetUIPopup("InventoryUI"));
                 ExitLastPopup();
             }
             else
-                EnterPopup(uIPopups[0]);
+                EnterPopup(GetUIPopup("InventoryUI"));
         }
     }
 }

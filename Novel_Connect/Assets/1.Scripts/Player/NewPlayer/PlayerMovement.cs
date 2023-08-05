@@ -29,6 +29,7 @@ public class PlayerMovement
                 {
                     player.rb.velocity = new Vector2(-player.statuses.nowSpeed, player.rb.velocity.y);
                 }
+                player.playerSound.CheckAndPlayFootSound();
                 break;
             case PlayerState.Jump:
                 if (player.direction == Direction.Right)
@@ -82,6 +83,7 @@ public class PlayerMovement
     public Coroutine jumpCoroutine;
     public IEnumerator Jump(float jumpForce)
     {
+        AudioSystem.Instance.PlayOneShotSoundProfile("Main_Character_Jump_Start",0);
         player.rb.velocity = Vector2.zero;
         player.rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.1f);
@@ -184,12 +186,14 @@ public class PlayerMovement
 
     public void UseUpLadder()
     {
+        player.playerSound.CheckAndPlayLadder();
         player.rb.velocity = new Vector2(0f, 3.5f);
         player.anim.SetBool("isLadder", true);
     }
     
     public void UseDownLadder()
     {
+        player.playerSound.CheckAndPlayLadder();
         player.rb.velocity = new Vector2(0f, -3.5f);
         player.anim.SetBool("isLadder", true);
     }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AnimationSystem : MonoBehaviour
 {
@@ -13,11 +14,10 @@ public class AnimationSystem : MonoBehaviour
     private bool isPlaying = false;
     private bool isCanChange = false;
     private float checkTime;
-    SpriteRenderer spriteRenderer;
+    [SerializeField]public Image spriteRenderer;
 
     public void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
         foreach (var item in animationList)
         {
             animations.Add(item.animationName, item);

@@ -6,6 +6,7 @@ public class CaveScene : BaseScene
 {
     Centipede centipede => FindObjectOfType<Centipede>(true);
     BaseBoss iceBoss => FindObjectOfType<BaseBoss>(true);
+    GameObject obstacle => FindObjectOfType<InteractableObstacle>().gameObject;
     GameObject brokeTrigger_1 = null;
     Dictionary<string, Transform> cameraPoses = new Dictionary<string, Transform>();
 
@@ -22,11 +23,12 @@ public class CaveScene : BaseScene
     bool isCanCameraShake = false;
     protected override void Setup()
     {
-        player.StopAndCantInput();
         CameraScript.instance.max = new Vector2(10000, 10000);
         CameraScript.instance.min = new Vector2(-10000, -10000);
         CameraScript.instance.ChangeSize(9);
         CameraScript.instance.playerPlusY = 5;
+        CameraScript.instance.target = GameManager.instance.player.gameObject;
+        GameManager.instance.player.rb.velocity = Vector2.zero;
 
         GameManager.instance.player.transform.position = new Vector3(12f,50,0);
         centipede.gameObject.SetActive(false);
@@ -43,6 +45,7 @@ public class CaveScene : BaseScene
             cameraPoses.Add(c_Pos.name, c_Pos);
         }
         MonsterSystem.instance.OnDeadBoss += SceneEvent;
+        player.StopAndCantInput();
         StartCoroutine(SetupCoroutine());
     }
 
@@ -84,6 +87,8 @@ public class CaveScene : BaseScene
 
     protected override void Clear()
     {
+        player.ChangeElemental(Elemental.Default);
+        player.GetComponent<InventoryV2>().ResetInven();
         MonsterSystem.instance.OnDeadBoss -= SceneEvent;
     }
 
@@ -99,8 +104,9 @@ public class CaveScene : BaseScene
 
     public IEnumerator SceneEvent_0()
     {
+        player.StopAndCantInput();
         yield return new WaitForSeconds(3);
-        SceneManager.instance.LoadScene("EndScene");
+        DialogSystem.Instance.UpdateDialog(2052);
     }
 
     public override void TriggerEffect(int index)
@@ -165,6 +171,51 @@ public class CaveScene : BaseScene
             case 17:
                 StartCoroutine(Trigger_17());
                 break;
+
+            case 18:
+                StartCoroutine(Trigger_18());
+                break;
+            case 19:
+                StartCoroutine(Trigger_19());
+                break;
+
+            case 20:
+                StartCoroutine(Trigger_20());
+                break;
+
+            case 21:
+                StartCoroutine(Trigger_21());
+                break;
+            case 22:
+                StartCoroutine(Trigger_22());
+                break;
+            case 23:
+                StartCoroutine(Trigger_23());
+                break;
+
+            case 24:
+                StartCoroutine(Trigger_24());
+                break;
+
+            case 25:
+                StartCoroutine(Trigger_25());
+                break;
+
+            case 26:
+                StartCoroutine(Trigger_26());
+                break;
+            
+            case 27:
+                StartCoroutine(Trigger_27());
+                break;
+            case 28:
+                StartCoroutine(Trigger_28());
+                break;
+
+            case 29:
+                StartCoroutine(Trigger_29());
+                break;
+
         }
     }
 
@@ -191,6 +242,9 @@ public class CaveScene : BaseScene
         CameraScript.instance.min = new Vector2(160, CameraScript.instance.min.y);
         CameraScript.instance.max = new Vector2(CameraScript.instance.max.x, -40f);
         ScreenEffect.instance.ShakeHorizontal(0.5f, 0.3f);
+        player.StopAndCantInput();
+        yield return new WaitForSeconds(1);
+        DialogSystem.Instance.UpdateDialog(2065);
     }
 
     public IEnumerator Trigger_3()
@@ -266,8 +320,7 @@ public class CaveScene : BaseScene
         CameraScript.instance.ChangeSize(9);
         CameraScript.instance.delayTime = 0.2f;
         CameraScript.instance.playerPlusY = 5;
-        GameManager.instance.player.playerInput.isCanControl = true;
-
+        DialogSystem.Instance.UpdateDialog(2032);
     }
 
     public IEnumerator Trigger_12()
@@ -324,7 +377,100 @@ public class CaveScene : BaseScene
         DialogSystem.Instance.UpdateDialog(2023);
     }
 
+    public IEnumerator Trigger_18()
+    {
+        player.StopAndCantInput();
+        yield return new WaitForSeconds(1);
+        DialogSystem.Instance.UpdateDialog(2031);
+    }
 
+    public IEnumerator Trigger_19()
+    {
+        player.StopAndCantInput();
+        yield return new WaitForSeconds(1);
+        DialogSystem.Instance.UpdateDialog(2063);
+    }
 
+    public IEnumerator Trigger_20()
+    {
+        player.ChangeDirection(Direction.Left);
+        player.ChangeState(PlayerState.Walk);
+        yield return new WaitUntil(() => player.gameObject.transform.position.x < 169.5f);
+        player.StopAndCantInput();
+        yield return new WaitForSeconds(1);
+        DialogSystem.Instance.UpdateDialog(2067);
+    }
 
+    public IEnumerator Trigger_21()
+    {
+        yield return new WaitForSeconds(1);
+        player.StopAndCantInput();
+        yield return new WaitForSeconds(1);
+        DialogSystem.Instance.UpdateDialog(2068);
+    }
+
+    public IEnumerator Trigger_22()
+    {
+        player.StopAndCantInput();
+        CameraScript.instance.max = new Vector2(10000f, 10000f);
+        CameraScript.instance.min = new Vector2(-10000f, -10000f);
+
+        yield return new WaitForSeconds(1);
+        DialogSystem.Instance.UpdateDialog(2042);
+    }
+
+    public IEnumerator Trigger_23()
+    {
+        player.StopAndCantInput();
+        yield return new WaitForSeconds(1);
+        DialogSystem.Instance.UpdateDialog(2046);
+    }
+
+    public IEnumerator Trigger_24()
+    {
+        player.StopAndCantInput();
+        yield return new WaitForSeconds(1);
+        player.ChangeDirection(Direction.Left);
+        player.ChangeState(PlayerState.Walk);
+        yield return new WaitUntil(() => player.transform.position.x < 244.5f);
+        player.StopAndCantInput();
+        yield return new WaitForSeconds(1);
+        DialogSystem.Instance.UpdateDialog(2070);
+    }
+    public IEnumerator Trigger_25()
+    {
+        UISystemManager.instance.ExitPopup("Cave_Obstacle_Interaction_Panel");
+        yield return new WaitForSeconds(1);
+        obstacle.SetActive(false);
+        yield return new WaitForSeconds(1);
+        DialogSystem.Instance.UpdateDialog(2047);
+    }
+
+    public IEnumerator Trigger_26()
+    {
+        yield return new WaitForSeconds(1);
+        player.playerInput.isCanControl = true;
+        obstacle.GetComponent<InteractableObject>().isRuning = true;
+    }
+
+    public IEnumerator Trigger_27()
+    {
+        yield return null;
+        UISystemManager.instance.EnterPopup("Cave_Obstacle_Interaction_Panel");
+        player.StopAndCantInput();
+    }
+    public IEnumerator Trigger_28()
+    {
+        yield return new WaitForSeconds(2);
+        player.ChangeElemental(Elemental.Fire);
+
+        yield return StartCoroutine(Trigger_16());
+    }
+
+    public IEnumerator Trigger_29()
+    {
+        SceneManager.instance.LoadScene("EndScene");
+        yield return null;
+        
+    }
 }

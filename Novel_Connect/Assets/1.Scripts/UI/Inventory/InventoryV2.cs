@@ -13,6 +13,12 @@ public class InventoryV2 : MonoBehaviour
     public int gold;
     public System.Action OnChangeGold;
 
+    public void ResetInven()
+    {
+        items = new List<ItemData>();
+        gold = 0;
+    }
+
     public void ArrangeItems()
     {
         Dictionary<int, ItemData> items_ = new Dictionary<int, ItemData>();

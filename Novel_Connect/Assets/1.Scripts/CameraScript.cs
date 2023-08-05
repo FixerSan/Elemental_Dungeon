@@ -51,6 +51,10 @@ public class CameraScript : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+
+        CheckShake();
+        if (!target) return;
         switch (cameraState)
         {
             case CameraState.idle :
@@ -66,10 +70,6 @@ public class CameraScript : MonoBehaviour
             case CameraState.cutscene :
                 break;
         }
-
-
-        CheckShake();
-
         if (isMove)
             Move(moveDirection);
     }

@@ -66,6 +66,7 @@ public class RotateToTarget : HitableObejct
         direction = target.position - transform.position;
         dsdsd(direction);
         isCanMove = true;
+        AudioSystem.Instance.PlayOneShotSoundProfile("Mid_Boss_Moving",1);
     }
 
     public void ChangeTarget(Transform target_)

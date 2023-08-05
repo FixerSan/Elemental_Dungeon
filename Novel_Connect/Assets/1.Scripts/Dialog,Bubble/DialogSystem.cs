@@ -108,6 +108,7 @@ public class DialogSystem : MonoBehaviour
         int index = 0;
         while (index < currentDialog.sentence.Length + 1)
         {
+            AudioSystem.Instance.PlayOneShotSoundProfile("Dialogue");
             speakers[currentSpeakerUI_Index].dialogueText.text = currentDialog.sentence.Substring(0, index);
             index++;
 
@@ -167,7 +168,7 @@ public class DialogSystem : MonoBehaviour
 
     public void PlayInteractionSound()
     {
-        AudioSystem.Instance.PlayOneShotButton("DialogueBtn");
+        AudioSystem.Instance.PlayOneShotSoundProfile("Dialogue_Click");
     }
     #region 인덱스 별 특수 처리
     //다음 버튼만 있었을 경우
@@ -195,6 +196,46 @@ public class DialogSystem : MonoBehaviour
             case 2022:
                 SceneManager.instance.GetCurrentScene().TriggerEffect(16);
                 return;
+            case 2030:
+                SceneManager.instance.GetCurrentScene().TriggerEffect(16);
+                return;
+            case 2031:
+                SceneManager.instance.GetCurrentScene().TriggerEffect(16);
+                return;
+            case 2040:
+                SceneManager.instance.GetCurrentScene().TriggerEffect(16);
+                return;
+
+            case 2041:
+                SceneManager.instance.GetCurrentScene().TriggerEffect(16);
+                return;
+
+            case 2045:
+                SceneManager.instance.GetCurrentScene().TriggerEffect(16);
+                return;
+
+            case 2046:
+                SceneManager.instance.GetCurrentScene().TriggerEffect(26);
+                return;
+
+            case 2051:
+                SceneManager.instance.GetCurrentScene().TriggerEffect(28);
+                return;
+            case 2061:
+                SceneManager.instance.GetCurrentScene().TriggerEffect(29);
+                return;
+            case 2062:
+                SceneManager.instance.GetCurrentScene().TriggerEffect(16);
+                return;
+            case 2064:
+                SceneManager.instance.GetCurrentScene().TriggerEffect(16);
+                return;
+            case 2066:
+                SceneManager.instance.GetCurrentScene().TriggerEffect(20);
+                return;
+            case 2072:
+                SceneManager.instance.GetCurrentScene().TriggerEffect(16);
+                return;
         }
         if (currentDialog.nextIndex == -100)
         {
@@ -215,6 +256,10 @@ public class DialogSystem : MonoBehaviour
             case 1048:
                 UpdateDialog(1049);
                 break;
+
+            case 2057:
+                UpdateDialog(2058);
+                break;
         }
     }
     //선택지 버튼 중 두 번째를 골랐을 경우
@@ -228,6 +273,11 @@ public class DialogSystem : MonoBehaviour
             case 1048:
                 UpdateDialog(1051);
                 break;
+
+            case 2057:
+                UpdateDialog(2060);
+                break;
+
         }
     }
 

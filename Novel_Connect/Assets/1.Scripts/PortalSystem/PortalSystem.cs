@@ -32,6 +32,7 @@ public class PortalSystem : MonoBehaviour
     IEnumerator PortCoroutine(GameObject portObject, string portSpotName)
     {
         GameManager.instance.player.anim.SetBool("isPort", true);
+        AudioSystem.Instance.PlayOneShotSoundProfile("Portal");
         GameManager.instance.player.playerInput.isCanControl = false;
         GameManager.instance.player.ChangeState(PlayerState.Idle);
         GameManager.instance.player.playerMovement.Stop();

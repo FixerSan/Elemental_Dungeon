@@ -22,12 +22,11 @@ public class ChestSystem : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
-        inventory = FindObjectOfType<InventoryV2>();
     }
 
     #endregion
 
-    InventoryV2 inventory;
+    InventoryV2 inventory => FindObjectOfType<InventoryV2>();
 
     public void ChestEvent(int chestIndex,Transform chestTrans)
     {

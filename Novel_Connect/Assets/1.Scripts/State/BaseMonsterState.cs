@@ -167,7 +167,7 @@ namespace BaseMonsterState
 
         public override void ExitState(BaseMonster entity)
         {
-
+            entity.animator.SetBool("isDead", false);
         }
     }
 

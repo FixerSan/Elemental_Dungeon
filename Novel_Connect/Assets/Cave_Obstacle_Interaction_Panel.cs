@@ -2,13 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Cave_Obstacle_Interaction_Panel : MonoBehaviour
+public class Cave_Obstacle_Interaction_Panel : UIPopup
 {
     Cave_Interaction_DragUI[] rotation_Image;
+    [SerializeField] private GameObject completeImage;
     bool isComplete = false;
 
     private void Awake()
     {
+        completeImage.SetActive(false);
         rotation_Image = GetComponentsInChildren<Cave_Interaction_DragUI>();
     }
 
@@ -27,12 +29,17 @@ public class Cave_Obstacle_Interaction_Panel : MonoBehaviour
     public void Complete()
     {
         isComplete = true;
+        completeImage.SetActive(true);
+        AnimationSystem imageAnimation = GetComponent<AnimationSystem>();
+        imageAnimation.PlayAnimation("Cave_Interaction");
         StartCoroutine(CompleteCoroutine());
     }
 
     IEnumerator CompleteCoroutine()
     {
         yield return new WaitForSeconds(3);
-        gameObject.SetActive(false);
+        SceneManager.instance.GetCurrentScene().TriggerEffect(25);
     }
+
+
 }

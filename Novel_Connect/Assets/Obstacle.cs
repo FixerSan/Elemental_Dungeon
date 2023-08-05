@@ -21,14 +21,9 @@ public class Obstacle : HitableObejct
 
     }
 
-    void DestroyObejct()
+    private void DestroyObejct()
     {
         if(isUseTriggerEvent) SceneManager.instance.GetCurrentScene().TriggerEffect(triggerIndex);
         Destroy(gameObject);
-    }
-
-    private void OnDestroy()
-    {
-        
     }
 }

@@ -20,7 +20,7 @@ public class Slime : BaseMonster
     public override void GetDamage(float damage)
     {
         if (statuses.currentHp <= 0) return;
-        AudioSystem.Instance.PlayOneShotSoundProfile("Slime_Move");
+        AudioSystem.Instance.PlayOneShotSoundProfile("Slime_TakingDamage",0);
         statuses.currentHp -= damage;
         ObjectPool.instance.GetDamageText(damage, this.transform);
         if (!isHasHpBar)
@@ -32,6 +32,7 @@ public class Slime : BaseMonster
         if (statuses.currentHp <= 0)
         {
             statuses.currentHp = 0;
+            AudioSystem.Instance.PlayOneShotSoundProfile("Slime_TakingDamage", 1);
             ChangeState(MonsterState.Dead);
             return;
         }

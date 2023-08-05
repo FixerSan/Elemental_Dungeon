@@ -5,12 +5,18 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
-    path: Assets/0.Scenes/CutSceneGuild.unity
-    guid: 8409c135c0287f845ace79bd1720e264
+  - enabled: 1
+    path: Assets/0.Scenes/StartScene.unity
+    guid: 4fd50b97f8987974185b211bcc61d64e
   - enabled: 1
     path: Assets/0.Scenes/Cave.unity
     guid: 9474dd684e784c8419b2ca8e9f47fd46
+  - enabled: 1
+    path: Assets/0.Scenes/EndScene.unity
+    guid: eab799fe6ad330e408873c82f6c35f0a
+  - enabled: 0
+    path: Assets/0.Scenes/CutSceneGuild.unity
+    guid: 8409c135c0287f845ace79bd1720e264
   - enabled: 0
     path: Assets/0.Scenes/0618.unity
     guid: 96f745ad8dfdf91428c6c63315d1476a
@@ -32,7 +38,4 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/0.Scenes/Town.unity
     guid: 40ec6659d5df6124eb22d872d2749080
-  - enabled: 1
-    path: Assets/0.Scenes/EndScene.unity
-    guid: eab799fe6ad330e408873c82f6c35f0a
   m_configObjects: {}

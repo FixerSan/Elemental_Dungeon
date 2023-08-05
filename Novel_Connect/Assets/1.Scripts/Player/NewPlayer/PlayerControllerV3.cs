@@ -182,6 +182,7 @@ public class PlayerControllerV3 : Actor
     }
     public override void GetDamage(float damage)
     {
+        AudioSystem.Instance.PlayOneShotSoundProfile("Main_Character_Voice");
         StartCoroutine(CheckCanHit());
         int hash = Animator.StringToHash("HitEffect");
         anim.SetTrigger(hash);
@@ -192,11 +193,6 @@ public class PlayerControllerV3 : Actor
     {
         yield return new WaitForSeconds(canHitDuration);
         isCanHit = true;
-    }
-
-    public void PlayAudioClip()
-    {
-        playerSound.PlayAudioClip();
     }
 }
 public enum PlayerState { Idle, Attack, Walk, Jump, Fall, SkillCasting, Sit, Hit, StartLadder, UseLadder, EndLadder, StartBend, Bend, WalkBend, EndBend };
