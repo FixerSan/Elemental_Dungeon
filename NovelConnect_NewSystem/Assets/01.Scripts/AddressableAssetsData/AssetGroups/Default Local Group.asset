@@ -16,7 +16,30 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 9e9b49378c96bdf43bc1461e183559ae
-  m_SerializeEntries: []
+  m_SerializeEntries:
+  - m_GUID: dc39cd6e6116a0f4592bc185b0d07285
+    m_Address: Player.GameObject
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - PreLoad
+    - Preload
+  - m_GUID: 4268f79cf120da3469919e0053e669db
+    m_Address: Preload.Data
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 354238ce69b9fa742a5ba6fbfaccb3aa
+    m_Address: Guild.Data
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 6fb17fac6891d924a902a7d2b477a3dd
+    m_Address: Player_Normal.AnimatorController
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 3d541c19663a6d8449a4643890ac5af4
+    m_Address: qdksjqoiwjdlisadj
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 4537af5862ca4e3409189703d0e50434, type: 2}
   m_SchemaSet:
