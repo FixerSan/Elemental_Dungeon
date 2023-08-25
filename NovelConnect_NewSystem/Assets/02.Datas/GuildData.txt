@@ -1,8 +1,0 @@
-[
- {
-  "itemUID": 0,
-  "name": "TestItem",
-  "description": "테스트아이템입니다.",
-  "itemImageKey": "TestItem.Sprite"
- }
-]
