@@ -44,6 +44,7 @@ public class Managers : MonoBehaviour
     private DataManager data = new DataManager();
     private ObjectManager obj = new ObjectManager();
     private SoundManager sound = new SoundManager();
+    private InputManager input = new InputManager();
 
     public static ResourceManager Resource { get { return Instance?.resource; } }
     public static PoolManager Pool { get { return Instance?.pool; } }
@@ -53,4 +54,10 @@ public class Managers : MonoBehaviour
     public static SceneManager scene { get { return SceneManager.Instance; } }
     public static ObjectManager Object { get { return Instance?.obj; } }
     public static SoundManager Sound { get { return Instance?.sound; } }
+    public static InputManager Input { get { return Instance?.input; } }
+
+    private void Update()
+    {
+        input.Update();
+    }
 }

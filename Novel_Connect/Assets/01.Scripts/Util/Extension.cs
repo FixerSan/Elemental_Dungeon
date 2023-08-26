@@ -12,7 +12,7 @@ public static class Extension
         return Util.GetOrAddComponent<T>(_go);
     }
 
-    public static void BindEvent(this GameObject _go,Action _eventCallback = null, Action<BaseEventData> _dragEventCallback = null, Define.UIEvent _eventType = Define.UIEvent.Click)
+    public static void BindEvent(this GameObject _go, Action _eventCallback = null, Action<BaseEventData> _dragEventCallback = null, Define.UIEvent _eventType = Define.UIEvent.Click)
     {
         UIBase.BindEvent(_go, _eventCallback, _dragEventCallback, _eventType);
     }

@@ -18,11 +18,11 @@ public class UIEventHandler : MonoBehaviour, IPointerClickHandler, IPointerDownH
     private void Update()
     {
         if (isPressed)
-            OnPressedHandler.Invoke();
+            OnPressedHandler?.Invoke();
     }
     public void OnPointerClick(PointerEventData eventData)
     {
-        OnPressedHandler?.Invoke();
+        OnClickHandler?.Invoke();
     }
 
     public void OnBeginDrag(PointerEventData eventData)

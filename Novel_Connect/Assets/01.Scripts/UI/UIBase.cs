@@ -36,6 +36,7 @@ public abstract class UIBase : MonoBehaviour
         {
             if (typeof(T) == typeof(GameObject))
                 objects[i] = Util.FindChild(gameObject, names[i], true);
+
             else
                 objects[i] = Util.FindChild<T>(gameObject, names[i], true);
 
@@ -83,7 +84,6 @@ public abstract class UIBase : MonoBehaviour
             case Define.UIEvent.PointerDown:
                 eventHandler.OnPointerDownHandler -= _callback;
                 eventHandler.OnPointerDownHandler += _callback;
-                
                 break;
 
             case Define.UIEvent.PointerUp:
