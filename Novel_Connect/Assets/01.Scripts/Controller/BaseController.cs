@@ -6,11 +6,20 @@ using static Define;
 
 public abstract class BaseController : MonoBehaviour
 {
-    [SerializeField]protected ControllerStatus status = new ControllerStatus();
+    [SerializeField]public ControllerStatus status = new ControllerStatus();
+    protected new Transform transform;
     public Elemental elemental;
+    public Direction direction = Direction.Left;
     public abstract void GetDamage(float _damage);
     public abstract void Hit(float _damage);
     public abstract void SetPosition(Vector2 _position);
+    public void ChangeDirection(Direction _direction) 
+    {
+        if (direction == _direction) return;
+        direction = _direction;
+        if (_direction == Direction.Left) transform.eulerAngles = Vector3.zero;
+        if (_direction == Direction.Right) transform.eulerAngles = new Vector3(0,180,0);
+    }
 }
 
 [System.Serializable]

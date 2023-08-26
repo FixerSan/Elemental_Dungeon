@@ -10,7 +10,6 @@ using static Define;
 public class PlayerController : BaseController
 {
     private bool init = false;
-    private new Transform transform;
 
     public PlayerData data;
     public Playermovement movement;
@@ -41,13 +40,11 @@ public class PlayerController : BaseController
             status.currentSpeed = _data.speed;
             status.attackForce = _data.force;
         });
-
-        Elemental _elemental = Util.ParseEnum<Elemental>(_elementalString);
-        ChangeElemental(_elemental);
-        inventory = new Inventory();
-        state = PlayerState.Idle;
-        rb = gameObject.GetOrAddComponent<Rigidbody2D>();
+        gameObject.GetOrAddComponent<SpriteRenderer>();
         animator = gameObject.GetOrAddComponent<Animator>();
+        inventory = new Inventory();
+        rb = gameObject.GetOrAddComponent<Rigidbody2D>();
+        state = PlayerState.Idle;
         states = new Dictionary<PlayerState, State<PlayerController>>();
         states.Add(PlayerState.Idle, new PlayerStates.Idle());
         states.Add(PlayerState.Walk, new PlayerStates.Walk());
@@ -55,6 +52,8 @@ public class PlayerController : BaseController
         states.Add(PlayerState.Jume, new PlayerStates.Jump());
         states.Add(PlayerState.Fall, new PlayerStates.Fall());
         stateMachine = new StateMachine<PlayerController>(this, states[PlayerState.Idle]);
+        Elemental _elemental = Util.ParseEnum<Elemental>(_elementalString);
+        ChangeElemental(_elemental);
     }
 
     public void Update()
@@ -89,19 +88,26 @@ public class PlayerController : BaseController
         switch(_elemental)
         {
             case Elemental.Normal:
-                elemental = _elemental;
                 movement = new Playermovements.Normal(this);
                 skills = new PlayerSkill[0];
+
                 break;
 
             case Elemental.Fire:
-                elemental = _elemental;
                 movement = new Playermovements.Fire(this);
                 skills = new PlayerSkill[2];
                 skills[0] = new PlayerSkills.Fire.One();
                 skills[1] = new PlayerSkills.Fire.Two();
                 break;
         }
+        Managers.Input.move_RightAction += movement.MoveRight;
+        Managers.Input.move_LeftAction += movement.MoveLeft;
+        elemental = _elemental;
+        Managers.Resource.Load<RuntimeAnimatorController>($"Player_{_elemental}", (ac) => 
+        {
+            animator.runtimeAnimatorController = ac;
+        });
+
     }
 }
 public enum PlayerState

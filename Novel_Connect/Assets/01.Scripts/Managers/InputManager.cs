@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class InputManager
 {
-    public bool isCanControl;
+    public bool isCanControl = true;
 
     public KeyCode changeElemental = KeyCode.F1;
     public KeyCode move_Up = KeyCode.UpArrow;
@@ -30,6 +30,12 @@ public class InputManager
     public Action skill_TwoAction;
     public Action bendingAction;
     public Action dialogSkipAction;
+
+
+    public void ChangeIsCanControl(bool _bool)
+    {
+        isCanControl = _bool;
+    }
 
     public void Update()
     {
