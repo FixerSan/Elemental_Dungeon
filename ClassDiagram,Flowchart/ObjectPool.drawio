@@ -1,0 +1,74 @@
+<mxfile host="app.diagrams.net" modified="2023-04-13T12:58:42.009Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" etag="Ly1V3_D78TawnTtK81zq" version="21.1.7" type="device">
+  <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
+    <mxGraphModel dx="1434" dy="833" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="-vcVtvVhdGSTqdKB_ndw-24" value="&amp;lt;Abstract&amp;gt;&lt;br&gt;Class MonsterFactory" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="930" y="210" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-vcVtvVhdGSTqdKB_ndw-25" value="+ Spawn(index : int) : GameObject&lt;br&gt;- Create(index : int) : Monster" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="-vcVtvVhdGSTqdKB_ndw-24">
+          <mxGeometry y="26" width="250" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="-vcVtvVhdGSTqdKB_ndw-26" value="Class TestMonsterFactory : MonsterFactory" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="930" y="360" width="250" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-vcVtvVhdGSTqdKB_ndw-27" value="+ Spawn(index : int) : GameObject&lt;br&gt;- Create(index : int) : Monster" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="-vcVtvVhdGSTqdKB_ndw-26">
+          <mxGeometry y="26" width="250" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="-vcVtvVhdGSTqdKB_ndw-32" value="Class Town : Stage" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="430" y="430" width="190" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="-vcVtvVhdGSTqdKB_ndw-33" value="- monsterSpawnPos : Transform&lt;br&gt;- factory : TestMonsterFactory" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="-vcVtvVhdGSTqdKB_ndw-32">
+          <mxGeometry y="26" width="190" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="-vcVtvVhdGSTqdKB_ndw-34" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="-vcVtvVhdGSTqdKB_ndw-32">
+          <mxGeometry y="70" width="190" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="-vcVtvVhdGSTqdKB_ndw-35" value="+ Setup() : void&lt;br style=&quot;border-color: var(--border-color);&quot;&gt;+ Update() : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="-vcVtvVhdGSTqdKB_ndw-32">
+          <mxGeometry y="90" width="190" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="-vcVtvVhdGSTqdKB_ndw-46" value="" style="endArrow=block;endSize=10;endFill=0;shadow=0;strokeWidth=1;rounded=0;edgeStyle=elbowEdgeStyle;elbow=vertical;entryX=0.502;entryY=1.003;entryDx=0;entryDy=0;entryPerimeter=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="-vcVtvVhdGSTqdKB_ndw-26" target="-vcVtvVhdGSTqdKB_ndw-25">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="1100" y="320" as="sourcePoint" />
+            <mxPoint x="1139" y="950" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="1050" y="330" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-vcVtvVhdGSTqdKB_ndw-48" value="Class MonsterObjectPool" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;fillColor=none;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="437" y="200" width="390" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="-vcVtvVhdGSTqdKB_ndw-49" value="- monsterQueues : Dictionary&amp;lt;int, Queue&amp;lt;GameObject&amp;gt;&amp;gt;&lt;br&gt;&lt;br&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="-vcVtvVhdGSTqdKB_ndw-48">
+          <mxGeometry y="26" width="390" height="24" as="geometry" />
+        </mxCell>
+        <mxCell id="-vcVtvVhdGSTqdKB_ndw-50" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;strokeColor=inherit;" vertex="1" parent="-vcVtvVhdGSTqdKB_ndw-48">
+          <mxGeometry y="50" width="390" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="-vcVtvVhdGSTqdKB_ndw-51" value="+ Init(monsterIndex : int, initCount : int) : void&lt;br&gt;+ GetMonster(monsterIndex : int , spawnPos : transform) : GameObject&lt;br&gt;+ ReturnMonster(monster : GameObject) : void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;whiteSpace=wrap;html=1;" vertex="1" parent="-vcVtvVhdGSTqdKB_ndw-48">
+          <mxGeometry y="60" width="390" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="-vcVtvVhdGSTqdKB_ndw-53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="-vcVtvVhdGSTqdKB_ndw-35" target="-vcVtvVhdGSTqdKB_ndw-51">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="390" y="550" />
+              <mxPoint x="390" y="295" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-vcVtvVhdGSTqdKB_ndw-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="-vcVtvVhdGSTqdKB_ndw-51" target="-vcVtvVhdGSTqdKB_ndw-27">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="879" y="295" />
+              <mxPoint x="879" y="408" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="-vcVtvVhdGSTqdKB_ndw-56" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.495;entryY=1;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="-vcVtvVhdGSTqdKB_ndw-27" target="-vcVtvVhdGSTqdKB_ndw-51">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
