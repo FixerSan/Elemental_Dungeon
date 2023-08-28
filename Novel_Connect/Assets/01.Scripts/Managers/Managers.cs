@@ -45,6 +45,7 @@ public class Managers : MonoBehaviour
     private ObjectManager obj = new ObjectManager();
     private SoundManager sound = new SoundManager();
     private InputManager input = new InputManager();
+    private DialogManager dialog = new DialogManager();
 
     public static ResourceManager Resource { get { return Instance?.resource; } }
     public static PoolManager Pool { get { return Instance?.pool; } }
@@ -55,9 +56,10 @@ public class Managers : MonoBehaviour
     public static ObjectManager Object { get { return Instance?.obj; } }
     public static SoundManager Sound { get { return Instance?.sound; } }
     public static InputManager Input { get { return Instance?.input; } }
+    public static DialogManager Dialog { get { return Instance?.dialog; } }
 
     private void Update()
     {
-        input.Update();
+        Input.Update();
     }
 }
