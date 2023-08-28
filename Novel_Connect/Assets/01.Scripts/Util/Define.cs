@@ -51,4 +51,9 @@ public class Define
     {
         Left, Right
     }
+
+    public enum Item
+    {
+        TestItem = 0,
+    }
 }

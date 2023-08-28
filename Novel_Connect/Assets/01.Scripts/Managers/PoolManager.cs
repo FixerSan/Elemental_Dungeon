@@ -107,9 +107,4 @@ public class PoolManager
             poolDictionary.Remove(_key);
         }
     }
-
-    public PoolManager()
-    {
-        
-    }
 }

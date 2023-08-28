@@ -7,7 +7,9 @@ using static Define;
 public abstract class BaseController : MonoBehaviour
 {
     [SerializeField]public ControllerStatus status = new ControllerStatus();
-    protected new Transform transform;
+    public Transform trans;
+    public Animator animator;
+    public Rigidbody2D rb;
     public Elemental elemental;
     public Direction direction = Direction.Left;
     public abstract void GetDamage(float _damage);
@@ -19,6 +21,12 @@ public abstract class BaseController : MonoBehaviour
         direction = _direction;
         if (_direction == Direction.Left) transform.eulerAngles = Vector3.zero;
         if (_direction == Direction.Right) transform.eulerAngles = new Vector3(0,180,0);
+    }
+    public void Stop() 
+    {
+        if (status.isKnockback)
+            return;
+        rb.velocity = new Vector2(0, rb.velocity.y);
     }
 }
 
@@ -38,4 +46,6 @@ public class ControllerStatus
     public float currentJumpForce;
 
     public float attackForce;
+
+    public bool isKnockback = false;
 }

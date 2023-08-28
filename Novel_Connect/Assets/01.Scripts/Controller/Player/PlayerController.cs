@@ -17,15 +17,15 @@ public class PlayerController : BaseController
     public PlayerSkill[] skills;
     public Inventory inventory;
     public PlayerState state;
-    public Rigidbody2D rb;
-    public Animator animator;
+    public Transform checkIsGroundTrans;
+    public Vector2 checkGroundSize;
+    public LayerMask groundLayer;
     private Dictionary<PlayerState, State<PlayerController>> states;
     private StateMachine<PlayerController> stateMachine;
-    
+
+
     public void Init(int _level, string _elementalString)
     {
-        init = true;
-        transform = GetComponent<Transform>();
         Managers.Data.GetPlayerData(_level, (_data) => 
         {
             data = new PlayerData(_level);
@@ -40,20 +40,32 @@ public class PlayerController : BaseController
             status.currentSpeed = _data.speed;
             status.attackForce = _data.force;
         });
-        gameObject.GetOrAddComponent<SpriteRenderer>();
-        animator = gameObject.GetOrAddComponent<Animator>();
+        trans = gameObject.GetOrAddComponent<Transform>();
+        trans.GetOrAddComponent<SpriteRenderer>();
+        animator = trans.GetOrAddComponent<Animator>();
         inventory = new Inventory();
-        rb = gameObject.GetOrAddComponent<Rigidbody2D>();
-        state = PlayerState.Idle;
-        states = new Dictionary<PlayerState, State<PlayerController>>();
-        states.Add(PlayerState.Idle, new PlayerStates.Idle());
-        states.Add(PlayerState.Walk, new PlayerStates.Walk());
-        states.Add(PlayerState.Run, new PlayerStates.Run());
-        states.Add(PlayerState.Jume, new PlayerStates.Jump());
-        states.Add(PlayerState.Fall, new PlayerStates.Fall());
-        stateMachine = new StateMachine<PlayerController>(this, states[PlayerState.Idle]);
+        rb = trans.GetOrAddComponent<Rigidbody2D>();
         Elemental _elemental = Util.ParseEnum<Elemental>(_elementalString);
-        ChangeElemental(_elemental);
+        ChangeElemental(_elemental, () => 
+        {
+            states = new Dictionary<PlayerState, State<PlayerController>>();
+            states.Add(PlayerState.Idle, new PlayerStates.Idle());
+            states.Add(PlayerState.Walk, new PlayerStates.Walk());
+            states.Add(PlayerState.RunStart, new PlayerStates.RunStart());
+            states.Add(PlayerState.Run, new PlayerStates.Run());
+            states.Add(PlayerState.RunEnd, new PlayerStates.RunEnd());
+            states.Add(PlayerState.JumpStart, new PlayerStates.JumpStart());
+            states.Add(PlayerState.Jump, new PlayerStates.Jump());
+            states.Add(PlayerState.Fall, new PlayerStates.Fall());
+            states.Add(PlayerState.FallEnd, new PlayerStates.FallEnd());
+            stateMachine = new StateMachine<PlayerController>(this, states[PlayerState.Idle]);
+            checkIsGroundTrans = Util.FindChild<Transform>(gameObject, "CheckIsGroundTrans");
+            //checkGroundSize = 
+            groundLayer = LayerMask.GetMask("Ground");
+
+            init = true;
+        });
+
     }
 
     public void Update()
@@ -61,6 +73,8 @@ public class PlayerController : BaseController
         if (!init)
             return; 
         stateMachine.UpdateState();
+        movement.CheckIsGround();
+        Debug.Log(movement.isGround);
     }
 
     public override void GetDamage(float _damage)
@@ -75,15 +89,16 @@ public class PlayerController : BaseController
 
     public override void SetPosition(Vector2 _position)
     {
-        transform.position = _position;
+        trans.position = _position;
     }
 
     public void ChangeState(PlayerState _state)
     {
+        if (state == _state) return;
         stateMachine.ChangeState(states[_state]);
     }
 
-    public void ChangeElemental(Elemental _elemental)
+    public void ChangeElemental(Elemental _elemental, Action _callback)
     {
         switch(_elemental)
         {
@@ -100,19 +115,24 @@ public class PlayerController : BaseController
                 skills[1] = new PlayerSkills.Fire.Two();
                 break;
         }
-        Managers.Input.move_RightAction += movement.MoveRight;
-        Managers.Input.move_LeftAction += movement.MoveLeft;
+
         elemental = _elemental;
         Managers.Resource.Load<RuntimeAnimatorController>($"Player_{_elemental}", (ac) => 
         {
             animator.runtimeAnimatorController = ac;
+            _callback?.Invoke();
         });
 
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(checkIsGroundTrans.position,checkGroundSize);
     }
 }
 public enum PlayerState
 {
-    Idle, Walk, Run, Jume, Fall
+    Idle,WalkStart, Walk, WalkEnd,RunStart, Run, RunEnd, JumpStart, Jump, Fall, FallEnd
 }
 
 [System.Serializable]

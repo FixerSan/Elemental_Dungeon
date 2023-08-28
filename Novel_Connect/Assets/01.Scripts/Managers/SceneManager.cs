@@ -27,7 +27,6 @@ public class SceneManager : MonoBehaviour
 
     }
     #endregion
-
     private string currentScene = string.Empty;
 
     public void LoadScene(Define.Scene _scene)
@@ -43,6 +42,14 @@ public class SceneManager : MonoBehaviour
             currentScene = _scene.name;
             AddScene(_scene.name);
         });
+    }
+
+    public T GetScene<T>() where T : BaseScene 
+    {
+        T scene = Util.FindChild<T>(gameObject);
+        if (scene == null)
+            scene = gameObject.AddComponent<T>();
+        return scene;
     }
 
     public void AddScene(string _sceneName)

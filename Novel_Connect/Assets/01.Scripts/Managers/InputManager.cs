@@ -6,87 +6,53 @@ using UnityEngine;
 public class InputManager
 {
     public bool isCanControl = true;
-
-    public KeyCode changeElemental = KeyCode.F1;
-    public KeyCode move_Up = KeyCode.UpArrow;
-    public KeyCode move_Down = KeyCode.DownArrow;
-    public KeyCode move_Right = KeyCode.RightArrow;
-    public KeyCode move_Left = KeyCode.LeftArrow;
-    public KeyCode move_Jump = KeyCode.Space;
-    public KeyCode attack = KeyCode.A;
-    public KeyCode skill_One = KeyCode.Q;
-    public KeyCode skill_Two = KeyCode.W;
-    public KeyCode bending = KeyCode.LeftControl;
-    public KeyCode dialogSkip = KeyCode.B;
-
-    public Action changeElementalAction;
-    public Action move_UpAction;
-    public Action move_DownAction;
-    public Action move_RightAction;
-    public Action move_LeftAction;
-    public Action move_JumpAction;
-    public Action attackAction;
-    public Action skill_OneAction;
-    public Action skill_TwoAction;
-    public Action bendingAction;
-    public Action dialogSkipAction;
+    public Action inputAction = null;
+    public KeyCode changeElementalKey = KeyCode.F1;
+    public KeyCode move_UpKey = KeyCode.UpArrow;
+    public KeyCode move_DownKey = KeyCode.DownArrow;
+    public KeyCode move_RightKey = KeyCode.RightArrow;
+    public KeyCode move_LeftKey = KeyCode.LeftArrow;
+    public KeyCode move_JumpKey = KeyCode.Space;
+    public KeyCode runKey = KeyCode.LeftShift;
+    public KeyCode attackKey = KeyCode.A;
+    public KeyCode skill_OneKey = KeyCode.Q;
+    public KeyCode skill_TwoKey = KeyCode.W;
+    public KeyCode bendingKey = KeyCode.LeftControl;
+    public KeyCode dialogSkipKey = KeyCode.B;
 
 
-    public void ChangeIsCanControl(bool _bool)
+    public void ChangeCanControl(bool _bool)
     {
         isCanControl = _bool;
+    }
+
+    public void ChangeKey(ref KeyCode _keyCode, KeyCode _changeKeyCode)
+    {
+        _keyCode = _changeKeyCode;
     }
 
     public void Update()
     {
         if (!isCanControl) return;
 
-        if (Input.GetKeyDown(changeElemental))
-            changeElementalAction?.Invoke();
-
-        if (Input.GetKeyDown(move_Up))
-            move_UpAction?.Invoke();
-
-        if (Input.GetKeyDown(move_Down))
-            move_DownAction?.Invoke();
-
-        if (Input.GetKeyDown(move_Right))
-            move_RightAction?.Invoke();
-
-        if (Input.GetKeyDown(move_Left))
-            move_LeftAction?.Invoke();
-
-        if (Input.GetKeyDown(move_Jump))
-            move_JumpAction?.Invoke();
-
-        if (Input.GetKeyDown(attack))
-            attackAction?.Invoke();
-
-        if (Input.GetKeyDown(skill_One))
-            skill_OneAction?.Invoke();
-
-        if (Input.GetKeyDown(skill_Two))
-            skill_TwoAction?.Invoke();
-
-        if (Input.GetKeyDown(bending))
-            bendingAction?.Invoke();
-
-        if (Input.GetKeyDown(dialogSkip))
-            dialogSkipAction?.Invoke();
+        inputAction?.Invoke();
     }
 
     public InputManager()
     {
-        changeElemental = KeyCode.F1;
-        move_Up = KeyCode.UpArrow;
-        move_Down = KeyCode.DownArrow;
-        move_Right = KeyCode.RightArrow;
-        move_Left = KeyCode.LeftArrow;
-        move_Jump = KeyCode.Space;
-        attack = KeyCode.A;
-        skill_One = KeyCode.Q;
-        skill_Two = KeyCode.W;
-        bending = KeyCode.LeftControl;
-        dialogSkip = KeyCode.B;
+        isCanControl = true;
+        inputAction = null;
+        changeElementalKey = KeyCode.F1;
+        move_UpKey = KeyCode.UpArrow;
+        move_DownKey = KeyCode.DownArrow;
+        move_RightKey = KeyCode.RightArrow;
+        move_LeftKey = KeyCode.LeftArrow;
+        move_JumpKey = KeyCode.Space;
+        runKey = KeyCode.LeftShift;
+        attackKey = KeyCode.A;
+        skill_OneKey = KeyCode.Q;
+        skill_TwoKey = KeyCode.W;
+        bendingKey = KeyCode.LeftControl;
+        dialogSkipKey = KeyCode.B;
     }
 }

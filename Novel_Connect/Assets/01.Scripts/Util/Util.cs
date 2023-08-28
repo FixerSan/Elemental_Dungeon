@@ -16,6 +16,14 @@ public static class Util
             
         return component;
     }
+    public static T GetOrAddComponent<T>(Transform _trans) where T : UnityEngine.Component
+    {
+        T component = _trans.GetComponent<T>();
+        if (component == null)
+            component = _trans.gameObject.AddComponent<T>();
+
+        return component;
+    }
 
     public static T FindChild<T>(GameObject _go, string _name = null, bool _recursive = false) where T : Object
     {
@@ -25,7 +33,7 @@ public static class Util
             for (int i = 0; i < _go.transform.childCount; i++)
             {
                 Transform transform = _go.transform.GetChild(i);
-                if(string.IsNullOrEmpty(_name) || _go.name == _name)
+                if(string.IsNullOrEmpty(_name) || transform.name == _name)
                 {
                     T component = transform.GetComponent<T>();
                     if (component != null)

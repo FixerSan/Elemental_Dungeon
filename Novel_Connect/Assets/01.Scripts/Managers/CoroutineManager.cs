@@ -18,7 +18,10 @@ public class CoroutineManager : MonoBehaviour
     [RuntimeInitializeOnLoadMethod]
     private static void Init()
     {
-        instance = new GameObject($"[{nameof(CoroutineManager)}]").GetOrAddComponent<CoroutineManager>();
+        GameObject go = GameObject.Find($"[{nameof(CoroutineManager)}]");
+        if(go == null)
+            go = new GameObject($"[{nameof(CoroutineManager)}]");
+        instance = go.GetOrAddComponent<CoroutineManager>();
         DontDestroyOnLoad(instance.gameObject);
     }
 }

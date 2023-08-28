@@ -6,7 +6,7 @@ using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIInput : UIPopup
+public class UIInputPanel : UIPopup
 {
     public KeyCode changeElementalKey;
     public bool isChanging = false;
