@@ -8,15 +8,21 @@ public class MonsterController : BaseController
     public MonsterData data;
     public override void GetDamage(float _damage)
     {
-
+        status.currentHP -= _damage;
     }
 
-    public override void Hit(float _damage)
+    public override void Hit(Transform _attackerTrans,float _damage)
+    {
+        SetTarget(_attackerTrans);
+        GetDamage(_damage);
+    }
+
+    public override void SetPosition(Vector2 _position)
     {
 
     }
 
-    public override void SetPosition(Vector2 _position)
+    public void SetTarget(Transform _target)
     {
 
     }

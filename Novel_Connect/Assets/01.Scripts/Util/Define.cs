@@ -44,7 +44,7 @@ public class Define
 
     public enum Elemental
     {
-        Normal, Fire
+        Normal, Fire, Water, Wind, Glass, Electric, Ice, Rock, Poison
     }
 
     public enum Direction
@@ -55,6 +55,11 @@ public class Define
     public enum Item
     {
         TestItem = 0,
+    }
+
+    public enum StatusEffect
+    {
+        Burn
     }
 
 }

@@ -13,7 +13,7 @@ public abstract class BaseController : MonoBehaviour
     public Elemental elemental;
     public Direction direction = Direction.Left;
     public abstract void GetDamage(float _damage);
-    public abstract void Hit(float _damage);
+    public abstract void Hit(Transform attackTrans, float _damage);
     public abstract void SetPosition(Vector2 _position);
     public void ChangeDirection(Direction _direction) 
     {
