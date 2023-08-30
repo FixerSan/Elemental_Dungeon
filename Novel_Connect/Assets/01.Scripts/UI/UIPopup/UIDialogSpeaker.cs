@@ -7,9 +7,17 @@ using System;
 
 public class UIDialogSpeaker : UIPopup
 {
+    private float typingSpeed;
+    private bool isTyping;
+    private DialogData data;
+    private Coroutine OnTypingTextCoroutine;
+
     public override bool Init()
     {
         if (!base.Init())   return false;
+
+        typingSpeed = 0.1f;
+        isTyping = false;
 
         BindText(typeof(Texts));
         BindButton(typeof(Buttons));
@@ -51,38 +59,88 @@ public class UIDialogSpeaker : UIPopup
 
     public void ApplyDialog(DialogData _data)
     {
+        data = _data;
         CloseAllButton();
-        GetText(((int)Texts.Text_CharacterName)).text = _data.speakerName;
-        GetText(((int)Texts.Text_Sentence)).text = _data.sentence;
+        GetText(((int)Texts.Text_CharacterName)).text = _data.speakerName;  
 
-        SpeakerType speakerType = Util.ParseEnum<SpeakerType>(_data.speakerType);
-        switch (speakerType)
-        {
-            case SpeakerType.OneButton:
-                GetObject((int)Objects.Buttons_1).SetActive(true);
-                GetText((int)Texts.Text_Button_1_1).text = _data.buttonOneContent;
-                break;
-
-            case SpeakerType.TwoButton:
-                GetObject((int)Objects.Buttons_2).SetActive(true);
-                GetText((int)Texts.Text_Button_2_1).text = _data.buttonOneContent;
-                GetText((int)Texts.Text_Button_2_2).text = _data.buttonTwoContent;
-                break;
-
-            case SpeakerType.ThreeButton:
-                GetObject((int)Objects.Buttons_3).SetActive(true);
-                GetText((int)Texts.Text_Button_3_1).text = _data.buttonOneContent;
-                GetText((int)Texts.Text_Button_3_2).text = _data.buttonTwoContent;
-                GetText((int)Texts.Text_Button_3_3).text = _data.buttonThreeContent;
-                break;
-        }
         gameObject.SetActive(true);
+
+        OnTypingTextCoroutine = Managers.Routine.StartCoroutine(OnTypingText());
     }
 
-    public void CloseAllButton()
+    public void CloseDialog()
+    {
+        gameObject.SetActive(false);
+    }
+
+    private void CloseAllButton()
     {
         GetObject((int)Objects.Buttons_1).SetActive(false);
         GetObject((int)Objects.Buttons_2).SetActive(false);
         GetObject((int)Objects.Buttons_3).SetActive(false);
+    }
+
+    private void SetButton()
+    {
+        SpeakerType speakerType = Util.ParseEnum<SpeakerType>(data.speakerType);
+        switch (speakerType)
+        {
+            case SpeakerType.OneButton:
+                GetText((int)Texts.Text_Button_1_1).text = data.buttonOneContent;
+                GetObject((int)Objects.Buttons_1).SetActive(true);
+                break;
+
+            case SpeakerType.TwoButton:
+                GetText((int)Texts.Text_Button_2_1).text = data.buttonOneContent;
+                GetText((int)Texts.Text_Button_2_2).text = data.buttonTwoContent;
+                GetObject((int)Objects.Buttons_2).SetActive(true);
+                break;
+
+            case SpeakerType.ThreeButton:
+                GetText((int)Texts.Text_Button_3_1).text = data.buttonOneContent;
+                GetText((int)Texts.Text_Button_3_2).text = data.buttonTwoContent;
+                GetText((int)Texts.Text_Button_3_3).text = data.buttonThreeContent;
+                GetObject((int)Objects.Buttons_3).SetActive(true);
+                break;
+        }
+    }
+
+    private IEnumerator OnTypingText()
+    {
+        int index = 0;
+        while (index < data.sentence.Length + 1)
+        {
+            GetText(((int)Texts.Text_Sentence)).text = data.sentence.Substring(0, index);
+            index++;
+
+            yield return new WaitForSeconds(typingSpeed);
+            if (!isTyping)
+                isTyping = true;
+        }
+
+        isTyping = false;
+        SetButton();
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(Managers.Input.dialogSkipKey))
+        {
+            if (isTyping)
+            {
+                isTyping = false;
+                Managers.Routine.StopCoroutine(OnTypingTextCoroutine);
+                GetText(((int)Texts.Text_Sentence)).text = data.sentence;
+                SetButton();
+                return;
+            }
+
+            if (data.nextDialogUID == -100)
+                Managers.Dialog.EndDialog();
+
+            else
+                Managers.Dialog.Call(data.nextDialogUID);
+        }
+
     }
 }

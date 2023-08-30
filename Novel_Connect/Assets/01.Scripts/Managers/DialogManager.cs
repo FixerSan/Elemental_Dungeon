@@ -18,14 +18,7 @@ public class DialogManager
             return speaker;
         }
     }
-    private float typingSpeed;
-    private bool isTyping;
     private DialogData currentData;
-    public DialogManager()
-    {
-        typingSpeed = 0.1f;
-        isTyping = false;
-    }
 
     public void Call(int _dialogIndex)
     {
@@ -36,30 +29,56 @@ public class DialogManager
         });
     }
 
-    public void NextCall()
-    {
-
-    }
-
     public void OnClick_ButtonOne()
     {
-        Debug.Log("1");
+        if (currentData.nextDialogUID == -100)  { EndDialog();  return; }
+        if (currentData.nextDialogUID != -1)    { Call(currentData.nextDialogUID); return; }
+
+        switch (currentData.dialogUID)
+        {
+            case 0:
+
+                break;
+
+            case 1:
+                Call(2);
+                break;
+        }
     }
 
     public void OnClick_ButtonTwo()
     {
-        Debug.Log("2");
+        if (currentData.nextDialogUID == -100) { EndDialog(); return; }
+        if (currentData.nextDialogUID != -1) { Call(currentData.nextDialogUID); return; }
+
+        switch (currentData.dialogUID)
+        {
+            case 0:
+
+                break;
+
+            case 1:
+                Call(3);
+                break;
+        }
     }
 
     public void OnClick_ButtonThree()
     {
-        Debug.Log("3");
+        if (currentData.nextDialogUID == -100) { EndDialog(); return; }
+        if (currentData.nextDialogUID != -1) { Call(currentData.nextDialogUID); return; }
+
+        switch (currentData.dialogUID)
+        {
+            case 0:
+
+                break;
+        }
     }
 
-    public void SetSpeaker(UIDialogSpeaker _speaker)
+    public void EndDialog()
     {
-        if (_speaker == null) return;
-        
-        speaker = _speaker;
+        Speaker.CloseDialog();
+        //여기에 플레이어 움직임 불가능 해제
     }
 }

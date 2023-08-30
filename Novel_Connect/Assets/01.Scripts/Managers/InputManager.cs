@@ -18,7 +18,7 @@ public class InputManager
     public KeyCode skill_OneKey = KeyCode.Q;
     public KeyCode skill_TwoKey = KeyCode.W;
     public KeyCode bendingKey = KeyCode.LeftControl;
-    public KeyCode dialogSkipKey = KeyCode.B;
+    public KeyCode dialogSkipKey = KeyCode.G;
 
 
     public void ChangeCanControl(bool _bool)
