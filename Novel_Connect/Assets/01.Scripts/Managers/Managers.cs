@@ -46,6 +46,7 @@ public class Managers : MonoBehaviour
     private SoundManager sound = new SoundManager();
     private InputManager input = new InputManager();
     private DialogManager dialog = new DialogManager();
+    private BattleManager battle = new BattleManager();
 
     public static ResourceManager Resource { get { return Instance?.resource; } }
     public static PoolManager Pool { get { return Instance?.pool; } }
@@ -57,6 +58,7 @@ public class Managers : MonoBehaviour
     public static SoundManager Sound { get { return Instance?.sound; } }
     public static InputManager Input { get { return Instance?.input; } }
     public static DialogManager Dialog { get { return Instance?.dialog; } }
+    public static BattleManager Battle { get { return Instance?.battle; } }
 
     private void Update()
     {

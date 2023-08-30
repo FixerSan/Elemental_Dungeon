@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 public abstract class Playermovement 
 {
@@ -10,7 +12,7 @@ public abstract class Playermovement
     public void CheckIsGround()
     {
         //아래로 체크 길이 만큼 체크, 레이어는 그라운드
-        Collider2D[] hits = Physics2D.OverlapBoxAll(player.checkIsGroundTrans.position, player.checkGroundSize, 0, player.groundLayer);
+        Collider2D[] hits = Physics2D.OverlapBoxAll(player.checkIsGroundTrans.position, player.checkIsGroundTrans.localScale, 0, player.groundLayer);
 
         //그라운드가 체크 되지 않았을 때
         if (hits.Length == 0)
@@ -60,12 +62,13 @@ public abstract class Playermovement
             player.ChangeState(PlayerState.Idle);
             return;
         }
+
         if(Input.GetKey(Managers.Input.move_LeftKey))
         {
             player.ChangeDirection(Define.Direction.Left);
             if(Input.GetKey(Managers.Input.runKey))
             {
-                player.ChangeState(PlayerState.RunStart);
+                player.ChangeState(PlayerState.Run);
                 return;
             }
             player.ChangeState(PlayerState.Walk);
@@ -77,7 +80,7 @@ public abstract class Playermovement
             player.ChangeDirection(Define.Direction.Right);
             if (Input.GetKey(Managers.Input.runKey))
             {
-                player.ChangeState(PlayerState.RunStart);
+                player.ChangeState(PlayerState.Run);
                 return;
             }
             player.ChangeState(PlayerState.Walk);
@@ -86,8 +89,29 @@ public abstract class Playermovement
 
         player.ChangeState(PlayerState.Idle);
     }
-    public abstract void Move();
+    public virtual void Move()
+    {
+        switch (player.state)
+        {
+            case PlayerState.Walk:
+                if (player.direction == Define.Direction.Left)
+                    player.rb.velocity = new Vector2(-player.status.currentSpeed / 6, player.rb.velocity.y);
+                if (player.direction == Define.Direction.Right)
+                    player.rb.velocity = new Vector2(player.status.currentSpeed / 6, player.rb.velocity.y);
+                break;
 
+            case PlayerState.Run:
+                if (player.direction == Define.Direction.Left)
+                    player.rb.velocity = new Vector2(-player.status.currentSpeed / 3, player.rb.velocity.y);
+                if (player.direction == Define.Direction.Right)
+                    player.rb.velocity = new Vector2(player.status.currentSpeed / 3, player.rb.velocity.y);
+                break;
+
+            case PlayerState.Jump:
+
+                break;
+        }
+    }
 }
 
 namespace Playermovements
@@ -98,41 +122,6 @@ namespace Playermovements
         {
             player = _player; 
         }
-
-       public override void Move()
-        {
-            switch(player.state)
-            {
-                case PlayerState.WalkStart:
-                    if (player.direction == Define.Direction.Left)
-                        player.rb.velocity = new Vector2(-player.status.currentSpeed / 6, player.rb.velocity.y);
-                    if (player.direction == Define.Direction.Right)
-                        player.rb.velocity = new Vector2(player.status.currentSpeed / 6, player.rb.velocity.y);
-                    break;
-
-                case PlayerState.Walk:
-                    if (player.direction == Define.Direction.Left)
-                        player.rb.velocity = new Vector2(-player.status.currentSpeed / 4, player.rb.velocity.y);
-                    if(player.direction == Define.Direction.Right)
-                        player.rb.velocity = new Vector2(player.status.currentSpeed / 4, player.rb.velocity.y);
-                    break;
-
-                case PlayerState.WalkEnd:
-                    if (player.direction == Define.Direction.Left)
-                        player.rb.velocity = new Vector2(-player.status.currentSpeed / 6, player.rb.velocity.y);
-                    if (player.direction == Define.Direction.Right)
-                        player.rb.velocity = new Vector2(player.status.currentSpeed / 6, player.rb.velocity.y);
-                    break;
-
-                case PlayerState.Run:
-
-                    break;
-
-                case PlayerState.Jump:
-
-                    break;
-            }
-        }
     }
 
     public class Fire : Playermovement
@@ -140,11 +129,6 @@ namespace Playermovements
         public Fire(PlayerController _player)
         {
             player = _player;
-        }
-
-        public override void Move()
-        {
-
         }
     }
 }

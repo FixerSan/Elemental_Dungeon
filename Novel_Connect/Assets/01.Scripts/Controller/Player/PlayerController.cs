@@ -2,6 +2,7 @@ using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.TextCore.Text;
 using UnityEngine.UIElements;
@@ -18,8 +19,9 @@ public class PlayerController : BaseController
     public Inventory inventory;
     public PlayerState state;
     public Transform checkIsGroundTrans;
-    public Vector2 checkGroundSize;
+    public Transform attackTrans;
     public LayerMask groundLayer;
+    public LayerMask attackLayer;
     private Dictionary<PlayerState, State<PlayerController>> states;
     private StateMachine<PlayerController> stateMachine;
 
@@ -51,18 +53,17 @@ public class PlayerController : BaseController
             states = new Dictionary<PlayerState, State<PlayerController>>();
             states.Add(PlayerState.Idle, new PlayerStates.Idle());
             states.Add(PlayerState.Walk, new PlayerStates.Walk());
-            states.Add(PlayerState.RunStart, new PlayerStates.RunStart());
             states.Add(PlayerState.Run, new PlayerStates.Run());
-            states.Add(PlayerState.RunEnd, new PlayerStates.RunEnd());
             states.Add(PlayerState.JumpStart, new PlayerStates.JumpStart());
             states.Add(PlayerState.Jump, new PlayerStates.Jump());
             states.Add(PlayerState.Fall, new PlayerStates.Fall());
             states.Add(PlayerState.FallEnd, new PlayerStates.FallEnd());
+            states.Add(PlayerState.Attack, new PlayerStates.Attack());
             stateMachine = new StateMachine<PlayerController>(this, states[PlayerState.Idle]);
             checkIsGroundTrans = Util.FindChild<Transform>(gameObject, "CheckIsGroundTrans");
-            //checkGroundSize = 
+            attackTrans = Util.FindChild<Transform>(gameObject, "AttackTrans");
             groundLayer = LayerMask.GetMask("Ground");
-
+            attackLayer = LayerMask.GetMask("Hitable");
             init = true;
         });
 
@@ -71,19 +72,19 @@ public class PlayerController : BaseController
     public void Update()
     {
         if (!init)
-            return; 
+            return;
         stateMachine.UpdateState();
         movement.CheckIsGround();
-        Debug.Log(movement.isGround);
     }
 
     public override void GetDamage(float _damage)
     {
-
+        status.currentHP -= _damage;
     }
 
-    public override void Hit(float _damage)
+    public override void Hit(Transform _attackerTrans, float _damage)
     {
+        GetDamage(_damage);
 
     }
 
@@ -103,12 +104,14 @@ public class PlayerController : BaseController
         switch(_elemental)
         {
             case Elemental.Normal:
+                attack = new PlayerAttacks.Normal(this);
                 movement = new Playermovements.Normal(this);
                 skills = new PlayerSkill[0];
 
                 break;
 
             case Elemental.Fire:
+                attack = new PlayerAttacks.Fire(this);
                 movement = new Playermovements.Fire(this);
                 skills = new PlayerSkill[2];
                 skills[0] = new PlayerSkills.Fire.One();
@@ -125,14 +128,38 @@ public class PlayerController : BaseController
 
     }
 
+    public void ChangeStateWithDelay(PlayerState _nextState,float _delayTime)
+    {
+        Managers.Routine.StartCoroutine(ChangeStateWithDelayRoutine(_nextState, _delayTime));
+    }
+
+    private IEnumerator ChangeStateWithDelayRoutine(PlayerState _nextState, float _delayTime)
+    {
+        yield return new WaitForSeconds(_delayTime);
+        ChangeState(_nextState);
+    }
+
+    public void ChangeStateWithAnimtionTime(PlayerState _nextState)
+    {
+        Managers.Routine.StartCoroutine(ChangeStateWithAnimtionTimeRoutine(_nextState));
+    }
+
+    private IEnumerator ChangeStateWithAnimtionTimeRoutine(PlayerState _nextState)
+    {
+        yield return new WaitForSeconds(0.05f);
+        float animationPlayTime = animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(animationPlayTime - 0.05f);
+        ChangeState(_nextState);
+    }
+
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(checkIsGroundTrans.position,checkGroundSize);
+        Gizmos.DrawWireCube(checkIsGroundTrans.position,checkIsGroundTrans.localScale);
     }
 }
 public enum PlayerState
 {
-    Idle,WalkStart, Walk, WalkEnd,RunStart, Run, RunEnd, JumpStart, Jump, Fall, FallEnd
+    Idle, Walk, Run, JumpStart, Jump, Fall, FallEnd , Attack
 }
 
 [System.Serializable]

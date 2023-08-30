@@ -19,7 +19,7 @@ public class AudioSourceController
     {
         if (audioSource != null)
             return;
-        GameObject go = Managers.Resource.Instantiate("AudioSource_Effect", _parent: Managers.Sound.SourceTransform, _pooling: true);
+        GameObject go = Managers.Resource.Instantiate("AudioSource", _parent: Managers.Sound.SourceTransform, _pooling: true);
         audioSource = go.GetOrAddComponent<AudioSource>();
         Stop();
         SetVoulme(Managers.Sound.effectVolume);
