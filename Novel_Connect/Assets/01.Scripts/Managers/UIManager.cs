@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class UIManager 
 {
@@ -13,6 +14,7 @@ public class UIManager
     private Stack<UIPopup> popupStack = new Stack<UIPopup>();
     private Stack<UIToast> toastStack = new Stack<UIToast>();
     private UIScene sceneUI = null;
+    private EventSystem eventSystem = null;
 
     public UIScene SceneUI { get { return sceneUI; } }
 
@@ -31,8 +33,15 @@ public class UIManager
         }
     }
 
+    public void SetEventSystem()
+    {
+        GameObject es = Managers.Resource.Instantiate("EventSystem");
+        eventSystem = es.GetOrAddComponent<EventSystem>();
+    }
+
     public void SetCanvas(GameObject _go, bool _sort = true, int _sortOrder = 0, bool _isToast = false)
     {
+        if(eventSystem == null) SetEventSystem();
         Canvas canvas = _go.GetOrAddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvas.overrideSorting = true;

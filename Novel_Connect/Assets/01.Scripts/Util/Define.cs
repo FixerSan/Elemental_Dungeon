@@ -24,12 +24,12 @@ public class Define
 
     public enum SpeakerType
     {
-
+        OneButton, TwoButton, ThreeButton
     }
 
     public enum SoundProfile_Effect
     {
-        Effect_1
+        Effect
     }
 
     public enum AudioClip_Effect
@@ -56,4 +56,5 @@ public class Define
     {
         TestItem = 0,
     }
+
 }

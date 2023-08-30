@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Default Local Group
+  m_EditorClassIdentifier: 
+  m_GroupName: Default Local Group
+  m_Data:
+    m_SerializedData: []
+  m_GUID: bb19819433b5b0d4488da81086d5e4e8
+  m_SerializeEntries:
+  - m_GUID: 354238ce69b9fa742a5ba6fbfaccb3aa
+    m_Address: Guild.Data
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 4268f79cf120da3469919e0053e669db
+    m_Address: Preload.Data
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: dc39cd6e6116a0f4592bc185b0d07285
+    m_Address: Player.GameObject
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 6fb17fac6891d924a902a7d2b477a3dd
+    m_Address: Player_Normal.AnimatorController
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 896512abd2ef5b64f9663ada1d99ba38
+    m_Address: Popup_DialogSpeaker.GameObject
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 051940eb2716af548aad450773fa7eff
+    m_Address: Effect.SoundProfile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 4ea906c1ddb05f74ea8d6bf5936af9fb
+    m_Address: AudioSource.GameObject
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: b5283794f930f3c43ab98e4ac4ed7880
+    m_Address: EventSystem.GameObject
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 7625f705cca72f24088dfc48d2137928, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d65abe061e26b7e46a28a94782057a5a, type: 2}
+    - {fileID: 11400000, guid: 69d0b5247ab99504b88d82d36803ffec, type: 2}
