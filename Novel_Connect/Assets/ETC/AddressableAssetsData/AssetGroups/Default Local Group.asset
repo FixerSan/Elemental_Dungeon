@@ -26,11 +26,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
-  - m_GUID: dc39cd6e6116a0f4592bc185b0d07285
-    m_Address: Player.GameObject
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
   - m_GUID: 6fb17fac6891d924a902a7d2b477a3dd
     m_Address: Player_Normal.AnimatorController
     m_ReadOnly: 0
@@ -53,6 +48,11 @@ MonoBehaviour:
     - Preload
   - m_GUID: b5283794f930f3c43ab98e4ac4ed7880
     m_Address: EventSystem.GameObject
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: dc39cd6e6116a0f4592bc185b0d07285
+    m_Address: Player.GameObject
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
