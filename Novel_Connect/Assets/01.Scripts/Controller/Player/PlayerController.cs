@@ -28,10 +28,14 @@ public class PlayerController : BaseController
 
     public void Init(int _level, string _elementalString)
     {
+        trans = gameObject.GetOrAddComponent<Transform>();
+        trans.GetOrAddComponent<SpriteRenderer>();
+        animator = trans.GetOrAddComponent<Animator>();
+        rb = trans.GetOrAddComponent<Rigidbody2D>();
+        inventory = new Inventory();
         Managers.Data.GetPlayerData(_level, (_data) => 
         {
-            data = new PlayerData(_level);
-
+            data = _data;
             status.currentHP = _data.hp;
             status.maxHP = _data.hp;
             status.currentMP = _data.mp;
@@ -42,11 +46,6 @@ public class PlayerController : BaseController
             status.currentSpeed = _data.speed;
             status.attackForce = _data.force;
         });
-        trans = gameObject.GetOrAddComponent<Transform>();
-        trans.GetOrAddComponent<SpriteRenderer>();
-        animator = trans.GetOrAddComponent<Animator>();
-        inventory = new Inventory();
-        rb = trans.GetOrAddComponent<Rigidbody2D>();
         Elemental _elemental = Util.ParseEnum<Elemental>(_elementalString);
         ChangeElemental(_elemental, () => 
         {

@@ -18,7 +18,8 @@
   "exp": 1,
   "hp": 10,
   "force": 5,
-  "speed": 5
+  "speed": 5,
+  "elemental": "Ice"
  }
 ],
 "itemDatas":[
