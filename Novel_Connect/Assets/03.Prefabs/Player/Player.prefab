@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 952861629}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
     itemList: []
   state: 0
   checkIsGroundTrans: {fileID: 526067048}
-  attackTrans: {fileID: 0}
+  attackTrans: {fileID: 5940306872152533426}
   groundLayer:
     serializedVersion: 2
     m_Bits: 0
@@ -157,7 +157,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -1103705369915212862, guid: f6d0706b1a88b8549a29627aff1c0dbb, type: 3}
+  m_Sprite: {fileID: -2808446914958623159, guid: 58dcfc444d304c142af40102810b875f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -165,7 +165,7 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.76}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &2557913686716354892
@@ -223,7 +223,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.004999995, y: 0.38}
+  m_Offset: {x: -0.039999995, y: 0.38}
   m_Size: {x: 0.32, y: 0.76}
   m_Direction: 0
 --- !u!1 &5431240465200493457
@@ -250,8 +250,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5431240465200493457}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.1, z: 0}
+  m_LocalPosition: {x: -0.204, y: 0.369, z: 0}
+  m_LocalScale: {x: 0.51, y: 0.79, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2005256712002008690}

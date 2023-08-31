@@ -1,0 +1,1233 @@
+fileFormatVersion: 2
+guid: d650dde3dca64e64da66b819eadeeabd
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Damaged
+    second: {fileID: 7400000, guid: edd5efc5c3f655e4e91fb615b2f962de, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Die
+    second: {fileID: 7400000, guid: 597802607d762b04991c10da23cc0763, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Fly_ready
+    second: {fileID: 7400000, guid: 3820e360c56127342a839e85fd090fc4, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Flying
+    second: {fileID: 7400000, guid: 903fdfe0b2838514782bb4fbf595150c, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: stay
+    second: {fileID: 7400000, guid: 32ee2e7f9ff6d0b4aa44222704f645f8, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: ultrasonic_attack
+    second: {fileID: 7400000, guid: 3cd7e42e737d40d4cbfccf3bf6ebc900, type: 2}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638291217306823020
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Ghost bat_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: -0.095238104}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 25
+      y: 160
+      width: 13
+      height: 21
+    spriteID: 569422062066ef748a6a15269562a5fb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 25, y: 160}
+  - name: Ghost bat_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.045454547}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 160
+      width: 13
+      height: 22
+    spriteID: f624b59f8f2e52b43afc43ffee6adf94
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 160}
+  - name: Ghost bat_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.095238104}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 46
+      y: 160
+      width: 13
+      height: 21
+    spriteID: 40a046e2c33bf704e997637c4a258ce8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 46, y: 160}
+  - name: Ghost bat_Frame_3
+    originalName: 
+    pivot: {x: 0.39285713, y: -0.14999999}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 56
+      y: 132
+      width: 14
+      height: 20
+    spriteID: 4bd8d8dbf1ceb24429b3cfc7ce22a206
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 56, y: 132}
+  - name: Ghost bat_Frame_4
+    originalName: 
+    pivot: {x: 0.46875, y: -0.21052633}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 132
+      width: 16
+      height: 19
+    spriteID: 1bf851d4d1c55a64aa547f73670027c5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 32, y: 132}
+  - name: Ghost bat_Frame_5
+    originalName: 
+    pivot: {x: 0.40625003, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 235
+      y: 38
+      width: 16
+      height: 21
+    spriteID: cdac3f66c4cd3434a9721426e987bea5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 235, y: 38}
+  - name: Ghost bat_Frame_6
+    originalName: 
+    pivot: {x: 0.44230768, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 70
+      y: 68
+      width: 26
+      height: 19
+    spriteID: a401d79a135bfa4439ad86cc8d8b5a6d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 70, y: 68}
+  - name: Ghost bat_Frame_7
+    originalName: 
+    pivot: {x: 0.5625, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 171
+      y: 38
+      width: 24
+      height: 22
+    spriteID: ba1fc39afbba2fb43af06fef7bc13dd9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 171, y: 38}
+  - name: Ghost bat_Frame_8
+    originalName: 
+    pivot: {x: 0.54, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 38
+      width: 25
+      height: 22
+    spriteID: 51428015ee3f7a14f950c3aa617863a3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 38}
+  - name: Ghost bat_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 118
+      y: 4
+      width: 29
+      height: 24
+    spriteID: 3fd986f12f2a06b4db6132d3e3ef6013
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 118, y: 4}
+  - name: Ghost bat_Frame_10
+    originalName: 
+    pivot: {x: 0.54761904, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 125
+      y: 98
+      width: 21
+      height: 20
+    spriteID: 2a237686a0918624e8df82fc5e9741cb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 125, y: 98}
+  - name: Ghost bat_Frame_11
+    originalName: 
+    pivot: {x: 0.54347825, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 104
+      y: 68
+      width: 23
+      height: 21
+    spriteID: 500b3f41a784db645b9d6ba4adac7bdb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 104, y: 68}
+  - name: Ghost bat_Frame_12
+    originalName: 
+    pivot: {x: 0.52500004, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 217
+      y: 98
+      width: 20
+      height: 20
+    spriteID: 154dbb4ba1612c24e83d1f0441728245
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 217, y: 98}
+  - name: Ghost bat_Frame_13
+    originalName: 
+    pivot: {x: 0.51666665, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 30
+      height: 26
+    spriteID: 7f85c3778a5a7c64eb756cd93f4ee818
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Ghost bat_Frame_14
+    originalName: 
+    pivot: {x: 0.5681818, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 200
+      y: 68
+      width: 22
+      height: 21
+    spriteID: 75f20b806a786c54b84edeb2e38c9d68
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 200, y: 68}
+  - name: Ghost bat_Frame_15
+    originalName: 
+    pivot: {x: 0.5625, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 203
+      y: 38
+      width: 24
+      height: 22
+    spriteID: 2fcb02b567b8d2b4c81243dc4e14c939
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 203, y: 38}
+  - name: Ghost bat_Frame_16
+    originalName: 
+    pivot: {x: 0.54, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 37
+      y: 38
+      width: 25
+      height: 22
+    spriteID: 6fd14a434c4635f41aa36aee1eb0905f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 37, y: 38}
+  - name: Ghost bat_Frame_17
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 155
+      y: 4
+      width: 29
+      height: 24
+    spriteID: 0981704b3ae9f324f870144ecc2b0a5e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 155, y: 4}
+  - name: Ghost bat_Frame_18
+    originalName: 
+    pivot: {x: 0.54761904, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 154
+      y: 98
+      width: 21
+      height: 20
+    spriteID: 25083b53e20a49041b0edd753185957b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 154, y: 98}
+  - name: Ghost bat_Frame_19
+    originalName: 
+    pivot: {x: 0.54347825, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 135
+      y: 68
+      width: 23
+      height: 21
+    spriteID: 990828257c672db49a1a4e45941d1055
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 135, y: 68}
+  - name: Ghost bat_Frame_20
+    originalName: 
+    pivot: {x: 0.52500004, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 132
+      width: 20
+      height: 20
+    spriteID: 4d967177411c21e4e8d2176add44efe6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 132}
+  - name: Ghost bat_Frame_21
+    originalName: 
+    pivot: {x: 0.51666665, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 42
+      y: 4
+      width: 30
+      height: 26
+    spriteID: 56654ebba986143448ffad51d00363ff
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 42, y: 4}
+  - name: Ghost bat_Frame_22
+    originalName: 
+    pivot: {x: 0.5681818, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 230
+      y: 68
+      width: 22
+      height: 21
+    spriteID: 89cc004c92fe580439b369163b972fd2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 230, y: 68}
+  - name: Ghost bat_Frame_23
+    originalName: 
+    pivot: {x: 0.5625, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 68
+      width: 24
+      height: 22
+    spriteID: 3554a077c1cb88743a4435e85779f147
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 68}
+  - name: Ghost bat_Frame_24
+    originalName: 
+    pivot: {x: 0.54, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 70
+      y: 38
+      width: 25
+      height: 22
+    spriteID: c32cde030ae081b4fac378c32cb1bc57
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 70, y: 38}
+  - name: Ghost bat_Frame_25
+    originalName: 
+    pivot: {x: 0.5, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 192
+      y: 4
+      width: 29
+      height: 24
+    spriteID: 922dcd0eada151f4e82c2365e3c7c900
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 192, y: 4}
+  - name: Ghost bat_Frame_26
+    originalName: 
+    pivot: {x: 0.54761904, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 32
+      y: 98
+      width: 21
+      height: 24
+    spriteID: 5c56281d7c522594f875f3458d03a2a0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 32, y: 98}
+  - name: Ghost bat_Frame_27
+    originalName: 
+    pivot: {x: 0.54347825, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 229
+      y: 4
+      width: 23
+      height: 25
+    spriteID: 6f56908e44f114c49939a923b5eeba1e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 229, y: 4}
+  - name: Ghost bat_Frame_28
+    originalName: 
+    pivot: {x: 0.52500004, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 98
+      width: 20
+      height: 26
+    spriteID: a625fa72ef1556c499704491f2a4f788
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 98}
+  - name: Ghost bat_Frame_29
+    originalName: 
+    pivot: {x: 0.51666665, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 80
+      y: 4
+      width: 30
+      height: 26
+    spriteID: 5c09f584162a5fa4eadbca480637faa6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 80, y: 4}
+  - name: Ghost bat_Frame_30
+    originalName: 
+    pivot: {x: 0.5681818, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 61
+      y: 98
+      width: 22
+      height: 21
+    spriteID: 55dbb53a2290ef842bfeca3f8d497d5a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 61, y: 98}
+  - name: Ghost bat_Frame_31
+    originalName: 
+    pivot: {x: 0.40384614, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 68
+      width: 26
+      height: 20
+    spriteID: 525bb0e1178ed144091b88963ec5f629
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 68}
+  - name: Ghost bat_Frame_32
+    originalName: 
+    pivot: {x: 0.3653846, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 103
+      y: 38
+      width: 26
+      height: 21
+    spriteID: fc93c11fceb5eed4391a62405f0e94a3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 103, y: 38}
+  - name: Ghost bat_Frame_33
+    originalName: 
+    pivot: {x: 0.3653846, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 137
+      y: 38
+      width: 26
+      height: 21
+    spriteID: d995535a1a5fdcf41ac9035fe9295db7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 137, y: 38}
+  - name: Ghost bat_Frame_34
+    originalName: 
+    pivot: {x: 0.40384614, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 166
+      y: 68
+      width: 26
+      height: 18
+    spriteID: 52872371817788740bf2768b0b433096
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 166, y: 68}
+  - name: Ghost bat_Frame_35
+    originalName: 
+    pivot: {x: 0.3653846, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 91
+      y: 98
+      width: 26
+      height: 17
+    spriteID: 871ea257570b6cd418c3ad3f240c0cf4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 91, y: 98}
+  - name: Ghost bat_Frame_36
+    originalName: 
+    pivot: {x: 0.32692307, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 183
+      y: 98
+      width: 26
+      height: 16
+    spriteID: b73c2efdffa019249956481104dceb84
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 183, y: 98}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 2028859330
+    name: Ghost bat
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Ghost bat_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 12
+        y: 2
+        width: 13
+        height: 21
+      spriteId: 569422062066ef748a6a15269562a5fb
+    - name: Ghost bat_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 12
+        y: 1
+        width: 13
+        height: 22
+      spriteId: f624b59f8f2e52b43afc43ffee6adf94
+    - name: Ghost bat_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 12
+        y: 2
+        width: 13
+        height: 21
+      spriteId: 40a046e2c33bf704e997637c4a258ce8
+    - name: Ghost bat_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 13
+        y: 3
+        width: 14
+        height: 20
+      spriteId: 4bd8d8dbf1ceb24429b3cfc7ce22a206
+    - name: Ghost bat_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 11
+        y: 4
+        width: 16
+        height: 19
+      spriteId: 1bf851d4d1c55a64aa547f73670027c5
+    - name: Ghost bat_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 12
+        y: 3
+        width: 16
+        height: 21
+      spriteId: cdac3f66c4cd3434a9721426e987bea5
+    - name: Ghost bat_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 7
+        y: 0
+        width: 26
+        height: 19
+      spriteId: a401d79a135bfa4439ad86cc8d8b5a6d
+    - name: Ghost bat_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 5
+        y: 0
+        width: 24
+        height: 22
+      spriteId: ba1fc39afbba2fb43af06fef7bc13dd9
+    - name: Ghost bat_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 5
+        y: 0
+        width: 25
+        height: 22
+      spriteId: 51428015ee3f7a14f950c3aa617863a3
+    - name: Ghost bat_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 4
+        y: 0
+        width: 29
+        height: 24
+      spriteId: 3fd986f12f2a06b4db6132d3e3ef6013
+    - name: Ghost bat_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 7
+        y: 0
+        width: 21
+        height: 20
+      spriteId: 2a237686a0918624e8df82fc5e9741cb
+    - name: Ghost bat_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 6
+        y: 0
+        width: 23
+        height: 21
+      spriteId: 500b3f41a784db645b9d6ba4adac7bdb
+    - name: Ghost bat_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 8
+        y: 0
+        width: 20
+        height: 20
+      spriteId: 154dbb4ba1612c24e83d1f0441728245
+    - name: Ghost bat_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 3
+        y: 0
+        width: 30
+        height: 26
+      spriteId: 7f85c3778a5a7c64eb756cd93f4ee818
+    - name: Ghost bat_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 6
+        y: 0
+        width: 22
+        height: 21
+      spriteId: 75f20b806a786c54b84edeb2e38c9d68
+    - name: Ghost bat_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 5
+        y: 0
+        width: 24
+        height: 22
+      spriteId: 2fcb02b567b8d2b4c81243dc4e14c939
+    - name: Ghost bat_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 5
+        y: 0
+        width: 25
+        height: 22
+      spriteId: 6fd14a434c4635f41aa36aee1eb0905f
+    - name: Ghost bat_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 4
+        y: 0
+        width: 29
+        height: 24
+      spriteId: 0981704b3ae9f324f870144ecc2b0a5e
+    - name: Ghost bat_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 7
+        y: 0
+        width: 21
+        height: 20
+      spriteId: 25083b53e20a49041b0edd753185957b
+    - name: Ghost bat_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 6
+        y: 0
+        width: 23
+        height: 21
+      spriteId: 990828257c672db49a1a4e45941d1055
+    - name: Ghost bat_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 8
+        y: 0
+        width: 20
+        height: 20
+      spriteId: 4d967177411c21e4e8d2176add44efe6
+    - name: Ghost bat_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 3
+        y: 0
+        width: 30
+        height: 26
+      spriteId: 56654ebba986143448ffad51d00363ff
+    - name: Ghost bat_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 6
+        y: 0
+        width: 22
+        height: 21
+      spriteId: 89cc004c92fe580439b369163b972fd2
+    - name: Ghost bat_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 5
+        y: 0
+        width: 24
+        height: 22
+      spriteId: 3554a077c1cb88743a4435e85779f147
+    - name: Ghost bat_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 5
+        y: 0
+        width: 25
+        height: 22
+      spriteId: c32cde030ae081b4fac378c32cb1bc57
+    - name: Ghost bat_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 4
+        y: 0
+        width: 29
+        height: 24
+      spriteId: 922dcd0eada151f4e82c2365e3c7c900
+    - name: Ghost bat_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 7
+        y: 0
+        width: 21
+        height: 24
+      spriteId: 5c56281d7c522594f875f3458d03a2a0
+    - name: Ghost bat_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 6
+        y: 0
+        width: 23
+        height: 25
+      spriteId: 6f56908e44f114c49939a923b5eeba1e
+    - name: Ghost bat_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 8
+        y: 0
+        width: 20
+        height: 26
+      spriteId: a625fa72ef1556c499704491f2a4f788
+    - name: Ghost bat_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 3
+        y: 0
+        width: 30
+        height: 26
+      spriteId: 5c09f584162a5fa4eadbca480637faa6
+    - name: Ghost bat_Frame_30
+      frameIndex: 30
+      cellRect:
+        x: 6
+        y: 0
+        width: 22
+        height: 21
+      spriteId: 55dbb53a2290ef842bfeca3f8d497d5a
+    - name: Ghost bat_Frame_31
+      frameIndex: 31
+      cellRect:
+        x: 8
+        y: 0
+        width: 26
+        height: 20
+      spriteId: 525bb0e1178ed144091b88963ec5f629
+    - name: Ghost bat_Frame_32
+      frameIndex: 32
+      cellRect:
+        x: 9
+        y: 0
+        width: 26
+        height: 21
+      spriteId: fc93c11fceb5eed4391a62405f0e94a3
+    - name: Ghost bat_Frame_33
+      frameIndex: 33
+      cellRect:
+        x: 9
+        y: 0
+        width: 26
+        height: 21
+      spriteId: d995535a1a5fdcf41ac9035fe9295db7
+    - name: Ghost bat_Frame_34
+      frameIndex: 34
+      cellRect:
+        x: 8
+        y: 0
+        width: 26
+        height: 18
+      spriteId: 52872371817788740bf2768b0b433096
+    - name: Ghost bat_Frame_35
+      frameIndex: 35
+      cellRect:
+        x: 9
+        y: 0
+        width: 26
+        height: 17
+      spriteId: 871ea257570b6cd418c3ad3f240c0cf4
+    - name: Ghost bat_Frame_36
+      frameIndex: 36
+      cellRect:
+        x: 10
+        y: 0
+        width: 26
+        height: 16
+      spriteId: b73c2efdffa019249956481104dceb84
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 37, y: 26}

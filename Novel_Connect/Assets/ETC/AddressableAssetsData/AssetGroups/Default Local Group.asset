@@ -56,6 +56,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
+  - m_GUID: c6c82e19860ec4f44a7bcb8ba179da71
+    m_Address: Ghost_Bat.AnimatorController
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 22f796ce1e091434eba40cce4f22693c
+    m_Address: Monster.GameObject
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7625f705cca72f24088dfc48d2137928, type: 2}
   m_SchemaSet:

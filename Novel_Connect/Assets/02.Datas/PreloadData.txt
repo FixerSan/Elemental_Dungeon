@@ -13,13 +13,14 @@
 "monsterDatas":[
  {
   "monsterUID": 0,
-  "monsterName": "TestMonster",
-  "description": "테스트 몬스터이다",
+  "monsterCodeName": "Ghost_Bat",
+  "monsterName": "유령 박쥐",
+  "description": "어쩌구 저쩌구",
   "exp": 1,
   "hp": 10,
   "force": 5,
   "speed": 5,
-  "elemental": "Ice"
+  "elemental": "Ghost"
  }
 ],
 "itemDatas":[

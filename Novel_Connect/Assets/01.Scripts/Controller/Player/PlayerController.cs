@@ -33,6 +33,10 @@ public class PlayerController : BaseController
         animator = trans.GetOrAddComponent<Animator>();
         rb = trans.GetOrAddComponent<Rigidbody2D>();
         inventory = new Inventory();
+        checkIsGroundTrans = Util.FindChild<Transform>(gameObject, "CheckIsGroundTrans");
+        attackTrans = Util.FindChild<Transform>(gameObject, "AttackTrans");
+        groundLayer = LayerMask.GetMask("Ground");
+        attackLayer = LayerMask.GetMask("Hitable");
         Managers.Data.GetPlayerData(_level, (_data) => 
         {
             data = _data;
@@ -59,10 +63,6 @@ public class PlayerController : BaseController
             states.Add(PlayerState.FallEnd, new PlayerStates.FallEnd());
             states.Add(PlayerState.Attack, new PlayerStates.Attack());
             stateMachine = new StateMachine<PlayerController>(this, states[PlayerState.Idle]);
-            checkIsGroundTrans = Util.FindChild<Transform>(gameObject, "CheckIsGroundTrans");
-            attackTrans = Util.FindChild<Transform>(gameObject, "AttackTrans");
-            groundLayer = LayerMask.GetMask("Ground");
-            attackLayer = LayerMask.GetMask("Hitable");
             init = true;
         });
 
@@ -154,6 +154,8 @@ public class PlayerController : BaseController
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(checkIsGroundTrans.position,checkIsGroundTrans.localScale);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(attackTrans.position, attackTrans.localScale);
     }
 }
 public enum PlayerState

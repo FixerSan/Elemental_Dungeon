@@ -68,6 +68,14 @@ public class ObjectManager
         return null;
     }
 
+    public MonsterController SpawnMonster(Vector3 _position, int _monsterUID)
+    {
+        MonsterController monster = Spawn<MonsterController>(_position);
+        monster.Init(_monsterUID);
+
+        return monster;
+    }
+
     public void Despawn<T>(T _object) where T : BaseController
     {
         System.Type type = typeof(T);

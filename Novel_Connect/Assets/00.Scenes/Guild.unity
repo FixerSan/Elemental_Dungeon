@@ -123,75 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &122248124
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 122248126}
-  - component: {fileID: 122248125}
-  m_Layer: 0
-  m_Name: Monster
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &122248125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122248124}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13927ca5ebd6f1344b99ff74837643e6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  status:
-    maxHP: 0
-    currentHP: 0
-    maxMP: 0
-    currentMP: 0
-    maxSpeed: 0
-    currentSpeed: 0
-    maxJumpForce: 0
-    currentJumpForce: 0
-    attackForce: 0
-    isKnockback: 0
-  trans: {fileID: 0}
-  animator: {fileID: 0}
-  rb: {fileID: 0}
-  elemental: 0
-  direction: 0
-  data:
-    monsterUID: 0
-    monsterName: 
-    description: 
-    exp: 0
-    hp: 0
-    force: 0
-    speed: 0
-    elemental: 
---- !u!4 &122248126
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 122248124}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &451966106
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,7 +147,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 451966106}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49b40e686970e8d4bbf26dcc3d03b505, type: 3}
   m_Name: 

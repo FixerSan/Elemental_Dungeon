@@ -1,3 +1,4 @@
+using PlayerStates;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,14 @@ public class MonsterController : BaseController
 {
     public MonsterData data;
     public MonsterMovement movement;
+    public MonsterAttack attack;
+    public MonsterState state;
+    public Transform attackTrans;
+    public Transform detecteTrans;
+    public Transform targetTras;
+    public LayerMask attackLayer;
+    private StateMachine<MonsterController> stateMachine;
+    private Dictionary<MonsterState, State<MonsterController>> states;
     private bool init = false;
     public void Init(int _monsterUID)
     {
@@ -14,6 +23,9 @@ public class MonsterController : BaseController
         trans.GetOrAddComponent<SpriteRenderer>();
         animator = trans.GetOrAddComponent<Animator>();
         rb = trans.GetOrAddComponent<Rigidbody2D>();
+        attackTrans = Util.FindChild<Transform>(gameObject, "AttackTrans");
+        detecteTrans = Util.FindChild<Transform>(gameObject, "DetecteTrans");
+        attackLayer = LayerMask.GetMask("Hitable");
         Managers.Data.GetMonsterData(_monsterUID, (_data) =>
         {
             data = _data;
@@ -24,15 +36,35 @@ public class MonsterController : BaseController
             status.attackForce = _data.force;
             elemental = Util.ParseEnum<Define.Elemental>(_data.elemental);
 
-            Managers.Resource.Load<RuntimeAnimatorController>(_data.monsterName, (ac) => 
+            switch (_data.monsterUID)
+            {
+                case 0:
+                    movement = new MonsterMovements.Ghost_Bat(this);
+                    attack = new MonsterAttacks.Ghost_Bat(this);
+                    states = new Dictionary<MonsterState, State<MonsterController>>();
+                    states.Add(MonsterState.Idle, new MonsterStates.Ghost_BatIdle());
+                    states.Add(MonsterState.Follow, new MonsterStates.Ghost_BatFollow());
+                    states.Add(MonsterState.Attack, new MonsterStates.BaseAttack());
+                    states.Add(MonsterState.Damaged, new MonsterStates.BaseDamaged());
+                    states.Add(MonsterState.Die, new MonsterStates.BaseDie());
+                    break;
+
+                default:
+                    movement = new MonsterMovements.BaseMovement(this);
+                    attack = new MonsterAttacks.BaseAttack(this);
+                    states = new Dictionary<MonsterState, State<MonsterController>>();
+                    states.Add(MonsterState.Idle, new MonsterStates.BaseIdle());
+                    states.Add(MonsterState.Move, new MonsterStates.BaseMove());
+                    states.Add(MonsterState.Attack, new MonsterStates.BaseAttack());
+                    states.Add(MonsterState.Damaged, new MonsterStates.BaseDamaged());
+                    states.Add(MonsterState.Die, new MonsterStates.BaseDie());
+                    break;
+            }
+            stateMachine = new StateMachine<MonsterController>(this, states[MonsterState.Idle]);
+            Managers.Resource.Load<RuntimeAnimatorController>(_data.monsterCodeName, (ac) => 
             {
                 animator.runtimeAnimatorController = ac;
-                switch(_data.monsterName)
-                {
-                    case "TestMonster":
-                        movement = new MonsterMovements.BaseMovement();
-                        break;
-                }
+                init = true; 
             });
         });
     }
@@ -55,14 +87,44 @@ public class MonsterController : BaseController
 
     public void SetTarget(Transform _target)
     {
-
+        targetTras = _target;
     }
+
+    public void ChangeState(MonsterState _state)
+    {
+        if (state == _state) return;
+        stateMachine.ChangeState(states[_state]);
+    }
+
+    public void LookAtTarget()
+    {
+        if (targetTras == null) return;
+        if (targetTras.position.x > trans.position.x) ChangeDirection(Define.Direction.Right);
+        if (targetTras.position.x < trans.position.x) ChangeDirection(Define.Direction.Left);
+    }
+
+    private void FixedUpdate()
+    {
+        if (!init) return;
+        stateMachine.UpdateState();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(detecteTrans.position, detecteTrans.localScale);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(attackTrans.position, attackTrans.localScale);
+    }
+
 }
+
+public enum MonsterState { Idle, Move, Follow, Attack, Damaged, Die}
 
 [System.Serializable]
 public class MonsterData
 {
     public int monsterUID;
+    public string monsterCodeName;
     public string monsterName;
     public string description;
     public int exp;
@@ -76,6 +138,7 @@ public class MonsterData
         Managers.Data.GetMonsterData(_monsterUID, (data) =>
         {
             monsterUID = data.monsterUID;
+            monsterCodeName = data.monsterCodeName;
             monsterName = data.monsterName;
             description = data.description;
             exp = data.exp;
