@@ -40,7 +40,10 @@ public class MonsterController : BaseController
             {
                 case 0:
                     movement = new MonsterMovements.Ghost_Bat(this);
-                    attack = new MonsterAttacks.Ghost_Bat(this);
+                    attack = new MonsterAttacks.BaseAttack(this);
+                    attack.attackDelay = _data.attackDelay;
+                    attack.canAttackDistance = _data.canAttackDistance;
+                    attack.canAttackDelay = _data.canAttackDelay;
                     states = new Dictionary<MonsterState, State<MonsterController>>();
                     states.Add(MonsterState.Idle, new MonsterStates.Ghost_BatIdle());
                     states.Add(MonsterState.Follow, new MonsterStates.Ghost_BatFollow());
@@ -52,6 +55,7 @@ public class MonsterController : BaseController
                 default:
                     movement = new MonsterMovements.BaseMovement(this);
                     attack = new MonsterAttacks.BaseAttack(this);
+                    attack.canAttackDelay = _data.attackDelay;
                     states = new Dictionary<MonsterState, State<MonsterController>>();
                     states.Add(MonsterState.Idle, new MonsterStates.BaseIdle());
                     states.Add(MonsterState.Move, new MonsterStates.BaseMove());
@@ -131,6 +135,9 @@ public class MonsterData
     public float hp;
     public float force;
     public float speed;
+    public float attackDelay;
+    public float canAttackDistance;
+    public float canAttackDelay;
     public string elemental;
 
     public MonsterData(int _monsterUID)
@@ -145,6 +152,10 @@ public class MonsterData
             hp = data.hp;
             force = data.force;
             speed = data.speed;
+            attackDelay = data.attackDelay;
+            canAttackDistance = data.canAttackDistance;
+            canAttackDelay = data.canAttackDelay;
+            elemental = data.elemental;
         });
     }
 }

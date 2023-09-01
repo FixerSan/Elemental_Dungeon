@@ -64,10 +64,13 @@ namespace MonsterStates
         public override void EnterState(MonsterController _entity)
         {
             _entity.state = MonsterState.Attack;
+            _entity.attack.Attack();
+            _entity.animator.SetBool("isAttack", true);
         }
 
         public override void ExitState(MonsterController _entity, Action _callback)
         {
+            _entity.animator.SetBool("isAttack" , false);
             _callback?.Invoke();
         }
 
@@ -129,6 +132,7 @@ namespace MonsterStates
         public override void UpdateState(MonsterController _entity)
         {
             _entity.movement.Follow();
+            _entity.attack.CheckAttack();
         }
     }
 
