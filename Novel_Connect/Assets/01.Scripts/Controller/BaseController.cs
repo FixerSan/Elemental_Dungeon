@@ -27,7 +27,7 @@ public abstract class BaseController : MonoBehaviour
     {
         if (status.isKnockback)
             return;
-        //rb.velocity = new Vector2(0, rb.velocity.y);
+        rb.velocity = new Vector2(0, rb.velocity.y);
     }
 
     public abstract void Die();

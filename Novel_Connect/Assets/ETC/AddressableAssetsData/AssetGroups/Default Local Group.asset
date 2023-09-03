@@ -36,11 +36,10 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
-  - m_GUID: 051940eb2716af548aad450773fa7eff
-    m_Address: Effect.SoundProfile
+  - m_GUID: 34e02d771c309bb448943add94bacb6c
+    m_Address: Ghost_Bat_Move.SoundProfile
     m_ReadOnly: 0
-    m_SerializedLabels:
-    - Preload
+    m_SerializedLabels: []
   - m_GUID: 4ea906c1ddb05f74ea8d6bf5936af9fb
     m_Address: AudioSource.GameObject
     m_ReadOnly: 0
@@ -66,6 +65,14 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
+  - m_GUID: c44a263dec832ec428e2740092e241c5
+    m_Address: Ghost_Bat_Hit.AudioClip
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 31464969840168643aaf39550d82abd2
+    m_Address: Ghost_Bat_Attack.AudioClip
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7625f705cca72f24088dfc48d2137928, type: 2}
   m_SchemaSet:

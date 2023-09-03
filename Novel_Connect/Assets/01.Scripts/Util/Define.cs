@@ -29,12 +29,12 @@ public class Define
 
     public enum SoundProfile_Effect
     {
-        Effect
+        Effect, Ghost_Bat_Move
     }
 
     public enum AudioClip_Effect
     {
-        Effect_1
+        Effect_1, Ghost_Bat_Attack, Ghost_Bat_Hit
     }
 
     public enum AudioClip_BGM
@@ -49,7 +49,7 @@ public class Define
 
     public enum Direction
     {
-        Left, Right
+        Left=-1, Right=1
     }
 
     public enum Item

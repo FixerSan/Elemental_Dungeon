@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.AddressableAssets.Build;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -41,7 +42,7 @@ public abstract class Playermovement
                 player.ChangeState(PlayerState.Jump);
 
             //떨어지는 중일 때
-            else if (player.rb.velocity.y <= -0.01f)
+            else if (player.rb.velocity.y <= 0f)
                 player.ChangeState(PlayerState.Fall);
         }
     }
@@ -63,7 +64,6 @@ public abstract class Playermovement
         if(Input.GetKey(Managers.Input.move_LeftKey) && Input.GetKey(Managers.Input.move_RightKey))
         {
             player.ChangeState(PlayerState.Idle);
-            player.Stop();
             return;
         }
 
@@ -95,62 +95,42 @@ public abstract class Playermovement
         player.ChangeState(PlayerState.Idle);
     }
 
+    public virtual void WalkMove()
+    {
+        player.rb.velocity = new Vector2(player.status.currentWalkSpeed * Time.fixedDeltaTime * 50 * (int)player.direction, player.rb.velocity.y);
+    }
+
+    public virtual void RunMove()
+    {
+        player.rb.velocity = new Vector2(player.status.currentRunSpeed * Time.fixedDeltaTime * 50 * (int)player.direction, player.rb.velocity.y);
+    }
+
     public virtual void CheckJumpMove()
     {
+        if (Input.GetKey(Managers.Input.move_LeftKey) && Input.GetKey(Managers.Input.move_RightKey))
+        {
+            return;
+        }
+
         if (Input.GetKey(Managers.Input.move_LeftKey))
         {
-            player.rb.AddForce(new Vector2(-player.status.currentWalkSpeed * 0.1f * Time.deltaTime, 0), ForceMode2D.Impulse);
-            if (-player.rb.velocity.x <= -player.status.maxWalkSpeed)
+            player.ChangeDirection(Define.Direction.Left);
+            player.rb.AddForce(new Vector2(-player.status.currentWalkSpeed * 1f * Time.deltaTime, 0), ForceMode2D.Impulse);
+            if (player.rb.velocity.x <= -player.status.maxWalkSpeed)
                 player.rb.velocity = new Vector2(-player.status.maxRunSpeed, player.rb.velocity.y);
             return;
         }
 
-        else if (Input.GetKey(Managers.Input.move_RightKey))
+        if (Input.GetKey(Managers.Input.move_RightKey))
         {
-            player.rb.AddForce(new Vector2(player.status.currentWalkSpeed * 0.1f * Time.deltaTime, 0), ForceMode2D.Impulse);
+            player.ChangeDirection(Define.Direction.Right);
+            player.rb.AddForce(new Vector2(player.status.currentWalkSpeed * 1f * Time.deltaTime, 0), ForceMode2D.Impulse);
             if (player.rb.velocity.x >= player.status.maxWalkSpeed)
                 player.rb.velocity = new Vector2(player.status.maxRunSpeed, player.rb.velocity.y);
             return;
         }
     }
 
-    public virtual void Move()
-    {
-        switch (player.state)
-        {
-            case PlayerState.Walk:
-                if (player.direction == Define.Direction.Left)
-                {
-                    player.rb.AddForce(new Vector2((-1) * player.status.currentWalkSpeed * 10f * Time.deltaTime, 0), ForceMode2D.Impulse);
-                    if ((-1) * player.rb.velocity.x <= (-1) * player.status.maxWalkSpeed)
-                        player.rb.velocity = new Vector2(-player.status.maxWalkSpeed, player.rb.velocity.y);
-                }
-                //player.rb.velocity = new Vector2(-player.status.currentWalkSpeed * Time.deltaTime * 100, player.rb.velocity.y);
-                if (player.direction == Define.Direction.Right)
-                {
-                    player.rb.AddForce(new Vector2(player.status.currentWalkSpeed * 10f * Time.deltaTime, 0), ForceMode2D.Impulse);
-                    if (player.rb.velocity.x >= player.status.maxWalkSpeed)
-                        player.rb.velocity = new Vector2(player.status.maxWalkSpeed, player.rb.velocity.y);
-                }
-                break;
-
-            case PlayerState.Run:
-                if (player.direction == Define.Direction.Left)
-                {
-                    player.rb.AddForce(new Vector2(-player.status.currentRunSpeed * 10f * Time.deltaTime, 0), ForceMode2D.Impulse);
-                    if (-player.rb.velocity.x <= -player.status.maxRunSpeed)
-                        player.rb.velocity = new Vector2(-player.status.maxRunSpeed, player.rb.velocity.y);
-                }
-                //player.rb.velocity = new Vector2(-player.status.currentWalkSpeed * Time.deltaTime * 100, player.rb.velocity.y);
-                if (player.direction == Define.Direction.Right)
-                {
-                    player.rb.AddForce(new Vector2(player.status.currentRunSpeed * 10f * Time.deltaTime, 0), ForceMode2D.Impulse);
-                    if (player.rb.velocity.x >= player.status.maxRunSpeed)
-                        player.rb.velocity = new Vector2(player.status.maxRunSpeed, player.rb.velocity.y);
-                }
-                break;
-        }
-    }
     public virtual void CheckJump()
     {
         if (Input.GetKey(Managers.Input.move_JumpKey))

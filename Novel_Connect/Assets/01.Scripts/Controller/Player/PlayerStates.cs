@@ -35,12 +35,13 @@ namespace PlayerStates
         public override void ExitState(PlayerController _entity, Action _callback)
         {
             _entity.animator.SetBool("isWalk", false);
+            _entity.Stop();
             _callback?.Invoke();
         }
 
         public override void UpdateState(PlayerController _entity)
         {
-            _entity.movement.Move();
+            _entity.movement.WalkMove();
             _entity.movement.CheckMove();
             _entity.movement.CheckJump();
             _entity.movement.CheckUpAndFall();
@@ -58,12 +59,13 @@ namespace PlayerStates
         public override void ExitState(PlayerController _entity, Action _callback)
         {
             _entity.animator.SetBool("isRun", false);
+            _entity.Stop();
             _callback?.Invoke();
         }
 
         public override void UpdateState(PlayerController _entity)
         {
-            _entity.movement.Move();
+            _entity.movement.RunMove();
             _entity.movement.CheckMove();
             _entity.movement.CheckJump();
             _entity.movement.CheckUpAndFall();
@@ -109,6 +111,7 @@ namespace PlayerStates
         public override void UpdateState(PlayerController _entity)
         {
             _entity.movement.CheckUpAndFall();
+            _entity.movement.CheckLanding();
             _entity.movement.CheckJumpMove();
         }
     }

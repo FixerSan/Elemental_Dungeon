@@ -126,12 +126,14 @@ namespace MonsterStates
         public override void EnterState(MonsterController _entity)
         {
             _entity.state = MonsterState.Follow;
+            _entity.sound.PlayMoveSound();
             _entity.animator.SetBool("isMove", true);
         }
 
         public override void ExitState(MonsterController _entity, Action _callback)
         {
             _entity.animator.SetBool("isMove", false);
+            _entity.sound.StopMoveSound();
             _callback?.Invoke();
         }
 

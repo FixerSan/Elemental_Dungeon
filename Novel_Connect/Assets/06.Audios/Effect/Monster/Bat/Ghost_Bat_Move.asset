@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b39265f8ded44447b1c35b915fcbcd6, type: 3}
+  m_Name: Ghost_Bat_Move
+  m_EditorClassIdentifier: 
+  audios:
+  - {fileID: 8300000, guid: 80ed0ca37285d9e48baa105c24d19e2c, type: 3}
+  - {fileID: 8300000, guid: 2604d282419b1af45bdc59349bf4e656, type: 3}
+  - {fileID: 8300000, guid: 9dc2b3dfc2227764e91e3b9a867992bf, type: 3}
+  - {fileID: 8300000, guid: 56673ebc816d7d34b85b1f5f96f945af, type: 3}
+  - {fileID: 8300000, guid: 0f68dd5fe0628dd4f9329f321158769d, type: 3}
+  - {fileID: 8300000, guid: 69dafe680bae8c041bc075425588e2fb, type: 3}

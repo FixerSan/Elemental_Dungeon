@@ -1,6 +1,7 @@
 using PlayerStates;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -9,6 +10,7 @@ public class MonsterController : BaseController
     public MonsterData data;
     public MonsterMovement movement;
     public MonsterAttack attack;
+    public MonsterSound sound;
     public MonsterState state;
     public Transform attackTrans;
     public Transform detecteTrans;
@@ -44,6 +46,7 @@ public class MonsterController : BaseController
                 case 0:
                     movement = new MonsterMovements.Ghost_Bat(this);
                     attack = new MonsterAttacks.BaseAttack(this);
+                    sound = new MonsterSounds.Ghost_Bat(this);
                     attack.attackDelay = _data.attackDelay;
                     attack.canAttackDistance = _data.canAttackDistance;
                     attack.canAttackDelay = _data.canAttackDelay;
@@ -81,6 +84,7 @@ public class MonsterController : BaseController
     public override void Hit(Transform _attackerTrans,float _damage)
     {
         if (state == MonsterState.Die) return;
+        sound.PlayHitSound();
         SetTarget(_attackerTrans);
         LookAtTarget();
         KnuckBack();

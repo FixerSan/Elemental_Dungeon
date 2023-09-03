@@ -82,15 +82,11 @@ namespace MonsterMovements
             }
             yield return new WaitForSeconds(0.5f);
             checkDetecteCoroutine = Managers.Routine.StartCoroutine(CheckMoveRoutine());
-
         }
 
         public override void Move()
         {
-            if (monster.direction == Define.Direction.Left)
-                monster.rb.velocity = new Vector2(-monster.status.currentWalkSpeed * Time.deltaTime, monster.rb.velocity.y);
-            if (monster.direction == Define.Direction.Right)
-                monster.rb.velocity = new Vector2(monster.status.currentWalkSpeed * Time.deltaTime, monster.rb.velocity.y);
+            monster.rb.velocity = new Vector2(monster.status.currentWalkSpeed * Time.fixedDeltaTime * 10 * (int)monster.direction, monster.rb.velocity.y);
         }
     }
 }

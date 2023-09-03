@@ -86,8 +86,10 @@ MonoBehaviour:
     currentHP: 0
     maxMP: 0
     currentMP: 0
-    maxSpeed: 0
-    currentSpeed: 0
+    maxWalkSpeed: 0
+    currentWalkSpeed: 0
+    maxRunSpeed: 0
+    currentRunSpeed: 0
     maxJumpForce: 0
     currentJumpForce: 0
     currentAttackForce: 0
@@ -103,7 +105,8 @@ MonoBehaviour:
     hp: 0
     mp: 0
     force: 0
-    speed: 0
+    walkSpeed: 0
+    runSpeed: 0
     jumpForce: 0
   inventory:
     itemList: []
@@ -183,11 +186,11 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 4
   m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_Interpolate: 1
+  m_SleepingMode: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!95 &-4340312739607177362
 Animator:
@@ -219,7 +222,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 2005256712002008693}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: a97ad1f827c01b247873660df52eb6b7, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0

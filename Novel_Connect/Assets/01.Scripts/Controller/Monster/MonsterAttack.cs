@@ -40,6 +40,7 @@ namespace MonsterAttacks
         {
             isCanAttack = false;
             monster.LookAtTarget();
+            monster.sound.PlayAttackSound();
             attackCoroutine = Managers.Routine.StartCoroutine(AttackRoutine());
         }
 
