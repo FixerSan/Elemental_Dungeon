@@ -57,6 +57,11 @@ public class Define
         TestItem = 0,
     }
 
+    public enum Monster
+    {
+        Ghost_Bat = 0
+    }
+
     public enum StatusEffect
     {
         Burn

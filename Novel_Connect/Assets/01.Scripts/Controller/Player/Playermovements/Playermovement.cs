@@ -4,10 +4,13 @@ using System.Runtime.InteropServices.WindowsRuntime;
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.UIElements;
+
 public abstract class Playermovement 
 {
     protected PlayerController player;
-    public bool isGround = false;
+    public bool isGround;
+    protected bool isCanJump;
 
     public void CheckIsGround()
     {
@@ -60,6 +63,7 @@ public abstract class Playermovement
         if(Input.GetKey(Managers.Input.move_LeftKey) && Input.GetKey(Managers.Input.move_RightKey))
         {
             player.ChangeState(PlayerState.Idle);
+            player.Stop();
             return;
         }
 
@@ -84,33 +88,87 @@ public abstract class Playermovement
                 return;
             }
             player.ChangeState(PlayerState.Walk);
+            player.Stop(); 
             return;
         }
 
         player.ChangeState(PlayerState.Idle);
     }
+
+    public virtual void CheckJumpMove()
+    {
+        if (Input.GetKey(Managers.Input.move_LeftKey))
+        {
+            player.rb.AddForce(new Vector2(-player.status.currentWalkSpeed * 0.1f * Time.deltaTime, 0), ForceMode2D.Impulse);
+            if (-player.rb.velocity.x <= -player.status.maxWalkSpeed)
+                player.rb.velocity = new Vector2(-player.status.maxRunSpeed, player.rb.velocity.y);
+            return;
+        }
+
+        else if (Input.GetKey(Managers.Input.move_RightKey))
+        {
+            player.rb.AddForce(new Vector2(player.status.currentWalkSpeed * 0.1f * Time.deltaTime, 0), ForceMode2D.Impulse);
+            if (player.rb.velocity.x >= player.status.maxWalkSpeed)
+                player.rb.velocity = new Vector2(player.status.maxRunSpeed, player.rb.velocity.y);
+            return;
+        }
+    }
+
     public virtual void Move()
     {
         switch (player.state)
         {
             case PlayerState.Walk:
                 if (player.direction == Define.Direction.Left)
-                    player.rb.velocity = new Vector2(-player.status.currentSpeed / 6, player.rb.velocity.y);
+                {
+                    player.rb.AddForce(new Vector2((-1) * player.status.currentWalkSpeed * 10f * Time.deltaTime, 0), ForceMode2D.Impulse);
+                    if ((-1) * player.rb.velocity.x <= (-1) * player.status.maxWalkSpeed)
+                        player.rb.velocity = new Vector2(-player.status.maxWalkSpeed, player.rb.velocity.y);
+                }
+                //player.rb.velocity = new Vector2(-player.status.currentWalkSpeed * Time.deltaTime * 100, player.rb.velocity.y);
                 if (player.direction == Define.Direction.Right)
-                    player.rb.velocity = new Vector2(player.status.currentSpeed / 6, player.rb.velocity.y);
+                {
+                    player.rb.AddForce(new Vector2(player.status.currentWalkSpeed * 10f * Time.deltaTime, 0), ForceMode2D.Impulse);
+                    if (player.rb.velocity.x >= player.status.maxWalkSpeed)
+                        player.rb.velocity = new Vector2(player.status.maxWalkSpeed, player.rb.velocity.y);
+                }
                 break;
 
             case PlayerState.Run:
                 if (player.direction == Define.Direction.Left)
-                    player.rb.velocity = new Vector2(-player.status.currentSpeed / 3, player.rb.velocity.y);
+                {
+                    player.rb.AddForce(new Vector2(-player.status.currentRunSpeed * 10f * Time.deltaTime, 0), ForceMode2D.Impulse);
+                    if (-player.rb.velocity.x <= -player.status.maxRunSpeed)
+                        player.rb.velocity = new Vector2(-player.status.maxRunSpeed, player.rb.velocity.y);
+                }
+                //player.rb.velocity = new Vector2(-player.status.currentWalkSpeed * Time.deltaTime * 100, player.rb.velocity.y);
                 if (player.direction == Define.Direction.Right)
-                    player.rb.velocity = new Vector2(player.status.currentSpeed / 3, player.rb.velocity.y);
-                break;
-
-            case PlayerState.Jump:
-
+                {
+                    player.rb.AddForce(new Vector2(player.status.currentRunSpeed * 10f * Time.deltaTime, 0), ForceMode2D.Impulse);
+                    if (player.rb.velocity.x >= player.status.maxRunSpeed)
+                        player.rb.velocity = new Vector2(player.status.maxRunSpeed, player.rb.velocity.y);
+                }
                 break;
         }
+    }
+    public virtual void CheckJump()
+    {
+        if (Input.GetKey(Managers.Input.move_JumpKey))
+            player.ChangeState(PlayerState.JumpStart);
+    }
+
+    public virtual void Jump()
+    {
+        if (!isCanJump) return;
+        isCanJump = false;
+        player.rb.velocity = new Vector2(player.rb.velocity.x, 0);
+        player.rb.AddForce(Vector2.up * player.status.currentJumpForce, ForceMode2D.Impulse);
+        player.ChangeStateWithAnimtionTime(PlayerState.Jump);
+    }
+
+    public virtual void SetCanJump()
+    {
+        isCanJump = true;
     }
 }
 
@@ -120,7 +178,9 @@ namespace Playermovements
     {
         public Normal(PlayerController _player) 
         {
-            player = _player; 
+            player = _player;
+            isGround = false;
+            isCanJump = true;
         }
     }
 
@@ -129,6 +189,8 @@ namespace Playermovements
         public Fire(PlayerController _player)
         {
             player = _player;
+            isGround = false;
+            isCanJump = true;
         }
     }
 }

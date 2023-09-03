@@ -19,21 +19,24 @@ public class MonsterController : BaseController
     private bool init = false;
     public void Init(int _monsterUID)
     {
+        init = false;
+        changeStateCoroutine = null;
         trans = gameObject.GetOrAddComponent<Transform>();
         trans.GetOrAddComponent<SpriteRenderer>();
         animator = trans.GetOrAddComponent<Animator>();
         rb = trans.GetOrAddComponent<Rigidbody2D>();
         attackTrans = Util.FindChild<Transform>(gameObject, "AttackTrans");
         detecteTrans = Util.FindChild<Transform>(gameObject, "DetecteTrans");
+        targetTras = null;
         attackLayer = LayerMask.GetMask("Hitable");
         Managers.Data.GetMonsterData(_monsterUID, (_data) =>
         {
             data = _data;
             status.currentHP = _data.hp;
             status.maxHP = _data.hp;
-            status.maxSpeed = _data.speed;
-            status.currentSpeed = _data.speed;
-            status.attackForce = _data.force;
+            status.maxWalkSpeed = _data.speed;
+            status.currentWalkSpeed = _data.speed;
+            status.currentAttackForce = _data.force;
             elemental = Util.ParseEnum<Define.Elemental>(_data.elemental);
 
             switch (_data.monsterUID)
@@ -68,20 +71,48 @@ public class MonsterController : BaseController
             Managers.Resource.Load<RuntimeAnimatorController>(_data.monsterCodeName, (ac) => 
             {
                 animator.runtimeAnimatorController = ac;
+                ChangeDirection(Define.Direction.Left);
                 init = true; 
             });
         });
+    }
+
+
+    public override void Hit(Transform _attackerTrans,float _damage)
+    {
+        if (state == MonsterState.Die) return;
+        SetTarget(_attackerTrans);
+        LookAtTarget();
+        KnuckBack();
+        GetDamage(_damage);
+        if (state == MonsterState.Attack) return;
+        ChangeState(MonsterState.Damaged,true);
     }
 
     public override void GetDamage(float _damage)
     {
         status.currentHP -= _damage;
     }
-
-    public override void Hit(Transform _attackerTrans,float _damage)
+    public void CheckDie()
     {
-        SetTarget(_attackerTrans);
-        GetDamage(_damage);
+        if(status.currentHP <= 0)
+            ChangeState(MonsterState.Die);
+    }
+
+    public override void Die()
+    {
+        if(changeStateCoroutine != null) Managers.Routine.StopCoroutine(changeStateCoroutine);
+        changeStateCoroutine = null;
+        if(attack.attackCoroutine != null) Managers.Routine.StopCoroutine(attack.attackCoroutine);
+        attack.attackCoroutine = null;
+        init = false;
+        Managers.Routine.StartCoroutine(DieRoutine());
+    }
+
+    private IEnumerator DieRoutine()
+    {
+        yield return new WaitForSeconds(3f);
+        Managers.Pool.Push(gameObject);
     }
 
     public override void SetPosition(Vector2 _position)
@@ -94,10 +125,29 @@ public class MonsterController : BaseController
         targetTras = _target;
     }
 
-    public void ChangeState(MonsterState _state)
+    public void ChangeState(MonsterState _state, bool _isChangeSameState = false)
     {
-        if (state == _state) return;
+        if (!init) return;
+        if (state == _state)
+        {
+            if (_isChangeSameState)
+                stateMachine.ChangeState(states[_state]);
+            return;
+        }
         stateMachine.ChangeState(states[_state]);
+    }
+
+    public void ChangeStateWithAnimtionTime(MonsterState _nextState)
+    {
+        changeStateCoroutine = Managers.Routine.StartCoroutine(ChangeStateWithAnimtionTimeRoutine(_nextState));
+    }
+
+    private IEnumerator ChangeStateWithAnimtionTimeRoutine(MonsterState _nextState)
+    {
+        yield return new WaitForSeconds(0.05f);
+        float animationPlayTime = animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(animationPlayTime - 0.05f);
+        ChangeState(_nextState);
     }
 
     public void LookAtTarget()
@@ -107,10 +157,17 @@ public class MonsterController : BaseController
         if (targetTras.position.x < trans.position.x) ChangeDirection(Define.Direction.Left);
     }
 
+    public override void KnuckBack()
+    {
+        if (direction == Define.Direction.Right) rb.AddForce(new Vector2(-data.knockBackForce, data.knockBackForce * 0.5f), ForceMode2D.Impulse);
+        if (direction == Define.Direction.Left) rb.AddForce(new Vector2(data.knockBackForce, data.knockBackForce * 0.5f), ForceMode2D.Impulse);
+    }
+
     private void FixedUpdate()
     {
         if (!init) return;
         stateMachine.UpdateState();
+        CheckDie();
     }
 
     private void OnDrawGizmos()
@@ -138,6 +195,7 @@ public class MonsterData
     public float attackDelay;
     public float canAttackDistance;
     public float canAttackDelay;
+    public float knockBackForce;
     public string elemental;
 
     public MonsterData(int _monsterUID)

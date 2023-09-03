@@ -15,7 +15,7 @@ public class ObjectManager
                 GameObject go = GameObject.Find("Player");
                 if(go == null)
                 {
-                    player = Spawn<PlayerController>(Vector3.zero);
+                    player = SpawnPlayer(Vector3.zero);
                     return player;
                 }
                 player = go.GetOrAddComponent<PlayerController>();
@@ -44,36 +44,30 @@ public class ObjectManager
         Monsters.Clear();
     }
 
-    public T Spawn<T>(Vector3 _position) where T : BaseController
+    public PlayerController SpawnPlayer(Vector3 _position)
     {
-        System.Type type = typeof(T);
-
-        if(type == typeof(PlayerController))
-        {
-            GameObject go = Managers.Resource.Instantiate("Player");
-            PlayerController pc = go.GetOrAddComponent<PlayerController>();
-            pc.transform.position = _position;
-            player = pc;
-            return pc as T;
-        }
-
-        if (type == typeof(MonsterController))
-        {
-            GameObject go = Managers.Resource.Instantiate("Monster", _pooling: true);
-            MonsterController mc = go.GetOrAddComponent<MonsterController>();
-            go.transform.position = _position;
-            Monsters.Add(mc);
-            return mc as T;
-        }
-        return null;
+        GameObject go = Managers.Resource.Instantiate("Player");
+        PlayerController pc = go.GetOrAddComponent<PlayerController>();
+        pc.transform.position = _position;
+        player = pc;
+        return pc;
     }
 
-    public MonsterController SpawnMonster(Vector3 _position, int _monsterUID)
+    public MonsterController SpawnMonster(Vector3 _position, Define.Monster _monster)
     {
-        MonsterController monster = Spawn<MonsterController>(_position);
-        monster.Init(_monsterUID);
+        GameObject go = null;
+        switch (_monster)
+        {
+            case Define.Monster.Ghost_Bat:
+                go = Managers.Resource.Instantiate($"{_monster.ToString()}", _pooling: true);
+                break;
+        }
 
-        return monster;
+        MonsterController mc = go.GetOrAddComponent<MonsterController>();
+        go.transform.position = _position;
+        Monsters.Add(mc);
+        mc.Init((int)_monster);
+        return mc;
     }
 
     public void Despawn<T>(T _object) where T : BaseController

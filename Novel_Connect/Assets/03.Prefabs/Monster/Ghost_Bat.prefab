@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 4909086332409786928}
   - component: {fileID: 5601929537632054341}
   - component: {fileID: 4769637141189123301}
+  - component: {fileID: 3636208961069045881}
   m_Layer: 6
-  m_Name: Monster
+  m_Name: Ghost_Bat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -135,7 +136,7 @@ MonoBehaviour:
     currentSpeed: 0
     maxJumpForce: 0
     currentJumpForce: 0
-    attackForce: 0
+    currentAttackForce: 0
     isKnockback: 0
   trans: {fileID: 0}
   animator: {fileID: 0}
@@ -151,13 +152,39 @@ MonoBehaviour:
     hp: 0
     force: 0
     speed: 0
+    attackDelay: 0
+    canAttackDistance: 0
+    canAttackDelay: 0
+    knockBackForce: 0
     elemental: 
   state: 0
   attackTrans: {fileID: 211981142414724380}
   detecteTrans: {fileID: 2850432147124719657}
+  targetTras: {fileID: 0}
   attackLayer:
     serializedVersion: 2
     m_Bits: 0
+--- !u!50 &3636208961069045881
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643126040824804796}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1 &2502495734006919253
 GameObject:
   m_ObjectHideFlags: 0

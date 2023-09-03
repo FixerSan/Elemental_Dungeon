@@ -27,12 +27,15 @@ namespace MonsterStates
     {
         public override void EnterState(MonsterController _entity)
         {
-
+            _entity.state = MonsterState.Die;
+            _entity.Die();
+            _entity.animator.SetBool("isDie", true);
         }
 
         public override void ExitState(MonsterController _entity, Action _callback)
         {
-
+            _callback?.Invoke();
+            _entity.animator.SetBool("isDie", false);
         }
 
         public override void UpdateState(MonsterController _entity)
@@ -64,7 +67,7 @@ namespace MonsterStates
         public override void EnterState(MonsterController _entity)
         {
             _entity.state = MonsterState.Attack;
-            _entity.attack.Attack();
+            _entity.attack.StartAttack();
             _entity.animator.SetBool("isAttack", true);
         }
 
@@ -84,12 +87,14 @@ namespace MonsterStates
     {
         public override void EnterState(MonsterController _entity)
         {
-
+            _entity.state = MonsterState.Damaged;
+            _entity.animator.SetTrigger("Damaged");
+            _entity.ChangeStateWithAnimtionTime(MonsterState.Follow);
         }
 
         public override void ExitState(MonsterController _entity, Action _callback)
         {
-
+            _callback?.Invoke();
         }
 
         public override void UpdateState(MonsterController _entity)
@@ -102,16 +107,17 @@ namespace MonsterStates
         public override void EnterState(MonsterController _entity)
         {
             _entity.state = MonsterState.Idle;
+            _entity.movement.CheckMove();
         }
 
         public override void ExitState(MonsterController _entity, Action _callback)
         {
+            _entity.movement.StopCheckMove();
             _callback?.Invoke();
         }
 
         public override void UpdateState(MonsterController _entity)
         {
-            _entity.movement.CheckMove();
         }
     }
 
@@ -131,7 +137,8 @@ namespace MonsterStates
 
         public override void UpdateState(MonsterController _entity)
         {
-            _entity.movement.Follow();
+            _entity.movement.Move();
+            _entity.movement.LookAtTarget();
             _entity.attack.CheckAttack();
         }
     }

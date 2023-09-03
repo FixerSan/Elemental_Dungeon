@@ -62,7 +62,7 @@ MonoBehaviour:
     m_SerializedLabels:
     - Preload
   - m_GUID: 22f796ce1e091434eba40cce4f22693c
-    m_Address: Monster.GameObject
+    m_Address: Ghost_Bat.GameObject
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload

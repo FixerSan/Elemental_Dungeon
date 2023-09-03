@@ -101,13 +101,13 @@ namespace PlayerAttacks
 
         protected override void Attack()
         {
-            Collider2D[] collider2Ds_1 = Physics2D.OverlapBoxAll(player.attackTrans.position, player.attackTrans.localScale, 0, player.attackLayer);
-            foreach (Collider2D hitTarget in collider2Ds_1)
+            Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(player.attackTrans.position, player.attackTrans.localScale, 0, player.attackLayer);
+            for (int i = 0; i < collider2Ds.Length; i++)
             {
-                if (hitTarget.CompareTag("Player")) continue;
-                BaseController hitController = hitTarget.GetComponent<BaseController>();
-                if (hitController != null)
-                    Managers.Battle.DamageCalculate(player, hitController, player.status.attackForce);
+                if (collider2Ds[i].CompareTag("Player")) continue;
+
+                if (collider2Ds[i].TryGetComponent(out BaseController hitController))
+                    Managers.Battle.DamageCalculate(player, hitController);
             }
         }
     }
@@ -142,7 +142,7 @@ namespace PlayerAttacks
                 BaseController hitController = hitTarget.GetComponent<BaseController>();
                 if (hitController != null)
                 {
-                    Managers.Battle.DamageCalculate(player, hitController, player.status.attackForce);
+                    Managers.Battle.DamageCalculate(player, hitController);
                     Managers.Battle.SetStatusEffect(hitController, StatusEffect.Burn, 5);
                 }
             }

@@ -28,6 +28,8 @@ public class PlayerController : BaseController
 
     public void Init(int _level, string _elementalString)
     {
+        if (changeStateCoroutine != null) Managers.Routine.StopCoroutine(changeStateCoroutine);
+        changeStateCoroutine = null;
         trans = gameObject.GetOrAddComponent<Transform>();
         trans.GetOrAddComponent<SpriteRenderer>();
         animator = trans.GetOrAddComponent<Animator>();
@@ -46,9 +48,11 @@ public class PlayerController : BaseController
             status.maxMP = _data.mp;
             status.maxJumpForce = _data.jumpForce;
             status.currentJumpForce = _data.jumpForce;
-            status.maxSpeed = _data.speed;
-            status.currentSpeed = _data.speed;
-            status.attackForce = _data.force;
+            status.maxWalkSpeed = _data.walkSpeed;
+            status.currentWalkSpeed = _data.walkSpeed;
+            status.maxRunSpeed = _data.runSpeed;
+            status.currentRunSpeed = _data.runSpeed;
+            status.currentAttackForce = _data.force;
         });
         Elemental _elemental = Util.ParseEnum<Elemental>(_elementalString);
         ChangeElemental(_elemental, () => 
@@ -92,9 +96,15 @@ public class PlayerController : BaseController
         trans.position = _position;
     }
 
-    public void ChangeState(PlayerState _state)
+    public void ChangeState(PlayerState _state, bool _isChangeSameState = false)
     {
-        if (state == _state) return;
+        if (state == _state)
+        {
+            if (_isChangeSameState)
+                stateMachine.ChangeState(states[_state]);
+            return;
+        }
+        state = _state;
         stateMachine.ChangeState(states[_state]);
     }
 
@@ -150,12 +160,21 @@ public class PlayerController : BaseController
         yield return new WaitForSeconds(animationPlayTime - 0.05f);
         ChangeState(_nextState);
     }
+    public override void KnuckBack()
+    {
+
+    }
 
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireCube(checkIsGroundTrans.position,checkIsGroundTrans.localScale);
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(attackTrans.position, attackTrans.localScale);
+    }
+
+    public override void Die()
+    {
+
     }
 }
 public enum PlayerState
@@ -171,7 +190,8 @@ public class PlayerData
     public float hp;
     public float mp;
     public float force;
-    public float speed;
+    public float walkSpeed;
+    public float runSpeed;
     public float jumpForce;
 
 
@@ -185,7 +205,8 @@ public class PlayerData
             hp = data.hp;
             mp = data.mp;
             force = data.force;
-            speed = data.speed;
+            walkSpeed = data.walkSpeed;
+            runSpeed = data.runSpeed;
             jumpForce = data.jumpForce;
         });
     }

@@ -8,9 +8,10 @@ public abstract class MonsterAttack
     public float attackDelay;
     public float canAttackDelay;
     public bool isCanAttack;
-    protected Coroutine attackCoroutine;
+    public Coroutine attackCoroutine;
     protected MonsterController monster;
     public abstract void CheckAttack();
+    public abstract void StartAttack();
     public abstract void Attack();
     public abstract IEnumerator AttackRoutine();
 }
@@ -35,10 +36,24 @@ namespace MonsterAttacks
             }
         }
 
-        public override void Attack()
+        public override void StartAttack()
         {
             isCanAttack = false;
+            monster.LookAtTarget();
             attackCoroutine = Managers.Routine.StartCoroutine(AttackRoutine());
+        }
+
+        public override void Attack()
+        {
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(monster.attackTrans.position, monster.attackTrans.localScale, 0, monster.attackLayer);
+            for (int i = 0; i < colliders.Length; i++)
+            {
+                if (colliders[i].CompareTag("Player"))
+                {
+                    Managers.Battle.DamageCalculate(monster, Managers.Object.Player);
+                    break;
+                }
+            }
         }
 
         public override IEnumerator AttackRoutine()
@@ -54,27 +69,5 @@ namespace MonsterAttacks
             attackCoroutine = null;
         }
 
-    }
-    public class Ghost_Bat : MonsterAttack
-    {
-        public Ghost_Bat(MonsterController _monster)
-        {
-            monster = _monster;
-            isCanAttack = true;
-        }
-        public override void Attack()
-        {
-
-        }
-
-        public override IEnumerator AttackRoutine()
-        {
-            yield return null;
-        }
-
-        public override void CheckAttack()
-        {
-
-        }
     }
 }

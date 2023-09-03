@@ -1,15 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public abstract class MonsterMovement
 {
+    protected MonsterController monster;
     protected Coroutine checkDetecteCoroutine;
     public abstract void CheckMove();
-    public abstract void Follow();
+    public void StopCheckMove()
+    {
+        if(checkDetecteCoroutine != null)
+        {
+            Managers.Routine.StopCoroutine(checkDetecteCoroutine);
+            checkDetecteCoroutine = null;
+        }
+    }
+    public abstract void Move();
+    public void LookAtTarget()
+    {
+        if(Vector2.Distance(monster.trans.position, monster.targetTras.position) > 0.5f)
+            monster.LookAtTarget();
+    }
+
+    public void KnockBack()
+    {
+
+    }
 
 }
 
@@ -17,7 +37,6 @@ namespace MonsterMovements
 {
     public class BaseMovement : MonsterMovement
     {
-        private MonsterController monster;
         public BaseMovement(MonsterController _monster)
         {
             monster = _monster;
@@ -29,15 +48,15 @@ namespace MonsterMovements
             
         }
 
-        public override void Follow()
+
+        public override void Move()
         {
-            monster.LookAtTarget();
+
         }
     }
 
     public class Ghost_Bat : MonsterMovement
     {
-        private MonsterController monster;
         public Ghost_Bat(MonsterController _monster)
         {
             monster= _monster;
@@ -46,34 +65,32 @@ namespace MonsterMovements
 
         public override void CheckMove()
         {
-            if (checkDetecteCoroutine != null) return;
-            checkDetecteCoroutine = Managers.Routine.StartCoroutine(CheckDetecteRoutine());
+            checkDetecteCoroutine = Managers.Routine.StartCoroutine(CheckMoveRoutine());
         }
 
-        private IEnumerator CheckDetecteRoutine()
+        private IEnumerator CheckMoveRoutine()
         {
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(monster.attackTrans.position,monster.attackTrans.localScale,0,monster.attackLayer);
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(monster.detecteTrans.position,monster.detecteTrans.localScale,0,monster.attackLayer);
             for (int i = 0; i < colliders.Length; i++)
             {
                 if (colliders[i].CompareTag("Player"))
                 {
                     monster.ChangeState(MonsterState.Follow);
                     monster.SetTarget(colliders[i].transform);
+                    break;
                 }
             }
             yield return new WaitForSeconds(0.5f);
-            checkDetecteCoroutine = null;
+            checkDetecteCoroutine = Managers.Routine.StartCoroutine(CheckMoveRoutine());
+
         }
 
-        public override void Follow()
+        public override void Move()
         {
-            monster.LookAtTarget();
-
             if (monster.direction == Define.Direction.Left)
-                monster.rb.velocity = new Vector2(-monster.status.currentSpeed / 6, monster.rb.velocity.y);
+                monster.rb.velocity = new Vector2(-monster.status.currentWalkSpeed * Time.deltaTime, monster.rb.velocity.y);
             if (monster.direction == Define.Direction.Right)
-                monster.rb.velocity = new Vector2(monster.status.currentSpeed / 6, monster.rb.velocity.y);
-
+                monster.rb.velocity = new Vector2(monster.status.currentWalkSpeed * Time.deltaTime, monster.rb.velocity.y);
         }
     }
 }

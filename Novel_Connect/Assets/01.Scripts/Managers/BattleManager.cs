@@ -7,9 +7,9 @@ public class BattleManager
 {
     public float amageMultiplier;
 
-    public void DamageCalculate(BaseController _attacker, BaseController _hiter, float _damage)
+    public void DamageCalculate(BaseController _attacker, BaseController _hiter)
     {
-        float calculatedDamage = _damage;
+        float calculatedDamage = _attacker.status.currentAttackForce;
 
         // 속성에 따라 데미지 계산
         switch (_hiter.elemental)

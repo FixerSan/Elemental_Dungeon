@@ -7,6 +7,7 @@ using static Define;
 public abstract class BaseController : MonoBehaviour
 {
     [SerializeField]public ControllerStatus status = new ControllerStatus();
+    protected Coroutine changeStateCoroutine;
     public Transform trans;
     public Animator animator;
     public Rigidbody2D rb;
@@ -26,8 +27,12 @@ public abstract class BaseController : MonoBehaviour
     {
         if (status.isKnockback)
             return;
-        rb.velocity = new Vector2(0, rb.velocity.y);
+        //rb.velocity = new Vector2(0, rb.velocity.y);
     }
+
+    public abstract void Die();
+
+    public abstract void KnuckBack();
 }
 
 [System.Serializable]
@@ -39,13 +44,16 @@ public class ControllerStatus
     public float maxMP;
     public float currentMP;
 
-    public float maxSpeed;
-    public float currentSpeed;
+    public float maxWalkSpeed;
+    public float currentWalkSpeed;
+    
+    public float maxRunSpeed;
+    public float currentRunSpeed;
 
     public float maxJumpForce;
     public float currentJumpForce;
 
-    public float attackForce;
+    public float currentAttackForce;
 
     public bool isKnockback = false;
 }
