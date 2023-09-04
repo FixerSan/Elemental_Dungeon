@@ -22,6 +22,9 @@ namespace PlayerStates
             _entity.movement.CheckJump();
             _entity.movement.CheckUpAndFall();
             _entity.attack.CheckAttack();
+            if (_entity.skills.Length == 0) return;
+            _entity.skills[0]?.CheckUse();
+            _entity.skills[1]?.CheckUse();
         }
     }
 
@@ -46,6 +49,9 @@ namespace PlayerStates
             _entity.movement.CheckJump();
             _entity.movement.CheckUpAndFall();
             _entity.attack.CheckAttack();
+            if (_entity.skills.Length == 0) return;
+            _entity.skills[0]?.CheckUse();
+            _entity.skills[1]?.CheckUse();
         }
     }
 
@@ -70,6 +76,9 @@ namespace PlayerStates
             _entity.movement.CheckJump();
             _entity.movement.CheckUpAndFall();
             _entity.attack.CheckAttack();
+            if (_entity.skills.Length == 0) return;
+            _entity.skills[0]?.CheckUse();
+            _entity.skills[1]?.CheckUse();
         }
     }
 
@@ -92,6 +101,9 @@ namespace PlayerStates
         {
             _entity.movement.CheckLanding();
             _entity.movement.CheckJumpMove();
+            if (_entity.skills.Length == 0) return;
+            _entity.skills[0]?.CheckUse();
+            _entity.skills[1]?.CheckUse();
         }
     }
 
@@ -113,6 +125,9 @@ namespace PlayerStates
             _entity.movement.CheckUpAndFall();
             _entity.movement.CheckLanding();
             _entity.movement.CheckJumpMove();
+            if (_entity.skills.Length == 0) return;
+            _entity.skills[0]?.CheckUse();
+            _entity.skills[1]?.CheckUse();
         }
     }
 
@@ -134,6 +149,9 @@ namespace PlayerStates
             _entity.movement.CheckUpAndFall();
             _entity.movement.CheckLanding();
             _entity.movement.CheckJumpMove();
+            if (_entity.skills.Length == 0) return;
+            _entity.skills[0]?.CheckUse();
+            _entity.skills[1]?.CheckUse();
         }
     }
 
@@ -153,6 +171,9 @@ namespace PlayerStates
         public override void UpdateState(PlayerController _entity)
         {
             _entity.movement.CheckUpAndFall();
+            if (_entity.skills.Length == 0) return;
+            _entity.skills[0]?.CheckUse();
+            _entity.skills[1]?.CheckUse();
         }
     }
 
@@ -167,6 +188,26 @@ namespace PlayerStates
         public override void ExitState(PlayerController _entity, Action _callback)
         {
             _entity.animator.SetBool("isAttack", false);
+            _callback?.Invoke();
+        }
+
+        public override void UpdateState(PlayerController _entity)
+        {
+
+        }
+    }
+
+    public class CastSkill : State<PlayerController>
+    {
+        public override void EnterState(PlayerController _entity)
+        {
+            _entity.animator.SetBool("isCastSkill", true);
+            _entity.attack.StartAttack();
+        }   
+
+        public override void ExitState(PlayerController _entity, Action _callback)
+        {
+            _entity.animator.SetBool("isCastSkill", false);
             _callback?.Invoke();
         }
 

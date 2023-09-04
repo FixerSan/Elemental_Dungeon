@@ -88,7 +88,6 @@ public abstract class Playermovement
                 return;
             }
             player.ChangeState(PlayerState.Walk);
-            player.Stop(); 
             return;
         }
 

@@ -11,7 +11,8 @@ using static Define;
 public class PlayerController : BaseController
 {
     private bool init = false;
-
+    private bool isChangeElemental = true;
+    private int currentElementalIndex = 0;
     public PlayerData data;
     public Playermovement movement;
     public PlayerAttack attack;
@@ -66,6 +67,7 @@ public class PlayerController : BaseController
             states.Add(PlayerState.Fall, new PlayerStates.Fall());
             states.Add(PlayerState.FallEnd, new PlayerStates.FallEnd());
             states.Add(PlayerState.Attack, new PlayerStates.Attack());
+            states.Add(PlayerState.CastSkill, new PlayerStates.CastSkill());
             stateMachine = new StateMachine<PlayerController>(this, states[PlayerState.Idle]);
             init = true;
         });
@@ -74,8 +76,8 @@ public class PlayerController : BaseController
 
     public void Update()
     {
-        if (!init)
-            return;
+        if (!init) return;
+        if (!Managers.Input.isCanControl) return;
         stateMachine.UpdateState();
         movement.CheckIsGround();
     }
@@ -88,7 +90,6 @@ public class PlayerController : BaseController
     public override void Hit(Transform _attackerTrans, float _damage)
     {
         GetDamage(_damage);
-
     }
 
     public override void SetPosition(Vector2 _position)
@@ -108,23 +109,34 @@ public class PlayerController : BaseController
         stateMachine.ChangeState(states[_state]);
     }
 
+    public void CheckChangeElemental()
+    {
+        if (Input.GetKeyDown(Managers.Input.changeElementalKey))
+        {
+            currentElementalIndex = ((int)elemental + 1) % 2;
+            isChangeElemental = true;
+        }
+        if (!isChangeElemental) return;     
+
+    }
+
     public void ChangeElemental(Elemental _elemental, Action _callback)
     {
+        init = false;
         switch(_elemental)
         {
             case Elemental.Normal:
                 attack = new PlayerAttacks.Normal(this);
                 movement = new Playermovements.Normal(this);
                 skills = new PlayerSkill[0];
-
                 break;
 
             case Elemental.Fire:
                 attack = new PlayerAttacks.Fire(this);
                 movement = new Playermovements.Fire(this);
                 skills = new PlayerSkill[2];
-                skills[0] = new PlayerSkills.Fire.One();
-                skills[1] = new PlayerSkills.Fire.Two();
+                skills[0] = new PlayerSkills.Fire.One(this);
+                skills[1] = new PlayerSkills.Fire.Two(this);
                 break;
         }
 
@@ -132,9 +144,9 @@ public class PlayerController : BaseController
         Managers.Resource.Load<RuntimeAnimatorController>($"Player_{_elemental}", (ac) => 
         {
             animator.runtimeAnimatorController = ac;
+            init = true;
             _callback?.Invoke();
         });
-
     }
 
     public void ChangeStateWithDelay(PlayerState _nextState,float _delayTime)
@@ -179,7 +191,7 @@ public class PlayerController : BaseController
 }
 public enum PlayerState
 {
-    Idle, Walk, Run, JumpStart, Jump, Fall, FallEnd , Attack
+    Idle, Walk, Run, JumpStart, Jump, Fall, FallEnd , Attack , CastSkill
 }
 
 [System.Serializable]

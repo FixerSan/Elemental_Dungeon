@@ -44,7 +44,7 @@ public class Define
 
     public enum Elemental
     {
-        Normal, Fire, Water, Wind, Glass, Electric, Ice, Rock, Poison, Ghost
+        Normal = 0, Fire = 1, Water, Wind, Glass, Electric, Ice, Rock, Poison, Ghost
     }
 
     public enum Direction
