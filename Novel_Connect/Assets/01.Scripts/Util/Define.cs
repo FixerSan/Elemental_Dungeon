@@ -29,7 +29,7 @@ public class Define
 
     public enum SoundProfile_Effect
     {
-        Effect, Ghost_Bat_Move
+        Effect, Ghost_Bat_Move, Player_Attack, Player_Walk, Player_Run, Player_ETC
     }
 
     public enum AudioClip_Effect

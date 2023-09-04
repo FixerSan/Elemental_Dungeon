@@ -6,7 +6,7 @@ using static Define;
 
 public abstract class BaseController : MonoBehaviour
 {
-    [SerializeField]public ControllerStatus status = new ControllerStatus();
+    public ControllerStatus status = new ControllerStatus();
     protected Coroutine changeStateCoroutine;
     public Transform trans;
     public Animator animator;
@@ -16,6 +16,8 @@ public abstract class BaseController : MonoBehaviour
     public abstract void GetDamage(float _damage);
     public abstract void Hit(Transform attackTrans, float _damage);
     public abstract void SetPosition(Vector2 _position);
+    public abstract void Die();
+    public abstract void KnuckBack();
     public void ChangeDirection(Direction _direction) 
     {
         if (direction == _direction) return;
@@ -30,9 +32,6 @@ public abstract class BaseController : MonoBehaviour
         rb.velocity = new Vector2(0, rb.velocity.y);
     }
 
-    public abstract void Die();
-
-    public abstract void KnuckBack();
 }
 
 [System.Serializable]

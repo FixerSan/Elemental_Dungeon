@@ -33,12 +33,14 @@ namespace PlayerStates
         public override void EnterState(PlayerController _entity)
         {
             _entity.animator.SetBool("isWalk", true);
+            _entity.sound.PlayWalkSound();
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)
         {
             _entity.animator.SetBool("isWalk", false);
             _entity.Stop();
+            _entity.sound.StopWalkSound();
             _callback?.Invoke();
         }
 
@@ -60,12 +62,14 @@ namespace PlayerStates
         public override void EnterState(PlayerController _entity)
         {
             _entity.animator.SetBool("isRun", true);
+            _entity.sound.PlayRunSound();
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)
         {
             _entity.animator.SetBool("isRun", false);
             _entity.Stop();
+            _entity.sound.StopRunSound();
             _callback?.Invoke();
         }
 

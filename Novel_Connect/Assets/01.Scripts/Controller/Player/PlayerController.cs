@@ -16,6 +16,7 @@ public class PlayerController : BaseController
     public Playermovement movement;
     public PlayerAttack attack;
     public PlayerSkill[] skills;
+    public PlayerSound sound;
     public Inventory inventory;
     public PlayerState state;
     public Transform checkIsGroundTrans;
@@ -133,12 +134,14 @@ public class PlayerController : BaseController
             case Elemental.Normal:
                 attack = new PlayerAttacks.Normal(this);
                 movement = new Playermovements.Normal(this);
+                sound = new PlayerSounds.Normal(this);
                 skills = new PlayerSkill[0];
                 break;
 
             case Elemental.Fire:
                 attack = new PlayerAttacks.Fire(this);
                 movement = new Playermovements.Fire(this);
+                sound = new PlayerSounds.Fire(this);
                 skills = new PlayerSkill[2];
                 skills[0] = new PlayerSkills.Fire.One(this);
                 skills[1] = new PlayerSkills.Fire.Two(this);

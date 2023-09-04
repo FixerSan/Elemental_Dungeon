@@ -11,6 +11,7 @@ public class DataManager
     private Dictionary<int, ItemData> itemDataDictionary = new Dictionary<int, ItemData>();
     private Dictionary<int, PlayerData> playerDataDictionary = new Dictionary<int, PlayerData>();
     private Dictionary<int, MonsterData> monsterDataDictionary = new Dictionary<int, MonsterData>();
+    private Dictionary<int, BossData> bossDataDictionary = new Dictionary<int, BossData>();
     private Dictionary<int, DialogData> dialogDataDictionary = new Dictionary<int, DialogData>();
     private Dictionary<int, SkillData> skillDataDictionary = new Dictionary<int, SkillData>();
 
@@ -30,6 +31,13 @@ public class DataManager
     {
         if (monsterDataDictionary.TryGetValue(_monsterUID, out MonsterData monsterData))
             _callback?.Invoke(monsterData);
+    }
+
+    public void GetBossData(int _bossUID, Action<BossData> _callback)
+    {
+        if (bossDataDictionary.TryGetValue(_bossUID, out BossData bossData))
+            _callback?.Invoke(bossData);
+
     }
 
     public void GetDialogData(int _dialogUID, Action<DialogData> _callback)
@@ -91,6 +99,10 @@ public class DataManager
             {
                 skillDataDictionary.TryAdd(preData.skillDatas[i].skillUID, preData.skillDatas[i]);
             }
+            for (int i = 0; i < preData.bossDatas.Length; i++)
+            {
+                bossDataDictionary.TryAdd(preData.bossDatas[i].bossUID, preData.bossDatas[i]);
+            }
         });
     }
 }
@@ -113,6 +125,7 @@ public class PreData : Data
     public ItemData[] itemDatas;
     public DialogData[] dialogDatas;
     public SkillData[] skillDatas;
+    public BossData[] bossDatas;
 }
 
 [System.Serializable]

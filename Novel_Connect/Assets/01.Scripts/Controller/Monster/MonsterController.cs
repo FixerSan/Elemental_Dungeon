@@ -51,11 +51,11 @@ public class MonsterController : BaseController
                     attack.canAttackDistance = _data.canAttackDistance;
                     attack.canAttackDelay = _data.canAttackDelay;
                     states = new Dictionary<MonsterState, State<MonsterController>>();
-                    states.Add(MonsterState.Idle, new MonsterStates.Ghost_BatIdle());
-                    states.Add(MonsterState.Follow, new MonsterStates.Ghost_BatFollow());
-                    states.Add(MonsterState.Attack, new MonsterStates.BaseAttack());
-                    states.Add(MonsterState.Damaged, new MonsterStates.BaseDamaged());
-                    states.Add(MonsterState.Die, new MonsterStates.BaseDie());
+                    states.Add(MonsterState.Idle, new MonsterStates.Ghost_Bat.Idle());
+                    states.Add(MonsterState.Follow, new MonsterStates.Ghost_Bat.Follow());
+                    states.Add(MonsterState.Attack, new MonsterStates.BaseMonster.Attack());
+                    states.Add(MonsterState.Damaged, new MonsterStates.BaseMonster.Damaged());
+                    states.Add(MonsterState.Die, new MonsterStates.BaseMonster.Die());
                     break;
 
                 default:
@@ -63,11 +63,11 @@ public class MonsterController : BaseController
                     attack = new MonsterAttacks.BaseAttack(this);
                     attack.canAttackDelay = _data.attackDelay;
                     states = new Dictionary<MonsterState, State<MonsterController>>();
-                    states.Add(MonsterState.Idle, new MonsterStates.BaseIdle());
-                    states.Add(MonsterState.Move, new MonsterStates.BaseMove());
-                    states.Add(MonsterState.Attack, new MonsterStates.BaseAttack());
-                    states.Add(MonsterState.Damaged, new MonsterStates.BaseDamaged());
-                    states.Add(MonsterState.Die, new MonsterStates.BaseDie());
+                    states.Add(MonsterState.Idle, new MonsterStates.BaseMonster.Idle());
+                    states.Add(MonsterState.Move, new MonsterStates.BaseMonster.Move());
+                    states.Add(MonsterState.Attack, new MonsterStates.BaseMonster.Attack());
+                    states.Add(MonsterState.Damaged, new MonsterStates.BaseMonster.Damaged());
+                    states.Add(MonsterState.Die, new MonsterStates.BaseMonster.Die());
                     break;
             }
             stateMachine = new StateMachine<MonsterController>(this, states[MonsterState.Idle]);
