@@ -20,11 +20,11 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 7606733347227812934, guid: 58dcfc444d304c142af40102810b875f, type: 3}
+      value: {fileID: 7906013740810756301, guid: 58dcfc444d304c142af40102810b875f, type: 3}
     - time: 0.099999964
-      value: {fileID: 8272496224339942070, guid: 58dcfc444d304c142af40102810b875f, type: 3}
+      value: {fileID: 3057440738279795075, guid: 58dcfc444d304c142af40102810b875f, type: 3}
     - time: 0.19999996
-      value: {fileID: 8272496224339942070, guid: 58dcfc444d304c142af40102810b875f, type: 3}
+      value: {fileID: 3057440738279795075, guid: 58dcfc444d304c142af40102810b875f, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212

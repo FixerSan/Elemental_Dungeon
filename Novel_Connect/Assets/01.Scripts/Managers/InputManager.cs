@@ -7,7 +7,7 @@ public class InputManager
 {
     public bool isCanControl = true;
     public Action inputAction = null;
-    public KeyCode changeElementalKey = KeyCode.F1;
+    public KeyCode changeElementalKey = KeyCode.Tab;
     public KeyCode move_UpKey = KeyCode.UpArrow;
     public KeyCode move_DownKey = KeyCode.DownArrow;
     public KeyCode move_RightKey = KeyCode.RightArrow;

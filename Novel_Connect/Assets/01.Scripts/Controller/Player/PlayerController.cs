@@ -11,8 +11,7 @@ using static Define;
 public class PlayerController : BaseController
 {
     private bool init = false;
-    private bool isChangeElemental = true;
-    private int currentElementalIndex = 0;
+    public bool isChangeElemental;
     public PlayerData data;
     public Playermovement movement;
     public PlayerAttack attack;
@@ -40,7 +39,8 @@ public class PlayerController : BaseController
         attackTrans = Util.FindChild<Transform>(gameObject, "AttackTrans");
         groundLayer = LayerMask.GetMask("Ground");
         attackLayer = LayerMask.GetMask("Hitable");
-        Managers.Data.GetPlayerData(_level, (_data) => 
+        isChangeElemental = false;
+        Managers.Data.GetPlayerData(_level, (_data) =>
         {
             data = _data;
             status.currentHP = _data.hp;
@@ -56,7 +56,7 @@ public class PlayerController : BaseController
             status.currentAttackForce = _data.force;
         });
         Elemental _elemental = Util.ParseEnum<Elemental>(_elementalString);
-        ChangeElemental(_elemental, () => 
+        ChangeElemental(_elemental, () =>
         {
             states = new Dictionary<PlayerState, State<PlayerController>>();
             states.Add(PlayerState.Idle, new PlayerStates.Idle());
@@ -78,6 +78,7 @@ public class PlayerController : BaseController
     {
         if (!init) return;
         if (!Managers.Input.isCanControl) return;
+        CheckChangeElemental();
         stateMachine.UpdateState();
         movement.CheckIsGround();
     }
@@ -111,18 +112,22 @@ public class PlayerController : BaseController
 
     public void CheckChangeElemental()
     {
-        if (Input.GetKeyDown(Managers.Input.changeElementalKey))
+        if (Input.GetKeyDown(KeyCode.Tab))
+            isChangeElemental = !isChangeElemental;
+        if (isChangeElemental)
         {
-            currentElementalIndex = ((int)elemental + 1) % 2;
-            isChangeElemental = true;
-        }
-        if (!isChangeElemental) return;     
+            if (Input.GetKeyDown(KeyCode.Alpha1) && elemental != Elemental.Normal)
+            {
+                ChangeElemental(Elemental.Normal);
+            }
 
+            if (Input.GetKeyDown(KeyCode.Alpha2) && elemental != Elemental.Fire)
+                ChangeElemental(Elemental.Fire);
+        }
     }
 
-    public void ChangeElemental(Elemental _elemental, Action _callback)
+    public void ChangeElemental(Elemental _elemental, Action _callback = null)
     {
-        init = false;
         switch(_elemental)
         {
             case Elemental.Normal:
@@ -144,7 +149,7 @@ public class PlayerController : BaseController
         Managers.Resource.Load<RuntimeAnimatorController>($"Player_{_elemental}", (ac) => 
         {
             animator.runtimeAnimatorController = ac;
-            init = true;
+            isChangeElemental = false;
             _callback?.Invoke();
         });
     }

@@ -73,6 +73,10 @@ MonoBehaviour:
     m_Address: Ghost_Bat_Attack.AudioClip
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 95beb0a65d0ff054f9a144241cbbbc93
+    m_Address: Player_Fire.AnimatorController
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7625f705cca72f24088dfc48d2137928, type: 2}
   m_SchemaSet:
