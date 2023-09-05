@@ -18,6 +18,7 @@ public class Define
     public enum Scene
     {
         Loading,
+        Pre,
         Guild,
         IceDungeon
     }

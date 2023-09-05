@@ -98,5 +98,24 @@
   "description": "전방에 스플래시 데미지를 준다.",
   "iconImageKey": "FireSkill_2.Sprite"
  }
+],
+"bossDatas":[
+ {
+  "bossUID": 0,
+  "bossCodeName": "IceBoss",
+  "bossName": "얼음 정령",
+  "description": "어쩌구 저쩌구",
+  "exp": 10,
+  "hp": 100,
+  "force": 10,
+  "speed": 3,
+  "attackDelay": 2,
+  "canAttackDistance": 2,
+  "knockBackForce": 2,
+  "elemental": "Ice",
+  "skill_OneCooltime": 5,
+  "skill_TwoCooltime": 5,
+  "skill_UltCooltime": 5
+ }
 ]
 }

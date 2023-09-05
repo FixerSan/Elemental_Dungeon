@@ -14,6 +14,7 @@ public abstract class PlayerSound
     }
     public virtual void PlayWalkSound()
     {
+        StopWalkSound();
         walkSoundCoroutine = Managers.Routine.StartCoroutine(PlayWalkSoundRoutine());
     }
     protected virtual IEnumerator PlayWalkSoundRoutine()
@@ -28,10 +29,13 @@ public abstract class PlayerSound
     }
     public virtual void StopWalkSound()
     {
+        if (walkSoundCoroutine == null) return;
         Managers.Routine.StopCoroutine(walkSoundCoroutine);
+        walkSoundCoroutine = null;
     }
     public virtual void PlayRunSound()
     {
+        StopRunSound();
         runSoundCoroutine = Managers.Routine.StartCoroutine(PlayRunSoundRoutine());
     }
     protected virtual IEnumerator PlayRunSoundRoutine()
@@ -46,7 +50,9 @@ public abstract class PlayerSound
     }
     public virtual void StopRunSound()
     {
+        if (runSoundCoroutine == null) return;
         Managers.Routine.StopCoroutine(runSoundCoroutine);
+        runSoundCoroutine = null;
     }
     public virtual void PlayJumpStartSound()
     {
@@ -78,6 +84,7 @@ public abstract class PlayerSound
     }
     public virtual void PlayElementalSound()
     {
+        StopElementalSound();
         elementalSoundCoroutine = Managers.Routine.StartCoroutine(PlayElemetalSoundRoutine());
     }
     protected virtual IEnumerator PlayElemetalSoundRoutine()
@@ -86,7 +93,9 @@ public abstract class PlayerSound
     }
     public virtual void StopElementalSound()
     {
+        if (elementalSoundCoroutine == null) return;
         Managers.Routine.StopCoroutine(elementalSoundCoroutine);
+        elementalSoundCoroutine = null;
     }
     public virtual void PlayChangeElementalSound()
     {
@@ -105,6 +114,9 @@ namespace PlayerSounds
         public Normal(PlayerController _player)
         {
             player = _player;
+            StopElementalSound();
+            StopRunSound();
+            StopWalkSound();
         }
     }
     public class Fire : PlayerSound
@@ -112,6 +124,9 @@ namespace PlayerSounds
         public Fire(PlayerController _player)
         {
             player = _player;
+            StopElementalSound();
+            StopRunSound();
+            StopWalkSound();
         }
     }
 }

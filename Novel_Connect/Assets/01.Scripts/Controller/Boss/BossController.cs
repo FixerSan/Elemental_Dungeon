@@ -51,6 +51,7 @@ public class BossController : BaseController
 }
 public enum BossState { }
 
+[System.Serializable]
 public class BossData
 {
     public int      bossUID;

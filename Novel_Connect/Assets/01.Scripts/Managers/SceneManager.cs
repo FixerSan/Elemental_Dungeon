@@ -19,7 +19,7 @@ public class SceneManager : MonoBehaviour
 
         Managers.Resource.LoadAllAsync<Object>("Preload",null,()=>  
         {
-            Managers.Data.PreDataLoad();
+            Managers.Data.LoadSceneData(Define.Scene.Pre);
 
             UnityEngine.SceneManagement.SceneManager.sceneLoaded += instance.LoadedScene;
             instance.LoadedScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene(), UnityEngine.SceneManagement.LoadSceneMode.Single);

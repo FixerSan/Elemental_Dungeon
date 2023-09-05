@@ -57,53 +57,37 @@ public class DataManager
         Managers.Resource.Load<TextAsset>(_scene.ToString(),(sceneDataJson) => 
         {
             SceneData sceneData = JsonUtility.FromJson<SceneData>(sceneDataJson.text);
-            foreach (var dialog in sceneData.dialogDatas)
+
+            for (int i = 0; i < sceneData.itemDatas.Length; i++)
             {
-                dialogDataDictionary.TryAdd(dialog.dialogUID, dialog);
+                itemDataDictionary.TryAdd(sceneData.itemDatas[i].itemUID, sceneData.itemDatas[i]);
+            }
+
+            for (int i = 0; i < sceneData.dialogDatas.Length; i++)
+            {
+                dialogDataDictionary.TryAdd(sceneData.dialogDatas[i].dialogUID, sceneData.dialogDatas[i]);
+            }
+
+            for (int i = 0; i < sceneData.monsterDatas.Length; i++)
+            {
+                monsterDataDictionary.TryAdd(sceneData.monsterDatas[i].monsterUID, sceneData.monsterDatas[i]);
+            }
+
+            for (int i = 0; i < sceneData.playerDatas.Length; i++)
+            {
+                playerDataDictionary.TryAdd(sceneData.playerDatas[i].level, sceneData.playerDatas[i]);
+            }
+
+            for (int i = 0; i < sceneData.skillDatas.Length; i++)
+            {
+                skillDataDictionary.TryAdd(sceneData.skillDatas[i].skillUID, sceneData.skillDatas[i]);
+            }
+            for (int i = 0; i < sceneData.bossDatas.Length; i++)
+            {
+                bossDataDictionary.TryAdd(sceneData.bossDatas[i].bossUID, sceneData.bossDatas[i]);
             }
         });
-    }
 
-    public void PreDataLoad()
-    {
-        if (isPreload)
-            return;
-
-        isPreload = true;
-
-        Managers.Resource.Load<TextAsset>("Preload", (preDataJson) =>
-        {
-            PreData preData = JsonUtility.FromJson<PreData>(preDataJson.text);
-
-            for (int i = 0; i < preData.itemDatas.Length; i++)
-            {
-                itemDataDictionary.TryAdd(preData.itemDatas[i].itemUID, preData.itemDatas[i]);
-            }
-
-            for (int i = 0; i < preData.dialogDatas.Length; i++)
-            {
-                dialogDataDictionary.TryAdd(preData.dialogDatas[i].dialogUID, preData.dialogDatas[i]);
-            }
-
-            for (int i = 0; i < preData.monsterDatas.Length; i++)
-            {
-                monsterDataDictionary.TryAdd(preData.monsterDatas[i].monsterUID, preData.monsterDatas[i]);
-            }
-
-            for (int i = 0; i < preData.playerDatas.Length; i++)
-            {
-                playerDataDictionary.TryAdd(preData.playerDatas[i].level, preData.playerDatas[i]);
-            }
-
-            for (int i = 0; i < preData.skillDatas.Length; i++)
-            {
-                skillDataDictionary.TryAdd(preData.skillDatas[i].skillUID, preData.skillDatas[i]);
-            }
-            for (int i = 0; i < preData.bossDatas.Length; i++)
-            {
-                bossDataDictionary.TryAdd(preData.bossDatas[i].bossUID, preData.bossDatas[i]);
-            }
-        });
     }
 }
 
@@ -114,11 +98,6 @@ public class Data
 
 [System.Serializable]
 public class SceneData : Data
-{
-    public DialogData[] dialogDatas;
-}
-
-public class PreData : Data
 {
     public PlayerData[] playerDatas;
     public MonsterData[] monsterDatas;
