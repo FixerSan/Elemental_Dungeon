@@ -49,7 +49,7 @@ public class DialogSystem : MonoBehaviour
     //클릭시 적히는 효과 취소, 한 번에 적힘
     void CheckSkip()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             if (isTypingEffect)
             {
@@ -60,8 +60,9 @@ public class DialogSystem : MonoBehaviour
             }
         }
     }
+
     //스피커 전체 닫기
-    void SetAllClose()
+    public void SetAllClose()
     {
         for (int i = 0; i < speakers.Length; i++)
         {

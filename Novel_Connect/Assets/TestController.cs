@@ -14,35 +14,19 @@ public class TestController : MonoBehaviour
     }
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha1))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
-            player.transform.position = displayPoses[0].position;
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                player.transform.position = displayPoses[0].position;
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            player.transform.position = displayPoses[1].position;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            player.transform.position = displayPoses[2].position;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            player.transform.position = displayPoses[3].position;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha5))
-        {
-            player.transform.position = displayPoses[4].position;
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha0))
-        {
-            SceneManager.instance.LoadScene("StartScene");
+            if (Input.GetKeyDown(KeyCode.Alpha0))
+            {
+                DialogSystem.Instance.SetAllClose();
+                SceneManager.instance.LoadScene("StartScene");
+            }
         }
     }
 
-}
+} 
