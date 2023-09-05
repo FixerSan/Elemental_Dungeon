@@ -10,9 +10,12 @@ using UnityEngine.UIElements;
 public abstract class Playermovement 
 {
     protected PlayerController player;
-    public bool isGround;
-    protected bool isCanJump;
-
+    public bool     isGround;
+    public bool     isWalking;
+    public bool     isRuning;
+    public float    walkDistance;
+    public float    runDistance;
+    protected bool  isCanJump;
     public void CheckIsGround()
     {
         //아래로 체크 길이 만큼 체크, 레이어는 그라운드
@@ -160,6 +163,10 @@ namespace Playermovements
             player = _player;
             isGround = false;
             isCanJump = true;
+            isWalking = false;
+            isRuning = false ;
+            walkDistance = 0f;
+            runDistance = 0; 
         }
     }
 
@@ -170,6 +177,10 @@ namespace Playermovements
             player = _player;
             isGround = false;
             isCanJump = true;
+            isWalking = false;
+            isRuning = false;
+            walkDistance = 0f;
+            runDistance = 0;
         }
     }
 }

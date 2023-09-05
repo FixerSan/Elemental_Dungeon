@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public abstract class PlayerSound 
@@ -19,16 +20,23 @@ public abstract class PlayerSound
     }
     protected virtual IEnumerator PlayWalkSoundRoutine()
     {
-        yield return new WaitForSeconds(0.05f);
-        float animationTime = player.animator.GetCurrentAnimatorStateInfo(0).length;
-        yield return new WaitForSeconds(animationTime * 0.5f - 0.05f);
-        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_Walk);
-        yield return new WaitForSeconds(animationTime * 0.5f);
-        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_Walk);
-        walkSoundCoroutine = Managers.Routine.StartCoroutine(PlayWalkSoundRoutine());
+        player.movement.isWalking = true;
+        while (player.movement.isWalking)
+        {
+            yield return null;
+            float animationTime = player.animator.GetCurrentAnimatorStateInfo(0).length;
+            player.movement.walkDistance += Time.deltaTime;
+            if(player.movement.walkDistance >= animationTime * 0.5f)
+            {
+
+                Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_Walk);
+                player.movement.walkDistance = 0f;
+            }
+        }
     }
     public virtual void StopWalkSound()
     {
+        player.movement.isWalking = false;
         if (walkSoundCoroutine == null) return;
         Managers.Routine.StopCoroutine(walkSoundCoroutine);
         walkSoundCoroutine = null;
@@ -40,16 +48,22 @@ public abstract class PlayerSound
     }
     protected virtual IEnumerator PlayRunSoundRoutine()
     {
-        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_Run);
-        yield return new WaitForSeconds(0.05f);
-        float animationTime = player.animator.GetCurrentAnimatorStateInfo(0).length;
-        yield return new WaitForSeconds(animationTime * 0.5f - 0.05f);
-        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_Run);
-        yield return new WaitForSeconds(animationTime * 0.5f);
-        walkSoundCoroutine = Managers.Routine.StartCoroutine(PlayRunSoundRoutine());
+        player.movement.isRuning = true;
+        while (player.movement.isRuning)
+        {
+            yield return null;
+            float animationTime = player.animator.GetCurrentAnimatorStateInfo(0).length;
+            player.movement.walkDistance += Time.deltaTime;
+            if (player.movement.walkDistance >= animationTime * 0.5f)
+            {
+                Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_Run);
+                player.movement.walkDistance = 0f;
+            }
+        }
     }
     public virtual void StopRunSound()
     {
+        player.movement.isRuning = false;
         if (runSoundCoroutine == null) return;
         Managers.Routine.StopCoroutine(runSoundCoroutine);
         runSoundCoroutine = null;

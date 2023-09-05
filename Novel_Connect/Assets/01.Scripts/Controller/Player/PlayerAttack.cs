@@ -91,15 +91,6 @@ namespace PlayerAttacks
             InitAttackCountDelay = 1;
         }
 
-        ~Normal()
-        {
-            if(attackCoroutine != null)
-                Managers.Routine.StopCoroutine(attackCoroutine);
-
-            if (initAttackCountCoroutine != null)
-                Managers.Routine.StopCoroutine(initAttackCountCoroutine);
-        }
-
         protected override void Attack()
         {
             Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(player.attackTrans.position, player.attackTrans.localScale, 0, player.attackLayer);
@@ -123,15 +114,6 @@ namespace PlayerAttacks
             currentAttackCount = 0;
             maxAttackCount = 4;
             InitAttackCountDelay = 1;
-        }
-
-        ~Fire()
-        {
-            if (attackCoroutine != null)
-                Managers.Routine.StopCoroutine(attackCoroutine);
-
-            if (initAttackCountCoroutine != null)
-                Managers.Routine.StopCoroutine(initAttackCountCoroutine);
         }
 
         protected override void Attack()

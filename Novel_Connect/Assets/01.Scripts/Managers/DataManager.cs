@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class DataManager
 {
-    private bool isPreload = false;
-
     private Dictionary<int, ItemData> itemDataDictionary = new Dictionary<int, ItemData>();
     private Dictionary<int, PlayerData> playerDataDictionary = new Dictionary<int, PlayerData>();
     private Dictionary<int, MonsterData> monsterDataDictionary = new Dictionary<int, MonsterData>();
