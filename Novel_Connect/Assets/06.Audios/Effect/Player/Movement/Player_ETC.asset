@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b39265f8ded44447b1c35b915fcbcd6, type: 3}
   m_Name: Player_ETC
   m_EditorClassIdentifier: 
-  audios: []
+  audios:
+  - {fileID: 8300000, guid: ed9b931fe63f1144dbaa0a03644fd914, type: 3}
+  - {fileID: 8300000, guid: 43ac8abdbd341024e8d1647eed82ddfe, type: 3}

@@ -25,11 +25,7 @@ public abstract class Playermovement
             isGround = false;
             return;
         }
-
-        else
-        {
-            isGround = true;
-        }
+        else isGround = true;
     }
     public void CheckUpAndFall()
     {
@@ -45,17 +41,18 @@ public abstract class Playermovement
         }
     }
 
+    public void CheckThump()
+    {
+        if (player.rb.velocity.y < -10f)
+            player.ChangeState(PlayerState.FallEnd);
+        
+    }
+
     public void CheckLanding()
     {
         if (!isGround) return;
-        if (player.rb.velocity.y < -10f)
-        {
-            player.ChangeState(PlayerState.FallEnd);
-            return;
-        }
         player.ChangeState(PlayerState.Idle);
     }
-
 
     public virtual void CheckMove()
     {
@@ -126,7 +123,7 @@ public abstract class Playermovement
 
     public virtual void CheckJump()
     {
-        if (Input.GetKey(Managers.Input.move_JumpKey))
+        if (Input.GetKeyDown(Managers.Input.move_JumpKey))
             player.ChangeState(PlayerState.JumpStart);
     }
 
@@ -134,6 +131,7 @@ public abstract class Playermovement
     {
         if (!isCanJump) return;
         isCanJump = false;
+        player.sound.PlayJumpStartSound();
         player.rb.velocity = new Vector2(player.rb.velocity.x, 0);
         player.rb.AddForce(Vector2.up * player.status.currentJumpForce, ForceMode2D.Impulse);
         player.ChangeStateWithAnimtionTime(PlayerState.Jump);

@@ -9,6 +9,7 @@ namespace PlayerStates
     {
         public override void EnterState(PlayerController _entity)
         {
+            _entity.movement.CheckThump();
             if (_entity.beforestate == PlayerState.Walk || _entity.beforestate == PlayerState.Run)
                 _entity.Stop();
         }
@@ -165,6 +166,7 @@ namespace PlayerStates
         {
             _entity.animator.SetTrigger("Fall");
             _entity.ChangeStateWithAnimtionTime(PlayerState.Idle);
+            _entity.sound.PlayFallEndSound();
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)

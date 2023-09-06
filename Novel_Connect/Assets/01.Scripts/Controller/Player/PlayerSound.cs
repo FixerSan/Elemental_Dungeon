@@ -13,11 +13,13 @@ public abstract class PlayerSound
     {
         Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_Attack, _index);
     }
+
     public virtual void PlayWalkSound()
     {
         StopWalkSound();
         walkSoundCoroutine = Managers.Routine.StartCoroutine(PlayWalkSoundRoutine());
     }
+
     protected virtual IEnumerator PlayWalkSoundRoutine()
     {
         player.movement.isWalking = true;
@@ -34,6 +36,7 @@ public abstract class PlayerSound
             }
         }
     }
+
     public virtual void StopWalkSound()
     {
         player.movement.isWalking = false;
@@ -41,11 +44,13 @@ public abstract class PlayerSound
         Managers.Routine.StopCoroutine(walkSoundCoroutine);
         walkSoundCoroutine = null;
     }
+
     public virtual void PlayRunSound()
     {
         StopRunSound();
         runSoundCoroutine = Managers.Routine.StartCoroutine(PlayRunSoundRoutine());
     }
+
     protected virtual IEnumerator PlayRunSoundRoutine()
     {
         player.movement.isRuning = true;
@@ -61,6 +66,7 @@ public abstract class PlayerSound
             }
         }
     }
+
     public virtual void StopRunSound()
     {
         player.movement.isRuning = false;
@@ -70,20 +76,24 @@ public abstract class PlayerSound
     }
     public virtual void PlayJumpStartSound()
     {
-
+        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_ETC,0);
     }
+
     public virtual void PlayJumpSound()
     {
 
     }
+
     public virtual void PlayFallSound()
     {
 
     }
+
     public virtual void PlayFallEndSound()
     {
-
+        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_ETC, 1);
     }
+
     public virtual void PlayHitSound()
     {
 
