@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using static Define;
 using System;
+using UnityEditor;
 
 public class UIDialogSpeaker : UIPopup
 {
@@ -61,11 +62,13 @@ public class UIDialogSpeaker : UIPopup
     {
         data = _data;
         CloseAllButton();
-        GetText(((int)Texts.Text_CharacterName)).text = _data.speakerName;  
-
-        gameObject.SetActive(true);
-
-        OnTypingTextCoroutine = Managers.Routine.StartCoroutine(OnTypingText());
+        GetText(((int)Texts.Text_CharacterName)).text = _data.speakerName;
+        Managers.Resource.Load<Sprite>(_data.speakerImageKey, (_sprite) =>
+        {
+            GetImage(((int)Images.Image_Illust)).sprite = _sprite;
+            gameObject.SetActive(true);
+            OnTypingTextCoroutine = Managers.Routine.StartCoroutine(OnTypingText());
+        });
     }
 
     public void CloseDialog()
@@ -141,6 +144,5 @@ public class UIDialogSpeaker : UIPopup
             else
                 Managers.Dialog.Call(data.nextDialogUID);
         }
-
     }
 }

@@ -40,8 +40,8 @@
 "dialogDatas":[
  {
   "dialogUID": 0,
-  "speakerName": "캐릭터 이름",
-  "speakerImageKey": "마을의 문제가 일어났어",
+  "speakerName": "왕녀",
+  "speakerImageKey": "Illust_Princess",
   "speakerType": "OneButton",
   "sentence": "마을의 문제가 일어났어",
   "buttonOneContent": "다음",
@@ -51,8 +51,8 @@
  },
  {
   "dialogUID": 1,
-  "speakerName": "캐릭터 이름",
-  "speakerImageKey": "이 문제를 해결해주겠니?",
+  "speakerName": "왕녀",
+  "speakerImageKey": "Illust_Princess",
   "speakerType": "TwoButton",
   "sentence": "이 문제를 해결해주겠니?",
   "buttonOneContent": "수락",
@@ -62,8 +62,8 @@
  },
  {
   "dialogUID": 2,
-  "speakerName": "캐릭터 이름",
-  "speakerImageKey": "고마워 !",
+  "speakerName": "왕녀",
+  "speakerImageKey": "Illust_Princess",
   "speakerType": "OneButton",
   "sentence": "고마워 !",
   "buttonOneContent": "종료",
@@ -73,8 +73,8 @@
  },
  {
   "dialogUID": 3,
-  "speakerName": "캐릭터 이름",
-  "speakerImageKey": "나쁜놈 !",
+  "speakerName": "왕녀",
+  "speakerImageKey": "Illust_Princess",
   "speakerType": "OneButton",
   "sentence": "나쁜놈 !",
   "buttonOneContent": "종료",

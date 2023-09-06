@@ -93,6 +93,10 @@ MonoBehaviour:
     m_Address: Player_Run.SoundProfile
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: fbf301a3675527f44a7f4e2f680d69ae
+    m_Address: Illust_Princess.Sprite
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7625f705cca72f24088dfc48d2137928, type: 2}
   m_SchemaSet:

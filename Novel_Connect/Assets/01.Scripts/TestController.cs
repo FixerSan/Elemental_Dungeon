@@ -11,5 +11,8 @@ public class TestController : MonoBehaviour
             float x = Random.Range(-2, 2);
             Managers.Object.SpawnMonster(new Vector3(x,0,0),0);
         }
+
+        if (Input.GetKeyDown(KeyCode.F1))
+            Managers.Dialog.Call(0);
     }
 }
