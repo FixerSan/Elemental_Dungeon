@@ -19,6 +19,7 @@ public class PlayerController : BaseController
     public PlayerSound sound;
     public Inventory inventory;
     public PlayerState state;
+    public PlayerState beforestate;
     public Transform checkIsGroundTrans;
     public Transform attackTrans;
     public LayerMask groundLayer;
@@ -107,6 +108,7 @@ public class PlayerController : BaseController
                 stateMachine.ChangeState(states[_state]);
             return;
         }
+        beforestate = state;
         state = _state;
         stateMachine.ChangeState(states[_state]);
     }

@@ -20,6 +20,9 @@ public class InputManager
     public KeyCode bendingKey = KeyCode.LeftControl;
     public KeyCode dialogSkipKey = KeyCode.G;
 
+    public Action move_RightKeyAction = null;
+    public Action move_LeftKeyAction = null;
+
 
     public void ChangeCanControl(bool _bool)
     {
@@ -35,7 +38,8 @@ public class InputManager
     {
         if (!isCanControl) return;
 
-        inputAction?.Invoke();
+        if (Input.GetKey(move_RightKey)) move_RightKeyAction?.Invoke();
+        if (Input.GetKey(move_LeftKey)) move_LeftKeyAction?.Invoke();
     }
 
     public InputManager()

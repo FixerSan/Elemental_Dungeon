@@ -9,6 +9,8 @@ namespace PlayerStates
     {
         public override void EnterState(PlayerController _entity)
         {
+            if (_entity.beforestate == PlayerState.Walk || _entity.beforestate == PlayerState.Run)
+                _entity.Stop();
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)
@@ -39,7 +41,6 @@ namespace PlayerStates
         public override void ExitState(PlayerController _entity, Action _callback)
         {
             _entity.animator.SetBool("isWalk", false);
-            _entity.Stop();
             _entity.sound.StopWalkSound();
             _callback?.Invoke();
         }
@@ -68,7 +69,6 @@ namespace PlayerStates
         public override void ExitState(PlayerController _entity, Action _callback)
         {
             _entity.animator.SetBool("isRun", false);
-            _entity.Stop();
             _entity.sound.StopRunSound();
             _callback?.Invoke();
         }
@@ -187,6 +187,7 @@ namespace PlayerStates
         {
             _entity.animator.SetBool("isAttack", true);
             _entity.attack.StartAttack();
+            _entity.Stop();
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)
