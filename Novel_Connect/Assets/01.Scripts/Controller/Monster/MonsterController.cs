@@ -34,6 +34,7 @@ public class MonsterController : BaseController
         Managers.Data.GetMonsterData(_monsterUID, (_data) =>
         {
             data = _data;
+            status = new ControllerStatus(this);
             status.currentHP = _data.hp;
             status.maxHP = _data.hp;
             status.maxWalkSpeed = _data.speed;

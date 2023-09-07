@@ -29,8 +29,14 @@ public class DialogManager
         });
     }
 
+    private void PlayBtnSound()
+    {
+        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Dialog, 1);
+    }
+
     public void OnClick_ButtonOne()
     {
+        PlayBtnSound();
         if (currentData.nextDialogUID == -100)  { EndDialog();  return; }
         if (currentData.nextDialogUID != -1)    { Call(currentData.nextDialogUID); return; }
 
@@ -48,6 +54,7 @@ public class DialogManager
 
     public void OnClick_ButtonTwo()
     {
+        PlayBtnSound();
         if (currentData.nextDialogUID == -100) { EndDialog(); return; }
         if (currentData.nextDialogUID != -1) { Call(currentData.nextDialogUID); return; }
 
@@ -65,6 +72,7 @@ public class DialogManager
 
     public void OnClick_ButtonThree()
     {
+        PlayBtnSound();
         if (currentData.nextDialogUID == -100) { EndDialog(); return; }
         if (currentData.nextDialogUID != -1) { Call(currentData.nextDialogUID); return; }
 

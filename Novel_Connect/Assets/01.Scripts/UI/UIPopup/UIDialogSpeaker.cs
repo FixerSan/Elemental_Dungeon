@@ -67,6 +67,7 @@ public class UIDialogSpeaker : UIPopup
         {
             GetImage(((int)Images.Image_Illust)).sprite = _sprite;
             gameObject.SetActive(true);
+            Managers.Sound.PlaySoundEffect(SoundProfile_Effect.Dialog,0);
             OnTypingTextCoroutine = Managers.Routine.StartCoroutine(OnTypingText());
         });
     }

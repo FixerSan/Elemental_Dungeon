@@ -97,6 +97,14 @@ MonoBehaviour:
     m_Address: Illust_Princess.Sprite
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 536e6e546cdd4f24fba15d5ac0059dbd
+    m_Address: Dialog.SoundProfile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: dccb8af35a5ff4b4e9d782c9817a7f05
+    m_Address: Effect.SoundProfile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7625f705cca72f24088dfc48d2137928, type: 2}
   m_SchemaSet:

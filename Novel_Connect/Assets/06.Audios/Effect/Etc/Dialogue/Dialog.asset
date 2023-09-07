@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b39265f8ded44447b1c35b915fcbcd6, type: 3}
+  m_Name: Dialog
+  m_EditorClassIdentifier: 
+  audios:
+  - {fileID: 8300000, guid: 835a957ab161d1746bb4447885a86a8d, type: 3}
+  - {fileID: 8300000, guid: d09978f482f424d428efe2c3e519ca73, type: 3}

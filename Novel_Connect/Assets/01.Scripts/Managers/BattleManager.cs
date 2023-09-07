@@ -64,12 +64,12 @@ public class BattleManager
         _hiter.Hit(_attacker.trans, calculatedDamage);
     }
 
-    public void SetStatusEffect(BaseController hiter, StatusEffect status, float duration)
+    public void SetStatusEffect(BaseController _Attacker, BaseController _hiter, StatusEffect _status)
     {
-        switch (status)
+        switch (_status)
         {
             case StatusEffect.Burn:
-                //hiter.statuses.SetBurn(duration);
+                _hiter.status.StartBurn(_Attacker.status.currentAttackForce * 0.05f);
                 break;
         }
     }

@@ -30,8 +30,6 @@ public class PlayerController : BaseController
 
     public void Init(int _level, string _elementalString)
     {
-        if (changeStateCoroutine != null) Managers.Routine.StopCoroutine(changeStateCoroutine);
-        changeStateCoroutine = null;
         trans = gameObject.GetOrAddComponent<Transform>();
         trans.GetOrAddComponent<SpriteRenderer>();
         animator = trans.GetOrAddComponent<Animator>();
@@ -45,6 +43,7 @@ public class PlayerController : BaseController
         Managers.Data.GetPlayerData(_level, (_data) =>
         {
             data = _data;
+            status = new ControllerStatus(this);
             status.currentHP = _data.hp;
             status.maxHP = _data.hp;
             status.currentMP = _data.mp;

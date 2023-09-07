@@ -126,7 +126,7 @@ namespace PlayerAttacks
                 if (hitController != null)
                 {
                     Managers.Battle.DamageCalculate(player, hitController);
-                    Managers.Battle.SetStatusEffect(hitController, StatusEffect.Burn, 5);
+                    Managers.Battle.SetStatusEffect(player, hitController, StatusEffect.Burn);
                 }
             }
         }

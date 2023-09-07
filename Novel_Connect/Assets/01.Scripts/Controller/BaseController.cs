@@ -6,7 +6,7 @@ using static Define;
 
 public abstract class BaseController : MonoBehaviour
 {
-    public ControllerStatus status = new ControllerStatus();
+    public ControllerStatus status;
     protected Coroutine changeStateCoroutine;
     public Transform trans;
     public Animator animator;
@@ -37,6 +37,8 @@ public abstract class BaseController : MonoBehaviour
 [System.Serializable]
 public class ControllerStatus
 {
+    private BaseController controller;
+
     public float maxHP;
     public float currentHP;
 
@@ -55,6 +57,64 @@ public class ControllerStatus
     public float currentAttackForce;
 
     public bool isKnockback = false;
+
+    public System.Action effectAction;
+    public Coroutine effectActionCoroutine;
+
+    public bool isBurn = false;
+    public float burnDamage;
+    public Coroutine stopBurnCoroutine;
+
+
+    public IEnumerator EffectCycle()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(1f);
+            effectAction?.Invoke();
+        }
+    }
+
+    public void StopAllEffect()
+    {
+        StopBurn();
+    }
+
+    public void StartBurn(float _burnDamage)
+    {
+        burnDamage = _burnDamage;
+        effectAction -= Burn;
+        effectAction += Burn;
+        if(effectActionCoroutine == null)
+            effectActionCoroutine = Managers.Routine.StartCoroutine(EffectCycle());
+        if (stopBurnCoroutine != null) Managers.Routine.StopCoroutine(stopBurnCoroutine);
+        stopBurnCoroutine = Managers.Routine.StartCoroutine(StopBurnRoutine(5));
+    }
+
+    private IEnumerator StopBurnRoutine(float _duration)
+    {
+        yield return new WaitForSeconds(_duration);
+        StopBurn();
+    }
+
+    private void Burn()
+    {
+        controller.GetDamage(burnDamage);
+        Managers.Sound.PlaySoundEffect(SoundProfile_Effect.Effect, 0);
+    }
+
+    public void StopBurn()
+    {
+        effectAction -= Burn;
+        burnDamage = 0;
+        if (effectActionCoroutine != null && effectAction == null)
+            Managers.Routine.StopCoroutine(effectActionCoroutine);
+    }
+
+    public ControllerStatus(BaseController _controller)
+    {
+        controller = _controller;
+    }
 }
 
 
