@@ -25,6 +25,11 @@ public class ResourceManager
         });
     }
 
+    public T Load<T>(string _key) where T:Object
+    {
+        return CheckLoaded<T>(_key);
+    }
+
     //로딩창 사용 용도
     public void LoadAllAsync<T>(string _label, Action<string,int,int> _callback = null, Action _completeCallback = null) where T : Object
     {

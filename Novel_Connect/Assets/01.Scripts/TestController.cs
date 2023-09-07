@@ -14,5 +14,8 @@ public class TestController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F1))
             Managers.Dialog.Call(0);
+
+        if (Input.GetKeyDown(KeyCode.F2))
+            Managers.Screen.SetCameraTarget(Managers.Object.Player.trans);
     }
 }

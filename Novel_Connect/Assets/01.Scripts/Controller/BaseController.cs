@@ -32,6 +32,11 @@ public abstract class BaseController : MonoBehaviour
         rb.velocity = new Vector2(0, rb.velocity.y);
     }
 
+    public Transform GetTrans()
+    {
+        return trans;
+    }
+
 }
 
 [System.Serializable]
