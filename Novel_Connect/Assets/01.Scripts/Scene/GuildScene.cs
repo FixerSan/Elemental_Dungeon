@@ -20,6 +20,6 @@ public class GuildScene : BaseScene
 
     public GuildScene()
     {
-        cameraOffset = new Vector3(0,0,-10);
+        cameraOffset = new Vector3(0,2,-10);
     }
 }

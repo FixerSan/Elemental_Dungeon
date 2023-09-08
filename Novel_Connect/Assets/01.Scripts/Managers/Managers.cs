@@ -36,6 +36,7 @@ public class Managers : MonoBehaviour
             Init();
         else
             Destroy(gameObject);
+        UnityEngine.Screen.SetResolution(1920, 1080, true);
     }
     #endregion
     private ResourceManager resource = new ResourceManager();
