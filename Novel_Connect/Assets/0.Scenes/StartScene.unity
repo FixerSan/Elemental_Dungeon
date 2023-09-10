@@ -267,6 +267,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 252231592837550489, guid: 64c7e0ccebbd4d34685dcf39340a02c5, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 252231592837550489, guid: 64c7e0ccebbd4d34685dcf39340a02c5, type: 3}
+      propertyPath: m_Interpolate
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 252231592837550489, guid: 64c7e0ccebbd4d34685dcf39340a02c5, type: 3}
+      propertyPath: m_SleepingMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1111230839255462215, guid: 64c7e0ccebbd4d34685dcf39340a02c5, type: 3}
       propertyPath: m_Name
       value: Player
