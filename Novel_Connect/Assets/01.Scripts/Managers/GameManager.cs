@@ -4,15 +4,27 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private static GameManager instance;
+    public static GameManager Instance
     {
-        
+        get
+        {
+            if (instance == null)
+                Init();
+            return instance;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    [RuntimeInitializeOnLoadMethod]
+    private static void Init()
     {
-        
+        GameObject go = GameObject.Find($"[{nameof(GameManager)}]");
+        if (go == null)
+            go = new GameObject { name = $"[{nameof(GameManager)}]" };
+        instance = go.GetOrAddComponent<GameManager>();
+        DontDestroyOnLoad(go);
+        Screen.SetResolution(1920, 1080, FullScreenMode.ExclusiveFullScreen, 60);
     }
+
+
 }

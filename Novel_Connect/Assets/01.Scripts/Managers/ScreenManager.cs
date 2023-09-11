@@ -21,13 +21,14 @@ public class ScreenManager
             return cameraController;
         }
     }
+
     public void SetCameraTarget(Transform _target)
     {
         CameraController.SetTarget(_target);
     }
+
     public void SetCameraOffset(Vector3 _offset)
     {
         CameraController.SetOffset(_offset);
     }
-
 }

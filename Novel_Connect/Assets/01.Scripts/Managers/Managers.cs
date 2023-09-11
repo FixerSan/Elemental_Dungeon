@@ -29,16 +29,8 @@ public class Managers : MonoBehaviour
 
         DontDestroyOnLoad(go);
     }
-
-    private void Awake()
-    {
-        if (instance == null)
-            Init();
-        else
-            Destroy(gameObject);
-        UnityEngine.Screen.SetResolution(1920, 1080, true);
-    }
     #endregion
+
     private ResourceManager resource = new ResourceManager();
     private PoolManager pool = new PoolManager();
     private UIManager ui = new UIManager();
