@@ -33,7 +33,12 @@ public class BossController : BaseController
 
     }
 
-    public override void KnuckBack()
+    public override void KnockBack()
+    {
+
+    }
+
+    public override void KnockBack(float _force)
     {
 
     }

@@ -89,6 +89,12 @@ public class PoolManager
         return false;
     }
 
+    public bool CheckExist(GameObject _prefab)
+    {
+        string key = _prefab.name;
+        return poolDictionary.ContainsKey(key);
+    }
+
     public void CreatePool(GameObject _prefab, System.Action _callback = null)
     {
         string key = _prefab.name;

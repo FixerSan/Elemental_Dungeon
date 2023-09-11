@@ -87,8 +87,7 @@ public class MonsterController : BaseController
         if (state == MonsterState.Die) return;
         sound.PlayHitSound();
         SetTarget(_attackerTrans);
-        LookAtTarget();
-        KnuckBack();
+        KnockBack();
         GetDamage(_damage);
         if (state == MonsterState.Attack) return;
         ChangeState(MonsterState.Damaged,true);
@@ -162,10 +161,16 @@ public class MonsterController : BaseController
         if (targetTras.position.x < trans.position.x) ChangeDirection(Define.Direction.Left);
     }
 
-    public override void KnuckBack()
+    public override void KnockBack()
     {
+        LookAtTarget();
         if (direction == Define.Direction.Right) rb.AddForce(new Vector2(-data.knockBackForce, data.knockBackForce * 0.5f), ForceMode2D.Impulse);
         if (direction == Define.Direction.Left) rb.AddForce(new Vector2(data.knockBackForce, data.knockBackForce * 0.5f), ForceMode2D.Impulse);
+    }
+
+    public override void KnockBack(float _force)
+    {
+
     }
 
     private void FixedUpdate()

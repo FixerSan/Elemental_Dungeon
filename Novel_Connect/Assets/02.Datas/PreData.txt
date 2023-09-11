@@ -87,16 +87,16 @@
  {
   "skillUID": 0,
   "elemental": "Fire",
-  "name": "화마 돌진",
-  "description": "적을 밀치면서 데미지를 주고 지나간 자리에 불을 일으킨다.",
-  "iconImageKey": "FireSkill_1.Sprite"
+  "name": "화마의 숨결",
+  "description": "전방에 스플래시 데미지를 준다.",
+  "iconImageKey": "Skill_FireOne.Sprite"
  },
  {
   "skillUID": 1,
   "elemental": "Fire",
-  "name": "화마의 숨결",
-  "description": "전방에 스플래시 데미지를 준다.",
-  "iconImageKey": "FireSkill_2.Sprite"
+  "name": "화마 돌진",
+  "description": "적을 밀치면서 데미지를 주고 지나간 자리에 불을 일으킨다.",
+  "iconImageKey": "Skill_FireTwo.Sprite"
  }
 ],
 "bossDatas":[

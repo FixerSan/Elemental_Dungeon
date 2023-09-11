@@ -181,7 +181,12 @@ public class PlayerController : BaseController
         yield return new WaitForSeconds(animationPlayTime - 0.05f);
         ChangeState(_nextState);
     }
-    public override void KnuckBack()
+    public override void KnockBack()
+    {
+
+    }
+
+    public override void KnockBack(float _force)
     {
 
     }

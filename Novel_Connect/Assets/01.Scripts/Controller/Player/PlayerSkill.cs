@@ -56,7 +56,12 @@ namespace PlayerSkills
 
             public override void Use()
             {
-                Debug.Log("스킬 2 사용");
+
+                GameObject go = Managers.Resource.Load<GameObject>("Skill_Fire_Two");
+                Skill_Fire_Two skill;
+                if (Managers.Pool.CheckExist(go))
+                    skill = Managers.Pool.Get(go).GetOrAddComponent<Skill_Fire_Two>();
+                Managers.Resource.Instantiate("Skill_Fire_Two");
             }
 
             public Two(PlayerController _player)

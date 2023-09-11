@@ -17,7 +17,8 @@ public abstract class BaseController : MonoBehaviour
     public abstract void Hit(Transform attackTrans, float _damage);
     public abstract void SetPosition(Vector2 _position);
     public abstract void Die();
-    public abstract void KnuckBack();
+    public abstract void KnockBack();
+    public abstract void KnockBack(float _force);
     public void ChangeDirection(Direction _direction) 
     {
         if (direction == _direction) return;
