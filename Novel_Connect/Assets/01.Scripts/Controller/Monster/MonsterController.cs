@@ -96,6 +96,7 @@ public class MonsterController : BaseController
     public override void GetDamage(float _damage)
     {
         status.currentHP -= _damage;
+        CheckDie();
     }
     public void CheckDie()
     {
@@ -109,6 +110,7 @@ public class MonsterController : BaseController
         changeStateCoroutine = null;
         if(attack.attackCoroutine != null) Managers.Routine.StopCoroutine(attack.attackCoroutine);
         attack.attackCoroutine = null;
+        status.StopAllEffect();
         init = false;
         Managers.Routine.StartCoroutine(DieRoutine());
     }
@@ -121,7 +123,7 @@ public class MonsterController : BaseController
 
     public override void SetPosition(Vector2 _position)
     {
-
+        trans.position = _position;
     }
 
     public void SetTarget(Transform _target)
@@ -177,7 +179,6 @@ public class MonsterController : BaseController
     {
         if (!init) return;
         stateMachine.UpdateState();
-        CheckDie();
     }
 
     private void OnDrawGizmos()

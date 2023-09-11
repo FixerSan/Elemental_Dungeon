@@ -71,6 +71,12 @@ public class ControllerStatus
     public float burnDamage;
     public Coroutine stopBurnCoroutine;
 
+    public void StartEffectCycle()
+    {
+        if(effectActionCoroutine != null)
+            Managers.Routine.StopCoroutine(effectActionCoroutine);
+        effectActionCoroutine = Managers.Routine.StartCoroutine(EffectCycle());
+    }
 
     public IEnumerator EffectCycle()
     {
@@ -79,6 +85,12 @@ public class ControllerStatus
             yield return new WaitForSeconds(1f);
             effectAction?.Invoke();
         }
+    }
+
+    private void StopEffectCycle()
+    {
+        if (effectActionCoroutine == null) return;
+        Managers.Routine.StopCoroutine(effectActionCoroutine);
     }
 
     public void StopAllEffect()
@@ -91,8 +103,7 @@ public class ControllerStatus
         burnDamage = _burnDamage;
         effectAction -= Burn;
         effectAction += Burn;
-        if(effectActionCoroutine == null)
-            effectActionCoroutine = Managers.Routine.StartCoroutine(EffectCycle());
+        StartEffectCycle();
         if (stopBurnCoroutine != null) Managers.Routine.StopCoroutine(stopBurnCoroutine);
         stopBurnCoroutine = Managers.Routine.StartCoroutine(StopBurnRoutine(5));
     }
@@ -113,8 +124,7 @@ public class ControllerStatus
     {
         effectAction -= Burn;
         burnDamage = 0;
-        if (effectActionCoroutine != null && effectAction == null)
-            Managers.Routine.StopCoroutine(effectActionCoroutine);
+        if (effectAction == null)   StopEffectCycle(); 
     }
 
     public ControllerStatus(BaseController _controller)

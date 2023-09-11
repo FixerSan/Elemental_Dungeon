@@ -94,11 +94,14 @@ MonoBehaviour:
     currentJumpForce: 0
     currentAttackForce: 0
     isKnockback: 0
+    isBurn: 0
+    burnDamage: 0
   trans: {fileID: 0}
   animator: {fileID: 0}
   rb: {fileID: 0}
   elemental: 0
   direction: 0
+  isChangeElemental: 0
   data:
     level: 0
     levelUpExp: 0
@@ -111,6 +114,7 @@ MonoBehaviour:
   inventory:
     itemList: []
   state: 0
+  beforestate: 0
   checkIsGroundTrans: {fileID: 526067048}
   attackTrans: {fileID: 5940306872152533426}
   groundLayer:
@@ -168,7 +172,7 @@ SpriteRenderer:
   m_Size: {x: 0.32, y: 0.76}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &2557913686716354892
@@ -204,7 +208,7 @@ Animator:
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 0}
   m_CullingMode: 0
-  m_UpdateMode: 0
+  m_UpdateMode: 1
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0

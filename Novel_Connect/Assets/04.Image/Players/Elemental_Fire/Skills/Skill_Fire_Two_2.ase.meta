@@ -1,0 +1,536 @@
+fileFormatVersion: 2
+guid: d41e79418b8da8b47906e31328ae25ee
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Skill_Fire_Two_2_Clip
+    second: {fileID: 7400000, guid: 9786fefbedc9d094aa44b94450e3f4dc, type: 2}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 8
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 8
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638300522724359422
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Skill_Fire_Two_2_Frame_3
+    originalName: 
+    pivot: {x: 1.4999998, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 490
+      y: 288
+      width: 12
+      height: 14
+    spriteID: 83ed53e474aaba542a35577b5c21e152
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 490, y: 288}
+  - name: Skill_Fire_Two_2_Frame_4
+    originalName: 
+    pivot: {x: 1.0606061, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 316
+      y: 54
+      width: 66
+      height: 42
+    spriteID: 0eaa80e93b5695a4a89e6469f562102c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 316, y: 54}
+  - name: Skill_Fire_Two_2_Frame_5
+    originalName: 
+    pivot: {x: 1.0333334, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 316
+      y: 104
+      width: 120
+      height: 40
+    spriteID: 880c7a665d775c54f92143dca5a0d0a1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 316, y: 104}
+  - name: Skill_Fire_Two_2_Frame_6
+    originalName: 
+    pivot: {x: 1.0121951, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 316
+      y: 4
+      width: 164
+      height: 42
+    spriteID: 157054eedafe19545b2c410e18763593
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 316, y: 4}
+  - name: Skill_Fire_Two_2_Frame_7
+    originalName: 
+    pivot: {x: 1.0186917, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 268
+      y: 288
+      width: 214
+      height: 36
+    spriteID: a9098e88ddbda654cb5e1fcb298201e0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 268, y: 288}
+  - name: Skill_Fire_Two_2_Frame_8
+    originalName: 
+    pivot: {x: 1.015625, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 288
+      width: 256
+      height: 38
+    spriteID: 999dde9c8cc374b40b235f2158bdec2c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 288}
+  - name: Skill_Fire_Two_2_Frame_9
+    originalName: 
+    pivot: {x: 1.0065789, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 104
+      width: 304
+      height: 40
+    spriteID: 31e2414a0cefa1340879ad9648b1435d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 104}
+  - name: Skill_Fire_Two_2_Frame_10
+    originalName: 
+    pivot: {x: 1.0131578, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 304
+      height: 42
+    spriteID: 993ba1ec1ef7c994d8b284d180c98017
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Skill_Fire_Two_2_Frame_11
+    originalName: 
+    pivot: {x: 1.0131578, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 200
+      width: 304
+      height: 38
+    spriteID: 0c2c4171288cc4a43ac739530925d18c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 200}
+  - name: Skill_Fire_Two_2_Frame_12
+    originalName: 
+    pivot: {x: 1.0131578, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 54
+      width: 304
+      height: 42
+    spriteID: 1a43a7fa9b854364882e1fea797c975c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 54}
+  - name: Skill_Fire_Two_2_Frame_13
+    originalName: 
+    pivot: {x: 1.0065789, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 152
+      width: 304
+      height: 40
+    spriteID: 450be64e00272924caa7639780b06c05
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 152}
+  - name: Skill_Fire_Two_2_Frame_14
+    originalName: 
+    pivot: {x: 1.02, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 246
+      width: 300
+      height: 34
+    spriteID: 0da3c988e517f9043837beb0634e0308
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 246}
+  - name: Skill_Fire_Two_2_Frame_15
+    originalName: 
+    pivot: {x: 1.0266666, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 334
+      width: 300
+      height: 20
+    spriteID: 62747808b3bb3474c9dffc51feac4e48
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 334}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 1512996584
+    name: Skill_Fire_Two_2
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Skill_Fire_Two_2_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 298
+        y: 0
+        width: 12
+        height: 14
+      spriteId: 83ed53e474aaba542a35577b5c21e152
+    - name: Skill_Fire_Two_2_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 246
+        y: 0
+        width: 66
+        height: 42
+      spriteId: 0eaa80e93b5695a4a89e6469f562102c
+    - name: Skill_Fire_Two_2_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 192
+        y: 0
+        width: 120
+        height: 40
+      spriteId: 880c7a665d775c54f92143dca5a0d0a1
+    - name: Skill_Fire_Two_2_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 150
+        y: 0
+        width: 164
+        height: 42
+      spriteId: 157054eedafe19545b2c410e18763593
+    - name: Skill_Fire_Two_2_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 98
+        y: 0
+        width: 214
+        height: 36
+      spriteId: a9098e88ddbda654cb5e1fcb298201e0
+    - name: Skill_Fire_Two_2_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 56
+        y: 0
+        width: 256
+        height: 38
+      spriteId: 999dde9c8cc374b40b235f2158bdec2c
+    - name: Skill_Fire_Two_2_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 10
+        y: 0
+        width: 304
+        height: 40
+      spriteId: 31e2414a0cefa1340879ad9648b1435d
+    - name: Skill_Fire_Two_2_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 8
+        y: 0
+        width: 304
+        height: 42
+      spriteId: 993ba1ec1ef7c994d8b284d180c98017
+    - name: Skill_Fire_Two_2_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 8
+        y: 0
+        width: 304
+        height: 38
+      spriteId: 0c2c4171288cc4a43ac739530925d18c
+    - name: Skill_Fire_Two_2_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 8
+        y: 0
+        width: 304
+        height: 42
+      spriteId: 1a43a7fa9b854364882e1fea797c975c
+    - name: Skill_Fire_Two_2_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 10
+        y: 0
+        width: 304
+        height: 40
+      spriteId: 450be64e00272924caa7639780b06c05
+    - name: Skill_Fire_Two_2_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 10
+        y: 0
+        width: 300
+        height: 34
+      spriteId: 0da3c988e517f9043837beb0634e0308
+    - name: Skill_Fire_Two_2_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 8
+        y: 0
+        width: 300
+        height: 20
+      spriteId: 62747808b3bb3474c9dffc51feac4e48
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 316, y: 64}

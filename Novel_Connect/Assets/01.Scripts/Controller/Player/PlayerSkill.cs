@@ -31,7 +31,8 @@ namespace PlayerSkills
 
             public override void Use()
             {
-                Debug.Log("스킬 1 사용");
+                Skill_Fire_One skill = Managers.Resource.Instantiate("Skill_Fire_One", _pooling: true).GetOrAddComponent<Skill_Fire_One>();
+                skill.Init(player.direction);
             }
 
             public One(PlayerController _player)
@@ -56,12 +57,10 @@ namespace PlayerSkills
 
             public override void Use()
             {
-
-                GameObject go = Managers.Resource.Load<GameObject>("Skill_Fire_Two");
-                Skill_Fire_Two skill;
-                if (Managers.Pool.CheckExist(go))
-                    skill = Managers.Pool.Get(go).GetOrAddComponent<Skill_Fire_Two>();
-                Managers.Resource.Instantiate("Skill_Fire_Two");
+                Skill_Fire_Two skill = Managers.Resource.Instantiate("Skill_Fire_Two",_pooling: true).GetOrAddComponent<Skill_Fire_Two>();
+                skill.Init(player.direction);
+                Skill_Fire_Two_Floor floor = Managers.Resource.Instantiate("Skill_Fire_Two_Floor", _pooling: true).GetOrAddComponent<Skill_Fire_Two_Floor>();
+                floor.Init(player.direction);
             }
 
             public Two(PlayerController _player)
