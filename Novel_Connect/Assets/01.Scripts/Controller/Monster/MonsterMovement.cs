@@ -22,7 +22,7 @@ public abstract class MonsterMovement
     public abstract void Move();
     public void LookAtTarget()
     {
-        if(Vector2.Distance(monster.trans.position, monster.targetTras.position) > 0.5f)
+        if(Vector2.Distance(monster.trans.position, monster.targetTrans.position) > 0.5f)
             monster.LookAtTarget();
     }
 
@@ -75,7 +75,7 @@ namespace MonsterMovements
             {
                 if (colliders[i].CompareTag("Player"))
                 {
-                    monster.ChangeState(MonsterState.Follow);
+                    monster.ChangeState(MonsterState.FOLLOW);
                     monster.SetTarget(colliders[i].transform);
                     break;
                 }

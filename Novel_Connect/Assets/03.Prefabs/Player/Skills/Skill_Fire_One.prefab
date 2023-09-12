@@ -159,4 +159,4 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   direction: 0
-  offset: {x: -1.44, y: -0.475}
+  offset: {x: 0.5, y: -0.5}

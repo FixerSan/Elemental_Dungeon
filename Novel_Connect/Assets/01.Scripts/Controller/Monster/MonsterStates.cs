@@ -29,7 +29,7 @@ namespace MonsterStates
         {
             public override void EnterState(MonsterController _entity)
             {
-                _entity.state = MonsterState.Die;
+                _entity.state = MonsterState.DIE ;
                 _entity.Die();
                 _entity.animator.SetBool("isDie", true);
             }
@@ -68,7 +68,7 @@ namespace MonsterStates
         {
             public override void EnterState(MonsterController _entity)
             {
-                _entity.state = MonsterState.Attack;
+                _entity.state = MonsterState.ATTACK;
                 _entity.attack.StartAttack();
                 _entity.animator.SetBool("isAttack", true);
             }
@@ -89,9 +89,9 @@ namespace MonsterStates
         {
             public override void EnterState(MonsterController _entity)
             {
-                _entity.state = MonsterState.Damaged;
+                _entity.state = MonsterState.DAMAGED;
                 _entity.animator.SetTrigger("Damaged");
-                _entity.ChangeStateWithAnimtionTime(MonsterState.Follow);
+                _entity.ChangeStateWithAnimtionTime(MonsterState.FOLLOW);
             }
 
             public override void ExitState(MonsterController _entity, Action _callback)
@@ -112,7 +112,7 @@ namespace MonsterStates
         {
             public override void EnterState(MonsterController _entity)
             {
-                _entity.state = MonsterState.Idle;
+                _entity.state = MonsterState.IDLE;
                 _entity.movement.CheckMove();
             }
 
@@ -131,7 +131,7 @@ namespace MonsterStates
         {
             public override void EnterState(MonsterController _entity)
             {
-                _entity.state = MonsterState.Follow;
+                _entity.state = MonsterState.FOLLOW;
                 _entity.sound.PlayMoveSound();
                 _entity.animator.SetBool("isMove", true);
             }

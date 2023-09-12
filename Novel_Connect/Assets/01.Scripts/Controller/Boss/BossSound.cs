@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class BossSound
 {
     protected BossController boss;
+    public abstract void PlayHitSound();
 }
 
 namespace BossSounds
@@ -14,6 +15,11 @@ namespace BossSounds
         public IceBoss(BossController _boss)
         {
             boss = _boss;
+        }
+
+        public override void PlayHitSound()
+        {
+
         }
     }
 }

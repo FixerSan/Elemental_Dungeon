@@ -29,9 +29,9 @@ namespace MonsterAttacks
         public override void CheckAttack()
         {
             if (!isCanAttack) return;
-            if (Mathf.Abs(monster.trans.position.x - monster.targetTras.position.x) < monster.attack.canAttackDistance)
+            if (Mathf.Abs(monster.trans.position.x - monster.targetTrans.position.x) < monster.attack.canAttackDistance)
             {
-                monster.ChangeState(MonsterState.Attack);
+                monster.ChangeState(MonsterState.ATTACK);
                 return;
             }
         }
@@ -64,7 +64,7 @@ namespace MonsterAttacks
             yield return new WaitForSeconds(attackDelay - 0.05f);
             Attack();
             yield return new WaitForSeconds(animationTime - attackDelay);
-            monster.ChangeState(MonsterState.Follow);
+            monster.ChangeState(MonsterState.FOLLOW);
             yield return new WaitForSeconds(canAttackDelay);
             isCanAttack = true;
             attackCoroutine = null;

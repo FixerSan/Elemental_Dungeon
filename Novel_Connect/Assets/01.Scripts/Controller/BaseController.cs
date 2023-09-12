@@ -14,9 +14,10 @@ public abstract class BaseController : MonoBehaviour
     public Elemental elemental;
     public Direction direction = Direction.Left;
     public abstract void GetDamage(float _damage);
-    public abstract void Hit(Transform attackTrans, float _damage);
+    public abstract void Hit(Transform _attackTrans, float _damage);
     public abstract void SetPosition(Vector2 _position);
     public abstract void Die();
+    protected abstract IEnumerator DieRoutine();
     public abstract void KnockBack();
     public abstract void KnockBack(float _force);
     public void ChangeDirection(Direction _direction) 

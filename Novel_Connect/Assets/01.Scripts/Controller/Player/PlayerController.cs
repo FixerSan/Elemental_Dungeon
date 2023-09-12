@@ -202,6 +202,11 @@ public class PlayerController : BaseController
     {
 
     }
+
+    protected override IEnumerator DieRoutine()
+    {
+        throw new NotImplementedException();
+    }
 }
 public enum PlayerState
 {

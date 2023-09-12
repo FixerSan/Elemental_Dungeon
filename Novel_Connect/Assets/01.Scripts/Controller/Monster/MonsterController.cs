@@ -14,7 +14,7 @@ public class MonsterController : BaseController
     public MonsterState state;
     public Transform attackTrans;
     public Transform detecteTrans;
-    public Transform targetTras;
+    public Transform targetTrans;
     public LayerMask attackLayer;
     private StateMachine<MonsterController> stateMachine;
     private Dictionary<MonsterState, State<MonsterController>> states;
@@ -29,7 +29,7 @@ public class MonsterController : BaseController
         rb = trans.GetOrAddComponent<Rigidbody2D>();
         attackTrans = Util.FindChild<Transform>(gameObject, "AttackTrans");
         detecteTrans = Util.FindChild<Transform>(gameObject, "DetecteTrans");
-        targetTras = null;
+        targetTrans = null;
         attackLayer = LayerMask.GetMask("Hitable");
         Managers.Data.GetMonsterData(_monsterUID, (_data) =>
         {
@@ -46,17 +46,17 @@ public class MonsterController : BaseController
             {
                 case 0:
                     movement = new MonsterMovements.Ghost_Bat(this);
-                    attack = new MonsterAttacks.BaseAttack(this);
                     sound = new MonsterSounds.Ghost_Bat(this);
+                    attack = new MonsterAttacks.BaseAttack(this);
                     attack.attackDelay = _data.attackDelay;
                     attack.canAttackDistance = _data.canAttackDistance;
                     attack.canAttackDelay = _data.canAttackDelay;
                     states = new Dictionary<MonsterState, State<MonsterController>>();
-                    states.Add(MonsterState.Idle, new MonsterStates.Ghost_Bat.Idle());
-                    states.Add(MonsterState.Follow, new MonsterStates.Ghost_Bat.Follow());
-                    states.Add(MonsterState.Attack, new MonsterStates.BaseMonster.Attack());
-                    states.Add(MonsterState.Damaged, new MonsterStates.BaseMonster.Damaged());
-                    states.Add(MonsterState.Die, new MonsterStates.BaseMonster.Die());
+                    states.Add(MonsterState.IDLE, new MonsterStates.Ghost_Bat.Idle());
+                    states.Add(MonsterState.FOLLOW, new MonsterStates.Ghost_Bat.Follow());
+                    states.Add(MonsterState.ATTACK, new MonsterStates.BaseMonster.Attack());
+                    states.Add(MonsterState.DAMAGED, new MonsterStates.BaseMonster.Damaged());
+                    states.Add(MonsterState.DIE , new MonsterStates.BaseMonster.Die());
                     break;
 
                 default:
@@ -64,14 +64,14 @@ public class MonsterController : BaseController
                     attack = new MonsterAttacks.BaseAttack(this);
                     attack.canAttackDelay = _data.attackDelay;
                     states = new Dictionary<MonsterState, State<MonsterController>>();
-                    states.Add(MonsterState.Idle, new MonsterStates.BaseMonster.Idle());
-                    states.Add(MonsterState.Move, new MonsterStates.BaseMonster.Move());
-                    states.Add(MonsterState.Attack, new MonsterStates.BaseMonster.Attack());
-                    states.Add(MonsterState.Damaged, new MonsterStates.BaseMonster.Damaged());
-                    states.Add(MonsterState.Die, new MonsterStates.BaseMonster.Die());
+                    states.Add(MonsterState.IDLE, new MonsterStates.BaseMonster.Idle());
+                    states.Add(MonsterState.MOVE, new MonsterStates.BaseMonster.Move());
+                    states.Add(MonsterState.ATTACK, new MonsterStates.BaseMonster.Attack());
+                    states.Add(MonsterState.DAMAGED, new MonsterStates.BaseMonster.Damaged());
+                    states.Add(MonsterState.DIE , new MonsterStates.BaseMonster.Die());
                     break;
             }
-            stateMachine = new StateMachine<MonsterController>(this, states[MonsterState.Idle]);
+            stateMachine = new StateMachine<MonsterController>(this, states[MonsterState.IDLE]);
             Managers.Resource.Load<RuntimeAnimatorController>(_data.monsterCodeName, (ac) => 
             {
                 animator.runtimeAnimatorController = ac;
@@ -84,13 +84,13 @@ public class MonsterController : BaseController
 
     public override void Hit(Transform _attackerTrans,float _damage)
     {
-        if (state == MonsterState.Die) return;
+        if (state == MonsterState.DIE ) return;
         sound.PlayHitSound();
         SetTarget(_attackerTrans);
         KnockBack();
         GetDamage(_damage);
-        if (state == MonsterState.Attack) return;
-        ChangeState(MonsterState.Damaged,true);
+        if (state == MonsterState.ATTACK) return;
+        ChangeState(MonsterState.DAMAGED,true);
     }
 
     public override void GetDamage(float _damage)
@@ -101,7 +101,7 @@ public class MonsterController : BaseController
     public void CheckDie()
     {
         if(status.currentHP <= 0)
-            ChangeState(MonsterState.Die);
+            ChangeState(MonsterState.DIE );
     }
 
     public override void Die()
@@ -115,7 +115,7 @@ public class MonsterController : BaseController
         Managers.Routine.StartCoroutine(DieRoutine());
     }
 
-    private IEnumerator DieRoutine()
+    protected override IEnumerator DieRoutine()
     {
         yield return new WaitForSeconds(3f);
         Managers.Pool.Push(gameObject);
@@ -128,7 +128,7 @@ public class MonsterController : BaseController
 
     public void SetTarget(Transform _target)
     {
-        targetTras = _target;
+        targetTrans = _target;
     }
 
     public void ChangeState(MonsterState _state, bool _isChangeSameState = false)
@@ -158,9 +158,9 @@ public class MonsterController : BaseController
 
     public void LookAtTarget()
     {
-        if (targetTras == null) return;
-        if (targetTras.position.x > trans.position.x) ChangeDirection(Define.Direction.Right);
-        if (targetTras.position.x < trans.position.x) ChangeDirection(Define.Direction.Left);
+        if (targetTrans == null) return;
+        if (targetTrans.position.x > trans.position.x) ChangeDirection(Define.Direction.Right);
+        if (targetTrans.position.x < trans.position.x) ChangeDirection(Define.Direction.Left);
     }
 
     public override void KnockBack()
@@ -190,7 +190,7 @@ public class MonsterController : BaseController
 
 }
 
-public enum MonsterState { Idle, Move, Follow, Attack, Damaged, Die}
+public enum MonsterState { IDLE, MOVE, FOLLOW, ATTACK, DAMAGED, DIE }
 
 [System.Serializable]
 public class MonsterData

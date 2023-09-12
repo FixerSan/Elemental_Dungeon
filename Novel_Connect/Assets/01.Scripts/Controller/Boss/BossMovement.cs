@@ -9,7 +9,7 @@ public abstract class BossMovement
 
 namespace BossMovements
 {
-    public class IceBoss : BossSound
+    public class IceBoss : BossMovement
     {
         public IceBoss(BossController _boss)
         {
