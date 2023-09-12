@@ -49,6 +49,7 @@ public class Managers : MonoBehaviour
     private DialogManager dialog = new DialogManager();
     private BattleManager battle = new BattleManager();
     private ScreenManager screen = new ScreenManager();
+    private EventManager event_ = new EventManager();
 
     public static ResourceManager Resource { get { return Instance?.resource; } }
     public static PoolManager Pool { get { return Instance?.pool; } }
@@ -62,8 +63,6 @@ public class Managers : MonoBehaviour
     public static DialogManager Dialog { get { return Instance?.dialog; } }
     public static BattleManager Battle { get { return Instance?.battle; } }
     public static ScreenManager Screen { get { return Instance?.screen; } }
-    private void Update()
-    {
-        Input.Update();
-    }
+    public static EventManager Event { get { return Instance?.event_; } }
+    
 }

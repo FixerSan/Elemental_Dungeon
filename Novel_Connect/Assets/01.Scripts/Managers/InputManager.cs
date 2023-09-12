@@ -20,9 +20,6 @@ public class InputManager
     public KeyCode bendingKey = KeyCode.LeftControl;
     public KeyCode dialogSkipKey = KeyCode.G;
 
-    public Action move_RightKeyAction = null;
-    public Action move_LeftKeyAction = null;
-
 
     public void ChangeCanControl(bool _bool)
     {
@@ -34,12 +31,11 @@ public class InputManager
         _keyCode = _changeKeyCode;
     }
 
-    public void Update()
+    public void CheckInput(KeyCode _keyCode, Action<InputType> _callback)
     {
-        if (!isCanControl) return;
-
-        if (Input.GetKey(move_RightKey)) move_RightKeyAction?.Invoke();
-        if (Input.GetKey(move_LeftKey)) move_LeftKeyAction?.Invoke();
+        if (Input.GetKeyDown(_keyCode)) _callback?.Invoke(InputType.PRESS);
+        if (Input.GetKey(_keyCode)) _callback?.Invoke(InputType.HOLD);
+        if (Input.GetKeyUp(_keyCode)) _callback?.Invoke(InputType.RELEASE);
     }
 
     public InputManager()
@@ -60,3 +56,5 @@ public class InputManager
         dialogSkipKey = KeyCode.B;
     }
 }
+
+public enum InputType { PRESS, HOLD, RELEASE }

@@ -118,6 +118,7 @@ public class MonsterController : BaseController
     protected override IEnumerator DieRoutine()
     {
         yield return new WaitForSeconds(3f);
+        Managers.Event.OnIntEvent?.Invoke(IntEventType.OnDeadMonster, data.monsterUID);
         Managers.Pool.Push(gameObject);
     }
 
