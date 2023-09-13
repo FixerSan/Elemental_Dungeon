@@ -74,7 +74,8 @@ public class UIDialogSpeaker : UIPopup
 
     public void CloseDialog()
     {
-        gameObject.SetActive(false);
+        Managers.Routine.StopCoroutine(OnTypingTextCoroutine);
+        Managers.UI.ClosePopupUI(this);
     }
 
     private void CloseAllButton()

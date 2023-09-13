@@ -32,7 +32,7 @@ MonoBehaviour:
     m_SerializedLabels:
     - Preload
   - m_GUID: 896512abd2ef5b64f9663ada1d99ba38
-    m_Address: Popup_DialogSpeaker.GameObject
+    m_Address: UIPopup_DialogSpeaker.GameObject
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
@@ -134,6 +134,11 @@ MonoBehaviour:
     - Preload
   - m_GUID: 61abbee31dd3fc6409fd1abe71126730
     m_Address: Ice_Boss.AnimatorController
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: f1a32798dce72914486e5f8236d21f97
+    m_Address: UIScene_BaseScene.GameObject
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload

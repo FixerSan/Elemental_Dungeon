@@ -81,13 +81,16 @@ public class PlayerController : BaseController
         if (!init) return;
         if (!Managers.Input.isCanControl) return;
         CheckChangeElemental();
+        CheckSkillCooltime();
         stateMachine.UpdateState();
         movement.CheckIsGround();
+
     }
 
     public override void GetDamage(float _damage)
     {
         status.currentHP -= _damage;
+        Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnChangeHP);
     }
 
     public override void Hit(Transform _attackerTrans, float _damage)
@@ -155,6 +158,7 @@ public class PlayerController : BaseController
         {
             animator.runtimeAnimatorController = ac;
             isChangeElemental = false;
+            Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnChangeElemental);
             _callback?.Invoke();
         });
     }
@@ -215,6 +219,15 @@ public class PlayerController : BaseController
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_2")) attack.Attack();
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_3")) attack.Attack();
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_4")) attack.Attack();
+    }
+
+    public void CheckSkillCooltime()
+    {
+        if(skills.Length > 0)
+        {
+            skills[0]?.CheckCoolTime();
+            skills[1]?.CheckCoolTime();
+        }
     }
 }
 public enum PlayerState

@@ -5,7 +5,12 @@ using UnityEngine;
 public abstract class PlayerSkill 
 {
     public SkillData data;
+    public bool isCanUse;
+    public float coolTime;
+    public float currentCoolTime;
     protected PlayerController player;
+    public abstract void CheckCoolTime();
+
     public abstract void CheckUse();
     public abstract void Use();
     public PlayerSkill() 
@@ -25,9 +30,11 @@ namespace PlayerSkills
 
                 Managers.Input.CheckInput(Managers.Input.skill_OneKey, (_inputType) =>
                 {
-                    if(_inputType == InputType.PRESS)
+                    if(_inputType == InputType.PRESS && isCanUse)
                     {
                         Use();
+                        currentCoolTime = coolTime;
+                        isCanUse = false;
                     }
                 });
             }
@@ -39,9 +46,27 @@ namespace PlayerSkills
                 skill.Init(player.direction);
             }
 
+            public override void CheckCoolTime()
+            {
+                if (!isCanUse)
+                {
+                    if (currentCoolTime > 0)
+                    {
+                        currentCoolTime -= Time.deltaTime;
+                        if (currentCoolTime <= 0)
+                        {
+                            currentCoolTime = 0;
+                            isCanUse = true;
+                        }
+                        Managers.Event.OnVoidEvent(VoidEventType.OnChangeSkill_OneCoolTime);
+                    }
+                }
+            }
             public One(PlayerController _player)
             {
                 player = _player;
+                coolTime = 3;
+                isCanUse = true;
                 Managers.Data.GetSkillData(0,(_skillData) => 
                 {
                     data = _skillData;
@@ -55,9 +80,11 @@ namespace PlayerSkills
             {
                 Managers.Input.CheckInput(Managers.Input.skill_TwoKey, (_inputType) =>
                 {
-                    if (_inputType == InputType.PRESS)
+                    if (_inputType == InputType.PRESS && isCanUse)
                     {
                         Use();
+                        currentCoolTime = coolTime;
+                        isCanUse = false;
                     }
                 });
             }
@@ -70,9 +97,28 @@ namespace PlayerSkills
                 floor.Init(player.direction);
             }
 
+            public override void CheckCoolTime()
+            {
+                if (!isCanUse)
+                {
+                    if (currentCoolTime > 0)
+                    {
+                        currentCoolTime -= Time.deltaTime;
+                        if (currentCoolTime <= 0)
+                        {
+                            currentCoolTime = 0;
+                            isCanUse = true;
+                        }
+                        Managers.Event.OnVoidEvent(VoidEventType.OnChangeSkill_TwoCoolTime);
+                    }
+                }
+            }
+
             public Two(PlayerController _player)
             {
                 player = _player;
+                coolTime = 5;
+                isCanUse = true;
                 Managers.Data.GetSkillData(1, (_skillData) =>
                 {
                     data = _skillData;

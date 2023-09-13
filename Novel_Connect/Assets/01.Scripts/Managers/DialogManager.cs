@@ -11,8 +11,7 @@ public class DialogManager
         {
             if(speaker == null)
             {
-                GameObject go = Managers.Resource.Instantiate("Popup_DialogSpeaker");
-                speaker = go.GetOrAddComponent<UIDialogSpeaker>();
+                speaker = Managers.UI.ShowPopupUI<UIDialogSpeaker>("UIPopup_DialogSpeaker");
                 speaker.Init();
             }
             return speaker;

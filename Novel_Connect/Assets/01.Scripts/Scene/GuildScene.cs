@@ -7,6 +7,7 @@ public class GuildScene : BaseScene
     public override void Init()
     {
         base.Init();
+        Managers.UI.ShowSceneUI<UIBaseScene>("UIScene_BaseScene");
         Managers.Object.Player.Init(1, Define.Elemental.Normal.ToString());
         Managers.Object.Player.SetPosition(new Vector3(3, -1 ,0));
         Managers.Screen.SetCameraTarget(Managers.Object.Player.GetTrans());  
