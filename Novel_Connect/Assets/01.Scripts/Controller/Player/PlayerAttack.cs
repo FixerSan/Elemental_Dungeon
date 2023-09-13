@@ -15,10 +15,13 @@ public abstract class PlayerAttack
 
     public virtual void CheckAttack()
     {
-        if(Input.GetKey(Managers.Input.attackKey))
+        Managers.Input.CheckInput(Managers.Input.attackKey, (_inputType) => 
         {
-            player.ChangeState(PlayerState.Attack);
-        }
+        if (_inputType == InputType.HOLD)
+            {
+                player.ChangeState(PlayerState.ATTACK);
+            }
+        });
     }
 
     public virtual void StartAttack()
@@ -30,42 +33,14 @@ public abstract class PlayerAttack
         player.sound.PlayAttackSound(currentAttackCount - 1);
     }
 
-    protected abstract void Attack();
+    public abstract void Attack();
     protected virtual IEnumerator AttackRoutine()
     {
         if(initAttackCountCoroutine != null)    Managers.Routine.StopCoroutine(initAttackCountCoroutine);
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.1f);
         float animationTime = player.animator.GetCurrentAnimatorStateInfo(0).length;
-        switch (currentAttackCount)
-        {
-            case 1:
-                yield return new WaitForSeconds(0.18f - 0.05f);
-                Attack();
-                yield return new WaitForSeconds(animationTime - 0.18f);
-                break;
-
-            case 2:
-                yield return new WaitForSeconds(0.14f - 0.05f);
-                Attack();
-                yield return new WaitForSeconds(0.49f - 0.14f);
-                Attack();
-                yield return new WaitForSeconds(animationTime - 0.49f);
-                break;
-
-            case 3:
-                yield return new WaitForSeconds(0.57f - 0.05f);
-                Attack();
-                yield return new WaitForSeconds(animationTime - 0.57f);
-                break;
-
-            case 4:
-                yield return new WaitForSeconds(0.57f - 0.05f);
-                Attack();
-                yield return new WaitForSeconds(animationTime - 0.57f);
-                break;
-        }
-
-        player.ChangeState(PlayerState.Idle);
+        yield return new WaitForSeconds(animationTime - 0.1f);
+        player.ChangeState(PlayerState.IDLE);
         initAttackCountCoroutine = Managers.Routine.StartCoroutine(InitAttackCountRoutine());
     }
 
@@ -91,7 +66,7 @@ namespace PlayerAttacks
             InitAttackCountDelay = 1;
         }
 
-        protected override void Attack()
+        public override void Attack()
         {
             Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(player.attackTrans.position, player.attackTrans.localScale, 0, player.attackLayer);
             for (int i = 0; i < collider2Ds.Length; i++)
@@ -116,7 +91,7 @@ namespace PlayerAttacks
             InitAttackCountDelay = 1;
         }
 
-        protected override void Attack()
+        public override void Attack()
         {
             Collider2D[] collider2Ds_1 = Physics2D.OverlapBoxAll(player.attackTrans.position, player.attackTrans.localScale, 0, player.attackLayer);
             foreach (Collider2D hitTarget in collider2Ds_1)

@@ -1,7 +1,5 @@
+using JetBrains.Annotations;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 namespace PlayerStates
 {
@@ -9,9 +7,7 @@ namespace PlayerStates
     {
         public override void EnterState(PlayerController _entity)
         {
-            _entity.movement.CheckThump();
-            if (_entity.beforestate == PlayerState.Walk || _entity.beforestate == PlayerState.Run)
-                _entity.Stop();
+
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)
@@ -22,9 +18,9 @@ namespace PlayerStates
         public override void UpdateState(PlayerController _entity)
         {
             _entity.movement.CheckMove();
-            _entity.movement.CheckJump();
-            _entity.movement.CheckUpAndFall();
             _entity.attack.CheckAttack();
+            _entity.movement.CheckDash();
+            _entity.movement.CheckUpAndFall();
             if (_entity.skills.Length == 0) return;
             _entity.skills[0]?.CheckUse();
             _entity.skills[1]?.CheckUse();
@@ -35,27 +31,17 @@ namespace PlayerStates
     {
         public override void EnterState(PlayerController _entity)
         {
-            _entity.animator.SetBool("isWalk", true);
-            _entity.sound.PlayWalkSound();
+
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)
         {
-            _entity.animator.SetBool("isWalk", false);
-            _entity.sound.StopWalkSound();
             _callback?.Invoke();
         }
 
         public override void UpdateState(PlayerController _entity)
         {
             _entity.movement.WalkMove();
-            _entity.movement.CheckMove();
-            _entity.movement.CheckJump();
-            _entity.movement.CheckUpAndFall();
-            _entity.attack.CheckAttack();
-            if (_entity.skills.Length == 0) return;
-            _entity.skills[0]?.CheckUse();
-            _entity.skills[1]?.CheckUse();
         }
     }
 
@@ -63,60 +49,52 @@ namespace PlayerStates
     {
         public override void EnterState(PlayerController _entity)
         {
-            _entity.animator.SetBool("isRun", true);
-            _entity.sound.PlayRunSound();
+            
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)
         {
             _entity.animator.SetBool("isRun", false);
-            _entity.sound.StopRunSound();
             _callback?.Invoke();
-        }
+        }      
 
         public override void UpdateState(PlayerController _entity)
         {
-            _entity.movement.RunMove();
-            _entity.movement.CheckMove();
-            _entity.movement.CheckJump();
-            _entity.movement.CheckUpAndFall();
+            if (!_entity.animator.GetBool("isRun")) _entity.animator.SetBool("isRun", true);
+            if (_entity.movement.CheckMove()) _entity.movement.RunMove();
+            if (_entity.movement.CheckStop()) _entity.Stop();
             _entity.attack.CheckAttack();
+            _entity.movement.CheckJump();
+            _entity.movement.CheckDash();
             if (_entity.skills.Length == 0) return;
             _entity.skills[0]?.CheckUse();
             _entity.skills[1]?.CheckUse();
         }
     }
-
     public class JumpStart : State<PlayerController>
     {
         public override void EnterState(PlayerController _entity)
         {
-            _entity.animator.SetBool("isJumpStart", true);
             _entity.movement.Jump();
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)
         {
-            _entity.movement.SetCanJump();
-            _entity.animator.SetBool("isJumpStart", false);
             _callback?.Invoke();
         }
 
         public override void UpdateState(PlayerController _entity)
         {
-            _entity.movement.CheckLanding();
-            _entity.movement.CheckJumpMove();
-            if (_entity.skills.Length == 0) return;
-            _entity.skills[0]?.CheckUse();
-            _entity.skills[1]?.CheckUse();
+            if (!_entity.animator.GetBool("isJump")) _entity.animator.SetBool("isJump", true);
+            _entity.movement.CheckUpAndFall();
         }
     }
 
-    public class Jump : State<PlayerController>
+    public class Jumping : State<PlayerController>
     {
         public override void EnterState(PlayerController _entity)
         {
-            _entity.animator.SetBool("isJump", true);
+
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)
@@ -127,59 +105,35 @@ namespace PlayerStates
 
         public override void UpdateState(PlayerController _entity)
         {
+            if (!_entity.animator.GetBool("isJump")) _entity.animator.SetBool("isJump", true);
             _entity.movement.CheckUpAndFall();
             _entity.movement.CheckLanding();
-            _entity.movement.CheckJumpMove();
-            if (_entity.skills.Length == 0) return;
-            _entity.skills[0]?.CheckUse();
-            _entity.skills[1]?.CheckUse();
+            if (_entity.movement.CheckJumpMove()) _entity.movement.JumpMove();
+            _entity.movement.CheckDash();
         }
     }
 
-    public class Fall : State<PlayerController>
+    public class Falling : State<PlayerController>
     {
         public override void EnterState(PlayerController _entity)
         {
-            _entity.animator.SetBool("isFall", true);
+
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)
         {
             _entity.animator.SetBool("isFall", false);
+            if (_entity.movement.CheckStop()) _entity.Stop();
             _callback?.Invoke();
         }
 
         public override void UpdateState(PlayerController _entity)
         {
+            if (!_entity.animator.GetBool("isFall")) _entity.animator.SetBool("isFall", true);
             _entity.movement.CheckUpAndFall();
             _entity.movement.CheckLanding();
-            _entity.movement.CheckJumpMove();
-            if (_entity.skills.Length == 0) return;
-            _entity.skills[0]?.CheckUse();
-            _entity.skills[1]?.CheckUse();
-        }
-    }
-
-    public class FallEnd : State<PlayerController>
-    {
-        public override void EnterState(PlayerController _entity)
-        {
-            _entity.animator.SetTrigger("Fall");
-            _entity.ChangeStateWithAnimtionTime(PlayerState.Idle);
-            _entity.sound.PlayFallEndSound();
-        }
-
-        public override void ExitState(PlayerController _entity, Action _callback)
-        {
-            _callback?.Invoke();
-        }
-
-        public override void UpdateState(PlayerController _entity)
-        {
-            _entity.movement.CheckUpAndFall();
-            if (_entity.skills.Length == 0) return;
-            _entity.skills[0]?.CheckUse();
-            _entity.skills[1]?.CheckUse();
+            if (_entity.movement.CheckJumpMove()) _entity.movement.JumpMove();
+            _entity.movement.CheckDash();
         }
     }
 
@@ -189,7 +143,7 @@ namespace PlayerStates
         {
             _entity.animator.SetBool("isAttack", true);
             _entity.attack.StartAttack();
-            _entity.Stop();
+            _entity.movement.CheckAttackMove();
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)
@@ -200,21 +154,53 @@ namespace PlayerStates
 
         public override void UpdateState(PlayerController _entity)
         {
-
+            _entity.movement.CheckDash();
         }
     }
 
-    public class CastSkill : State<PlayerController>
+    public class CastSkill_One : State<PlayerController>
     {
         public override void EnterState(PlayerController _entity)
         {
-            _entity.animator.SetBool("isCastSkill", true);
-            _entity.attack.StartAttack();
-        }   
+
+        }
 
         public override void ExitState(PlayerController _entity, Action _callback)
         {
-            _entity.animator.SetBool("isCastSkill", false);
+            _callback?.Invoke();
+        }
+
+        public override void UpdateState(PlayerController _entity)
+        {
+
+        }
+    }
+    public class CastSkill_Two : State<PlayerController>
+    {
+        public override void EnterState(PlayerController _entity)
+        {
+
+        }
+
+        public override void ExitState(PlayerController _entity, Action _callback)
+        {
+            _callback?.Invoke();
+        }
+
+        public override void UpdateState(PlayerController _entity)
+        {
+
+        }
+    }
+    public class Dash : State<PlayerController>
+    {
+        public override void EnterState(PlayerController _entity)
+        {
+            Managers.Routine.StartCoroutine(_entity.movement.Dash());
+        }
+
+        public override void ExitState(PlayerController _entity, Action _callback)
+        {
             _callback?.Invoke();
         }
 

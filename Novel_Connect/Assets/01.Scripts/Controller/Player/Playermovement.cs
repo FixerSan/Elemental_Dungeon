@@ -10,11 +10,11 @@ public abstract class Playermovement
 {
     protected PlayerController player;
     public bool     isGround;
-    public bool     isWalking;
-    public bool     isRuning;
+    public bool     isMoving;
     public float    walkDistance;
     public float    runDistance;
     protected bool  isCanJump;
+
     public void CheckIsGround()
     {
         Collider2D[] hits = Physics2D.OverlapBoxAll(player.checkIsGroundTrans.position, player.checkIsGroundTrans.localScale, 0, player.groundLayer);
@@ -32,113 +32,170 @@ public abstract class Playermovement
         {
             //올라가는 중일 때
             if (player.rb.velocity.y >= 0.01f)
-                player.ChangeState(PlayerState.Jump);
+                player.ChangeState(PlayerState.JUMPING);
 
             //떨어지는 중일 때
             else if (player.rb.velocity.y <= 0f)
-                player.ChangeState(PlayerState.Fall);
+                player.ChangeState(PlayerState.FALL);
         }
-    }
-
-    public void CheckThump()
-    {
-        if (player.rb.velocity.y < -10f)
-            player.ChangeState(PlayerState.FallEnd);
-        
     }
 
     public void CheckLanding()
     {
         if (!isGround) return;
-        player.ChangeState(PlayerState.Idle);
+        player.ChangeState(PlayerState.IDLE);
     }
 
-    public virtual void CheckMove()
+    public virtual bool CheckMove()
     {
+        if (!isGround) return false;
         if(Input.GetKey(Managers.Input.move_LeftKey) && Input.GetKey(Managers.Input.move_RightKey))
         {
-            player.ChangeState(PlayerState.Idle);
+            player.ChangeState(PlayerState.IDLE);
             player.Stop();
-            return;
+            return false;
         }
 
         if(Input.GetKey(Managers.Input.move_LeftKey))
         {
             player.ChangeDirection(Define.Direction.Left);
-            if(Input.GetKey(Managers.Input.runKey))
-            {
-                player.ChangeState(PlayerState.Run);
-                return;
-            }
-            player.ChangeState(PlayerState.Walk);
-            return;
+            player.ChangeState(PlayerState.RUN);
+            return true;
         }
 
         if (Input.GetKey(Managers.Input.move_RightKey))
         {
             player.ChangeDirection(Define.Direction.Right);
-            if (Input.GetKey(Managers.Input.runKey))
-            {
-                player.ChangeState(PlayerState.Run);
-                return;
-            }
-            player.ChangeState(PlayerState.Walk);
-            return;
+            player.ChangeState(PlayerState.RUN);
+            return true;
         }
 
-        player.ChangeState(PlayerState.Idle);
-        player.Stop();
+        player.ChangeState(PlayerState.IDLE);
+        return false;
+    }
+
+    public virtual bool CheckStop()
+    {
+        if (!Input.GetKey(Managers.Input.move_LeftKey) && !Input.GetKey(Managers.Input.move_RightKey)) return true;
+        return false;
     }
 
     public virtual void WalkMove()
     {
-        player.rb.velocity = new Vector2(player.status.currentWalkSpeed * Time.fixedDeltaTime * 50 * (int)player.direction, player.rb.velocity.y);
+        player.rb.AddForce(new Vector2((int)player.direction * player.status.currentWalkSpeed * Time.deltaTime * 4, 0), ForceMode2D.Impulse);
+        if (player.direction == Define.Direction.Left)
+        {
+            if (player.rb.velocity.x <= -player.status.maxWalkSpeed)
+                player.rb.velocity = new Vector2(-player.status.maxWalkSpeed, player.rb.velocity.y);
+        }
+        else
+        {
+            if (player.rb.velocity.x >= player.status.maxWalkSpeed)
+                player.rb.velocity = new Vector2(player.status.maxWalkSpeed, player.rb.velocity.y);
+        }
     }
 
     public virtual void RunMove()
     {
-        player.rb.velocity = new Vector2(player.status.currentRunSpeed * Time.fixedDeltaTime * 50 * (int)player.direction, player.rb.velocity.y);
+        player.rb.AddForce(new Vector2((int)player.direction * player.status.currentRunSpeed * Time.deltaTime * 4, 0), ForceMode2D.Impulse);
+        if (player.direction == Define.Direction.Left)
+        {
+            if (player.rb.velocity.x <= -player.status.maxWalkSpeed)
+                player.rb.velocity = new Vector2(-player.status.maxRunSpeed, player.rb.velocity.y);
+        }
+        else
+        {
+            if (player.rb.velocity.x >= player.status.maxWalkSpeed)
+                player.rb.velocity = new Vector2(player.status.maxRunSpeed, player.rb.velocity.y);
+        }
     }
 
-    public virtual void CheckJumpMove()
+    public virtual bool CheckJumpMove()
     {
         if (Input.GetKey(Managers.Input.move_LeftKey) && Input.GetKey(Managers.Input.move_RightKey))
         {
-            return;
+            return false;
         }
 
         if (Input.GetKey(Managers.Input.move_LeftKey))
         {
             player.ChangeDirection(Define.Direction.Left);
-            return;
+            return true;
         }
 
         if (Input.GetKey(Managers.Input.move_RightKey))
         {
             player.ChangeDirection(Define.Direction.Right);
-            return;
+            return true;
+        }
+
+        return false;
+    }
+
+    public virtual void JumpMove()
+    {
+        player.rb.AddForce(new Vector2((int)player.direction * player.status.currentRunSpeed * Time.deltaTime * 4, 0), ForceMode2D.Impulse);
+        if (player.direction == Define.Direction.Left)
+        {
+            if (player.rb.velocity.x <= -player.status.maxWalkSpeed)
+                player.rb.velocity = new Vector2(-player.status.maxRunSpeed, player.rb.velocity.y);
+        }
+        else
+        {
+            if (player.rb.velocity.x >= player.status.maxWalkSpeed)
+                player.rb.velocity = new Vector2(player.status.maxRunSpeed, player.rb.velocity.y);
         }
     }
 
     public virtual void CheckJump()
     {
-        if (Input.GetKeyDown(Managers.Input.move_JumpKey))
-            player.ChangeState(PlayerState.JumpStart);
+        if (Input.GetKey(Managers.Input.move_JumpKey))
+            player.ChangeState(PlayerState.JUMP);
     }
 
     public virtual void Jump()
     {
-        if (!isCanJump) return;
-        isCanJump = false;
-        player.sound.PlayJumpStartSound();
-        player.rb.velocity = new Vector2(player.rb.velocity.x, 0);
-        player.rb.AddForce(Vector2.up * player.status.currentJumpForce, ForceMode2D.Impulse);
-        player.ChangeStateWithAnimtionTime(PlayerState.Jump);
+        player.rb.AddForce(Vector2.up * player.status.currentJumpForce * 1.5f, ForceMode2D.Impulse);
     }
 
-    public virtual void SetCanJump()
+    public virtual void CheckAttackMove()
     {
-        isCanJump = true;
+        if (Input.GetKey(Managers.Input.move_LeftKey) && Input.GetKey(Managers.Input.move_RightKey))
+            return;
+
+        if (Input.GetKey(Managers.Input.move_LeftKey))
+        {
+            Managers.Routine.StartCoroutine(player.movement.AttackMove());
+            return;
+        }
+
+        if (Input.GetKey(Managers.Input.move_RightKey))
+        {
+            Managers.Routine.StartCoroutine(player.movement.AttackMove());
+            return;
+        }
+    }
+
+    public IEnumerator AttackMove()
+    {
+        player.rb.AddForce(new Vector2((int)player.direction * 3, 0), ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.25f);
+        player.Stop();
+    }
+
+    public virtual void CheckDash()
+    {
+        if(Input.GetKeyDown(KeyCode.C))
+            player.ChangeState(PlayerState.DASH);
+    }
+    
+    public virtual IEnumerator Dash()
+    {
+        player.rb.velocity = Vector2.zero;
+        player.rb.AddForce(new Vector2((int)player.direction * 15, 0), ForceMode2D.Impulse);
+        yield return new WaitForSeconds(0.2f);
+        player.Stop();
+        player.ChangeState(PlayerState.IDLE);
     }
 }
 
@@ -151,8 +208,7 @@ namespace Playermovements
             player = _player;
             isGround = false;
             isCanJump = true;
-            isWalking = false;
-            isRuning = false ;
+            isMoving = false;
             walkDistance = 0f;
             runDistance = 0; 
         }
@@ -165,8 +221,7 @@ namespace Playermovements
             player = _player;
             isGround = false;
             isCanJump = true;
-            isWalking = false;
-            isRuning = false;
+            isMoving = false;
             walkDistance = 0f;
             runDistance = 0;
         }

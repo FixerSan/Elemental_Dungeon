@@ -18,9 +18,4 @@ public class TestController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F2))
             Managers.Screen.SetCameraTarget(Managers.Object.Player.trans);
     }
-
-    private void OnEnable()
-    {
-        Managers.Event.OnIntEvent += (_event, _uid) => { if (_event == IntEventType.OnDeadMonster) Debug.Log(_uid); };
-    }
 }

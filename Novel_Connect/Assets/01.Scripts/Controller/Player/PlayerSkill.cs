@@ -22,10 +22,14 @@ namespace PlayerSkills
         {
             public override void CheckUse()
             {
-                if(Input.GetKeyDown(Managers.Input.skill_OneKey))
+
+                Managers.Input.CheckInput(Managers.Input.skill_OneKey, (_inputType) =>
                 {
-                    Use();
-                }
+                    if(_inputType == InputType.PRESS)
+                    {
+                        Use();
+                    }
+                });
             }
 
 
@@ -49,10 +53,13 @@ namespace PlayerSkills
         {
             public override void CheckUse()
             {
-                if (Input.GetKeyDown(Managers.Input.skill_TwoKey))
+                Managers.Input.CheckInput(Managers.Input.skill_TwoKey, (_inputType) =>
                 {
-                    Use();
-                }
+                    if (_inputType == InputType.PRESS)
+                    {
+                        Use();
+                    }
+                });
             }
 
             public override void Use()

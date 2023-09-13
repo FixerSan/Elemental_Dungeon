@@ -22,27 +22,13 @@ public abstract class PlayerSound
 
     protected virtual IEnumerator PlayWalkSoundRoutine()
     {
-        player.movement.isWalking = true;
-        while (player.movement.isWalking)
-        {
-            yield return null;
-            float animationTime = player.animator.GetCurrentAnimatorStateInfo(0).length;
-            player.movement.walkDistance += Time.deltaTime;
-            if(player.movement.walkDistance >= animationTime * 0.5f)
-            {
+        yield return null;
 
-                Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_Walk);
-                player.movement.walkDistance = 0f;
-            }
-        }
     }
 
     public virtual void StopWalkSound()
     {
-        player.movement.isWalking = false;
-        if (walkSoundCoroutine == null) return;
-        Managers.Routine.StopCoroutine(walkSoundCoroutine);
-        walkSoundCoroutine = null;
+
     }
 
     public virtual void PlayRunSound()
@@ -53,23 +39,11 @@ public abstract class PlayerSound
 
     protected virtual IEnumerator PlayRunSoundRoutine()
     {
-        player.movement.isRuning = true;
-        while (player.movement.isRuning)
-        {
-            yield return null;
-            float animationTime = player.animator.GetCurrentAnimatorStateInfo(0).length;
-            player.movement.walkDistance += Time.deltaTime;
-            if (player.movement.walkDistance >= animationTime * 0.5f)
-            {
-                Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_Run);
-                player.movement.walkDistance = 0f;
-            }
-        }
+        yield return null;
     }
 
     public virtual void StopRunSound()
     {
-        player.movement.isRuning = false;
         if (runSoundCoroutine == null) return;
         Managers.Routine.StopCoroutine(runSoundCoroutine);
         runSoundCoroutine = null;

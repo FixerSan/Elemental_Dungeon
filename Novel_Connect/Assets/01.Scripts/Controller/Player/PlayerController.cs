@@ -60,16 +60,17 @@ public class PlayerController : BaseController
         ChangeElemental(_elemental, () =>
         {
             states = new Dictionary<PlayerState, State<PlayerController>>();
-            states.Add(PlayerState.Idle, new PlayerStates.Idle());
-            states.Add(PlayerState.Walk, new PlayerStates.Walk());
-            states.Add(PlayerState.Run, new PlayerStates.Run());
-            states.Add(PlayerState.JumpStart, new PlayerStates.JumpStart());
-            states.Add(PlayerState.Jump, new PlayerStates.Jump());
-            states.Add(PlayerState.Fall, new PlayerStates.Fall());
-            states.Add(PlayerState.FallEnd, new PlayerStates.FallEnd());
-            states.Add(PlayerState.Attack, new PlayerStates.Attack());
-            states.Add(PlayerState.CastSkill, new PlayerStates.CastSkill());
-            stateMachine = new StateMachine<PlayerController>(this, states[PlayerState.Idle]);
+            states.Add(PlayerState.IDLE, new PlayerStates.Idle());
+            states.Add(PlayerState.WALK, new PlayerStates.Walk());
+            states.Add(PlayerState.RUN, new PlayerStates.Run());
+            states.Add(PlayerState.JUMP, new PlayerStates.JumpStart());
+            states.Add(PlayerState.JUMPING, new PlayerStates.Jumping());
+            states.Add(PlayerState.FALL, new PlayerStates.Falling());
+            states.Add(PlayerState.ATTACK, new PlayerStates.Attack());
+            states.Add(PlayerState.CASTSKILL_ONE, new PlayerStates.CastSkill_One());
+            states.Add(PlayerState.CASTSKILL_TWO, new PlayerStates.CastSkill_Two());
+            states.Add(PlayerState.DASH, new PlayerStates.Dash());
+            stateMachine = new StateMachine<PlayerController>(this, states[PlayerState.IDLE]);
             init = true;
         });
 
@@ -207,10 +208,18 @@ public class PlayerController : BaseController
     {
         throw new NotImplementedException();
     }
+
+    public void AnimationEvent()
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_1")) attack.Attack();
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_2")) attack.Attack();
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_3")) attack.Attack();
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_4")) attack.Attack();
+    }
 }
 public enum PlayerState
 {
-    Idle, Walk, Run, JumpStart, Jump, Fall, FallEnd , Attack , CastSkill
+    IDLE, WALK, RUN, JUMP, JUMPING, FALL, ATTACK , CASTSKILL_ONE, CASTSKILL_TWO, DASH
 }
 
 [System.Serializable]

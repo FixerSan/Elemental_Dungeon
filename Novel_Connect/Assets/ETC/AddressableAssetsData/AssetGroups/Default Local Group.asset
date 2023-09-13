@@ -73,26 +73,31 @@ MonoBehaviour:
     m_Address: Ghost_Bat_Attack.AudioClip
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 95beb0a65d0ff054f9a144241cbbbc93
+  - m_GUID: 002ab35bdc407bc478da280d5efca0c0
     m_Address: Player_Fire.AnimatorController
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Preload
   - m_GUID: 3105b970822531b4ab54b860053dada6
     m_Address: Player_Attack.SoundProfile
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Preload
   - m_GUID: 23fdad85748e55b45a39cff7d44744e2
     m_Address: Player_Walk.SoundProfile
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Preload
   - m_GUID: 1be1ebd11a4d1e34680b02fb91727871
     m_Address: Player_ETC.SoundProfile
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Preload
   - m_GUID: 549f8fddc388c73439d9d37c8ea81fd9
     m_Address: Player_Run.SoundProfile
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Preload
   - m_GUID: fbf301a3675527f44a7f4e2f680d69ae
     m_Address: Illust_Princess.Sprite
     m_ReadOnly: 0
@@ -100,11 +105,13 @@ MonoBehaviour:
   - m_GUID: 536e6e546cdd4f24fba15d5ac0059dbd
     m_Address: Dialog.SoundProfile
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Preload
   - m_GUID: dccb8af35a5ff4b4e9d782c9817a7f05
     m_Address: Effect.SoundProfile
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Preload
   - m_GUID: 06cda6286f6da9c46a6e0c477a11db69
     m_Address: Main Camera.GameObject
     m_ReadOnly: 0
@@ -128,7 +135,8 @@ MonoBehaviour:
   - m_GUID: 61abbee31dd3fc6409fd1abe71126730
     m_Address: Ice_Boss.AnimatorController
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Preload
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7625f705cca72f24088dfc48d2137928, type: 2}
   m_SchemaSet:
