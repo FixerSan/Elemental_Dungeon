@@ -58,7 +58,7 @@ namespace PlayerSkills
                             currentCoolTime = 0;
                             isCanUse = true;
                         }
-                        Managers.Event.OnVoidEvent(VoidEventType.OnChangeSkill_OneCoolTime);
+                        Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnChangeSkill_OneCoolTime);
                     }
                 }
             }

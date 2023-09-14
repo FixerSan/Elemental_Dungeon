@@ -37,6 +37,20 @@ public static class Extension
         return null;
     }
 
+    public static BaseItem FindItem(this BaseItem[] _items, int _itemUID)
+    {
+        if (_items.Length == 0)
+            return null;
+
+        for (int i = 0; i < _items.Length; i++)
+        {
+            if (_items[i].itemData.itemUID == _itemUID)
+                return _items[i];
+        }
+
+        return null;
+    }
+
     public static T Random<T>(this List<T> _list)
     {
         int random = UnityEngine.Random.Range(0, _list.Count);

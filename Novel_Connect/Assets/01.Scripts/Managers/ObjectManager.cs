@@ -81,9 +81,9 @@ public class ObjectManager
         }
     }
 
-    public T CreateItem<T>(Define.Item _item, int _count = 1) where T : BaseItem
+    public T CreateItem<T>(int _itemUID, int _count = 1) where T : BaseItem
     {
-        BaseItem baseItem = new BaseItem((int)_item, _count);
+        BaseItem baseItem = new BaseItem(_itemUID, _count);
         return baseItem as T;
     }
 }
