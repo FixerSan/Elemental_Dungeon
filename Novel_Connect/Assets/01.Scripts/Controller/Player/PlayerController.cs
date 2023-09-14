@@ -11,12 +11,12 @@ using static Define;
 public class PlayerController : BaseController
 {
     private bool init = false;
-    public bool isChangeElemental;
     public PlayerData data;
     public Playermovement movement;
     public PlayerAttack attack;
     public PlayerSkill[] skills;
     public PlayerSound sound;
+    public PlayerElemental elementals;
     public Inventory inventory;
     public PlayerState state;
     public PlayerState beforestate;
@@ -30,6 +30,7 @@ public class PlayerController : BaseController
 
     public void Init(int _level, string _elementalString)
     {
+        elementals = new PlayerElemental(this);
         trans = gameObject.GetOrAddComponent<Transform>();
         trans.GetOrAddComponent<SpriteRenderer>();
         animator = trans.GetOrAddComponent<Animator>();
@@ -39,7 +40,6 @@ public class PlayerController : BaseController
         attackTrans = Util.FindChild<Transform>(gameObject, "AttackTrans");
         groundLayer = LayerMask.GetMask("Ground");
         attackLayer = LayerMask.GetMask("Hitable");
-        isChangeElemental = false;
         Managers.Data.GetPlayerData(_level, (_data) =>
         {
             data = _data;
@@ -57,7 +57,7 @@ public class PlayerController : BaseController
             status.currentAttackForce = _data.force;
         });
         Elemental _elemental = Util.ParseEnum<Elemental>(_elementalString);
-        ChangeElemental(_elemental, () =>
+        elementals.ChangeElemental(_elemental, () =>
         {
             states = new Dictionary<PlayerState, State<PlayerController>>();
             states.Add(PlayerState.IDLE, new PlayerStates.Idle());
@@ -80,11 +80,10 @@ public class PlayerController : BaseController
     {
         if (!init) return;
         if (!Managers.Input.isCanControl) return;
-        CheckChangeElemental();
+        elementals.CheckChangeElemental();
         CheckSkillCooltime();
         stateMachine.UpdateState();
         movement.CheckIsGround();
-
     }
 
     public override void GetDamage(float _damage)
@@ -114,53 +113,6 @@ public class PlayerController : BaseController
         beforestate = state;
         state = _state;
         stateMachine.ChangeState(states[_state]);
-    }
-
-    public void CheckChangeElemental()
-    {
-        if (Input.GetKeyDown(KeyCode.Tab))
-            isChangeElemental = !isChangeElemental;
-        if (isChangeElemental)
-        {
-            if (Input.GetKeyDown(KeyCode.Alpha1) && elemental != Elemental.Normal)
-            {
-                ChangeElemental(Elemental.Normal);
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha2) && elemental != Elemental.Fire)
-                ChangeElemental(Elemental.Fire);
-        }
-    }
-
-    public void ChangeElemental(Elemental _elemental, Action _callback = null)
-    {
-        switch(_elemental)
-        {
-            case Elemental.Normal:
-                attack = new PlayerAttacks.Normal(this);
-                movement = new Playermovements.Normal(this);
-                sound = new PlayerSounds.Normal(this);
-                skills = new PlayerSkill[0];
-                break;
-
-            case Elemental.Fire:
-                attack = new PlayerAttacks.Fire(this);
-                movement = new Playermovements.Fire(this);
-                sound = new PlayerSounds.Fire(this);
-                skills = new PlayerSkill[2];
-                skills[0] = new PlayerSkills.Fire.One(this);
-                skills[1] = new PlayerSkills.Fire.Two(this);
-                break;
-        }
-
-        elemental = _elemental;
-        Managers.Resource.Load<RuntimeAnimatorController>($"Player_{_elemental}", (ac) => 
-        {
-            animator.runtimeAnimatorController = ac;
-            isChangeElemental = false;
-            Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnChangeElemental);
-            _callback?.Invoke();
-        });
     }
 
     public void ChangeStateWithDelay(PlayerState _nextState,float _delayTime)

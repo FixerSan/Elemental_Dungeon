@@ -33,7 +33,11 @@ public class InputManager
 
     public void CheckInput(KeyCode _keyCode, Action<InputType> _callback)
     {
-        if (Input.GetKeyDown(_keyCode)) _callback?.Invoke(InputType.PRESS);
+        if (Input.GetKeyDown(_keyCode)) 
+        {
+            _callback?.Invoke(InputType.PRESS);
+            Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnInput_ElementalKey);
+        }
         if (Input.GetKey(_keyCode)) _callback?.Invoke(InputType.HOLD);
         if (Input.GetKeyUp(_keyCode)) _callback?.Invoke(InputType.RELEASE);
     }

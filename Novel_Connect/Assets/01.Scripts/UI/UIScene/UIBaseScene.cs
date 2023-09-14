@@ -23,6 +23,8 @@ public class UIBaseScene : UIScene
         Managers.Event.OnVoidEvent += ChangeSkill_OneCooltime;
         Managers.Event.OnVoidEvent -= ChangeSkill_TwoCooltime;
         Managers.Event.OnVoidEvent += ChangeSkill_TwoCooltime;
+        Managers.Event.OnVoidEvent -= DrawElementalUI;
+        Managers.Event.OnVoidEvent += DrawElementalUI;
 
         GetImage((int)Images.Image_Skill_OneCoolTime).fillAmount = 0;
         GetImage((int)Images.Image_Skill_TwoCoolTime).fillAmount = 0;
@@ -52,8 +54,6 @@ public class UIBaseScene : UIScene
     public void ChangeElemetal(VoidEventType _eventType)
     {
         if (_eventType != VoidEventType.OnChangeElemental) return;
-
-        
     }
 
     public void ChangeSkill_OneCooltime(VoidEventType _eventType)
@@ -71,5 +71,12 @@ public class UIBaseScene : UIScene
 
         PlayerController player = Managers.Object.Player;
         GetImage((int)Images.Image_Skill_TwoCoolTime).fillAmount = player.skills[1].currentCoolTime / player.skills[1].coolTime;
+    }
+
+    public void DrawElementalUI(VoidEventType _eventType)
+    {
+        if (_eventType != VoidEventType.OnInput_ElementalKey) return;
+
+
     }
 }
