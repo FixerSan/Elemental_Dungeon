@@ -31,7 +31,8 @@
 "itemDatas":[
  {
   "itemUID": 0,
-  "Column2": "TestItem",
+  "maxCount": 10,
+  "codeName": "TestItem",
   "name": "TestItem",
   "description": "테스트아이템입니다.",
   "itemImageKey": "TestItem.Sprite"
@@ -89,20 +90,20 @@
   "elemental": "Fire",
   "name": "화마의 숨결",
   "description": "전방에 스플래시 데미지를 준다.",
-  "iconImageKey": "Skill_FireOne.Sprite"
+  "iconImageKey": "Skill_Fire_One"
  },
  {
   "skillUID": 1,
   "elemental": "Fire",
   "name": "화마 돌진",
   "description": "적을 밀치면서 데미지를 주고 지나간 자리에 불을 일으킨다.",
-  "iconImageKey": "Skill_FireTwo.Sprite"
+  "iconImageKey": "Skill_Fire_Two"
  }
 ],
 "bossDatas":[
  {
   "bossUID": 0,
-  "bossCodeName": "IceBoss",
+  "bossCodeName": "Ice_Boss",
   "bossName": "얼음 정령",
   "description": "어쩌구 저쩌구",
   "exp": 10,

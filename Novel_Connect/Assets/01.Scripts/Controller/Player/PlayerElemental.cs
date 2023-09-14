@@ -12,8 +12,12 @@ public class PlayerElemental
     public bool isChangeElemental = false;
     public void CheckChangeElemental()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        Managers.Input.CheckInput(Managers.Input.changeElementalKey, (_inputType) => 
+        {
+            if (_inputType != InputType.PRESS) return;
             isChangeElemental = !isChangeElemental;
+        });
+
         if (isChangeElemental)
         {
             if (Input.GetKeyDown(KeyCode.Alpha1) && player.elemental != Elemental.Normal)
@@ -65,5 +69,6 @@ public class PlayerElemental
     {
         player = _player;
         isChangeElemental = false;
+        isHasFire = true;
     }
 }

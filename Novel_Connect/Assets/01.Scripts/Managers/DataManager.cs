@@ -107,7 +107,9 @@ public class SceneData : Data
 public class ItemData : Data
 {
     public int itemUID;
+    public int maxCount;
     public string name;
+    public string codeName;
     public string description;
     public string itemImageKey;
 }

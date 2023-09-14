@@ -36,7 +36,8 @@ public class InputManager
         if (Input.GetKeyDown(_keyCode)) 
         {
             _callback?.Invoke(InputType.PRESS);
-            Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnInput_ElementalKey);
+            if(_keyCode == Managers.Input.changeElementalKey)
+                Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnInput_ElementalKey);
         }
         if (Input.GetKey(_keyCode)) _callback?.Invoke(InputType.HOLD);
         if (Input.GetKeyUp(_keyCode)) _callback?.Invoke(InputType.RELEASE);
@@ -46,7 +47,7 @@ public class InputManager
     {
         isCanControl = true;
         inputAction = null;
-        changeElementalKey = KeyCode.F1;
+        changeElementalKey = KeyCode.Tab;
         move_UpKey = KeyCode.UpArrow;
         move_DownKey = KeyCode.DownArrow;
         move_RightKey = KeyCode.RightArrow;

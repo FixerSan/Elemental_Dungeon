@@ -80,7 +80,6 @@ public class PlayerController : BaseController
     {
         if (!init) return;
         if (!Managers.Input.isCanControl) return;
-        elementals.CheckChangeElemental();
         CheckSkillCooltime();
         stateMachine.UpdateState();
         movement.CheckIsGround();

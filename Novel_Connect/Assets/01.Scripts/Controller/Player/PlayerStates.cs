@@ -19,11 +19,15 @@ namespace PlayerStates
         {
             _entity.movement.CheckMove();
             _entity.attack.CheckAttack();
+            _entity.movement.CheckJump();
             _entity.movement.CheckDash();
             _entity.movement.CheckUpAndFall();
-            if (_entity.skills.Length == 0) return;
-            _entity.skills[0]?.CheckUse();
-            _entity.skills[1]?.CheckUse();
+            if (_entity.skills.Length != 0)
+            {
+                _entity.skills[0]?.CheckUse();
+                _entity.skills[1]?.CheckUse();
+            }
+            _entity.elementals.CheckChangeElemental();
         }
     }
 
@@ -66,9 +70,12 @@ namespace PlayerStates
             _entity.attack.CheckAttack();
             _entity.movement.CheckJump();
             _entity.movement.CheckDash();
-            if (_entity.skills.Length == 0) return;
-            _entity.skills[0]?.CheckUse();
-            _entity.skills[1]?.CheckUse();
+            if (_entity.skills.Length != 0)
+            {
+                _entity.skills[0]?.CheckUse();
+                _entity.skills[1]?.CheckUse();
+            }
+            _entity.elementals.CheckChangeElemental();
         }
     }
     public class JumpStart : State<PlayerController>
@@ -110,6 +117,7 @@ namespace PlayerStates
             _entity.movement.CheckLanding();
             if (_entity.movement.CheckJumpMove()) _entity.movement.JumpMove();
             _entity.movement.CheckDash();
+            _entity.elementals.CheckChangeElemental();
         }
     }
 
@@ -134,6 +142,7 @@ namespace PlayerStates
             _entity.movement.CheckLanding();
             if (_entity.movement.CheckJumpMove()) _entity.movement.JumpMove();
             _entity.movement.CheckDash();
+            _entity.elementals.CheckChangeElemental();
         }
     }
 

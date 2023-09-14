@@ -11,6 +11,7 @@ public class UIBaseScene : UIScene
 
         BindSlider(typeof(Sliders));
         BindImage(typeof(Images));
+        BindObject(typeof(Objects));
 
 
         Managers.Event.OnVoidEvent -= ChangeHPSlider;
@@ -34,6 +35,7 @@ public class UIBaseScene : UIScene
 
     private enum Sliders { Slider_HP, Slider_MP }
     private enum Images { Image_Illust, Image_Skill_One, Image_Skill_OneCoolTime, Image_Skill_Two, Image_Skill_TwoCoolTime }
+    private enum Objects { Object_ChangeElemental }
 
     public void ChangeHPSlider(VoidEventType _eventType)
     {
@@ -58,25 +60,29 @@ public class UIBaseScene : UIScene
 
     public void ChangeSkill_OneCooltime(VoidEventType _eventType)
     {
-
-        if (_eventType != VoidEventType.OnChangeSkill_OneCoolTime) return;
-
-        PlayerController player = Managers.Object.Player;
-        GetImage((int)Images.Image_Skill_OneCoolTime).fillAmount = player.skills[0].currentCoolTime / player.skills[0].coolTime;
+        if (_eventType == VoidEventType.OnChangeSkill_OneCoolTime || _eventType == VoidEventType.OnChangeElemental)
+        {
+            PlayerController player = Managers.Object.Player;
+            if (player.skills.Length == 0) return;
+            GetImage((int)Images.Image_Skill_OneCoolTime).fillAmount = player.skills[0].currentCoolTime / player.skills[0].coolTime;
+        }
     }
 
     public void ChangeSkill_TwoCooltime(VoidEventType _eventType)
     {
-        if (_eventType != VoidEventType.OnChangeSkill_TwoCoolTime) return;
-
-        PlayerController player = Managers.Object.Player;
-        GetImage((int)Images.Image_Skill_TwoCoolTime).fillAmount = player.skills[1].currentCoolTime / player.skills[1].coolTime;
+        if (_eventType == VoidEventType.OnChangeSkill_TwoCoolTime || _eventType == VoidEventType.OnChangeElemental)
+        {
+            PlayerController player = Managers.Object.Player;
+            if (player.skills.Length == 0) return;
+            GetImage((int)Images.Image_Skill_TwoCoolTime).fillAmount = player.skills[1].currentCoolTime / player.skills[1].coolTime;
+        }
     }
 
     public void DrawElementalUI(VoidEventType _eventType)
     {
-        if (_eventType != VoidEventType.OnInput_ElementalKey) return;
-
-
+        if (_eventType == VoidEventType.OnInput_ElementalKey || _eventType == VoidEventType.OnChangeElemental)
+        {
+            GetObject((int)Objects.Object_ChangeElemental).SetActive(Managers.Object.Player.elementals.isChangeElemental);
+        }
     }
 }
