@@ -12,6 +12,7 @@ public class UIBaseScene : UIScene
         BindSlider(typeof(Sliders));
         BindImage(typeof(Images));
         BindObject(typeof(Objects));
+        BindText(typeof(Texts));
 
 
         Managers.Event.OnVoidEvent -= ChangeHPSlider;
@@ -36,6 +37,7 @@ public class UIBaseScene : UIScene
     private enum Sliders { Slider_HP, Slider_MP }
     private enum Images { Image_Illust, Image_Skill_One, Image_Skill_OneCoolTime, Image_Skill_Two, Image_Skill_TwoCoolTime }
     private enum Objects { Object_ChangeElemental }
+    private enum Texts { Text_State }
 
     public void ChangeHPSlider(VoidEventType _eventType)
     {
@@ -84,5 +86,10 @@ public class UIBaseScene : UIScene
         {
             GetObject((int)Objects.Object_ChangeElemental).SetActive(Managers.Object.Player.elementals.isChangeElemental);
         }
+    }
+
+    private void Update()
+    {
+        GetText((int)Texts.Text_State).text = Managers.Object.Player.state.ToString();
     }
 }

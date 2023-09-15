@@ -92,8 +92,8 @@ namespace PlayerStates
 
         public override void UpdateState(PlayerController _entity)
         {
-            if (!_entity.animator.GetBool("isJump")) _entity.animator.SetBool("isJump", true);
             _entity.movement.CheckUpAndFall();
+            if (!_entity.animator.GetBool("isJump")) _entity.animator.SetBool("isJump", true);
         }
     }
 
