@@ -156,6 +156,7 @@ public abstract class Playermovement
     public virtual void Jump()
     {
         player.rb.AddForce(Vector2.up * player.status.currentJumpForce * 1.5f, ForceMode2D.Impulse);
+        Managers.Particle.PlayParticle("Particle_Jump", player.trans.position);
     }
 
     public virtual void CheckAttackMove()

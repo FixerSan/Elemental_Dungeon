@@ -101,7 +101,6 @@ MonoBehaviour:
   rb: {fileID: 0}
   elemental: 0
   direction: 0
-  isChangeElemental: 0
   data:
     level: 0
     levelUpExp: 0
@@ -112,7 +111,167 @@ MonoBehaviour:
     runSpeed: 0
     jumpForce: 0
   inventory:
-    itemList: []
+    items:
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
+    - itemData:
+        itemUID: 0
+        maxCount: 0
+        name: 
+        codeName: 
+        description: 
+        itemImageKey: 
+      itemCount: 0
   state: 0
   beforestate: 0
   checkIsGroundTrans: {fileID: 526067048}
@@ -143,7 +302,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
