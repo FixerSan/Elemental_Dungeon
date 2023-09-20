@@ -51,6 +51,7 @@ public class Managers : MonoBehaviour
     private ScreenManager screen = new ScreenManager();
     private EventManager event_ = new EventManager();
     private ParticleManager particle = new ParticleManager();
+    private LineRendererManager line = new LineRendererManager();
 
     public static ResourceManager Resource { get { return Instance?.resource; } }
     public static PoolManager Pool { get { return Instance?.pool; } }
@@ -66,5 +67,7 @@ public class Managers : MonoBehaviour
     public static ScreenManager Screen { get { return Instance?.screen; } }
     public static EventManager Event { get { return Instance?.event_; } }
     public static ParticleManager Particle { get { return Instance?.particle; } }
+    public static LineRendererManager Line { get { return Instance?.line; } }
     
+
 }
