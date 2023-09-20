@@ -147,6 +147,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
+  - m_GUID: e1732bb456728794381b7db78db9c9fa
+    m_Address: LineRenderer.GameObject
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 108382230cba4ad418043466179ef161
+    m_Address: Ghost_Centipede.GameObject
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7625f705cca72f24088dfc48d2137928, type: 2}
   m_SchemaSet:

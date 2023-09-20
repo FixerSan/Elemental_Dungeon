@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146607991}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12, y: -2, z: 0}
+  m_LocalPosition: {x: 8.75, y: -3.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 219249447}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9, y: 4, z: 0}
+  m_LocalPosition: {x: 6.55, y: -3.31, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -86,12 +86,105 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 266635561}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6, y: -2, z: 0}
+  m_LocalPosition: {x: 3.24, y: -3.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1571483456}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &445995944
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 445995945}
+  m_Layer: 0
+  m_Name: TargetPos_5
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &445995945
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445995944}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.75, y: -3.3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1608609219}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &678846711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 678846712}
+  m_Layer: 0
+  m_Name: TargetPos_3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &678846712
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678846711}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.24, y: -3.33, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1608609219}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &965960624
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 965960625}
+  m_Layer: 0
+  m_Name: SkillEndPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &965960625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 965960624}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 8.33, y: -2.62, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8965585753420803422}
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1002572191
 GameObject:
@@ -117,11 +210,42 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1002572191}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3, y: 4, z: 0}
+  m_LocalPosition: {x: 0.09, y: -3.21, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1571483456}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1433135702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1433135703}
+  m_Layer: 0
+  m_Name: TargetPos_2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1433135703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1433135702}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.09, y: -3.21, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1608609219}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1531155160
@@ -179,7 +303,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1541697319}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2, z: 0}
+  m_LocalPosition: {x: -4.37, y: -3.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -196,7 +320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1571483456}
   m_Layer: 0
-  m_Name: TargetPoses
+  m_Name: TargetUpPoses
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -222,6 +346,135 @@ Transform:
   m_Father: {fileID: 8965585753420803422}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1608609218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1608609219}
+  m_Layer: 0
+  m_Name: TargetDownPoses
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1608609219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1608609218}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.46, y: 4.95, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1695789897}
+  - {fileID: 1433135703}
+  - {fileID: 678846712}
+  - {fileID: 1989773875}
+  - {fileID: 445995945}
+  m_Father: {fileID: 8965585753420803422}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1695789896
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1695789897}
+  m_Layer: 0
+  m_Name: TargetPos_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1695789897
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1695789896}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.37, y: -3.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1608609219}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1989773874
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1989773875}
+  m_Layer: 0
+  m_Name: TargetPos_4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1989773875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1989773874}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.55, y: -3.31, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1608609219}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2077530550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2077530551}
+  m_Layer: 0
+  m_Name: SkillStartPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2077530551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2077530550}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -6.49, y: -2.48, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8965585753420803422}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1083894262255993282
 GameObject:
   m_ObjectHideFlags: 0
@@ -233,7 +486,9 @@ GameObject:
   - component: {fileID: 999675979001649905}
   - component: {fileID: 8903916421984848430}
   - component: {fileID: 7886836746428350578}
-  m_Layer: 0
+  - component: {fileID: 2129503614}
+  - component: {fileID: 2129503613}
+  m_Layer: 6
   m_Name: Ghost_Centipede_Body (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,8 +548,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1111049095
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 854fcc16fc057644798dded1c2b9eedc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -333,6 +588,60 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.51, y: 0.88}
   m_EdgeRadius: 0
+--- !u!50 &2129503614
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083894262255993282}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &2129503613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1083894262255993282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e44f772c33f5b64286fc1d895febcbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status:
+    maxHP: 0
+    currentHP: 0
+    maxMP: 0
+    currentMP: 0
+    maxWalkSpeed: 0
+    currentWalkSpeed: 0
+    maxRunSpeed: 0
+    currentRunSpeed: 0
+    maxJumpForce: 0
+    currentJumpForce: 0
+    currentAttackForce: 0
+    isKnockback: 0
+    isBurn: 0
+    burnDamage: 0
+  trans: {fileID: 0}
+  animator: {fileID: 0}
+  rb: {fileID: 0}
+  elemental: 0
+  direction: -1
+  mainController: {fileID: 7894024360143489335}
 --- !u!1 &2365995804022507972
 GameObject:
   m_ObjectHideFlags: 0
@@ -344,7 +653,9 @@ GameObject:
   - component: {fileID: 7195438243187823481}
   - component: {fileID: 361816634813991554}
   - component: {fileID: 3668329659928407331}
-  m_Layer: 0
+  - component: {fileID: 858782323}
+  - component: {fileID: 858782322}
+  m_Layer: 6
   m_Name: Ghost_Centipede_Body (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -404,8 +715,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1111049095
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 854fcc16fc057644798dded1c2b9eedc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -444,6 +755,60 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.51, y: 0.88}
   m_EdgeRadius: 0
+--- !u!50 &858782323
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2365995804022507972}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &858782322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2365995804022507972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e44f772c33f5b64286fc1d895febcbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status:
+    maxHP: 0
+    currentHP: 0
+    maxMP: 0
+    currentMP: 0
+    maxWalkSpeed: 0
+    currentWalkSpeed: 0
+    maxRunSpeed: 0
+    currentRunSpeed: 0
+    maxJumpForce: 0
+    currentJumpForce: 0
+    currentAttackForce: 0
+    isKnockback: 0
+    isBurn: 0
+    burnDamage: 0
+  trans: {fileID: 0}
+  animator: {fileID: 0}
+  rb: {fileID: 0}
+  elemental: 0
+  direction: -1
+  mainController: {fileID: 7894024360143489335}
 --- !u!1 &2968914465786331348
 GameObject:
   m_ObjectHideFlags: 0
@@ -455,7 +820,9 @@ GameObject:
   - component: {fileID: 1766089586589642380}
   - component: {fileID: 480169182041241458}
   - component: {fileID: 7757095346536357012}
-  m_Layer: 0
+  - component: {fileID: 89121298}
+  - component: {fileID: 89121297}
+  m_Layer: 6
   m_Name: Ghost_Centipede_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -515,8 +882,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1111049095
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 854fcc16fc057644798dded1c2b9eedc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -555,6 +922,60 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.51, y: 0.88}
   m_EdgeRadius: 0
+--- !u!50 &89121298
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2968914465786331348}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &89121297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2968914465786331348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e44f772c33f5b64286fc1d895febcbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status:
+    maxHP: 0
+    currentHP: 0
+    maxMP: 0
+    currentMP: 0
+    maxWalkSpeed: 0
+    currentWalkSpeed: 0
+    maxRunSpeed: 0
+    currentRunSpeed: 0
+    maxJumpForce: 0
+    currentJumpForce: 0
+    currentAttackForce: 0
+    isKnockback: 0
+    isBurn: 0
+    burnDamage: 0
+  trans: {fileID: 0}
+  animator: {fileID: 0}
+  rb: {fileID: 0}
+  elemental: 0
+  direction: -1
+  mainController: {fileID: 7894024360143489335}
 --- !u!1 &4353074325286757958
 GameObject:
   m_ObjectHideFlags: 0
@@ -566,7 +987,9 @@ GameObject:
   - component: {fileID: 5642388665480656836}
   - component: {fileID: 5757548567954542918}
   - component: {fileID: 504926776061354439}
-  m_Layer: 0
+  - component: {fileID: 1241484763}
+  - component: {fileID: 1241484762}
+  m_Layer: 6
   m_Name: Ghost_Centipede_Body (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -626,8 +1049,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1111049095
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 854fcc16fc057644798dded1c2b9eedc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -666,6 +1089,60 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.51, y: 0.88}
   m_EdgeRadius: 0
+--- !u!50 &1241484763
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4353074325286757958}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1241484762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4353074325286757958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e44f772c33f5b64286fc1d895febcbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status:
+    maxHP: 0
+    currentHP: 0
+    maxMP: 0
+    currentMP: 0
+    maxWalkSpeed: 0
+    currentWalkSpeed: 0
+    maxRunSpeed: 0
+    currentRunSpeed: 0
+    maxJumpForce: 0
+    currentJumpForce: 0
+    currentAttackForce: 0
+    isKnockback: 0
+    isBurn: 0
+    burnDamage: 0
+  trans: {fileID: 0}
+  animator: {fileID: 0}
+  rb: {fileID: 0}
+  elemental: 0
+  direction: -1
+  mainController: {fileID: 7894024360143489335}
 --- !u!1 &5456857426846900386
 GameObject:
   m_ObjectHideFlags: 0
@@ -677,7 +1154,9 @@ GameObject:
   - component: {fileID: 8189489435651185249}
   - component: {fileID: 7052327562721928804}
   - component: {fileID: 7843007839937133443}
-  m_Layer: 0
+  - component: {fileID: 1885770885}
+  - component: {fileID: 1885770884}
+  m_Layer: 6
   m_Name: Ghost_Centipede_Body (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -737,8 +1216,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1111049095
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 854fcc16fc057644798dded1c2b9eedc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -777,6 +1256,60 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.51, y: 0.88}
   m_EdgeRadius: 0
+--- !u!50 &1885770885
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5456857426846900386}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1885770884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5456857426846900386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e44f772c33f5b64286fc1d895febcbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status:
+    maxHP: 0
+    currentHP: 0
+    maxMP: 0
+    currentMP: 0
+    maxWalkSpeed: 0
+    currentWalkSpeed: 0
+    maxRunSpeed: 0
+    currentRunSpeed: 0
+    maxJumpForce: 0
+    currentJumpForce: 0
+    currentAttackForce: 0
+    isKnockback: 0
+    isBurn: 0
+    burnDamage: 0
+  trans: {fileID: 0}
+  animator: {fileID: 0}
+  rb: {fileID: 0}
+  elemental: 0
+  direction: -1
+  mainController: {fileID: 7894024360143489335}
 --- !u!1 &5669984061335041409
 GameObject:
   m_ObjectHideFlags: 0
@@ -788,7 +1321,9 @@ GameObject:
   - component: {fileID: 3231619260807833051}
   - component: {fileID: 4142921269220952610}
   - component: {fileID: 8413627953281643441}
-  m_Layer: 0
+  - component: {fileID: 1988732277}
+  - component: {fileID: 1988732276}
+  m_Layer: 6
   m_Name: Ghost_Centipede_Body (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -848,8 +1383,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1111049095
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 854fcc16fc057644798dded1c2b9eedc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -888,6 +1423,60 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.51, y: 0.88}
   m_EdgeRadius: 0
+--- !u!50 &1988732277
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669984061335041409}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1988732276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5669984061335041409}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e44f772c33f5b64286fc1d895febcbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status:
+    maxHP: 0
+    currentHP: 0
+    maxMP: 0
+    currentMP: 0
+    maxWalkSpeed: 0
+    currentWalkSpeed: 0
+    maxRunSpeed: 0
+    currentRunSpeed: 0
+    maxJumpForce: 0
+    currentJumpForce: 0
+    currentAttackForce: 0
+    isKnockback: 0
+    isBurn: 0
+    burnDamage: 0
+  trans: {fileID: 0}
+  animator: {fileID: 0}
+  rb: {fileID: 0}
+  elemental: 0
+  direction: -1
+  mainController: {fileID: 7894024360143489335}
 --- !u!1 &5891936377871484160
 GameObject:
   m_ObjectHideFlags: 0
@@ -899,7 +1488,9 @@ GameObject:
   - component: {fileID: 4826240415417392750}
   - component: {fileID: 3046248312340820414}
   - component: {fileID: 1884873009023517678}
-  m_Layer: 0
+  - component: {fileID: 1919292628}
+  - component: {fileID: 1919292627}
+  m_Layer: 6
   m_Name: Ghost_Centipede_Body (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -959,8 +1550,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1111049095
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 854fcc16fc057644798dded1c2b9eedc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -999,6 +1590,60 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.51, y: 0.88}
   m_EdgeRadius: 0
+--- !u!50 &1919292628
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891936377871484160}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1919292627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5891936377871484160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e44f772c33f5b64286fc1d895febcbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status:
+    maxHP: 0
+    currentHP: 0
+    maxMP: 0
+    currentMP: 0
+    maxWalkSpeed: 0
+    currentWalkSpeed: 0
+    maxRunSpeed: 0
+    currentRunSpeed: 0
+    maxJumpForce: 0
+    currentJumpForce: 0
+    currentAttackForce: 0
+    isKnockback: 0
+    isBurn: 0
+    burnDamage: 0
+  trans: {fileID: 0}
+  animator: {fileID: 0}
+  rb: {fileID: 0}
+  elemental: 0
+  direction: -1
+  mainController: {fileID: 7894024360143489335}
 --- !u!1 &6548007419758338581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1655,9 @@ GameObject:
   - component: {fileID: 2890006279827271962}
   - component: {fileID: 7542602688640791524}
   - component: {fileID: 7816124054205202811}
-  m_Layer: 0
+  - component: {fileID: 1999219236}
+  - component: {fileID: 1999219235}
+  m_Layer: 6
   m_Name: Ghost_Centipede_Body (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1070,8 +1717,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1111049095
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 854fcc16fc057644798dded1c2b9eedc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1110,6 +1757,60 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.51, y: 0.88}
   m_EdgeRadius: 0
+--- !u!50 &1999219236
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6548007419758338581}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1999219235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6548007419758338581}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e44f772c33f5b64286fc1d895febcbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status:
+    maxHP: 0
+    currentHP: 0
+    maxMP: 0
+    currentMP: 0
+    maxWalkSpeed: 0
+    currentWalkSpeed: 0
+    maxRunSpeed: 0
+    currentRunSpeed: 0
+    maxJumpForce: 0
+    currentJumpForce: 0
+    currentAttackForce: 0
+    isKnockback: 0
+    isBurn: 0
+    burnDamage: 0
+  trans: {fileID: 0}
+  animator: {fileID: 0}
+  rb: {fileID: 0}
+  elemental: 0
+  direction: -1
+  mainController: {fileID: 7894024360143489335}
 --- !u!1 &6650238252403441179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1121,7 +1822,9 @@ GameObject:
   - component: {fileID: 1111311282382598700}
   - component: {fileID: 2462020068115312653}
   - component: {fileID: 2705374991109192543}
-  m_Layer: 0
+  - component: {fileID: 1708921572}
+  - component: {fileID: 1708921571}
+  m_Layer: 6
   m_Name: Ghost_Centipede_Body (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1181,8 +1884,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1111049095
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 854fcc16fc057644798dded1c2b9eedc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1221,6 +1924,60 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.51, y: 0.88}
   m_EdgeRadius: 0
+--- !u!50 &1708921572
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650238252403441179}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1708921571
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6650238252403441179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e44f772c33f5b64286fc1d895febcbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status:
+    maxHP: 0
+    currentHP: 0
+    maxMP: 0
+    currentMP: 0
+    maxWalkSpeed: 0
+    currentWalkSpeed: 0
+    maxRunSpeed: 0
+    currentRunSpeed: 0
+    maxJumpForce: 0
+    currentJumpForce: 0
+    currentAttackForce: 0
+    isKnockback: 0
+    isBurn: 0
+    burnDamage: 0
+  trans: {fileID: 0}
+  animator: {fileID: 0}
+  rb: {fileID: 0}
+  elemental: 0
+  direction: -1
+  mainController: {fileID: 7894024360143489335}
 --- !u!1 &7134370254096409777
 GameObject:
   m_ObjectHideFlags: 0
@@ -1232,7 +1989,9 @@ GameObject:
   - component: {fileID: 2369968068541043374}
   - component: {fileID: 2838528210531577903}
   - component: {fileID: 3567240351881223664}
-  m_Layer: 0
+  - component: {fileID: 890509161}
+  - component: {fileID: 890509160}
+  m_Layer: 6
   m_Name: Ghost_Centipede_Body (10)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1292,8 +2051,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1111049095
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 854fcc16fc057644798dded1c2b9eedc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1332,6 +2091,60 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.51, y: 0.88}
   m_EdgeRadius: 0
+--- !u!50 &890509161
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134370254096409777}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &890509160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7134370254096409777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e44f772c33f5b64286fc1d895febcbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status:
+    maxHP: 0
+    currentHP: 0
+    maxMP: 0
+    currentMP: 0
+    maxWalkSpeed: 0
+    currentWalkSpeed: 0
+    maxRunSpeed: 0
+    currentRunSpeed: 0
+    maxJumpForce: 0
+    currentJumpForce: 0
+    currentAttackForce: 0
+    isKnockback: 0
+    isBurn: 0
+    burnDamage: 0
+  trans: {fileID: 0}
+  animator: {fileID: 0}
+  rb: {fileID: 0}
+  elemental: 0
+  direction: -1
+  mainController: {fileID: 7894024360143489335}
 --- !u!1 &7572440187890509803
 GameObject:
   m_ObjectHideFlags: 0
@@ -1343,7 +2156,9 @@ GameObject:
   - component: {fileID: 7847342768012806357}
   - component: {fileID: 8852279500266723714}
   - component: {fileID: 8113846977349264025}
-  m_Layer: 0
+  - component: {fileID: 1194351234}
+  - component: {fileID: 1194351233}
+  m_Layer: 6
   m_Name: Ghost_Centipede_Body (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1403,8 +2218,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1111049095
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 854fcc16fc057644798dded1c2b9eedc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1443,65 +2258,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.51, y: 0.88}
   m_EdgeRadius: 0
---- !u!1 &7660080392158918407
-GameObject:
+--- !u!50 &1194351234
+Rigidbody2D:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8965585753420803422}
-  - component: {fileID: 7894024360143489335}
-  - component: {fileID: 5623950043749943494}
-  m_Layer: 0
-  m_Name: Ghost_Centipede
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &8965585753420803422
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7660080392158918407}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.59, y: -0.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 7894024359604263214}
-  - {fileID: 1766089586589642380}
-  - {fileID: 5642388665480656836}
-  - {fileID: 4826240415417392750}
-  - {fileID: 2890006279827271962}
-  - {fileID: 7195438243187823481}
-  - {fileID: 3231619260807833051}
-  - {fileID: 1111311282382598700}
-  - {fileID: 8189489435651185249}
-  - {fileID: 7847342768012806357}
-  - {fileID: 999675979001649905}
-  - {fileID: 2369968068541043374}
-  - {fileID: 7432488910191737867}
-  - {fileID: 840660964344480157}
-  - {fileID: 1531155161}
-  - {fileID: 1571483456}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7894024360143489335
+  m_GameObject: {fileID: 7572440187890509803}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1194351233
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7660080392158918407}
+  m_GameObject: {fileID: 7572440187890509803}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 655dd9bb86c7c3c469536deb18515865, type: 3}
+  m_Script: {fileID: 11500000, guid: 7e44f772c33f5b64286fc1d895febcbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   status:
@@ -1524,11 +2311,94 @@ MonoBehaviour:
   rb: {fileID: 0}
   elemental: 0
   direction: -1
-  moveSpeed: 5
+  mainController: {fileID: 7894024360143489335}
+--- !u!1 &7660080392158918407
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8965585753420803422}
+  - component: {fileID: 7894024360143489335}
+  - component: {fileID: 1954081906}
+  m_Layer: 0
+  m_Name: Ghost_Centipede
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8965585753420803422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7660080392158918407}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7894024359604263214}
+  - {fileID: 1766089586589642380}
+  - {fileID: 5642388665480656836}
+  - {fileID: 4826240415417392750}
+  - {fileID: 2890006279827271962}
+  - {fileID: 7195438243187823481}
+  - {fileID: 3231619260807833051}
+  - {fileID: 1111311282382598700}
+  - {fileID: 8189489435651185249}
+  - {fileID: 7847342768012806357}
+  - {fileID: 999675979001649905}
+  - {fileID: 2369968068541043374}
+  - {fileID: 7432488910191737867}
+  - {fileID: 840660964344480157}
+  - {fileID: 1531155161}
+  - {fileID: 1571483456}
+  - {fileID: 1608609219}
+  - {fileID: 2077530551}
+  - {fileID: 965960625}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7894024360143489335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7660080392158918407}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 655dd9bb86c7c3c469536deb18515865, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status:
+    maxHP: 10
+    currentHP: 10
+    maxMP: 0
+    currentMP: 0
+    maxWalkSpeed: 0
+    currentWalkSpeed: 0
+    maxRunSpeed: 0
+    currentRunSpeed: 0
+    maxJumpForce: 0
+    currentJumpForce: 0
+    currentAttackForce: 0
+    isKnockback: 0
+    isBurn: 0
+    burnDamage: 0
+  trans: {fileID: 0}
+  animator: {fileID: 0}
+  rb: {fileID: 0}
+  elemental: 0
+  direction: -1
+  moveSpeed: 7
   rotationSpeed: 10
   dir: {x: 0, y: 0}
-  skillForce: 2
-  skillDuratiom: 1
   target: {fileID: 1531155161}
   headPos: {fileID: 7894024359604263214}
   otherPoses:
@@ -1545,16 +2415,33 @@ MonoBehaviour:
   - {fileID: 2369968068541043374}
   - {fileID: 7432488910191737867}
   - {fileID: 840660964344480157}
+  isCanUseSkill: 0
+  skillForce: 2
+  skillDuratiom: 1
+  skillStartPos: {fileID: 2077530551}
+  skillEndPos: {fileID: 965960625}
+  skillMoveCount: 5
+  skillMoveForce: 5
+  skillTotalTime: 10
+  skillCooltime: 20
+  checkCanUseSkillTime: 0
   targetUpDownMoveForce: 3
   targetUpDownMoveSpeed: 1.5
   targetRightLeftMoveForce: 2
-  targetPoses:
+  targetUpPoses:
   - {fileID: 1541697320}
   - {fileID: 1002572192}
   - {fileID: 266635562}
   - {fileID: 219249448}
   - {fileID: 146607992}
---- !u!50 &5623950043749943494
+  targetDownPoses:
+  - {fileID: 1695789897}
+  - {fileID: 1433135703}
+  - {fileID: 678846712}
+  - {fileID: 1989773875}
+  - {fileID: 445995945}
+  canHitDelay: 0.1
+--- !u!50 &1954081906
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -1566,9 +2453,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 0.0001
+  m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -1586,7 +2473,9 @@ GameObject:
   - component: {fileID: 7894024359604263214}
   - component: {fileID: 7894024359604263215}
   - component: {fileID: 2763313274324817754}
-  m_Layer: 0
+  - component: {fileID: 1066195438}
+  - component: {fileID: 1066195437}
+  m_Layer: 6
   m_Name: Ghost_Centipede_Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1646,8 +2535,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1111049095
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: cc4449f5723affd40be9b5f812373b88, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1686,6 +2575,60 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 0.74}
   m_EdgeRadius: 0
+--- !u!50 &1066195438
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7894024359604263208}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1066195437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7894024359604263208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e44f772c33f5b64286fc1d895febcbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status:
+    maxHP: 0
+    currentHP: 0
+    maxMP: 0
+    currentMP: 0
+    maxWalkSpeed: 0
+    currentWalkSpeed: 0
+    maxRunSpeed: 0
+    currentRunSpeed: 0
+    maxJumpForce: 0
+    currentJumpForce: 0
+    currentAttackForce: 0
+    isKnockback: 0
+    isBurn: 0
+    burnDamage: 0
+  trans: {fileID: 0}
+  animator: {fileID: 0}
+  rb: {fileID: 0}
+  elemental: 0
+  direction: -1
+  mainController: {fileID: 7894024360143489335}
 --- !u!1 &8646472158028472814
 GameObject:
   m_ObjectHideFlags: 0
@@ -1697,7 +2640,9 @@ GameObject:
   - component: {fileID: 7432488910191737867}
   - component: {fileID: 7925424047460616110}
   - component: {fileID: 4770303535941960302}
-  m_Layer: 0
+  - component: {fileID: 1373427633}
+  - component: {fileID: 1373427632}
+  m_Layer: 6
   m_Name: Ghost_Centipede_Body (11)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1757,8 +2702,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1111049095
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 854fcc16fc057644798dded1c2b9eedc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1797,6 +2742,60 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.51, y: 0.88}
   m_EdgeRadius: 0
+--- !u!50 &1373427633
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8646472158028472814}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1373427632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8646472158028472814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e44f772c33f5b64286fc1d895febcbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status:
+    maxHP: 0
+    currentHP: 0
+    maxMP: 0
+    currentMP: 0
+    maxWalkSpeed: 0
+    currentWalkSpeed: 0
+    maxRunSpeed: 0
+    currentRunSpeed: 0
+    maxJumpForce: 0
+    currentJumpForce: 0
+    currentAttackForce: 0
+    isKnockback: 0
+    isBurn: 0
+    burnDamage: 0
+  trans: {fileID: 0}
+  animator: {fileID: 0}
+  rb: {fileID: 0}
+  elemental: 0
+  direction: -1
+  mainController: {fileID: 7894024360143489335}
 --- !u!1 &8709521050062616116
 GameObject:
   m_ObjectHideFlags: 0
@@ -1808,7 +2807,9 @@ GameObject:
   - component: {fileID: 840660964344480157}
   - component: {fileID: 7486538644131915941}
   - component: {fileID: 591729619614616671}
-  m_Layer: 0
+  - component: {fileID: 780332258}
+  - component: {fileID: 780332257}
+  m_Layer: 6
   m_Name: Ghost_Centipede_Tail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1868,8 +2869,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1111049095
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: afcf925865c3c62478b57b43b3607177, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1908,3 +2909,57 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.69, y: 0.38}
   m_EdgeRadius: 0
+--- !u!50 &780332258
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8709521050062616116}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &780332257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8709521050062616116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e44f772c33f5b64286fc1d895febcbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  status:
+    maxHP: 0
+    currentHP: 0
+    maxMP: 0
+    currentMP: 0
+    maxWalkSpeed: 0
+    currentWalkSpeed: 0
+    maxRunSpeed: 0
+    currentRunSpeed: 0
+    maxJumpForce: 0
+    currentJumpForce: 0
+    currentAttackForce: 0
+    isKnockback: 0
+    isBurn: 0
+    burnDamage: 0
+  trans: {fileID: 0}
+  animator: {fileID: 0}
+  rb: {fileID: 0}
+  elemental: 0
+  direction: -1
+  mainController: {fileID: 7894024360143489335}

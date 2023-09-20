@@ -39,9 +39,27 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BackGround
+    uniqueID: 1118098037
+    locked: 0
+  - name: BackGroundObject
+    uniqueID: 3529596301
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Monster
+    uniqueID: 3183918201
+    locked: 0
   - name: Player
     uniqueID: 2918944465
+    locked: 0
+  - name: Effect
+    uniqueID: 2546231113
+    locked: 0
+  - name: FrontGroundObject
+    uniqueID: 2635910313
+    locked: 0
+  - name: FrontGround
+    uniqueID: 273764521
     locked: 0
