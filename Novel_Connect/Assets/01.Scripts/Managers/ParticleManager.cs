@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class ParticleManager
 {
+    // 파티클 설정
     public ParticleSystem PlayParticle(string _key, Vector2 _position, Transform _parent = null, Define.Direction _direction = Define.Direction.Left)
     {
         GameObject go = Managers.Resource.Instantiate(_key,_pooling:true);

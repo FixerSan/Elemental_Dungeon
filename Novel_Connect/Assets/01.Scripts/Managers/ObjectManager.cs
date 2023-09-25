@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class ObjectManager
 {
-    private PlayerController player;
-    public PlayerController Player 
+    private PlayerController player;    // 플레이어 변수 선언
+    public PlayerController Player      // 플레이어 프로퍼티 선언
     {
         get 
         {
@@ -23,8 +23,8 @@ public class ObjectManager
             return player; 
         } 
     }
-    public HashSet<MonsterController> Monsters { get; } = new HashSet<MonsterController>();
-    public Transform MonsterTransform
+    public HashSet<MonsterController> Monsters { get; } = new HashSet<MonsterController>();     // 몬스터 해쉬 셋
+    public Transform MonsterTransform                                                           // 몬스터 스폰 위치 선언
     {
         get
         {
@@ -39,11 +39,13 @@ public class ObjectManager
         }
     }
 
-    public void Clear()
+    // 몬스터 초기화
+    public void ClearMonsters()
     {
         Monsters.Clear();
     }
 
+    // 플레이어 스폰
     public PlayerController SpawnPlayer(Vector3 _position)
     {
         GameObject go = Managers.Resource.Instantiate("Player");
@@ -53,6 +55,7 @@ public class ObjectManager
         return pc;
     }
 
+    // 몬스터 스폰
     public MonsterController SpawnMonster(Vector3 _position, Define.Monster _monster)
     {
         GameObject go = null;
@@ -70,6 +73,7 @@ public class ObjectManager
         return mc;
     }
 
+    // 몬스터 삭제
     public void Despawn<T>(T _object) where T : BaseController
     {
         System.Type type = typeof(T);
@@ -80,7 +84,8 @@ public class ObjectManager
             Managers.Resource.Destroy(_object.gameObject);
         }
     }
-
+    
+    // 아이템 생성
     public T CreateItem<T>(int _itemUID, int _count = 1) where T : BaseItem
     {
         BaseItem baseItem = new BaseItem(_itemUID, _count);

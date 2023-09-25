@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LineRendererManager
 {
-    private Transform linesTras;
+    private Transform linesTras; // 라인 렌더러들을 담을 부모 트랜스폼
     public Transform LinesTras
     {
         get
@@ -20,7 +20,9 @@ public class LineRendererManager
             return linesTras;
         }
     }
-    public Dictionary<string, LineRendererController> lines;
+    public Dictionary<string, LineRendererController> lines;    // 라인 렌더러 딕셔너리
+    
+    // 라인 렌더러 설정
     public void SetLine(string _key, Vector3 _startPos, Vector3 _endPos, float _width)
     {
         if (!lines.ContainsKey(_key))
@@ -31,6 +33,7 @@ public class LineRendererManager
         lines[_key].SetLine(_startPos,_endPos, _width);
     }
 
+    // 라인 렌더러 해제
     public void ReleaseLine(string _key)
     {
         if (lines.TryGetValue(_key, out LineRendererController _line))
@@ -40,6 +43,7 @@ public class LineRendererManager
         }
     }
 
+    //라인 렌더러 초기화
     public LineRendererManager()
     {
         lines = new Dictionary<string, LineRendererController>();

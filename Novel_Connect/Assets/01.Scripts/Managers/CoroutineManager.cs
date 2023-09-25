@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CoroutineManager : MonoBehaviour
 {
+    //ΩÃ±€≈Ê º±æ
     private static CoroutineManager instance;
     public static CoroutineManager Instance 
     { 
@@ -15,6 +16,7 @@ public class CoroutineManager : MonoBehaviour
         }
     }
 
+    // √ ±‚»≠
     [RuntimeInitializeOnLoadMethod]
     private static void Init()
     {

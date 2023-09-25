@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class InputManager
 {
+    // 플레이어 인풋 키코드 선언
     public bool isCanControl = true;
     public Action inputAction = null;
     public KeyCode changeElementalKey = KeyCode.Tab;
@@ -20,17 +21,19 @@ public class InputManager
     public KeyCode bendingKey = KeyCode.LeftControl;
     public KeyCode dialogSkipKey = KeyCode.G;
 
-
+    // 플레이어 조작 가능 여부 설정
     public void ChangeCanControl(bool _bool)
     {
         isCanControl = _bool;
     }
 
+    // 플레이어 조작 키 변경
     public void ChangeKey(ref KeyCode _keyCode, KeyCode _changeKeyCode)
     {
         _keyCode = _changeKeyCode;
     }
 
+    // 플레이어 키 입력 체크
     public void CheckInput(KeyCode _keyCode, Action<InputType> _callback)
     {
         if (Input.GetKeyDown(_keyCode)) 
@@ -43,6 +46,7 @@ public class InputManager
         if (Input.GetKeyUp(_keyCode)) _callback?.Invoke(InputType.RELEASE);
     }
 
+    // 인풋 매니저 초기화
     public InputManager()
     {
         isCanControl = true;
@@ -62,4 +66,5 @@ public class InputManager
     }
 }
 
+// 키 입력 체크 종류
 public enum InputType { PRESS, HOLD, RELEASE }

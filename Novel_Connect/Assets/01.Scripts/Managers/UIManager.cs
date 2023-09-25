@@ -8,17 +8,14 @@ using UnityEngine.EventSystems;
 
 public class UIManager 
 {
-    private int order = 10;
-    private int toastOrder = 500;
+    private int order = 10;                                     // 그려지는 순서 여유 선언
+    private int toastOrder = 500;                               // 인스턴트 메세지 그려지는 여유 선언
 
-    private Stack<UIPopup> popupStack = new Stack<UIPopup>();
-    private Stack<UIToast> toastStack = new Stack<UIToast>();
-    private UIScene sceneUI = null;
-    private EventSystem eventSystem = null;
-
-    public UIScene SceneUI { get { return sceneUI; } }
-
-    //public event Action<int> OnTimeScaleChanged;
+    private Stack<UIPopup> popupStack = new Stack<UIPopup>();   // 팝업 스택
+    private Stack<UIToast> toastStack = new Stack<UIToast>();   // 인스턴트 메세지 스택
+    private EventSystem eventSystem = null;                     // 이벤트 시스템 선언
+    private UIScene sceneUI = null;                             // SceneUI 선언
+    public UIScene SceneUI { get { return sceneUI; } }          // SceneUI 프로퍼티 선언
 
     public GameObject Root
     {
@@ -31,14 +28,16 @@ public class UIManager
             }
             return root;
         }
-    }
+    }                                   // UI 위치 선언
 
+    // 이벤트 시스템 설정
     public void SetEventSystem()
     {
         GameObject es = Managers.Resource.Instantiate("EventSystem");
         eventSystem = es.GetOrAddComponent<EventSystem>();
     }
 
+    // 캔버스 설정
     public void SetCanvas(GameObject _go, bool _sort = true, int _sortOrder = 0, bool _isToast = false)
     {
         if(eventSystem == null) SetEventSystem();
@@ -68,6 +67,7 @@ public class UIManager
         }
     }
 
+    // 월드스페이스 UI 생성
     public T MakeWorldSpaceUI<T>(Transform _parent = null, string _name = null, bool _pooling = true) where T : UIBase
     {
         if (string.IsNullOrEmpty(_name))
@@ -80,6 +80,7 @@ public class UIManager
         return go.GetOrAddComponent<T>();
     }
 
+    // SceneUI 생성
     public T ShowSceneUI<T>(string _name = null) where T : UIScene
     {
         if(string.IsNullOrEmpty(_name))
@@ -96,6 +97,7 @@ public class UIManager
         return _sceneUI;
     }
 
+    // 팝업 생성
     public T ShowPopupUI<T>(string _name = null) where T : UIPopup
     {
         if (string.IsNullOrEmpty(_name))
@@ -110,6 +112,7 @@ public class UIManager
         return popup;
     }
 
+    // 팝업 삭제체크
     public void ClosePopupUI(UIPopup _popup)
     {
         if (popupStack.Count == 0)
@@ -124,6 +127,7 @@ public class UIManager
         ClosePopupUI(); 
     }
 
+    // 팝업 삭제 기능
     private void ClosePopupUI()
     {
         if (popupStack.Count == 0)
@@ -135,6 +139,7 @@ public class UIManager
         order--;
     }
 
+    // 팝업 전부 삭제
     public void CloseAllPopupUI()
     {
         while (popupStack.Count > 0)
@@ -143,6 +148,7 @@ public class UIManager
         }
     }
 
+    // 인스턴트 메세지 생성
     public UIToast ShowToast(string _description)
     {
         string name = typeof(UIToast).Name;
@@ -155,12 +161,14 @@ public class UIManager
         return popup;
     }
 
+    // 인스턴트 메세지 삭제 루틴
     private IEnumerator CloseToastUIRoutine()
     {
         yield return new WaitForSeconds(1f);
         CloseToastUI();
     }
 
+    // 인스턴트 메세지 삭제 기능
     public void CloseToastUI()
     {
         if(toastStack.Count == 0)
@@ -174,14 +182,26 @@ public class UIManager
         toastOrder--;
     }
 
+    // 팝업 전부 삭제
+    public void CloseAllToastUI()
+    {
+        while (toastStack.Count > 0)
+        {
+            Managers.Resource.Destroy(toastStack.Pop().gameObject);
+        }
+    }
+
+    // 팝업 카운트 반환
     public int GetPopupCount()
     {
         return popupStack.Count;
     }
 
+    // 초기화
     public void Clear()
     {
         CloseAllPopupUI();
+        
         Time.timeScale = 1;
         sceneUI = null;
     }

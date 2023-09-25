@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class EventManager 
 {
+    // 이벤트 액션 변수 선언
     public Action<VoidEventType> OnVoidEvent;
     public Action<IntEventType, int> OnIntEvent;
 }
 
+// 이벤트 종류 선언
 public enum IntEventType 
 {
     OnDeadMonster, OnGetItem

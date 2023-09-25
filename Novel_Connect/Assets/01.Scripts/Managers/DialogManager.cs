@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class DialogManager
 {
-    private UIDialogSpeaker speaker;
-    public UIDialogSpeaker Speaker
+    private UIDialogSpeaker speaker;    // 다이얼로그 스피커 선언
+    public UIDialogSpeaker Speaker      // 다이얼로그 스피커 프로퍼티 선언
     {
         get
         {
@@ -17,8 +17,9 @@ public class DialogManager
             return speaker;
         }
     }
-    private DialogData currentData;
+    private DialogData currentData;     //현제 다이얼로그 데이터
 
+    // 다이얼로그 불러오기
     public void Call(int _dialogIndex)
     {
         Managers.Data.GetDialogData(_dialogIndex, (_data) => 
@@ -28,11 +29,13 @@ public class DialogManager
         });
     }
 
+    // 다이얼로그 버튼 사운드 호출
     private void PlayBtnSound()
     {
         Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Dialog, 1);
     }
 
+    // 다이얼로그 버튼 1 처리 코드
     public void OnClick_ButtonOne()
     {
         PlayBtnSound();
@@ -51,6 +54,7 @@ public class DialogManager
         }
     }
 
+    // 다이얼로그 버튼 2 처리 코드
     public void OnClick_ButtonTwo()
     {
         PlayBtnSound();
@@ -69,6 +73,7 @@ public class DialogManager
         }
     }
 
+    // 다이얼로그 버튼 3 처리 코드
     public void OnClick_ButtonThree()
     {
         PlayBtnSound();
@@ -83,6 +88,7 @@ public class DialogManager
         }
     }
 
+    // 다이얼로그 종료
     public void EndDialog()
     {
         Speaker.CloseDialog();

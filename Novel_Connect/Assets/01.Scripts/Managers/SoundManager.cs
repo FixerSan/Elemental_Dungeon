@@ -7,8 +7,8 @@ using static Define;
 
 public class SoundManager 
 {
-    private Transform sourceTransform;
-    public Transform SourceTransform
+    private Transform sourceTransform;  // 오디오 소스 위치 선언
+    public Transform SourceTransform    // 오디오 소스 위치 프로퍼티 선언
     {
         get
         {
@@ -24,8 +24,8 @@ public class SoundManager
         }
     }
 
-    private AudioSource bgmSource;
-    public AudioSource BgmSource 
+    private AudioSource bgmSource;      // 배경음악 오디오 소스 선언
+    public AudioSource BgmSource        // 배경음악 오디오 소스 프로퍼티
     { 
         get
         {
@@ -41,8 +41,9 @@ public class SoundManager
         } 
     }
 
-    private AudioSourceController effectSourceController;
-    public AudioSourceController EffectSourceController
+
+    private AudioSourceController effectSourceController;   // 기본 효과음 오디오 소스 선언
+    public AudioSourceController EffectSourceController     // 기본 효과음 오디오 소스 프로퍼티 선언
     {
         get
         {
@@ -52,17 +53,19 @@ public class SoundManager
         }
     }
 
-    public List<AudioSourceController> effectSourceControllers = new List<AudioSourceController>();
-    public float bgmVolume = 1;
-    public float effectVolume = 1;
-    private bool isFading;
+    public List<AudioSourceController> effectSourceControllers = new List<AudioSourceController>(); // 서브 효과음 오디오소스 리스트 선언 
+    public float bgmVolume = 1;                                                                     // 배경음악 오디오 소스 볼륨
+    public float effectVolume = 1;                                                                  // 효과음 오디오 소스 볼륨
+    private bool isFading;                                                                          // Fading 상태인지 체크
 
+    // 배경음악 볼륨 설정
     public void SetBGMVolume(float _volume)
     {
         bgmVolume = _volume;
         BgmSource.volume = bgmVolume;
     }
 
+    // 효과음 볼륨 설정
     public void SetEffectVolume(float _volume)
     {
         effectVolume = _volume;
@@ -73,6 +76,7 @@ public class SoundManager
         }
     }
 
+    // 효과음 설정
     public void PlaySoundEffect(SoundProfile_Effect _profileName ,int index = -1)
     {
         string loadKey = _profileName.ToString();
@@ -92,6 +96,7 @@ public class SoundManager
         });
     }
 
+    // 효과음 설정 2
     public void PlaySoundEffect(AudioClip_Effect _clip)
     {
         string loadKey = _clip.ToString();
@@ -107,6 +112,7 @@ public class SoundManager
         });
     }
 
+    // 효과음 종료
     public void StopSoundEffect(AudioSourceController _audioSourceController)
     {
         if (EffectSourceController == _audioSourceController)
@@ -119,6 +125,7 @@ public class SoundManager
         effectSourceControllers.Remove(_audioSourceController);
     }
 
+    // 배경음악 설정 
     public void PlayBGM(AudioClip_BGM _bgm)
     {
         string loadKey = _bgm.ToString();
@@ -130,11 +137,13 @@ public class SoundManager
         });
     }
 
+    // 배경음악 FadeIn 설정
     public void FadeInBGM(AudioClip_BGM _bgm, float _fadeTime)
     {
         Managers.Routine.StartCoroutine(FadeInBGMRoutine(_bgm, _fadeTime));
     }
 
+    // 배경음악 FadeIn 루틴
     private IEnumerator FadeInBGMRoutine(AudioClip_BGM _bgm, float _fadeTime)
     {
         BgmSource.volume = 0;
@@ -147,11 +156,13 @@ public class SoundManager
         }
     }
 
+    // 배경음악 FadeOut 설정
     public void FadeOutBGM(float _fadeTime)
     {
         Managers.Routine.StartCoroutine(FadeOutBGMRoutine(_fadeTime));
     }
 
+    // 배걍음악 FadeOut 루틴
     private IEnumerator FadeOutBGMRoutine(float fadeTime)
     {
         while (BgmSource.volume > 0.0f)
@@ -162,11 +173,13 @@ public class SoundManager
         BgmSource.Stop();
     }
 
+    // 배경음악 FadeIn,FadeOut으로 변경
     public void FadeChangeBGM(AudioClip_BGM _bgm, float _fadeTime)
     {
         Managers.Routine.StartCoroutine(FadeChangeBGMRoutine(_bgm,_fadeTime));
     }
 
+    // 배경음악 FadeIn, FadeOut 루틴
     private IEnumerator FadeChangeBGMRoutine(AudioClip_BGM _bgm, float _fadeTime)
     {
         yield return Managers.Routine.StartCoroutine(FadeOutBGMRoutine(_fadeTime));

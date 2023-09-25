@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DataManager
 {
+    // 데이터 딕셔너리들
     private Dictionary<int, ItemData> itemDataDictionary = new Dictionary<int, ItemData>();
     private Dictionary<int, PlayerData> playerDataDictionary = new Dictionary<int, PlayerData>();
     private Dictionary<int, MonsterData> monsterDataDictionary = new Dictionary<int, MonsterData>();
@@ -11,6 +12,8 @@ public class DataManager
     private Dictionary<int, DialogData> dialogDataDictionary = new Dictionary<int, DialogData>();
     private Dictionary<int, SkillData> skillDataDictionary = new Dictionary<int, SkillData>();
 
+    // 데이터 반환 코드
+    #region GetDatas
     public void GetItemData(int _itemUID, Action<ItemData> _callback)
     {
         if (itemDataDictionary.TryGetValue(_itemUID, out ItemData itemData))
@@ -47,7 +50,9 @@ public class DataManager
         if (skillDataDictionary.TryGetValue(_skillUID, out SkillData skillData))
             _callback?.Invoke(skillData);
     }
-
+    #endregion
+    
+    // 데이터 로드
     public void LoadSceneData(Define.Scene _scene)
     {
         Managers.Resource.Load<TextAsset>(_scene.ToString(),(sceneDataJson) => 
@@ -87,6 +92,7 @@ public class DataManager
     }
 }
 
+#region Datas
 public class Data
 {
 
@@ -137,3 +143,4 @@ public class SkillData : Data
     public string description;
     public string iconImageKey;
 }
+#endregion

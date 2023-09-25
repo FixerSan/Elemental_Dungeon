@@ -5,8 +5,9 @@ using static Define;
 
 public class BattleManager
 {
-    public float amageMultiplier;
+    public float amageMultiplier;   // 데미지 처리 배율
 
+    //속성 별 데미지 계산
     public void DamageCalculate(BaseController _attacker, BaseController _hiter)
     {
         float calculatedDamage = _attacker.status.currentAttackForce;
@@ -64,6 +65,8 @@ public class BattleManager
         _hiter.Hit(_attacker.trans, calculatedDamage);
     }
 
+
+    // 특수 효과 (버프, 디버프) 설정
     public void SetStatusEffect(BaseController _Attacker, BaseController _hiter, StatusEffect _status)
     {
         switch (_status)
