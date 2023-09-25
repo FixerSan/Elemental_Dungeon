@@ -83,6 +83,7 @@ public class PlayerController : BaseController
         CheckSkillCooltime();
         stateMachine.UpdateState();
         movement.CheckIsGround();
+        inventory.CheckOpenUIInventory();
     }
 
     public override void GetDamage(float _damage)

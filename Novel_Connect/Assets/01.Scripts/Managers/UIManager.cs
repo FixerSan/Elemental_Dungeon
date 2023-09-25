@@ -40,7 +40,8 @@ public class UIManager
     // Äµ¹ö½º ¼³Á¤
     public void SetCanvas(GameObject _go, bool _sort = true, int _sortOrder = 0, bool _isToast = false)
     {
-        if(eventSystem == null) SetEventSystem();
+        GameObject go = GameObject.Find("EventSystem");
+        if(go == null)  SetEventSystem();
         Canvas canvas = _go.GetOrAddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvas.overrideSorting = true;
@@ -98,14 +99,15 @@ public class UIManager
     }
 
     // ÆË¾÷ »ý¼º
-    public T ShowPopupUI<T>(string _name = null) where T : UIPopup
+    public T ShowPopupUI<T>(string _name = null, bool _pooling = false) where T : UIPopup
     {
         if (string.IsNullOrEmpty(_name))
         {
             _name = typeof(T).Name;
         }
 
-        GameObject go = Managers.Resource.Instantiate($"{_name}");
+        GameObject go = Managers.Resource.Instantiate($"{_name}",_pooling:_pooling);
+        if (_pooling) Managers.Pool.CreatePool(go);
         T popup = go.GetOrAddComponent<T>();
         popupStack.Push(popup);
         go.transform.SetParent(Root.transform);

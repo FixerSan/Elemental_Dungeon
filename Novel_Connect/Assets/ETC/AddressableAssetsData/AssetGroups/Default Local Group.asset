@@ -157,6 +157,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
+  - m_GUID: d516439c9fc39f442b7cdcafaf2b2c92
+    m_Address: UIPopup_Inventory.GameObject
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7625f705cca72f24088dfc48d2137928, type: 2}
   m_SchemaSet:

@@ -11,7 +11,7 @@ public class DialogManager
         {
             if(speaker == null)
             {
-                speaker = Managers.UI.ShowPopupUI<UIDialogSpeaker>("UIPopup_DialogSpeaker");
+                speaker = Managers.UI.ShowPopupUI<UIDialogSpeaker>("UIPopup_DialogSpeaker", true);
                 speaker.Init();
             }
             return speaker;

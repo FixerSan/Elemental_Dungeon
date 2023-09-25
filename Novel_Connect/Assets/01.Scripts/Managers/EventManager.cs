@@ -13,7 +13,7 @@ public class EventManager
 // 이벤트 종류 선언
 public enum IntEventType 
 {
-    OnDeadMonster, OnGetItem
+    OnDeadMonster, OnGetItem, OnChangeGold
 }
 
 public enum VoidEventType
