@@ -34,5 +34,10 @@ public class TestController : MonoBehaviour
             centipede.SetPosition(new Vector3(0, 0.5f, 0)); 
             centipede.Init();
         }
+
+        if(Input.GetKeyDown(KeyCode.F6))
+        {
+            Managers.Object.SpawnItem(1,new Vector3(5,0,0));
+        }
     }
 }

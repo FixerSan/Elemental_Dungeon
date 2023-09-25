@@ -35,7 +35,15 @@
   "codeName": "TestItem",
   "name": "TestItem",
   "description": "테스트아이템입니다.",
-  "itemImageKey": "TestItem.Sprite"
+  "itemImageKey": "TestItem"
+ },
+ {
+  "itemUID": 1,
+  "maxCount": 10,
+  "codeName": "TestPotion",
+  "name": "TestPotion",
+  "description": "현제 체력 + 100 ",
+  "itemImageKey": "TestPotion"
  }
 ],
 "dialogDatas":[

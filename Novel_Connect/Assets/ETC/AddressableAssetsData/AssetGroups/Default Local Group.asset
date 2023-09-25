@@ -162,6 +162,20 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
+  - m_GUID: 2b6be6fa3377a10468f17914c5e01c48
+    m_Address: ItemController.GameObject
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 30cd5e2d12f286b46b5323b6a014ab92
+    m_Address: Assets/04.Image/UI/Inventory/UIInventory_GoldIcon.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 32c3b28660e2fa541906baf0a1030e1f
+    m_Address: TestPotion.Sprite
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7625f705cca72f24088dfc48d2137928, type: 2}
   m_SchemaSet:

@@ -10,9 +10,9 @@ public class UIEventHandler : MonoBehaviour, IPointerClickHandler, IPointerDownH
     public Action OnPressedHandler = null;
     public Action OnPointerDownHandler = null;
     public Action OnPointerUpHandler = null;
-    public Action<BaseEventData> OnDragHandler = null;
-    public Action<BaseEventData> OnBeginDragHandler = null;
-    public Action<BaseEventData> OnEndDragHandler = null;
+    public Action<PointerEventData> OnDragHandler = null;
+    public Action<PointerEventData> OnBeginDragHandler = null;
+    public Action<PointerEventData> OnEndDragHandler = null;
 
     private bool isPressed = false;
     private void Update()
@@ -20,35 +20,35 @@ public class UIEventHandler : MonoBehaviour, IPointerClickHandler, IPointerDownH
         if (isPressed)
             OnPressedHandler?.Invoke();
     }
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerClick(PointerEventData _eventData)
     {
         OnClickHandler?.Invoke();
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    public void OnBeginDrag(PointerEventData _eventData)
     {
-        OnBeginDragHandler?.Invoke(eventData);
+        OnBeginDragHandler?.Invoke(_eventData);
     }
 
 
-    public void OnEndDrag(PointerEventData eventData)
+    public void OnEndDrag(PointerEventData _eventData)
     {
-        OnEndDragHandler?.Invoke(eventData);
+        OnEndDragHandler?.Invoke(_eventData);
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public void OnDrag(PointerEventData _eventData)
     {
         isPressed = true;
-        OnDragHandler?.Invoke(eventData);
+        OnDragHandler?.Invoke(_eventData);
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData _eventData)
     {
         isPressed = true;
         OnPointerDownHandler?.Invoke();
     }
 
-    public void OnPointerUp(PointerEventData eventData)
+    public void OnPointerUp(PointerEventData _eventData)
     {
         isPressed = true;
         OnPointerUpHandler?.Invoke();

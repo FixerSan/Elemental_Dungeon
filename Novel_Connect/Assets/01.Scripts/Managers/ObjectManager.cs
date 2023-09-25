@@ -24,18 +24,40 @@ public class ObjectManager
         } 
     }
     public HashSet<MonsterController> Monsters { get; } = new HashSet<MonsterController>();     // 몬스터 해쉬 셋
+    private Transform monsterTrasnform;
     public Transform MonsterTransform                                                           // 몬스터 스폰 위치 선언
     {
         get
         {
-            GameObject root = GameObject.Find("@Monster");
-            if (root == null)
+            if (monsterTrasnform == null)
             {
-                root = new GameObject { name = "@Monster" };
-                root.transform.position = Vector3.zero;
+                GameObject root = GameObject.Find("@Monster");
+                if (root == null)
+                {
+                    root = new GameObject { name = "@Monster" };
+                    root.transform.position = Vector3.zero;
+                }
+                monsterTrasnform = root.transform;
             }
-
-            return root.transform;
+            return monsterTrasnform;
+        }
+    }
+    private Transform itemTransform;
+    public Transform ItemTransform                                                           // 아이템 생성 위치 선언
+    {
+        get
+        {
+            if(itemTransform == null)
+            {
+                GameObject root = GameObject.Find("@Item");
+                if (root == null)
+                {
+                    root = new GameObject { name = "@Item" };
+                    root.transform.position = Vector3.zero;
+                }
+                itemTransform = root.transform;
+            }
+            return itemTransform;
         }
     }
 
@@ -90,5 +112,13 @@ public class ObjectManager
     {
         BaseItem baseItem = new BaseItem(_itemUID, _count);
         return baseItem as T;
+    }
+
+    public ItemController SpawnItem(int _itemUID, Vector2 _position,int _count = 1)
+    {
+        ItemController ic = Managers.Resource.Instantiate("ItemController").GetComponent<ItemController>();
+        ic.transform.position = _position;
+        ic.Init(CreateItem<BaseItem>(_itemUID, _count: _count));
+        return ic;
     }
 }

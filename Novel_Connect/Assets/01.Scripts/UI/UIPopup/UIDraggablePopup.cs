@@ -3,19 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UIPopup : UIBase
+public class UIDraggablePopup : UIPopup
 {
+    public RectTransform rect;
     public override bool Init()
     {
         if (!base.Init())
             return false;
-
-        Managers.UI.SetCanvas(gameObject, true);
         return true;
     }
 
-    public virtual void ClosePopupUP()
+    public virtual void OnPointerDown()
     {
-        Managers.UI.ClosePopupUI(this);
+
+    }
+
+    public virtual void OnDrag(PointerEventData _eventData)
+    {
+
     }
 }

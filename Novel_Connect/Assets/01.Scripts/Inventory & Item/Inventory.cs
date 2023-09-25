@@ -6,7 +6,7 @@ using UnityEngine;
 public class Inventory
 {
     public BaseItem[] items = new BaseItem[20];
-    private UIInventory ui_Inventory;
+    public UIInventory ui_Inventory;
     private int gold;
     public int Gold
     {
@@ -56,8 +56,7 @@ public class Inventory
                 return;
             }
 
-            Managers.Pool.Push(ui_Inventory.gameObject);
-            ui_Inventory = null;
+            ui_Inventory.ClosePopupUP();
         });
     }
 }
