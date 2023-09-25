@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DataManager">
+    <Position X="10.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIAACAAAAAAAQEEEAIAAAAACAAAABCAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\DataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Data" Collapsed="true">
+    <Position X="10.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\DataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneData" Collapsed="true">
+    <Position X="11.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAABACAEACAAAAIAAIAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\DataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ItemData" Collapsed="true">
+    <Position X="7" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAACAIAAAIAAAAAAACAAEAAAAAAAAAAEAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\DataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DialogData" Collapsed="true">
+    <Position X="9.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAUCEAEAAQAAAAAAAAAAAAAAAAAAAAQAAAAJAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\DataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SkillData" Collapsed="true">
+    <Position X="13.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAIAIAAAAAAAAEAAIAQAAAAAAAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\DataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

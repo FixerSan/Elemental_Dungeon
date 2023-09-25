@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SceneManager">
+    <Position X="6.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAACAAAAAhQAAAgSAgCAAAAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\SceneManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="BaseScene">
+    <Position X="10.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAACAABAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Scene\BaseScene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GuildScene" Collapsed="true">
+    <Position X="10.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAABAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Scene\GuildScene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IceDungeonScene" Collapsed="true">
+    <Position X="8.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAABAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Scene\IceDungeonScene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LoadingScene" Collapsed="true">
+    <Position X="13" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAABAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Scene\LoadingScene.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

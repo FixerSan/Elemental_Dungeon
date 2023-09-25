@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BattleManager" Collapsed="true">
+    <Position X="7" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAAAAAAAAAAAABAAAAAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\BattleManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CoroutineManager" Collapsed="true">
+    <Position X="6.25" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAQAACAAAAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\CoroutineManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DataManager" Collapsed="true">
+    <Position X="7" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IIAACAAAAAAAQEEEAIAAAAACAAAABCAAgAAAAAAAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\DataManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DialogManager" Collapsed="true">
+    <Position X="7" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQQAAAAAAAAAgAAAACCAAAAgAAAAAAAIAAAAAABA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\DialogManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EventManager" Collapsed="true">
+    <Position X="2.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAE=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\EventManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" Collapsed="true">
+    <Position X="2.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputManager" Collapsed="true">
+    <Position X="2.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gCAAAAQAIAQQAAAAAAAAQAAAAgwAAAAAAkAAAAAgNAQ=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\InputManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LineRendererManager" Collapsed="true">
+    <Position X="2.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAgAAAAAIAEAAAABAAAAAAEAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\LineRendererManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Managers">
+    <Position X="4.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAIAAAOCAgBAgACIQIEghUCBIAVAgSAAABEEA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\Managers.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="battle" />
+      <Field Name="data" />
+      <Field Name="dialog" />
+      <Field Name="event_" />
+      <Field Name="input" />
+      <Field Name="obj" />
+      <Field Name="line" />
+      <Field Name="particle" />
+      <Field Name="pool" />
+      <Field Name="screen" />
+      <Field Name="resource" />
+      <Field Name="sound" />
+      <Field Name="ui" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="ObjectManager" Collapsed="true">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAEAAAAAAAAEABAAAAAQBAAQQ=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\ObjectManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ParticleManager" Collapsed="true">
+    <Position X="2.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\ParticleManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PoolManager" Collapsed="true">
+    <Position X="2.25" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABBAAAAAAAAAAAAAIAAAgAQAABACAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\PoolManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResourceManager" Collapsed="true">
+    <Position X="2.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAgAAAAAAAAAAQAAAEAAABAAABAABAAAAAABAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\ResourceManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SceneManager" Collapsed="true">
+    <Position X="4.5" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAACAAAAAhQAAAgSAgCAAAAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\SceneManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ScreenManager" Collapsed="true">
+    <Position X="7" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAABAEAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\ScreenManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SoundManager" Collapsed="true">
+    <Position X="7" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ASAAAAwwEAQAAAEQAAEAAQAAUAAAAABQACAAAAAARQA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\SoundManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIManager" Collapsed="true">
+    <Position X="7" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIBAEDBAARACAAAAEAAACAAIAAAgAAAAAAAAhBACQ=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\UIManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>
