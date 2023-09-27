@@ -11,6 +11,7 @@ public class ItemController : MonoBehaviour
     public float moveSpeed;
     public float pickupSpeed;
     private float yPos;
+    private float time;
     public BaseItem item;
     private SpriteRenderer spriteRenderer;
 
@@ -35,7 +36,8 @@ public class ItemController : MonoBehaviour
 
     private void Movement()
     {
-        yPos = Mathf.Cos(Time.time * 1.5f) * moveSpeed;
+        time += Time.deltaTime;
+        yPos = Mathf.Cos(time * 1.5f) * moveSpeed;
         spriteRenderer.transform.position += new Vector3(0, yPos, 0);
     }
 
@@ -43,8 +45,13 @@ public class ItemController : MonoBehaviour
     {
         if (isPushed) return;
         isPushed = true;
-        transform.DOJump(_trans.position, 1, 1, pickupSpeed);
-        spriteRenderer.material.DOFade(0, pickupSpeed);
         Managers.Object.Player.inventory.AddItem<BaseItem>(item.itemData.itemUID);
+        transform.DOJump(_trans.position, 1, 1, pickupSpeed);
+        spriteRenderer.material.DOFade(0, pickupSpeed).onComplete += () => { Managers.Resource.Destroy(gameObject); };
+    }
+
+    public void OnDisable()
+    {
+        
     }
 }

@@ -116,9 +116,14 @@ public class ObjectManager
 
     public ItemController SpawnItem(int _itemUID, Vector2 _position,int _count = 1)
     {
-        ItemController ic = Managers.Resource.Instantiate("ItemController").GetComponent<ItemController>();
+        ItemController ic = Managers.Resource.Instantiate("ItemController",_pooling:true).GetComponent<ItemController>();
         ic.transform.position = _position;
         ic.Init(CreateItem<BaseItem>(_itemUID, _count: _count));
         return ic;
+    }
+
+    public UISlot_Item CreateItemSlot()
+    {
+         return Managers.Resource.Load<GameObject>("UISlot_Item").GetOrAddComponent<UISlot_Item>();
     }
 }
