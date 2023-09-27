@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Inventory
 {
-    public BaseItem[] items = new BaseItem[20];
+    public BaseItem[] items = new BaseItem[24];
     public UIInventory ui_Inventory;
     private int gold;
     public int Gold
@@ -21,13 +21,30 @@ public class Inventory
         }
     }
 
+    private void AddItem<T>(int _itemUID) where T : BaseItem
+    {
+        for (int j = 0; j < items.Length; j++)
+        {
+            if (items[j] == null) continue;
+            if (items[j].itemData.itemUID == _itemUID && items[j].itemCount < items[j].itemData.maxCount)
+            {
+                items[j].itemCount++;
+                Managers.Event.OnIntEvent?.Invoke(IntEventType.OnGetItem, _itemUID);
+                return;
+            }
+        }
+
+        int emptyArrayIndex = items.FindEmptyArrayIndex();
+        if (emptyArrayIndex == -1)  return;
+        items[emptyArrayIndex] = Managers.Object.CreateItem<BaseItem>(_itemUID);
+        Managers.Event.OnIntEvent?.Invoke(IntEventType.OnGetItem, _itemUID);
+    }
+
     public void AddItem<T>(int _itemUID, int _count = 1) where T : BaseItem
     {
         for (int i = 0; i < _count; i++)
         {
-            BaseItem listItem = items.FindItem(_itemUID);
-            if (listItem == null || listItem.itemCount == listItem.itemData.maxCount)   items[items.Length] = Managers.Object.CreateItem<T>(_itemUID);
-            else listItem.itemCount++;
+            AddItem<T>(_itemUID);
         }
     }
 
@@ -40,8 +57,7 @@ public class Inventory
             if (arrayItem.itemCount == 1) items[Array.IndexOf(items, arrayItem)] = null;
             else arrayItem.itemCount--;
         }
-        Array.Sort(items);
-        Managers.Event.OnIntEvent(IntEventType.OnGetItem, _itemUID);
+        Managers.Event.OnIntEvent?.Invoke(IntEventType.OnGetItem, _itemUID);
     }
 
     public void CheckOpenUIInventory()

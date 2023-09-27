@@ -181,6 +181,20 @@ public class PlayerController : BaseController
             skills[1]?.CheckCoolTime();
         }
     }
+
+    public void OnTriggerStay2D(Collider2D collision)
+    {
+        if(collision.CompareTag("Item"))
+        {
+            Managers.Input.CheckInput(Managers.Input.pickupItemKey, (_inputType) => 
+            {
+                if (_inputType != InputType.HOLD) return;
+
+                ItemController item = collision.GetOrAddComponent<ItemController>();
+                item.PutInInventory(trans);
+            });
+        }
+    }
 }
 public enum PlayerState
 {

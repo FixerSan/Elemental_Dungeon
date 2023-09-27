@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -22,16 +23,16 @@ public static class Extension
         UIBase.BindEvent(_go, _eventCallback, _dragEventCallback, _eventType);
     }
     #endregion
-
-    public static BaseItem FindItem(this List<BaseItem> _itemList, int _itemUID)
+    #region Array and List
+    public static BaseItem FindItem(this List<BaseItem> _items, int _itemUID)
     {
-        if (_itemList.Count == 0)
+        if (_items.Count == 0)
             return null;
 
-        for (int i = 0; i < _itemList.Count; i++)
+        for (int i = 0; i < _items.Count; i++)
         {
-            if (_itemList[i].itemData.itemUID == _itemUID)
-                return _itemList[i];
+            if (_items[i].itemData.itemUID == _itemUID)
+                return _items[i];
         }
 
         return null;
@@ -44,6 +45,7 @@ public static class Extension
 
         for (int i = 0; i < _items.Length; i++)
         {
+            if (_items[i] == null) continue;
             if (_items[i].itemData.itemUID == _itemUID)
                 return _items[i];
         }
@@ -57,10 +59,39 @@ public static class Extension
         return _list[random];
     }
 
+    public static T Random<T>(this T[] _array)
+    {
+        int random = UnityEngine.Random.Range(0, _array.Length);
+        return _array[random];
+    }
+
     public static T TryGetValue<T>(this List<T> _list, int _index) where T : class
     {
         if (_index < 0 || _index >= _list.Count)
             return null;
         return _list[_index];
     }
+
+    public static T TryGetValue<T>(this T[] _array, int _index) where T : class
+    {
+        if (_index < 0 || _index >= _array.Length)
+            return null;
+        return _array[_index];
+    }
+
+    public static int FindEmptyArrayIndex<T>(this T[] _array)
+    {
+        for (int i = 0; i < _array.Length; i++)
+        {
+            if (_array[i] == null) return i;
+        }
+        return -1;
+    }
+    #endregion
+    #region SpriteRenderer
+    public static void FadeOut(this SpriteRenderer _spriteRenderer, float _fadeOutTime)
+    {
+        Util.FadeOutSpriteRenderer(_spriteRenderer, _fadeOutTime);
+    }
+    #endregion
 }

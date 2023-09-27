@@ -68,4 +68,18 @@ public static class Util
     {
         return (T)Enum.Parse(typeof(T), _value, true);
     }
+
+    public static void FadeOutSpriteRenderer(SpriteRenderer _spriteRenderer, float _fadeOutTime)
+    {
+        Managers.Routine.StartCoroutine(FadeOutSpriteRendererRoutine(_spriteRenderer,_fadeOutTime));
+    }
+
+    private static IEnumerator FadeOutSpriteRendererRoutine(SpriteRenderer _spriteRenderer, float _fadeOutTime)
+    {
+        while (_spriteRenderer != null || _spriteRenderer.color.a > 0)
+        {
+            yield return null;
+            _spriteRenderer.color -= new Color(0, 0, 0, _spriteRenderer.color.a - Time.deltaTime);
+        }
+    }
 }

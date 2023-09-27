@@ -39,5 +39,10 @@ public class TestController : MonoBehaviour
         {
             Managers.Object.SpawnItem(1,new Vector3(5,0,0));
         }
+
+        if (Input.GetKeyDown(KeyCode.F7))
+        {
+            Managers.Object.Player.inventory.RemoveItem(1);
+        }
     }
 }

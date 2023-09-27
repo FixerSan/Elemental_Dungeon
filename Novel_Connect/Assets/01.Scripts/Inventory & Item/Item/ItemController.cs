@@ -6,8 +6,10 @@ using UnityEditor.UIElements;
 
 public class ItemController : MonoBehaviour
 {
+    private bool isPushed;
     private bool isInit;
     public float moveSpeed;
+    public float pickupSpeed;
     private float yPos;
     public BaseItem item;
     private SpriteRenderer spriteRenderer;
@@ -22,6 +24,7 @@ public class ItemController : MonoBehaviour
             spriteRenderer.sprite = _sprite;
         });
         isInit = true;
+        isPushed = false;
     }
 
     private void Update()
@@ -34,5 +37,14 @@ public class ItemController : MonoBehaviour
     {
         yPos = Mathf.Cos(Time.time * 1.5f) * moveSpeed;
         spriteRenderer.transform.position += new Vector3(0, yPos, 0);
+    }
+
+    public void PutInInventory(Transform _trans)
+    {
+        if (isPushed) return;
+        isPushed = true;
+        transform.DOJump(_trans.position, 1, 1, pickupSpeed);
+        spriteRenderer.material.DOFade(0, pickupSpeed);
+        Managers.Object.Player.inventory.AddItem<BaseItem>(item.itemData.itemUID);
     }
 }
