@@ -11,6 +11,8 @@ public class DataManager
     private Dictionary<int, BossData> bossDataDictionary = new Dictionary<int, BossData>();
     private Dictionary<int, DialogData> dialogDataDictionary = new Dictionary<int, DialogData>();
     private Dictionary<int, SkillData> skillDataDictionary = new Dictionary<int, SkillData>();
+    private Dictionary<int, GetQuestData> getQuestDataDictionary = new Dictionary<int, GetQuestData>();
+    private Dictionary<int, KillQuestData> killQuestDataDictionary = new Dictionary<int, KillQuestData>();
 
     // 데이터 반환 코드
     #region GetDatas
@@ -50,8 +52,20 @@ public class DataManager
         if (skillDataDictionary.TryGetValue(_skillUID, out SkillData skillData))
             _callback?.Invoke(skillData);
     }
+
+    public void GetKillQuestData(int _questUID, Action<KillQuestData> _callback)
+    {
+        if (killQuestDataDictionary.TryGetValue(_questUID, out KillQuestData _questData))
+            _callback?.Invoke(_questData);
+    }
+
+    public void GetGetQuestData(int _questUID, Action<GetQuestData> _callback)
+    {
+        if (getQuestDataDictionary.TryGetValue(_questUID, out GetQuestData _questData))
+            _callback?.Invoke(_questData);
+    }
     #endregion
-    
+
     // 데이터 로드
     public void LoadSceneData(Define.Scene _scene)
     {
@@ -87,6 +101,14 @@ public class DataManager
             {
                 bossDataDictionary.TryAdd(sceneData.bossDatas[i].bossUID, sceneData.bossDatas[i]);
             }
+            for (int i = 0; i < sceneData.getQuestDatas.Length; i++)
+            {
+                getQuestDataDictionary.TryAdd(sceneData.getQuestDatas[i].getQuestUID, sceneData.getQuestDatas[i]);
+            }
+            for (int i = 0; i < sceneData.killQuestDatas.Length; i++)
+            {
+                killQuestDataDictionary.TryAdd(sceneData.killQuestDatas[i].killQuestUID, sceneData.killQuestDatas[i]);
+            }
         });
 
     }
@@ -107,6 +129,8 @@ public class SceneData : Data
     public DialogData[] dialogDatas;
     public SkillData[] skillDatas;
     public BossData[] bossDatas;
+    public GetQuestData[] getQuestDatas;
+    public KillQuestData[] killQuestDatas;
 }
 
 [System.Serializable]

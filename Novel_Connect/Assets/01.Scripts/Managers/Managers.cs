@@ -64,6 +64,7 @@ public class Managers : MonoBehaviour
     private EventManager event_ = new EventManager();
     private ParticleManager particle = new ParticleManager();
     private LineRendererManager line = new LineRendererManager();
+    private QuestManager quest = new QuestManager();
 
     // 각각의 매니저들에 대한 public 프로퍼티를 추가
     public static ResourceManager Resource { get { return Instance?.resource; } }
@@ -81,4 +82,5 @@ public class Managers : MonoBehaviour
     public static EventManager Event { get { return Instance?.event_; } }
     public static ParticleManager Particle { get { return Instance?.particle; } }
     public static LineRendererManager Line { get { return Instance?.line; } }
+    public static QuestManager Quest { get { return Instance?.quest; } }
 }

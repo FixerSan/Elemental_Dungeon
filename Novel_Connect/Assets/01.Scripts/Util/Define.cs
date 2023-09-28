@@ -68,4 +68,14 @@ public class Define
         Burn
     }
 
+    public enum QuestState
+    {
+        BEFORE, PROGRESS, AFTER
+    }
+
+    public enum QuestType
+    {
+        KILL, GET
+    }
+
 }
