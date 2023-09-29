@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="GetQuest">
+    <Position X="6.25" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAIQAAAAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Quest\GetQuest.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="data" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="GetQuestData">
+    <Position X="6.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAIAAAQAAAAAAEAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Quest\GetQuest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KillQuest">
+    <Position X="8.75" Y="3.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIQgAAAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Quest\KillQuest.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="data" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="KillQuestData">
+    <Position X="8.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAIAAAAAAAAAAEQAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Quest\KillQuest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Quest">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAIAAACAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Quest\Quest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="QuestManager">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABACAAAAAAAAAAAIAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\01.Scripts\Managers\QuestManager.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="quests" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>
