@@ -52,6 +52,6 @@ public class ItemController : MonoBehaviour
 
     public void OnDisable()
     {
-        
+        spriteRenderer.material.color = Color.white;
     }
 }

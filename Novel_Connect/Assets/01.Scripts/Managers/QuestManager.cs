@@ -17,7 +17,7 @@ public class QuestManager
 
         for (int i = 0; i < quests.Length; i++)
         {
-            if (quests[i].type == Define.QuestType.GET)
+            if (quests[i] != null && quests[i].type == Define.QuestType.GET)
                 quests[i].CheckState(_getItemUID);
         }
     }
@@ -28,7 +28,7 @@ public class QuestManager
         {
             for (int i = 0; i < quests.Length; i++)
             {
-                if (quests[i].type == Define.QuestType.KILL)
+                if (quests[i] != null && quests[i].type == Define.QuestType.KILL)
                     quests[i].CheckState(_killEnemyUID);
             }
         }
@@ -42,11 +42,5 @@ public class QuestManager
 
         Managers.Event.OnIntEvent -= CheckKillQuestState;
         Managers.Event.OnIntEvent += CheckKillQuestState;
-    }
-
-    ~QuestManager()
-    {
-        Managers.Event.OnIntEvent -= CheckGetQuestState;
-        Managers.Event.OnIntEvent -= CheckKillQuestState;
     }
 }

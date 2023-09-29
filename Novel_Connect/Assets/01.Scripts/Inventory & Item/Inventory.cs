@@ -60,6 +60,16 @@ public class Inventory
         Managers.Event.OnIntEvent?.Invoke(IntEventType.OnGetItem, _itemUID);
     }
 
+    public void AddGold(int _value)
+    {
+        Gold += _value;
+    }
+
+    public void RemoveGold(int _value)
+    {
+        Gold -= _value;
+    }
+
     public void CheckOpenUIInventory()
     {
         Managers.Input.CheckInput(Managers.Input.inventoryKey, (_inputType) => 

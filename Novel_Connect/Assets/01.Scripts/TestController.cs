@@ -44,5 +44,10 @@ public class TestController : MonoBehaviour
         {
             Managers.Object.Player.inventory.RemoveItem(1);
         }
+
+        if(Input.GetKeyDown(KeyCode.F8))
+        {
+            Managers.Object.Player.inventory.AddGold(1);
+        }
     }
 }

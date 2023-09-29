@@ -40,31 +40,52 @@ public class Managers : MonoBehaviour
     private void Awake()
     {
         // 인스턴스가 없는 경우 초기화하고, 이미 있는 경우 현재 게임 오브젝트를 파괴
-        if (instance == null)
-            Init();
-        else
+        if (instance != null)
+        {
             Destroy(gameObject);
+            return;
+        }
 
+        Init();
+        CreateManagers();
         // 화면 해상도를 1920x1080으로 설정
         UnityEngine.Screen.SetResolution(1920, 1080, true);
     }
     #endregion
 
+    private void CreateManagers()
+    {
+        resource = new ResourceManager();
+        pool = new PoolManager();
+        ui = new UIManager();
+        data = new DataManager();
+        obj = new ObjectManager();
+        sound = new SoundManager();
+        input = new InputManager();
+        dialog = new DialogManager();
+        battle = new BattleManager();
+        screen = new ScreenManager();
+        event_ = new EventManager();
+        particle = new ParticleManager();
+        line = new LineRendererManager();
+        quest = new QuestManager();
+    }
+
     // 각각의 매니저들을 private 변수로 선언
-    private ResourceManager resource = new ResourceManager();
-    private PoolManager pool = new PoolManager();
-    private UIManager ui = new UIManager();
-    private DataManager data = new DataManager();
-    private ObjectManager obj = new ObjectManager();
-    private SoundManager sound = new SoundManager();
-    private InputManager input = new InputManager();
-    private DialogManager dialog = new DialogManager();
-    private BattleManager battle = new BattleManager();
-    private ScreenManager screen = new ScreenManager();
-    private EventManager event_ = new EventManager();
-    private ParticleManager particle = new ParticleManager();
-    private LineRendererManager line = new LineRendererManager();
-    private QuestManager quest = new QuestManager();
+    private ResourceManager resource;
+    private PoolManager pool;
+    private UIManager ui;
+    private DataManager data;
+    private ObjectManager obj;
+    private SoundManager sound;
+    private InputManager input;
+    private DialogManager dialog;
+    private BattleManager battle;
+    private ScreenManager screen;
+    private EventManager event_;
+    private ParticleManager particle;
+    private LineRendererManager line;
+    private QuestManager quest;
 
     // 각각의 매니저들에 대한 public 프로퍼티를 추가
     public static ResourceManager Resource { get { return Instance?.resource; } }
