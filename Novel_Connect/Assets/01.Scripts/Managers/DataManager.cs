@@ -108,18 +108,18 @@ public class DataManager
             {
                 bossDataDictionary.TryAdd(sceneData.bossDatas[i].bossUID, sceneData.bossDatas[i]);
             }
-            //for (int i = 0; i < sceneData.getQuestDatas.Length; i++)
-            //{
-            //    getQuestDataDictionary.TryAdd(sceneData.getQuestDatas[i].questUID, sceneData.getQuestDatas[i]);
-            //}
-            //for (int i = 0; i < sceneData.killQuestDatas.Length; i++)
-            //{
-            //    killQuestDataDictionary.TryAdd(sceneData.killQuestDatas[i].questUID, sceneData.killQuestDatas[i]);
-            //}
-            //for (int i = 0; i < sceneData.baseQuestDatas.Length; i++)
-            //{
-            //    baseQuestDataDictionary.TryAdd(sceneData.baseQuestDatas[i].questUID, sceneData.baseQuestDatas[i]);
-            //}
+            for (int i = 0; i < sceneData.getQuestDatas.Length; i++)
+            {
+                getQuestDataDictionary.TryAdd(sceneData.getQuestDatas[i].questUID, sceneData.getQuestDatas[i]);
+            }
+            for (int i = 0; i < sceneData.killQuestDatas.Length; i++)
+            {
+                killQuestDataDictionary.TryAdd(sceneData.killQuestDatas[i].questUID, sceneData.killQuestDatas[i]);
+            }
+            for (int i = 0; i < sceneData.baseQuestDatas.Length; i++)
+            {
+                baseQuestDataDictionary.TryAdd(sceneData.baseQuestDatas[i].questUID, sceneData.baseQuestDatas[i]);
+            }
         });
 
     }

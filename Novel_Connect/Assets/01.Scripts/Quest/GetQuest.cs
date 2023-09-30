@@ -22,6 +22,7 @@ public class GetQuest : Quest
                 nowHasItemCount += Managers.Object.Player.inventory.items[i].itemCount;
         }
 
+        Managers.Event.OnVoidEvent?.Invoke(Define.VoidEventType.OnChangeQuest);
         if (nowHasItemCount >= data.needItemCount)
             questState = Define.QuestState.AFTER;
     }
@@ -36,6 +37,7 @@ public class GetQuest : Quest
         Managers.Data.GetBaseQuestData(_questUID, (_data) =>
         {
             baseData = _data;
+            type = Util.ParseEnum<Define.QuestType>(_data.questType);
         });
         Managers.Data.GetGetQuestData(_questUID, (_data) =>
         {
@@ -43,6 +45,7 @@ public class GetQuest : Quest
         });
     }
 }
+[System.Serializable]
 public class GetQuestData 
 {
     public int questUID;

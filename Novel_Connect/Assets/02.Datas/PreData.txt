@@ -11,6 +11,28 @@
   "jumpForce": 5
  }
 ],
+"killQuestDatas":[
+ {
+  "questUID": 0,
+  "killEnemyUID": 1,
+  "needKillCount": 10
+ }
+],
+"getQuestDatas":[
+ {
+  "questUID": 0,
+  "needItemUID": 1,
+  "needItemCount": 10
+ }
+],
+"baseQuestDatas":[
+ {
+  "questUID": 0,
+  "questType": "Get",
+  "name": "테스트 아이템 수집",
+  "description": "테스트 아이템 수집"
+ }
+],
 "monsterDatas":[
  {
   "monsterUID": 0,

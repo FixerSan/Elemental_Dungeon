@@ -34,6 +34,7 @@ public class KillQuest : Quest
         });
     }
 }
+[System.Serializable]
 public class KillQuestData 
 {
     public int questUID;

@@ -12,10 +12,11 @@ public abstract class Quest
     public abstract void CheckState(int _value);
     public abstract void Done();
 }
-
+[System.Serializable]
 public class BaseQuestData
 {
     public int questUID;
+    public string questType;
     public string name;
     public string description;
 }
