@@ -7,10 +7,17 @@ public abstract class Quest
 {
     public QuestType type;
     public QuestState questState;
+    public BaseQuestData baseData;
 
     public abstract void CheckState(int _value);
     public abstract void Done();
 }
 
+public class BaseQuestData
+{
+    public int questUID;
+    public string name;
+    public string description;
+}
 
 

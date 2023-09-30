@@ -11,6 +11,7 @@ public class DataManager
     private Dictionary<int, BossData> bossDataDictionary = new Dictionary<int, BossData>();
     private Dictionary<int, DialogData> dialogDataDictionary = new Dictionary<int, DialogData>();
     private Dictionary<int, SkillData> skillDataDictionary = new Dictionary<int, SkillData>();
+    private Dictionary<int, BaseQuestData> baseQuestDataDictionary = new Dictionary<int, BaseQuestData>();
     private Dictionary<int, GetQuestData> getQuestDataDictionary = new Dictionary<int, GetQuestData>();
     private Dictionary<int, KillQuestData> killQuestDataDictionary = new Dictionary<int, KillQuestData>();
 
@@ -51,6 +52,12 @@ public class DataManager
     {
         if (skillDataDictionary.TryGetValue(_skillUID, out SkillData skillData))
             _callback?.Invoke(skillData);
+    }
+
+    public void GetBaseQuestData(int _questUID, Action<BaseQuestData> _callback)
+    {
+        if (baseQuestDataDictionary.TryGetValue(_questUID, out BaseQuestData _questData))
+            _callback?.Invoke(_questData);
     }
 
     public void GetKillQuestData(int _questUID, Action<KillQuestData> _callback)
@@ -103,11 +110,15 @@ public class DataManager
             }
             //for (int i = 0; i < sceneData.getQuestDatas.Length; i++)
             //{
-            //    getQuestDataDictionary.TryAdd(sceneData.getQuestDatas[i].getQuestUID, sceneData.getQuestDatas[i]);
+            //    getQuestDataDictionary.TryAdd(sceneData.getQuestDatas[i].questUID, sceneData.getQuestDatas[i]);
             //}
             //for (int i = 0; i < sceneData.killQuestDatas.Length; i++)
             //{
-            //    killQuestDataDictionary.TryAdd(sceneData.killQuestDatas[i].killQuestUID, sceneData.killQuestDatas[i]);
+            //    killQuestDataDictionary.TryAdd(sceneData.killQuestDatas[i].questUID, sceneData.killQuestDatas[i]);
+            //}
+            //for (int i = 0; i < sceneData.baseQuestDatas.Length; i++)
+            //{
+            //    baseQuestDataDictionary.TryAdd(sceneData.baseQuestDatas[i].questUID, sceneData.baseQuestDatas[i]);
             //}
         });
 
@@ -129,6 +140,7 @@ public class SceneData : Data
     public DialogData[] dialogDatas;
     public SkillData[] skillDatas;
     public BossData[] bossDatas;
+    public BaseQuestData[] baseQuestDatas;
     public GetQuestData[] getQuestDatas;
     public KillQuestData[] killQuestDatas;
 }

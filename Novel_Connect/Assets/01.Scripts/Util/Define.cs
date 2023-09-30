@@ -14,6 +14,15 @@ public class Define
         Drag,
         EndDrag,
     }
+    public enum IntEventType
+    {
+        OnDeadMonster, OnGetItem, OnChangeGold
+    }
+
+    public enum VoidEventType
+    {
+        OnChangeHP, OnChangeMP, OnChangeElemental, OnChangeSkill_OneCoolTime, OnChangeSkill_TwoCoolTime, OnInput_ElementalKey, OnChangeQuest
+    }
 
     public enum Scene
     {

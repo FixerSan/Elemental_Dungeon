@@ -33,6 +33,10 @@ public class GetQuest : Quest
 
     public GetQuest(int _questUID)
     {
+        Managers.Data.GetBaseQuestData(_questUID, (_data) =>
+        {
+            baseData = _data;
+        });
         Managers.Data.GetGetQuestData(_questUID, (_data) =>
         {
             data = _data;
@@ -41,9 +45,7 @@ public class GetQuest : Quest
 }
 public class GetQuestData 
 {
-    public int getQuestUID;
-    public string name;
-    public string description;
+    public int questUID;
     public int needItemUID;
     public int needItemCount;
 }

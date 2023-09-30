@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using static Define;
 public class InputManager
 {
     // 플레이어 인풋 키코드 선언

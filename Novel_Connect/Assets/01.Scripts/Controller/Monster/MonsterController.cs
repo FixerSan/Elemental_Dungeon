@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UIElements;
+using static Define;
 
 public class MonsterController : BaseController
 {
@@ -228,4 +229,9 @@ public class MonsterData
             elemental = data.elemental;
         });
     }
+}
+
+public class Enemy
+{
+
 }

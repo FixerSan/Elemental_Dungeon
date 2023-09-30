@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class KillQuest : Quest
 {
@@ -23,6 +24,10 @@ public class KillQuest : Quest
 
     public KillQuest(int _questUID)
     {
+        Managers.Data.GetBaseQuestData(_questUID, (_data) => 
+        {
+            baseData = _data;
+        });
         Managers.Data.GetKillQuestData(_questUID, (_data) => 
         {
             data = _data;
@@ -31,9 +36,7 @@ public class KillQuest : Quest
 }
 public class KillQuestData 
 {
-    public int killQuestUID;
-    public string name;
-    public string description;
+    public int questUID;
     public int killEnemyUID;
     public int needKillCount;
 }

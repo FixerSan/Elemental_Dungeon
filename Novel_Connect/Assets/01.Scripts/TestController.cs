@@ -49,5 +49,10 @@ public class TestController : MonoBehaviour
         {
             Managers.Object.Player.inventory.AddGold(1);
         }
+
+        if (Input.GetKeyDown(KeyCode.F9))
+        {
+            Managers.Quest.AddQuest(Define.QuestType.GET,0);
+        }
     }
 }

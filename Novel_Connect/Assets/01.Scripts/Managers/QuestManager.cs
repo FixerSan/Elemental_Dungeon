@@ -1,21 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using static Define;
 public class QuestManager
 {
-    public Quest[] quests;
+    public List<Quest> quests;
 
-    public void AddQuest(Define.QuestType _type, int _questUID)
+    public void AddQuest(QuestType _type, int _questUID)
     {
         //퀘스트 추가 형식 정해야 함
+        if(_type == QuestType.GET)
+        {
+            GetQuest quest = new GetQuest(_questUID);
+
+        }
     }
 
     public void CheckGetQuestState(IntEventType _type, int _getItemUID)
     {
         if (_type != IntEventType.OnGetItem) return;
 
-        for (int i = 0; i < quests.Length; i++)
+        for (int i = 0; i < quests.Count; i++)
         {
             if (quests[i] != null && quests[i].type == Define.QuestType.GET)
                 quests[i].CheckState(_getItemUID);
@@ -26,7 +31,7 @@ public class QuestManager
     {
         if (_type == IntEventType.OnDeadMonster /*이거나 보스 몬스터 이거나 중간 보스 몬스터 일 때*/)
         {
-            for (int i = 0; i < quests.Length; i++)
+            for (int i = 0; i < quests.Count; i++)
             {
                 if (quests[i] != null && quests[i].type == Define.QuestType.KILL)
                     quests[i].CheckState(_killEnemyUID);
@@ -36,7 +41,7 @@ public class QuestManager
 
     public QuestManager()
     {
-        quests = new Quest[3];
+        quests = new List<Quest>();
         Managers.Event.OnIntEvent -= CheckGetQuestState;
         Managers.Event.OnIntEvent += CheckGetQuestState;
 
