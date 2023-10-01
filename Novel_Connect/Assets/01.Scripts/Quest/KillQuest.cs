@@ -1,20 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
+using static Define;
 
 public class KillQuest : Quest
 {
     public KillQuestData data;
+    public EnemyType enemyType;
     public int nowKillCount;
 
     public override void CheckState(int _killEnemyUID)
     {
-        if(_killEnemyUID == data.killEnemyUID)
-            nowKillCount++;
+        if (questState == QuestState.AFTER) return;
+        if (_killEnemyUID != data.killEnemyUID) return;
 
+        nowKillCount++;
         if (nowKillCount >= data.needKillCount)
-            questState = Define.QuestState.AFTER;
+            questState = QuestState.AFTER;
+        Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnChangeQuest);
     }
 
     public override void Done()
@@ -31,6 +35,7 @@ public class KillQuest : Quest
         Managers.Data.GetKillQuestData(_questUID, (_data) => 
         {
             data = _data;
+            enemyType = Util.ParseEnum<EnemyType>(_data.killEnemyType);
         });
     }
 }
@@ -38,6 +43,7 @@ public class KillQuest : Quest
 public class KillQuestData 
 {
     public int questUID;
+    public string killEnemyType;
     public int killEnemyUID;
     public int needKillCount;
 }

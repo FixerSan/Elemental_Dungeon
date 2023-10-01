@@ -54,5 +54,10 @@ public class TestController : MonoBehaviour
         {
             Managers.Quest.AddQuest(Define.QuestType.GET,0);
         }
+
+        if (Input.GetKeyDown(KeyCode.F10))
+        {
+            Managers.Quest.AddQuest(Define.QuestType.KILL, 0);
+        }
     }
 }

@@ -6,18 +6,23 @@ using UnityEngine.UI;
 
 public class UISlot_QuestPanel : UISlot
 {
-    private TMP_Text text;
+    private TMP_Text questInfoText;
     private Image panel;
+    private TMP_Text completeText;
 
     private void Awake()
     {
-        text = Util.FindChild<TMP_Text>(gameObject);
-        panel = Util.FindChild<Image>(gameObject);
+        questInfoText = Util.FindChild<TMP_Text>(gameObject, _name:"Text_QuestInfo");
+        panel = Util.FindChild<Image>(gameObject, _name:"Panel_Quest");
+        completeText = Util.FindChild<TMP_Text>(gameObject, _name: "Text_CompleteText");
+        Disabled();
     }
+
     public void DrawQuestInfo(Quest _quest)
     {
-        panel.gameObject.SetActive(true);
-        text.gameObject.SetActive(true);
+        if(!panel.gameObject.activeSelf)
+            panel.gameObject.SetActive(true);
+        questInfoText.gameObject.SetActive(true);
         if (_quest.type == Define.QuestType.GET)
         {
             GetQuest quest = _quest as GetQuest;
@@ -25,7 +30,7 @@ public class UISlot_QuestPanel : UISlot
             {
                 Managers.Data.GetItemData(_getQuestData.needItemUID, (_itemData) => 
                 {
-                    text.text = $"{_itemData.name} 수집 ({quest.nowHasItemCount}/{quest.data.needItemCount})";
+                    questInfoText.text = $"{_itemData.name} 수집 ({quest.nowHasItemCount}/{quest.data.needItemCount})";
                 });
             });
         }
@@ -37,16 +42,22 @@ public class UISlot_QuestPanel : UISlot
             {
                 Managers.Data.GetMonsterData(_killQuestData.killEnemyUID, (_monsterData) =>
                 {
-                    text.text = $"{_monsterData.monsterName} 처치 ({quest.nowKillCount}/{quest.data.needKillCount})";
+                    questInfoText.text = $"{_monsterData.monsterName} 처치 ({quest.nowKillCount}/{quest.data.needKillCount})";
                 });
             });
         }
+
+        if(_quest.questState == Define.QuestState.AFTER)
+            completeText.gameObject.SetActive(true);
+        else
+            completeText.gameObject.SetActive(false);
     }
 
     public void Disabled()
     {
         panel.gameObject.SetActive(false);
-        text.text = string.Empty; 
-        text.gameObject.SetActive(false);
+        questInfoText.text = string.Empty; 
+        questInfoText.gameObject.SetActive(false);
+        completeText.gameObject.SetActive(false);
     }
 }

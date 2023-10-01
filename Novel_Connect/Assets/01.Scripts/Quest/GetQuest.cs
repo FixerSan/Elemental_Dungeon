@@ -9,7 +9,6 @@ public class GetQuest : Quest
 
     public override void CheckState(int _getItemUID)
     {
-        if (questState == Define.QuestState.AFTER) return;
         if (_getItemUID != data.needItemUID) return;
 
         nowHasItemCount = 0;
@@ -20,11 +19,17 @@ public class GetQuest : Quest
 
             if (Managers.Object.Player.inventory.items[i].itemData.itemUID == _getItemUID)
                 nowHasItemCount += Managers.Object.Player.inventory.items[i].itemCount;
-        }
 
+            if (nowHasItemCount >= data.needItemCount)
+            {
+                nowHasItemCount = data.needItemCount;
+                questState = Define.QuestState.AFTER;
+                break;
+            }
+            else
+                questState = Define.QuestState.PROGRESS;
+        }
         Managers.Event.OnVoidEvent?.Invoke(Define.VoidEventType.OnChangeQuest);
-        if (nowHasItemCount >= data.needItemCount)
-            questState = Define.QuestState.AFTER;
     }
 
     public override void Done()
@@ -42,6 +47,7 @@ public class GetQuest : Quest
         Managers.Data.GetGetQuestData(_questUID, (_data) =>
         {
             data = _data;
+            CheckState(_data.needItemUID);
         });
     }
 }

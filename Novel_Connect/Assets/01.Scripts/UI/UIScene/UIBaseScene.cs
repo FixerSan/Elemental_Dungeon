@@ -43,7 +43,7 @@ public class UIBaseScene : UIScene
     private enum Objects { Object_ChangeElemental  }
     private enum Texts { Text_State, Text_Title }
 
-    private enum Slots { Slot_QuestPanel_One, Slot_QuestPanel_Two, Slot_QuestPanel_Three}
+    private enum Slots { Slot_QuestPanel_One, Slot_QuestPanel_Two, Slot_QuestPanel_Three }
     public void ChangeHPSlider(VoidEventType _eventType)
     {
         if (_eventType != VoidEventType.OnChangeHP) return;

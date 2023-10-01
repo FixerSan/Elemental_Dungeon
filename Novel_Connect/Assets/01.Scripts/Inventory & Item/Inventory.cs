@@ -58,7 +58,7 @@ public class Inventory
             if (arrayItem.itemCount == 1) items[Array.IndexOf(items, arrayItem)] = null;
             else arrayItem.itemCount--;
         }
-        Managers.Event.OnIntEvent?.Invoke(IntEventType.OnGetItem, _itemUID);
+        Managers.Event.OnIntEvent?.Invoke(IntEventType.OnRemoveItem, _itemUID);
     }
 
     public void AddGold(int _value)

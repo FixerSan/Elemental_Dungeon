@@ -14,7 +14,8 @@
 "killQuestDatas":[
  {
   "questUID": 0,
-  "killEnemyUID": 1,
+  "killEnemyType": "Monster",
+  "killEnemyUID": 0,
   "needKillCount": 10
  }
 ],

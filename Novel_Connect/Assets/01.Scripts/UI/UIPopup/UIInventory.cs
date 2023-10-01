@@ -7,7 +7,7 @@ using static Define;
 public class UIInventory : UIDraggablePopup
 {
     private UISlot_Inventory[] slots;
-    [SerializeField]private Transform slotHeader;
+    [SerializeField] private Transform slotHeader;
     public override bool Init()
     {
         if (!base.Init()) return false;
@@ -19,14 +19,14 @@ public class UIInventory : UIDraggablePopup
 
         DrawGoldText(IntEventType.OnChangeGold, Managers.Object.Player.inventory.Gold);
         BindEvent(GetButton((int)Buttons.Button_CloseBtn).gameObject, _callback: ClosePopupUP);
-        BindEvent(GetImage((int)Images.Image_Panel).gameObject,_dracCallback:OnDrag,_type:Define.UIEvent.Drag);
+        BindEvent(GetImage((int)Images.Image_Panel).gameObject, _dracCallback: OnDrag, _type: Define.UIEvent.Drag);
         DrawAllSlot(IntEventType.OnGetItem, -1);
         Managers.Event.OnIntEvent -= DrawGoldText;
         Managers.Event.OnIntEvent += DrawGoldText;
 
         Managers.Event.OnIntEvent -= DrawAllSlot;
         Managers.Event.OnIntEvent += DrawAllSlot;
-        
+
         return true;
     }
 
@@ -45,10 +45,12 @@ public class UIInventory : UIDraggablePopup
 
     private void DrawAllSlot(IntEventType _eventType, int _)
     {
-        if (_eventType != IntEventType.OnGetItem) return;
-        for (int i = 0; i < slots.Length; i++)
+        if (_eventType == IntEventType.OnGetItem || _eventType == IntEventType.OnRemoveItem)
         {
-            slots[i].DrawSlot(Managers.Object.Player.inventory.items[i]);
+            for (int i = 0; i < slots.Length; i++)
+            {
+                slots[i].DrawSlot(Managers.Object.Player.inventory.items[i]);
+            }
         }
     }
 

@@ -16,7 +16,7 @@ public class Define
     }
     public enum IntEventType
     {
-        OnDeadMonster, OnGetItem, OnChangeGold
+        OnDeadMonster, OnDeadBoss , OnGetItem, OnRemoveItem, OnChangeGold
     }
 
     public enum VoidEventType
@@ -65,6 +65,11 @@ public class Define
     public enum Item
     {
         TestItem = 0,
+    }
+
+    public enum EnemyType
+    {
+        Monster, Boss
     }
 
     public enum Monster

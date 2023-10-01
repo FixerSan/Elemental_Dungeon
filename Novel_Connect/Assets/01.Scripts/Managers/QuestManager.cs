@@ -8,7 +8,7 @@ public class QuestManager
 
     public void AddQuest(QuestType _type, int _questUID)
     {
-        //퀘스트 추가 형식 정해야 함
+        if (quests.Count == 3) return;
         if(_type == QuestType.GET)
         {
             GetQuest quest = new GetQuest(_questUID);
@@ -25,23 +25,45 @@ public class QuestManager
 
     public void CheckGetQuestState(IntEventType _type, int _getItemUID)
     {
-        if (_type != IntEventType.OnGetItem) return;
-
-        for (int i = 0; i < quests.Count; i++)
+        if (_type == IntEventType.OnGetItem || _type == IntEventType.OnRemoveItem) 
         {
-            if (quests[i] != null && quests[i].type == QuestType.GET)
-                quests[i].CheckState(_getItemUID);
+            for (int i = 0; i < quests.Count; i++)
+            {
+                if (quests[i] != null && quests[i] is GetQuest)
+                    quests[i].CheckState(_getItemUID);
+            }
         }
     }
 
     public void CheckKillQuestState(IntEventType _type, int _killEnemyUID)
     {
-        if (_type == IntEventType.OnDeadMonster /*이거나 보스 몬스터 이거나 중간 보스 몬스터 일 때*/)
+        EnemyType enemyType;
+        switch(_type)
         {
-            for (int i = 0; i < quests.Count; i++)
+            case IntEventType.OnDeadMonster:
+                enemyType = EnemyType.Monster;
+                break;
+
+            case IntEventType.OnDeadBoss:
+                enemyType = EnemyType.Boss;
+                break;
+
+            default:
+                enemyType = EnemyType.Monster;
+                break;
+        }
+        CheckKillQuestState(enemyType, _killEnemyUID);
+    }
+
+    private void CheckKillQuestState(EnemyType _type, int _killEnemyUID)
+    {
+        for (int i = 0; i < quests.Count; i++)
+        {
+            if (quests[i] != null && quests[i] is KillQuest)
             {
-                if (quests[i] != null && quests[i].type == QuestType.KILL)
-                    quests[i].CheckState(_killEnemyUID);
+                KillQuest quest = (KillQuest)quests[i];
+                if(quest.enemyType == _type)
+                    quest.CheckState(_killEnemyUID);
             }
         }
     }

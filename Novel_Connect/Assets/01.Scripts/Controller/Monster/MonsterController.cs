@@ -107,7 +107,8 @@ public class MonsterController : BaseController
 
     public override void Die()
     {
-        if(changeStateCoroutine != null) Managers.Routine.StopCoroutine(changeStateCoroutine);
+        Managers.Event.OnIntEvent?.Invoke(IntEventType.OnDeadMonster, data.monsterUID);
+        if (changeStateCoroutine != null) Managers.Routine.StopCoroutine(changeStateCoroutine);
         changeStateCoroutine = null;
         if(attack.attackCoroutine != null) Managers.Routine.StopCoroutine(attack.attackCoroutine);
         attack.attackCoroutine = null;
@@ -119,7 +120,6 @@ public class MonsterController : BaseController
     protected override IEnumerator DieRoutine()
     {
         yield return new WaitForSeconds(3f);
-        Managers.Event.OnIntEvent?.Invoke(IntEventType.OnDeadMonster, data.monsterUID);
         Managers.Pool.Push(gameObject);
     }
 
