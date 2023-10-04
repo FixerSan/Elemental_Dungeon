@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Define;
+
 public enum BossState { CREATED, IDLE, FOLLOW, ATTACK, DAMAGED, SKILL_1CAST, SKILL_2CAST, DIE }
 public class BossController : BaseController
 {
@@ -15,6 +17,11 @@ public class BossController : BaseController
     private StateMachine<BossController> stateMachine;
     private Dictionary<BossState, State<BossController>> states;
     private bool init = false;
+
+    public readonly int HASH_MOVE = Animator.StringToHash("isMove");
+    public readonly int HASH_DIE = Animator.StringToHash("isDead");
+    public readonly int HASH_ATTACK = Animator.StringToHash("isAttack");
+    public readonly int HASH_ATTACK_COUNT = Animator.StringToHash("AttackCount");
 
     public void Init(int _bossUID)
     {
@@ -66,7 +73,7 @@ public class BossController : BaseController
             Managers.Resource.Load<RuntimeAnimatorController>(_data.bossCodeName, (ac) =>
             {
                 animator.runtimeAnimatorController = ac;
-                ChangeDirection(Define.Direction.Left);
+                ChangeDirection(Direction.Left);
                 init = true;
             });
         });
@@ -80,6 +87,7 @@ public class BossController : BaseController
                 stateMachine.ChangeState(states[_state]);
             return;
         }
+        state = _state;
         stateMachine.ChangeState(states[_state]);
     }
 
@@ -145,6 +153,12 @@ public class BossController : BaseController
     {
         if (!init) return;
         stateMachine.UpdateState();
+    }
+
+    public void AnimationEvent()
+    {
+        if(state == BossState.CREATED)
+            ChangeState(BossState.IDLE);
     }
 }
 

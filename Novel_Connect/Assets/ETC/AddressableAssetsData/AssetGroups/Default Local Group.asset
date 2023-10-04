@@ -176,6 +176,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
+  - m_GUID: d67791f8a8dfd774bbc6964f6bae8cb8
+    m_Address: Ice_Boss.GameObject
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 830e3b6b6b2e85446b723dc95bdb7c3c
+    m_Address: Ice_Boss_Skill_One.GameObject
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7625f705cca72f24088dfc48d2137928, type: 2}
   m_SchemaSet:

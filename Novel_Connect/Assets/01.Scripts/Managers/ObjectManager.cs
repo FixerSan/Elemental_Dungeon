@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static Define;
 
 public class ObjectManager
 {
@@ -95,6 +96,30 @@ public class ObjectManager
         return mc;
     }
 
+    public BossController SpawnBoss(int _bossUID, Vector2 _position)
+    {
+        GameObject go = null;
+        switch (_bossUID)
+        {
+            case 0:
+                go = Managers.Resource.Instantiate($"Ice_Boss");
+                break;
+        }
+
+        BossController mc = go.GetOrAddComponent<BossController>();
+        go.transform.position = _position;
+        mc.Init(_bossUID);
+        return mc;
+    }
+
+    public ItemController SpawnItem(int _itemUID, Vector2 _position, int _count = 1)
+    {
+        ItemController ic = Managers.Resource.Instantiate("ItemController", _pooling: true).GetComponent<ItemController>();
+        ic.transform.position = _position;
+        ic.Init(CreateItem<BaseItem>(_itemUID, _count: _count));
+        return ic;
+    }
+
     // 몬스터 삭제
     public void Despawn<T>(T _object) where T : BaseController
     {
@@ -112,18 +137,5 @@ public class ObjectManager
     {
         BaseItem baseItem = new BaseItem(_itemUID, _count);
         return baseItem as T;
-    }
-
-    public ItemController SpawnItem(int _itemUID, Vector2 _position,int _count = 1)
-    {
-        ItemController ic = Managers.Resource.Instantiate("ItemController",_pooling:true).GetComponent<ItemController>();
-        ic.transform.position = _position;
-        ic.Init(CreateItem<BaseItem>(_itemUID, _count: _count));
-        return ic;
-    }
-
-    public UISlot_Item CreateItemSlot()
-    {
-         return Managers.Resource.Load<GameObject>("UISlot_Item").GetOrAddComponent<UISlot_Item>();
     }
 }

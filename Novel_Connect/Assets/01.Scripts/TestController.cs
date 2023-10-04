@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TestController : MonoBehaviour
 {
+    public IceSkill_One skill;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.S))
@@ -58,6 +59,11 @@ public class TestController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F10))
         {
             Managers.Quest.AddQuest(Define.QuestType.KILL, 0);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            skill.Init(Managers.Object.Player.trans);
         }
     }
 }

@@ -12,6 +12,7 @@ public class GuildScene : BaseScene
         Managers.Object.Player.SetPosition(new Vector3(3, -1 ,0));
         Managers.Screen.SetCameraTarget(Managers.Object.Player.GetTrans());  
         Managers.Object.SpawnMonster(new Vector3(-3,0,0), Define.Monster.Ghost_Bat);
+        Managers.Object.SpawnBoss(0, new Vector3(2.5f, -2f, 0f));
     }
 
     public override void Clear()

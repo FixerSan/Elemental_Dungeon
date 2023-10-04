@@ -41,7 +41,7 @@ public class MonsterController : BaseController
             status.maxWalkSpeed = _data.speed;
             status.currentWalkSpeed = _data.speed;
             status.currentAttackForce = _data.force;
-            elemental = Util.ParseEnum<Define.Elemental>(_data.elemental);
+            elemental = Util.ParseEnum<Elemental>(_data.elemental);
 
             switch (_data.monsterUID)
             {
@@ -76,7 +76,7 @@ public class MonsterController : BaseController
             Managers.Resource.Load<RuntimeAnimatorController>(_data.monsterCodeName, (ac) => 
             {
                 animator.runtimeAnimatorController = ac;
-                ChangeDirection(Define.Direction.Left);
+                ChangeDirection(Direction.Left);
                 init = true; 
             });
         });
@@ -142,6 +142,7 @@ public class MonsterController : BaseController
                 stateMachine.ChangeState(states[_state]);
             return;
         }
+        state = _state;
         stateMachine.ChangeState(states[_state]);
     }
 
@@ -161,15 +162,15 @@ public class MonsterController : BaseController
     public void LookAtTarget()
     {
         if (targetTrans == null) return;
-        if (targetTrans.position.x > trans.position.x) ChangeDirection(Define.Direction.Right);
-        if (targetTrans.position.x < trans.position.x) ChangeDirection(Define.Direction.Left);
+        if (targetTrans.position.x > trans.position.x) ChangeDirection(Direction.Right);
+        if (targetTrans.position.x < trans.position.x) ChangeDirection(Direction.Left);
     }
 
     public override void KnockBack()
     {
         LookAtTarget();
-        if (direction == Define.Direction.Right) rb.AddForce(new Vector2(-data.knockBackForce, data.knockBackForce * 0.5f), ForceMode2D.Impulse);
-        if (direction == Define.Direction.Left) rb.AddForce(new Vector2(data.knockBackForce, data.knockBackForce * 0.5f), ForceMode2D.Impulse);
+        if (direction == Direction.Right) rb.AddForce(new Vector2(-data.knockBackForce, data.knockBackForce * 0.5f), ForceMode2D.Impulse);
+        if (direction == Direction.Left) rb.AddForce(new Vector2(data.knockBackForce, data.knockBackForce * 0.5f), ForceMode2D.Impulse);
     }
 
     public override void KnockBack(float _force)
