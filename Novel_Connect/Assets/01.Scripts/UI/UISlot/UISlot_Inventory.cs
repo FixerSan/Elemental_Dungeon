@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEditor.Rendering.LookDev;
+
 
 public class UISlot_Inventory : UISlot
 {
