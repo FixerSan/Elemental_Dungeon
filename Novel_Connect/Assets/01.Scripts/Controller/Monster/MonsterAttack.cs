@@ -51,7 +51,7 @@ namespace MonsterAttacks
             {
                 if (colliders[i].CompareTag("Player"))
                 {
-                    Managers.Battle.DamageCalculate(monster, Managers.Object.Player);
+                    Managers.Battle.DamageCalculate(monster, Managers.Object.Player, monster.status.currentAttackForce);
                     break;
                 }
             }

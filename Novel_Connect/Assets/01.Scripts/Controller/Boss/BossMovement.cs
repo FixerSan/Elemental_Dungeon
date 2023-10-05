@@ -27,20 +27,19 @@ namespace BossMovements
 
         public override bool CheckFollow()
         {
-            if(boss.targetTrans != null)
+            if (boss.targetTrans != null && Mathf.Abs(boss.targetTrans.position.x - boss.trans.position.x) > boss.attack.canAttackDistance)
             {
                 boss.ChangeState(BossState.FOLLOW);
                 return true;
             }
+            boss.ChangeState(BossState.IDLE);
             return false;
         }
-
 
         public override void FollowTarget()
         {
             LookAtTarget();
             boss.rb.velocity = new Vector2(boss.status.currentWalkSpeed * Time.fixedDeltaTime * 10 * (int)boss.direction, boss.rb.velocity.y);
         }
-
     }
 }

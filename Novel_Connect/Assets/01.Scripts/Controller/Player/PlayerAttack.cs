@@ -74,7 +74,7 @@ namespace PlayerAttacks
                 if (collider2Ds[i].CompareTag("Player")) continue;
 
                 if (collider2Ds[i].TryGetComponent(out BaseController hitController))
-                    Managers.Battle.DamageCalculate(player, hitController);
+                    Managers.Battle.DamageCalculate(player, hitController, player.status.currentAttackForce);
             }
         }
     }
@@ -100,7 +100,7 @@ namespace PlayerAttacks
                 BaseController hitController = hitTarget.GetComponent<BaseController>();
                 if (hitController != null)
                 {
-                    Managers.Battle.DamageCalculate(player, hitController);
+                    Managers.Battle.DamageCalculate(player, hitController, player.status.currentAttackForce);
                     Managers.Battle.SetStatusEffect(player, hitController, StatusEffect.Burn);
                 }
             }

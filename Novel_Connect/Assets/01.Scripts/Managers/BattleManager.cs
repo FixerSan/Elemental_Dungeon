@@ -8,7 +8,7 @@ public class BattleManager
     public float amageMultiplier;   // 데미지 처리 배율
 
     //속성 별 데미지 계산
-    public void DamageCalculate(BaseController _attacker, BaseController _hiter)
+    public void DamageCalculate(BaseController _attacker, BaseController _hiter, float _damage)
     {
         float calculatedDamage = _attacker.status.currentAttackForce;
 

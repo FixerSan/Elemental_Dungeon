@@ -22,6 +22,7 @@ public class BossController : BaseController
     public readonly int HASH_DIE = Animator.StringToHash("isDead");
     public readonly int HASH_ATTACK = Animator.StringToHash("isAttack");
     public readonly int HASH_ATTACK_COUNT = Animator.StringToHash("AttackCount");
+    public readonly int HASH_SKILL_ONE = Animator.StringToHash("isSkill_One_Cast");
 
     public void Init(int _bossUID)
     {
@@ -34,7 +35,7 @@ public class BossController : BaseController
         attackTrans = Util.FindChild<Transform>(gameObject, "AttackTrans");
         targetTrans = null;
         attackLayer = LayerMask.GetMask("Hitable");
-
+            
         Managers.Data.GetBossData(_bossUID, (_data) => 
         {
             data = _data;
@@ -54,7 +55,7 @@ public class BossController : BaseController
                     attack = new BossAttacks.IceBoss(this);
                     attack.attackDelay = _data.attackDelay;
                     attack.canAttackDistance = _data.canAttackDistance;
-                    attack.canAttackDelay = _data.canAttackDelay;
+                    attack.canAttackDelay = _data.attackDelay;
                     states = new Dictionary<BossState, State<BossController>>();
                     states.Add(BossState.CREATED, new BossStates.BaseBoss.Created());
                     states.Add(BossState.FOLLOW, new BossStates.BaseBoss.Follow());
@@ -154,17 +155,28 @@ public class BossController : BaseController
         if (targetTrans.position.x < trans.position.x) ChangeDirection(Direction.Left);
     }
 
-    public void AnimationEvent()
+    public void AnimationEvent_End()
     {
-        if(state == BossState.CREATED)
+        if(state == BossState.CREATED || state == BossState.SKILL_1CAST || state == BossState.ATTACK)
             ChangeState(BossState.IDLE);
         if(state == BossState.DIE)
             spriteRenderer.FadeOut(1, () => { Managers.Resource.Destroy(gameObject); });
     }
 
+    public void AnimationEvent_Attack()
+    {
+        attack.Attack();
+    }
+
     protected override IEnumerator DieRoutine()
     {
         throw new System.NotImplementedException();
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(attackTrans.position, attackTrans.localScale);
     }
 }
 
@@ -181,7 +193,6 @@ public class BossData
     public float    speed;
     public float    attackDelay;
     public float    canAttackDistance;
-    public float    canAttackDelay;
     public string   elemental;
     public float    skill_OneCooltime;
     public float    skill_TwoCooltime;

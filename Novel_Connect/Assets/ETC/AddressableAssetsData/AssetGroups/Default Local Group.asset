@@ -181,8 +181,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
-  - m_GUID: 830e3b6b6b2e85446b723dc95bdb7c3c
-    m_Address: Ice_Boss_Skill_One.GameObject
+  - m_GUID: 2cbc06277ff59a646979e1c3a82c2fb7
+    m_Address: IceSkill_One.GameObject
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload

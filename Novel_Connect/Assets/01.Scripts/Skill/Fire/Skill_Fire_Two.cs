@@ -41,7 +41,7 @@ public class Skill_Fire_Two : MonoBehaviour
         if (collision.CompareTag("Hitable"))
         {
             BaseController monster = collision.GetComponent<BaseController>();
-            Managers.Battle.DamageCalculate(Managers.Object.Player, monster);
+            Managers.Battle.DamageCalculate(Managers.Object.Player, monster, Managers.Object.Player.status.currentAttackForce);
             Managers.Battle.SetStatusEffect(Managers.Object.Player, monster, StatusEffect.Burn);
         }
     }
