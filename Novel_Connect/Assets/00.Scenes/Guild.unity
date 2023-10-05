@@ -1030,6 +1030,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1609166889347529252, guid: 85245a509255fd84c927a04a97ed1b02, type: 3}
+      propertyPath: moveSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1609166889347529252, guid: 85245a509255fd84c927a04a97ed1b02, type: 3}
+      propertyPath: rotationSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1806194030455962048, guid: 85245a509255fd84c927a04a97ed1b02, type: 3}
+      propertyPath: moveSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1806194030455962048, guid: 85245a509255fd84c927a04a97ed1b02, type: 3}
+      propertyPath: rotationSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 6023657866945381254, guid: 85245a509255fd84c927a04a97ed1b02, type: 3}
       propertyPath: m_Name
       value: Ice_Boss_Skill_One
@@ -1077,6 +1093,14 @@ PrefabInstance:
     - target: {fileID: 6023657866945381257, guid: 85245a509255fd84c927a04a97ed1b02, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693513137383167047, guid: 85245a509255fd84c927a04a97ed1b02, type: 3}
+      propertyPath: moveSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6693513137383167047, guid: 85245a509255fd84c927a04a97ed1b02, type: 3}
+      propertyPath: rotationSpeed
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85245a509255fd84c927a04a97ed1b02, type: 3}

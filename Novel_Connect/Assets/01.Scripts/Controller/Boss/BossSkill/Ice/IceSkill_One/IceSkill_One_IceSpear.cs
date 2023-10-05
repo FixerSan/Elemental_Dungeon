@@ -11,6 +11,7 @@ public class IceSkill_One_IceSpear : MonoBehaviour
     private Vector2 dir;
     private Quaternion rotation;
     private float angle;
+    private float time;
 
     public float angleOffset;
     public float moveSpeed;
@@ -22,8 +23,10 @@ public class IceSkill_One_IceSpear : MonoBehaviour
         target = Vector2.zero;
         dir = Vector2.zero;
         rotation = Quaternion.identity;
-        transform.rotation = Quaternion.identity;
         angle = 0;
+        time = 0;
+
+        transform.rotation = Quaternion.identity;
     }
 
     public void Shot(Vector2 _target)
@@ -40,10 +43,15 @@ public class IceSkill_One_IceSpear : MonoBehaviour
 
     private void TrackingTarget()
     {
+        if (time < 1)
+        {
+            time += Time.deltaTime * rotationSpeed;
+            if (time > 1) time = 1;
+        }
         dir = target - (Vector2)transform.position;
         angle = MathF.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         rotation = Quaternion.AngleAxis(angle + angleOffset, transform.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, rotationSpeed * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, time);
         transform.position = transform.position += (transform.up * Time.deltaTime * moveSpeed);
     }
 
