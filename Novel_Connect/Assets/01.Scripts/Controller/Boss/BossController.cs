@@ -28,7 +28,7 @@ public class BossController : BaseController
         init = false;
         changeStateCoroutine = null;
         trans = gameObject.GetOrAddComponent<Transform>();
-        trans.GetOrAddComponent<SpriteRenderer>();
+        spriteRenderer = trans.GetOrAddComponent<SpriteRenderer>();
         animator = trans.GetOrAddComponent<Animator>();
         rb = trans.GetOrAddComponent<Rigidbody2D>();
         attackTrans = Util.FindChild<Transform>(gameObject, "AttackTrans");
@@ -99,12 +99,7 @@ public class BossController : BaseController
         if (attack.attackCoroutine != null) Managers.Routine.StopCoroutine(attack.attackCoroutine);
         attack.attackCoroutine = null;
         status.StopAllEffect();
-        Managers.Routine.StartCoroutine(DieRoutine());
-    }
-
-    protected override IEnumerator DieRoutine()
-    {
-        yield return null;
+        Managers.Event.OnIntEvent(IntEventType.OnDeadBoss, data.bossUID);
     }
 
     public override void GetDamage(float _damage)
@@ -125,8 +120,6 @@ public class BossController : BaseController
         SetTarget(_attackTrans);
         KnockBack();
         GetDamage(_damage);
-        if (state == BossState.ATTACK) return;
-        ChangeState(BossState.DAMAGED, true);
     }
 
     public override void KnockBack()
@@ -154,11 +147,24 @@ public class BossController : BaseController
         if (!init) return;
         stateMachine.UpdateState();
     }
+    public void LookAtTarget()
+    {
+        if (targetTrans == null) return;
+        if (targetTrans.position.x > trans.position.x) ChangeDirection(Direction.Right);
+        if (targetTrans.position.x < trans.position.x) ChangeDirection(Direction.Left);
+    }
 
     public void AnimationEvent()
     {
         if(state == BossState.CREATED)
             ChangeState(BossState.IDLE);
+        if(state == BossState.DIE)
+            spriteRenderer.FadeOut(1, () => { Managers.Resource.Destroy(gameObject); });
+    }
+
+    protected override IEnumerator DieRoutine()
+    {
+        throw new System.NotImplementedException();
     }
 }
 

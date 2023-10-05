@@ -39,15 +39,16 @@ public class GetQuest : Quest
 
     public GetQuest(int _questUID)
     {
-        Managers.Data.GetBaseQuestData(_questUID, (_data) =>
-        {
-            baseData = _data;
-            type = Util.ParseEnum<Define.QuestType>(_data.questType);
-        });
+        type = Define.QuestType.GET;
         Managers.Data.GetGetQuestData(_questUID, (_data) =>
         {
             data = _data;
             CheckState(_data.needItemUID);
+
+            Managers.Data.GetBaseQuestData(data.baseDataUID, (_baseData) =>
+            {
+                baseData = _baseData;
+            });
         });
     }
 }
@@ -57,4 +58,5 @@ public class GetQuestData
     public int questUID;
     public int needItemUID;
     public int needItemCount;
+    public int baseDataUID;
 }

@@ -11,6 +11,7 @@ public abstract class BaseController : MonoBehaviour
     public Transform trans;
     public Animator animator;
     public Rigidbody2D rb;
+    public SpriteRenderer spriteRenderer;
     public Elemental elemental;
     public Direction direction = Direction.Left;
     public abstract void GetDamage(float _damage);

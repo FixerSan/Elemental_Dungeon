@@ -16,14 +16,23 @@
   "questUID": 0,
   "killEnemyType": "Monster",
   "killEnemyUID": 0,
-  "needKillCount": 10
+  "needKillCount": 10,
+  "baseDataUID": 1
+ },
+ {
+  "questUID": 1,
+  "killEnemyType": "Boss",
+  "killEnemyUID": 0,
+  "needKillCount": 1,
+  "baseDataUID": 2
  }
 ],
 "getQuestDatas":[
  {
   "questUID": 0,
   "needItemUID": 1,
-  "needItemCount": 10
+  "needItemCount": 10,
+  "baseDataUID": 0
  }
 ],
 "baseQuestDatas":[
@@ -32,6 +41,18 @@
   "questType": "Get",
   "name": "테스트 아이템 수집",
   "description": "테스트 아이템 수집"
+ },
+ {
+  "questUID": 1,
+  "questType": "Kill",
+  "name": "박쥐 처치",
+  "description": "박쥐 10마리 처치"
+ },
+ {
+  "questUID": 2,
+  "questType": "Kill",
+  "name": "보스 처치",
+  "description": "보스 1회 처치"
  }
 ],
 "monsterDatas":[

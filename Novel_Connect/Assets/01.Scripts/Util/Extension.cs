@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 public static class Extension
 {
@@ -89,9 +90,9 @@ public static class Extension
     }
     #endregion
     #region SpriteRenderer
-    public static void FadeOut(this SpriteRenderer _spriteRenderer, float _fadeOutTime)
+    public static void FadeOut(this SpriteRenderer _spriteRenderer, float _fadeOutTime, System.Action _callback = null)
     {
-        Util.FadeOutSpriteRenderer(_spriteRenderer, _fadeOutTime);
+        _spriteRenderer.DOFade(0, _fadeOutTime).onComplete += () => { _callback?.Invoke(); };
     }
     #endregion
 }

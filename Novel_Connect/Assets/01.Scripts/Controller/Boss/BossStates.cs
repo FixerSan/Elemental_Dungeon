@@ -76,8 +76,8 @@ namespace BossStates
 
             public override void UpdateState(BossController _entity)
             {
-                if (_entity.attack.CheckCanUseSkill_One()) return;
-                if (_entity.attack.CheckCanUseSkill_Two()) return;
+                //if (_entity.attack.CheckCanUseSkill_One()) return;
+                //if (_entity.attack.CheckCanUseSkill_Two()) return;
                 _entity.movement.FollowTarget();
             }
         }
@@ -122,7 +122,8 @@ namespace BossStates
         {
             public override void EnterState(BossController _entity)
             {
-
+                _entity.animator.SetBool(_entity.HASH_DIE, true);
+                _entity.Die();
             }
 
             public override void ExitState(BossController _entity, Action _callback)
@@ -154,8 +155,8 @@ namespace BossStates
 
             public override void UpdateState(BossController _entity)
             {
-                if (_entity.attack.CheckCanUseSkill_One()) return;
-                if (_entity.attack.CheckCanUseSkill_Two()) return;
+                //if (_entity.attack.CheckCanUseSkill_One()) return;
+                //if (_entity.attack.CheckCanUseSkill_Two()) return;
                 if (_entity.movement.CheckFollow()) return;
                 Debug.Log("³ª³ª³ª");
             }

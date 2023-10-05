@@ -28,14 +28,15 @@ public class KillQuest : Quest
 
     public KillQuest(int _questUID)
     {
-        Managers.Data.GetBaseQuestData(_questUID, (_data) => 
-        {
-            baseData = _data;
-        });
+        type = QuestType.KILL;
         Managers.Data.GetKillQuestData(_questUID, (_data) => 
         {
             data = _data;
             enemyType = Util.ParseEnum<EnemyType>(_data.killEnemyType);
+            Managers.Data.GetBaseQuestData(data.baseDataUID, (_baseData) => 
+            {
+                baseData = _baseData;
+            });
         });
     }
 }
@@ -46,4 +47,5 @@ public class KillQuestData
     public string killEnemyType;
     public int killEnemyUID;
     public int needKillCount;
+    public int baseDataUID;
 }

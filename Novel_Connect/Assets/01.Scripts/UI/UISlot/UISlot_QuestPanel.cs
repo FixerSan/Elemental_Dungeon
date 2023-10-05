@@ -26,25 +26,31 @@ public class UISlot_QuestPanel : UISlot
         if (_quest.type == Define.QuestType.GET)
         {
             GetQuest quest = _quest as GetQuest;
-            Managers.Data.GetGetQuestData(quest.baseData.questUID, (_getQuestData) => 
+
+            Managers.Data.GetItemData(quest.data.needItemUID, (_itemData) => 
             {
-                Managers.Data.GetItemData(_getQuestData.needItemUID, (_itemData) => 
-                {
-                    questInfoText.text = $"{_itemData.name} 수집 ({quest.nowHasItemCount}/{quest.data.needItemCount})";
-                });
+                questInfoText.text = $"{_itemData.name} 수집 ({quest.nowHasItemCount}/{quest.data.needItemCount})";
             });
         }
 
         if (_quest.type == Define.QuestType.KILL)
         {
             KillQuest quest = _quest as KillQuest;
-            Managers.Data.GetKillQuestData(quest.baseData.questUID, (_killQuestData) =>
+
+            if(quest.enemyType == Define.EnemyType.Monster)
             {
-                Managers.Data.GetMonsterData(_killQuestData.killEnemyUID, (_monsterData) =>
+                Managers.Data.GetMonsterData(quest.data.killEnemyUID, (_monsterData) =>
                 {
                     questInfoText.text = $"{_monsterData.monsterName} 처치 ({quest.nowKillCount}/{quest.data.needKillCount})";
                 });
-            });
+            }
+            else if(quest.enemyType == Define.EnemyType.Boss)
+            {
+                Managers.Data.GetBossData(quest.data.killEnemyUID, (_bossData) =>
+                {
+                    questInfoText.text = $"{_bossData.bossName} 처치 ({quest.nowKillCount}/{quest.data.needKillCount})";
+                });
+            }
         }
 
         if(_quest.questState == Define.QuestState.AFTER)

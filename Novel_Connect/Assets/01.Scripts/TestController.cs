@@ -61,6 +61,11 @@ public class TestController : MonoBehaviour
             Managers.Quest.AddQuest(Define.QuestType.KILL, 0);
         }
 
+        if (Input.GetKeyDown(KeyCode.F11))
+        {
+            Managers.Quest.AddQuest(Define.QuestType.KILL, 1);
+        }
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             skill.Init(Managers.Object.Player.trans);
