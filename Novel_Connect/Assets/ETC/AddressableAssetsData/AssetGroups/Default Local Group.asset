@@ -182,6 +182,11 @@ MonoBehaviour:
     m_SerializedLabels:
     - Preload
   - m_GUID: 830e3b6b6b2e85446b723dc95bdb7c3c
+    m_Address: Ice_Boss_Skill_One_Spear.GameObject
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 85245a509255fd84c927a04a97ed1b02
     m_Address: Ice_Boss_Skill_One.GameObject
     m_ReadOnly: 0
     m_SerializedLabels:
