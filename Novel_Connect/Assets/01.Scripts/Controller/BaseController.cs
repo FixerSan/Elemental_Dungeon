@@ -12,6 +12,7 @@ public abstract class BaseController : MonoBehaviour
     public Animator animator;
     public Rigidbody2D rb;
     public SpriteRenderer spriteRenderer;
+    public Animator effectUIAnimator;
     public Elemental elemental;
     public Direction direction = Direction.Left;
     public abstract void GetDamage(float _damage);
@@ -40,6 +41,12 @@ public abstract class BaseController : MonoBehaviour
         return trans;
     }
 
+    public abstract void Freeze();
+
+    public virtual void SetFreezeUI()
+    {
+
+    }
 }
 
 [System.Serializable]
@@ -72,6 +79,10 @@ public class ControllerStatus
     public bool isBurn = false;
     public float burnDamage;
     public Coroutine stopBurnCoroutine;
+
+    public int freezeCount;
+    public Coroutine initFreezeCountCoroutine;
+
 
     public void StartEffectCycle()
     {
@@ -127,6 +138,32 @@ public class ControllerStatus
         effectAction -= Burn;
         burnDamage = 0;
         if (effectAction == null)   StopEffectCycle(); 
+    }
+
+
+    public void SetFreezeCount()
+    {
+        freezeCount++;
+        controller.SetFreezeUI();
+        if (initFreezeCountCoroutine != null) Managers.Routine.StopCoroutine(initFreezeCountCoroutine);
+        initFreezeCountCoroutine = Managers.Routine.StartCoroutine(InitFreezeCount_Routine());
+        if (freezeCount == 3)
+        {
+            StartFreeze();
+        }
+    }
+
+    public void StartFreeze()
+    {
+        freezeCount = 0;
+        controller.Freeze();
+    }
+
+    private IEnumerator InitFreezeCount_Routine()
+    {
+        yield return new WaitForSeconds(5);
+        freezeCount = 0;
+        controller.SetFreezeUI();
     }
 
     public ControllerStatus(BaseController _controller)

@@ -71,8 +71,12 @@ public class BattleManager
     {
         switch (_status)
         {
-            case StatusEffect.Burn:
+            case StatusEffect.BURN:
                 _hiter.status.StartBurn(_Attacker.status.currentAttackForce * 0.05f);
+                break;
+
+            case StatusEffect.FREEZE:
+                _hiter.status.SetFreezeCount();
                 break;
         }
     }

@@ -217,4 +217,8 @@ public class CentipedeController : BaseController
         CheckMove();
     }
 
+    public override void Freeze()
+    {
+        throw new NotImplementedException();
+    }
 }

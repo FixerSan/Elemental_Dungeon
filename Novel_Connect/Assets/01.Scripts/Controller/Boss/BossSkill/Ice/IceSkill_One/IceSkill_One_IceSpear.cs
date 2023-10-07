@@ -6,6 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class IceSkill_One_IceSpear : MonoBehaviour
 {
+    private BaseController user;
     private bool isShot = false;
     private Vector2 target;
     private Vector2 dir;
@@ -29,8 +30,9 @@ public class IceSkill_One_IceSpear : MonoBehaviour
         transform.rotation = Quaternion.identity;
     }
 
-    public void Shot(Vector2 _target)
+    public void Shot(Vector2 _target, BaseController _user)
     {
+        user = _user;
         target = _target;
         isShot = true;
     }
@@ -57,11 +59,18 @@ public class IceSkill_One_IceSpear : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        if (other.CompareTag("Player") || other.CompareTag("Ground"))
         {
-            gameObject.SetActive(false);
+            Boom();
         }
     }
+
+    private void Boom()
+    {
+        Debug.Log("Boom");
+        gameObject.SetActive(false);
+    }
+
 
     private void OnDisable()
     {

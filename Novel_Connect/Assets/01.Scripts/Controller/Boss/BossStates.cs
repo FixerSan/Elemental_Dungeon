@@ -87,6 +87,7 @@ namespace BossStates
         {
             public override void EnterState(BossController _entity)
             {
+                _entity.LookAtTarget();
                 _entity.animator.SetInteger(_entity.HASH_ATTACK_COUNT, UnityEngine.Random.Range(1, 3));
                 _entity.animator.SetBool(_entity.HASH_ATTACK, true);
             }
@@ -158,7 +159,7 @@ namespace BossStates
             public override void UpdateState(BossController _entity)
             {
                 if (_entity.attack.CheckCanUseSkill_One()) return;
-                //if (_entity.attack.CheckCanUseSkill_Two()) return;
+                if (_entity.attack.CheckCanUseSkill_Two()) return;
                 if (_entity.attack.CheckCanAttack()) return;
                 if (_entity.movement.CheckFollow()) return;
             }
@@ -168,6 +169,7 @@ namespace BossStates
         {
             public override void EnterState(BossController _entity)
             {
+                _entity.LookAtTarget();
                 _entity.animator.SetBool(_entity.HASH_SKILL_ONE, true);
                 _entity.attack.Skill_One();
             }
@@ -188,11 +190,14 @@ namespace BossStates
         {
             public override void EnterState(BossController _entity)
             {
-
+                _entity.LookAtTarget();
+                _entity.animator.SetBool(_entity.HASH_SKILL_TWO, true);
+                Managers.Line.SetLine("Skill_Two", new Vector2(_entity.trans.position.x, _entity.trans.position.y + 0.565f), new Vector2(_entity.trans.position.x + (int)_entity.direction * 6f, _entity.trans.position.y + 0.565f), 1.13f);
             }
 
             public override void ExitState(BossController _entity, Action _callback)
             {
+                _entity.animator.SetBool(_entity.HASH_SKILL_TWO, false);
                 _callback?.Invoke();
             }
 

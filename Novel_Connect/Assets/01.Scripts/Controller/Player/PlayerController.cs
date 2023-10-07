@@ -1,3 +1,4 @@
+using DG.Tweening;
 using JetBrains.Annotations;
 using System;
 using System.Collections;
@@ -32,8 +33,9 @@ public class PlayerController : BaseController
     {
         elementals = new PlayerElemental(this);
         trans = gameObject.GetOrAddComponent<Transform>();
-        trans.GetOrAddComponent<SpriteRenderer>();
+        spriteRenderer = trans.GetOrAddComponent<SpriteRenderer>();
         animator = trans.GetOrAddComponent<Animator>();
+        effectUIAnimator = Util.FindChild<Animator>(gameObject, "EffectUI");
         rb = trans.GetOrAddComponent<Rigidbody2D>();
         inventory = new Inventory();
         checkIsGroundTrans = Util.FindChild<Transform>(gameObject, "CheckIsGroundTrans");
@@ -70,6 +72,7 @@ public class PlayerController : BaseController
             states.Add(PlayerState.CASTSKILL_ONE, new PlayerStates.CastSkill_One());
             states.Add(PlayerState.CASTSKILL_TWO, new PlayerStates.CastSkill_Two());
             states.Add(PlayerState.DASH, new PlayerStates.Dash());
+            states.Add(PlayerState.FREEZED, new PlayerStates.Freeze());
             stateMachine = new StateMachine<PlayerController>(this, states[PlayerState.IDLE]);
             init = true;
         });
@@ -157,7 +160,7 @@ public class PlayerController : BaseController
 
     public override void Die()
     {
-
+        Managers.Routine.StopCoroutine(changeStateCoroutine);
     }
 
     protected override IEnumerator DieRoutine()
@@ -195,10 +198,30 @@ public class PlayerController : BaseController
             });
         }
     }
+
+    public override void Freeze()
+    {
+        ChangeState(PlayerState.FREEZED);
+        changeStateCoroutine = Managers.Routine.StartCoroutine(StopFreeze());
+        spriteRenderer.color = Color.blue;
+    }
+
+    public override void SetFreezeUI()
+    {
+        effectUIAnimator.SetInteger("FreezeCount", status.freezeCount);
+    }
+
+    public IEnumerator StopFreeze()
+    {
+        yield return new WaitForSeconds(2);
+        spriteRenderer.DOColor(Color.white, 1);
+        yield return new WaitForSeconds(1);
+        ChangeState(PlayerState.IDLE);
+    }
 }
 public enum PlayerState
 {
-    IDLE, WALK, RUN, JUMP, JUMPING, FALL, ATTACK , CASTSKILL_ONE, CASTSKILL_TWO, DASH
+    IDLE, WALK, RUN, JUMP, JUMPING, FALL, ATTACK , CASTSKILL_ONE, CASTSKILL_TWO, DASH, FREEZED
 }
 
 [System.Serializable]

@@ -10,6 +10,11 @@ public class SubController : BaseController
 
     }
 
+    public override void Freeze()
+    {
+
+    }
+
     public override void GetDamage(float _damage)
     {
         mainController.GetDamage(_damage);

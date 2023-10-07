@@ -30,7 +30,7 @@ public class Skill_Fire_Two_Floor : MonoBehaviour
         if (collision.CompareTag("Hitable"))
         {
             BaseController monster = collision.GetComponent<BaseController>();
-            Managers.Battle.SetStatusEffect(Managers.Object.Player, monster, StatusEffect.Burn);
+            Managers.Battle.SetStatusEffect(Managers.Object.Player, monster, StatusEffect.BURN);
         }
     }
 

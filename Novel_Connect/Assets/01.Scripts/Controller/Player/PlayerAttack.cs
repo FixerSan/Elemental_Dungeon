@@ -101,7 +101,7 @@ namespace PlayerAttacks
                 if (hitController != null)
                 {
                     Managers.Battle.DamageCalculate(player, hitController, player.status.currentAttackForce);
-                    Managers.Battle.SetStatusEffect(player, hitController, StatusEffect.Burn);
+                    Managers.Battle.SetStatusEffect(player, hitController, StatusEffect.BURN);
                 }
             }
         }

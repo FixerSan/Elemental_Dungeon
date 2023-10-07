@@ -35,6 +35,7 @@ namespace BossAttacks
 {
     public class IceBoss : BossAttack
     {
+        private IceSkill_Two skill_Two;
         public override bool CheckCanUseSkill_One()
         {
             if(checkTime_Skill_One > 0)
@@ -52,7 +53,7 @@ namespace BossAttacks
         public override void Skill_One()
         {
             IceSkill_One skill = Managers.Resource.Instantiate("IceSkill_One", _pooling: true).GetOrAddComponent<IceSkill_One>();
-            skill.Init(boss.trans, boss.targetTrans);
+            skill.Init(boss, boss.targetTrans);
         }
 
         public override bool CheckCanUseSkill_Two()
@@ -71,7 +72,19 @@ namespace BossAttacks
 
         public override void Skill_Two()
         {
+            Managers.Routine.StartCoroutine(Skill_Two_Routine());
+            skill_Two = Managers.Resource.Instantiate("IceSkill_Two", _parent: boss.trans,_pooling:true).GetComponent<IceSkill_Two>();
+            skill_Two.Init(boss);
+        }
 
+        private IEnumerator Skill_Two_Routine()
+        {
+            Managers.Line.ReleaseLine("Skill_Two");
+            boss.rb.AddForce(new Vector2((int)boss.direction * 10 ,0), ForceMode2D.Impulse);
+            yield return new WaitForSeconds(0.5f);
+            Managers.Resource.Destroy(skill_Two.gameObject);
+            skill_Two = null;
+            boss.Stop();
         }
 
         public override bool CheckCanAttack()
@@ -99,6 +112,7 @@ namespace BossAttacks
                 if (collider2Ds[i].CompareTag("Player"))
                 {
                     Managers.Battle.DamageCalculate(boss, Managers.Object.Player, boss.status.currentAttackForce);
+                    Managers.Battle.SetStatusEffect(boss, Managers.Object.Player, StatusEffect.FREEZE);
                     break;
                 }
             }

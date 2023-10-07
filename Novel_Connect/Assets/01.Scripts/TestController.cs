@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TestController : MonoBehaviour
 {
-    public IceSkill_One skill;
+    public BossController skill;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.S))
@@ -64,6 +64,12 @@ public class TestController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F11))
         {
             Managers.Quest.AddQuest(Define.QuestType.KILL, 1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            skill.trans.position = new Vector2(0, skill.trans.position.y);
+            skill.ChangeState(BossState.SKILL_2CAST);
         }
     }
 }

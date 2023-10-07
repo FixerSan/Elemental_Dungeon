@@ -79,7 +79,7 @@ public class Define
 
     public enum StatusEffect
     {
-        Burn
+        BURN, FREEZE
     }
 
     public enum QuestState

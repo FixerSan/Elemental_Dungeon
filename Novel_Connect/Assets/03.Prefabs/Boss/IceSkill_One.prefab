@@ -171,6 +171,9 @@ MonoBehaviour:
   angleOffset: 270
   moveSpeed: 6
   rotationSpeed: 1
+  layer:
+    serializedVersion: 2
+    m_Bits: 72
 --- !u!1 &8667873347082280462
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,6 +430,9 @@ MonoBehaviour:
   angleOffset: 270
   moveSpeed: 6
   rotationSpeed: 1
+  layer:
+    serializedVersion: 2
+    m_Bits: 72
 --- !u!1 &8667873347731624609
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,6 +604,9 @@ MonoBehaviour:
   angleOffset: 270
   moveSpeed: 6
   rotationSpeed: 1
+  layer:
+    serializedVersion: 2
+    m_Bits: 72
 --- !u!1 &8667873348452760146
 GameObject:
   m_ObjectHideFlags: 0

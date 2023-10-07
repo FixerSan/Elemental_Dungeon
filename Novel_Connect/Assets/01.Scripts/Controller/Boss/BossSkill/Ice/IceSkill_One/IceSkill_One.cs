@@ -8,11 +8,11 @@ public class IceSkill_One : MonoBehaviour
     public List<Transform> iceSpearPoses = new List<Transform>();
     public float shootDelay;
     private Transform targetTrans;
-    private Transform userTrans;
+    private BaseController user;
 
-    public void Init(Transform _userTrans, Transform _targetTrans)
+    public void Init(BaseController _user, Transform _targetTrans)
     {
-        userTrans = _userTrans;
+        user = _user;
         targetTrans = _targetTrans;
        
         for (int i = 0; i < iceSpears.Count; i++)
@@ -28,7 +28,7 @@ public class IceSkill_One : MonoBehaviour
         for (int i = iceSpears.Count - 1; i > -1; i--)
         {
             yield return new WaitForSeconds(shootDelay);
-            iceSpears[i].Shot(targetTrans.position);
+            iceSpears[i].Shot(targetTrans.position, user);
         }
 
         yield return new WaitForSeconds(10);
@@ -37,6 +37,6 @@ public class IceSkill_One : MonoBehaviour
 
     private void FixedUpdate()
     {
-        transform.position = new Vector3(userTrans.position.x, userTrans.position.y + 1.6f , userTrans.position.z);
+        transform.position = new Vector3(user.trans.position.x, user.trans.position.y + 1.6f , user.trans.position.z);
     }
 }

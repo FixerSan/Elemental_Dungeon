@@ -218,4 +218,24 @@ namespace PlayerStates
 
         }
     }
+
+    public class Freeze : State<PlayerController>
+    {
+        public override void EnterState(PlayerController _entity)
+        {
+            _entity.animator.SetBool("isFreeze", true);
+        }
+
+        public override void ExitState(PlayerController _entity, Action _callback)
+        {
+            _entity.animator.SetBool("isFreeze", false);
+            _callback?.Invoke();
+
+        }
+
+        public override void UpdateState(PlayerController _entity)
+        {
+
+        }
+    }
 }

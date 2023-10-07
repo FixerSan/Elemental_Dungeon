@@ -23,6 +23,7 @@ public class BossController : BaseController
     public readonly int HASH_ATTACK = Animator.StringToHash("isAttack");
     public readonly int HASH_ATTACK_COUNT = Animator.StringToHash("AttackCount");
     public readonly int HASH_SKILL_ONE = Animator.StringToHash("isSkill_One_Cast");
+    public readonly int HASH_SKILL_TWO = Animator.StringToHash("isSkill_Two_Cast");
 
     public void Init(int _bossUID)
     {
@@ -157,7 +158,7 @@ public class BossController : BaseController
 
     public void AnimationEvent_End()
     {
-        if(state == BossState.CREATED || state == BossState.SKILL_1CAST || state == BossState.ATTACK)
+        if(state == BossState.CREATED || state == BossState.SKILL_1CAST || state == BossState.ATTACK || state == BossState.SKILL_2CAST)
             ChangeState(BossState.IDLE);
         if(state == BossState.DIE)
             spriteRenderer.FadeOut(1, () => { Managers.Resource.Destroy(gameObject); });
@@ -166,6 +167,11 @@ public class BossController : BaseController
     public void AnimationEvent_Attack()
     {
         attack.Attack();
+    }
+
+    public void AnimationEvent_Skill_Two()
+    {
+        attack.Skill_Two();
     }
 
     protected override IEnumerator DieRoutine()
@@ -177,6 +183,11 @@ public class BossController : BaseController
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(attackTrans.position, attackTrans.localScale);
+    }
+
+    public override void Freeze()
+    {
+        throw new System.NotImplementedException();
     }
 }
 

@@ -191,6 +191,10 @@ public class MonsterController : BaseController
         Gizmos.DrawWireCube(attackTrans.position, attackTrans.localScale);
     }
 
+    public override void Freeze()
+    {
+        throw new System.NotImplementedException();
+    }
 }
 
 public enum MonsterState { IDLE, MOVE, FOLLOW, ATTACK, DAMAGED, DIE }
