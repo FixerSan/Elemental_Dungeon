@@ -16,6 +16,7 @@ namespace BossStates
 
             public override void ExitState(BossController _entity, Action _callback)
             {
+                _entity.SetTarget(Managers.Object.Player.trans);
                 _callback?.Invoke();
             }
 
@@ -148,7 +149,7 @@ namespace BossStates
         {
             public override void EnterState(BossController _entity)
             {
-                _entity.SetTarget(Managers.Object.Player.trans);
+
             }
 
             public override void ExitState(BossController _entity, Action _callback)
