@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Rendering.LookDev;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class CameraController : MonoBehaviour
 {
@@ -26,10 +28,13 @@ public class CameraController : MonoBehaviour
         }
     }
 
-
     public Transform target;
 
     public Vector3 offset;
+    public Vector2 min, max;
+    public float delayTime;
+
+    private Vector3 nextPos;
 
     public void SetTarget(Transform _target)
     {
@@ -45,9 +50,10 @@ public class CameraController : MonoBehaviour
     public void FollowTarget()
     {
         if (target == null) return;
-        Trans.position = target.position + offset;
+        nextPos = new Vector3(Mathf.Clamp((target.transform.position.x + offset.x), min.x, max.x), Mathf.Clamp((target.transform.position.y + offset.y), min.y, max.y), -10);
+        nextPos = Vector3.Lerp(Trans.position, nextPos, delayTime * Time.deltaTime);
+        Trans.position = nextPos;
     }
-
 
     private void Update()
     {

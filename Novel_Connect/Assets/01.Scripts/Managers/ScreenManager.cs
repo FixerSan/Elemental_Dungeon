@@ -14,7 +14,7 @@ public class ScreenManager
                 GameObject go = GameObject.Find("Main Camera");
                 if(go == null)
                 {
-                    go = Managers.Resource.Load<GameObject>("Main Camera");
+                    go = Managers.Resource.Instantiate("Main Camera");
                 }
                 cameraController = go.GetOrAddComponent<CameraController>();
             }
