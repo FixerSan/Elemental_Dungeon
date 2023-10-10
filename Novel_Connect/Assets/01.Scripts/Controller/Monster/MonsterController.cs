@@ -17,9 +17,11 @@ public class MonsterController : BaseController
     public Transform detecteTrans;
     public Transform targetTrans;
     public LayerMask attackLayer;
+    public Animator effectAnim;
     private StateMachine<MonsterController> stateMachine;
     private Dictionary<MonsterState, State<MonsterController>> states;
     private bool init = false;
+
     public void Init(int _monsterUID)
     {
         init = false;
@@ -27,6 +29,7 @@ public class MonsterController : BaseController
         trans = gameObject.GetOrAddComponent<Transform>();
         trans.GetOrAddComponent<SpriteRenderer>();
         animator = trans.GetOrAddComponent<Animator>();
+        effectAnim = Util.FindChild<Animator>(gameObject,"EffectSprite");
         rb = trans.GetOrAddComponent<Rigidbody2D>();
         attackTrans = Util.FindChild<Transform>(gameObject, "AttackTrans");
         detecteTrans = Util.FindChild<Transform>(gameObject, "DetecteTrans");
@@ -48,14 +51,14 @@ public class MonsterController : BaseController
                 case 0:
                     movement = new MonsterMovements.Ghost_Bat(this);
                     sound = new MonsterSounds.Ghost_Bat(this);
-                    attack = new MonsterAttacks.BaseAttack(this);
+                    attack = new MonsterAttacks.Bat(this);
                     attack.attackDelay = _data.attackDelay;
                     attack.canAttackDistance = _data.canAttackDistance;
                     attack.canAttackDelay = _data.canAttackDelay;
                     states = new Dictionary<MonsterState, State<MonsterController>>();
                     states.Add(MonsterState.IDLE, new MonsterStates.Ghost_Bat.Idle());
                     states.Add(MonsterState.FOLLOW, new MonsterStates.Ghost_Bat.Follow());
-                    states.Add(MonsterState.ATTACK, new MonsterStates.BaseMonster.Attack());
+                    states.Add(MonsterState.ATTACK, new MonsterStates.Ghost_Bat.Attack());
                     states.Add(MonsterState.DAMAGED, new MonsterStates.BaseMonster.Damaged());
                     states.Add(MonsterState.DIE , new MonsterStates.BaseMonster.Die());
                     break;
@@ -194,6 +197,17 @@ public class MonsterController : BaseController
     public override void Freeze()
     {
         throw new System.NotImplementedException();
+    }
+
+    public void Animation_Attack()
+    {
+        attack.Attack();
+    }
+
+    public void Animation_End()
+    {
+        if (state == MonsterState.ATTACK)
+            Managers.Routine.StartCoroutine(attack.AttackRoutine());
     }
 }
 

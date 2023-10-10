@@ -132,6 +132,7 @@ namespace MonsterStates
             public override void EnterState(MonsterController _entity)
             {
                 _entity.state = MonsterState.FOLLOW;
+                if(_entity.movement.checkDetecteCoroutine != null) Managers.Routine.StopCoroutine(_entity.movement.checkDetecteCoroutine);
                 _entity.sound.PlayMoveSound();
                 _entity.animator.SetBool("isMove", true);
             }
@@ -145,11 +146,33 @@ namespace MonsterStates
 
             public override void UpdateState(MonsterController _entity)
             {
+                if (_entity.movement.checkDetecteCoroutine != null) Managers.Routine.StopCoroutine(_entity.movement.checkDetecteCoroutine);
                 _entity.movement.Move();
                 _entity.movement.LookAtTarget();
                 _entity.attack.CheckAttack();
             }
         }
+        public class Attack : State<MonsterController>
+        {
+            public override void EnterState(MonsterController _entity)
+            {
+                _entity.state = MonsterState.ATTACK;
+                _entity.animator.SetBool("isAttack", true);
+                _entity.effectAnim?.SetBool("isAttack", true);
+                _entity.attack.StartAttack();
+            }
 
+            public override void ExitState(MonsterController _entity, Action _callback)
+            {
+                _entity.animator.SetBool("isAttack", false);
+                _entity.effectAnim?.SetBool("isAttack", false);
+                _callback?.Invoke();
+            }
+
+            public override void UpdateState(MonsterController _entity)
+            {
+
+            }
+        }
     }
 }

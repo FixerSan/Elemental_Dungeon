@@ -9,7 +9,7 @@ using static UnityEngine.RuleTile.TilingRuleOutput;
 public abstract class MonsterMovement
 {
     protected MonsterController monster;
-    protected Coroutine checkDetecteCoroutine;
+    public Coroutine checkDetecteCoroutine;
     public abstract void CheckMove();
     public void StopCheckMove()
     {
@@ -77,6 +77,7 @@ namespace MonsterMovements
                 {
                     monster.ChangeState(MonsterState.FOLLOW);
                     monster.SetTarget(colliders[i].transform);
+                    if(checkDetecteCoroutine != null) Managers.Routine.StopCoroutine(checkDetecteCoroutine);
                     break;
                 }
             }
