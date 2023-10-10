@@ -65,8 +65,8 @@ namespace PlayerStates
         public override void UpdateState(PlayerController _entity)
         {
             if (!_entity.animator.GetBool("isRun")) _entity.animator.SetBool("isRun", true);
-            if (_entity.movement.CheckMove()) _entity.movement.RunMove();
             if (_entity.movement.CheckStop()) _entity.Stop();
+            if (_entity.movement.CheckMove()) _entity.movement.RunMove();
             _entity.attack.CheckAttack();
             _entity.movement.CheckJump();
             _entity.movement.CheckDash();

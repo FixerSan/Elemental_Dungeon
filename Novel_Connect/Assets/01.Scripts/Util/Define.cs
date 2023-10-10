@@ -21,7 +21,7 @@ public class Define
 
     public enum VoidEventType
     {
-        OnChangeHP, OnChangeMP, OnChangeElemental, OnChangeSkill_OneCoolTime, OnChangeSkill_TwoCoolTime, OnInput_ElementalKey, OnChangeQuest
+        OnChangeHP, OnChangeMP, OnChangeElemental, OnChangeSkill_OneCoolTime, OnChangeSkill_TwoCoolTime, OnInput_ElementalKey, OnChangeQuest, OnDeadPlayer
     }
 
     public enum Scene

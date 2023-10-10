@@ -160,12 +160,12 @@ public class PlayerController : BaseController
 
     public override void Die()
     {
-        Managers.Routine.StopCoroutine(changeStateCoroutine);
+        Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnDeadPlayer);
     }
 
     protected override IEnumerator DieRoutine()
     {
-        throw new NotImplementedException();
+        yield return null;
     }
 
     public void AnimationEvent()

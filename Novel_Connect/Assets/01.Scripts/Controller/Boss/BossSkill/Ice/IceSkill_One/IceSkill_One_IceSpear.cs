@@ -68,6 +68,8 @@ public class IceSkill_One_IceSpear : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (!isShot) return;
+        if (isBoom) return;
         if (other.CompareTag("Player") || other.CompareTag("Ground"))
             Boom();
     }
@@ -83,7 +85,6 @@ public class IceSkill_One_IceSpear : MonoBehaviour
         Debug.Log("Boom");
         isBoom = true;
         Managers.Resource.Destroy(circle);
-
         gameObject.SetActive(false);
     }
 

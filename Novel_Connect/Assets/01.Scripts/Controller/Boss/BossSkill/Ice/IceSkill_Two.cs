@@ -23,4 +23,10 @@ public class IceSkill_Two : MonoBehaviour
         hitControllers.Add(hiter);
         Managers.Battle.DamageCalculate(user, hiter, user.status.currentAttackForce * 2);
     }
+
+    private void OnDisable()
+    {
+        user = null;
+        hitControllers.Clear();   
+    }
 }

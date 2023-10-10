@@ -44,6 +44,7 @@ public abstract class Playermovement
     {
         if (!isGround) return;
         player.ChangeState(PlayerState.IDLE);
+        if (!Input.GetKey(Managers.Input.move_LeftKey) && !Input.GetKey(Managers.Input.move_RightKey)) player.Stop(); ;
     }
 
     public virtual bool CheckMove()
@@ -63,7 +64,7 @@ public abstract class Playermovement
             return true;
         }
 
-        if (Input.GetKey(Managers.Input.move_RightKey))
+        else if (Input.GetKey(Managers.Input.move_RightKey))
         {
             player.ChangeDirection(Define.Direction.Right);
             player.ChangeState(PlayerState.RUN);
@@ -71,12 +72,23 @@ public abstract class Playermovement
         }
 
         player.ChangeState(PlayerState.IDLE);
+        player.Stop();
         return false;
     }
 
     public virtual bool CheckStop()
     {
-        if (!Input.GetKey(Managers.Input.move_LeftKey) && !Input.GetKey(Managers.Input.move_RightKey)) return true;
+        if (player.direction == Define.Direction.Left)
+        {
+            if(!Input.GetKey(Managers.Input.move_LeftKey))
+            return true;
+        }
+
+        else
+        {
+            if (!Input.GetKey(Managers.Input.move_RightKey))
+                return true;
+        }
         return false;
     }
 
@@ -179,7 +191,8 @@ public abstract class Playermovement
 
     public IEnumerator AttackMove()
     {
-        player.rb.AddForce(new Vector2((int)player.direction * 3, 0), ForceMode2D.Impulse);
+        player.Stop();
+        player.rb.AddForce(new Vector2((int)player.direction * 1.5f, 0), ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.25f);
         player.Stop();
     }
