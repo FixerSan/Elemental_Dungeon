@@ -8,12 +8,12 @@ public class IceDungeonScene : BaseScene
 
     public override void Init()
     {
+        cameraOffset = new Vector3(0, 2, -10);
         base.Init();
         nowCheckPoint = 0;
-        cameraOffset = new Vector3(0, 2, -10);
         Managers.UI.ShowSceneUI<UIBaseScene>("UIScene_BaseScene");
         Managers.Object.Player.Init(1, Define.Elemental.Normal.ToString());
-        Managers.Object.Player.SetPosition(new Vector3(3, -1, 0));
+        Managers.Object.Player.SetPosition(new Vector3(-5, 1, 0));
         Managers.Screen.SetCameraTarget(Managers.Object.Player.trans);
     }
 
