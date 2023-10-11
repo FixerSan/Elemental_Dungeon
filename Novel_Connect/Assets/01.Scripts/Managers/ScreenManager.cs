@@ -15,6 +15,7 @@ public class ScreenManager
                 if(go == null)
                 {
                     go = Managers.Resource.Instantiate("Main Camera");
+                    Object.DontDestroyOnLoad(go);
                 }
                 cameraController = go.GetOrAddComponent<CameraController>();
             }

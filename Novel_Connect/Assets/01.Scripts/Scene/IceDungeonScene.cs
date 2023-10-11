@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Define;
 
 public class IceDungeonScene : BaseScene
 {
     public int nowCheckPoint;
-
+   
     public override void Init()
     {
         cameraOffset = new Vector3(0, 2, -10);
@@ -15,6 +16,16 @@ public class IceDungeonScene : BaseScene
         Managers.Object.Player.Init(1, Define.Elemental.Normal.ToString());
         Managers.Object.Player.SetPosition(new Vector3(-5, 1, 0));
         Managers.Screen.SetCameraTarget(Managers.Object.Player.trans);
+        Transform batSpawnTran = Util.FindChild<Transform>(Managers.Object.MonsterTransform.gameObject, _name: "BatTransforms");
+
+        for (int i = 0; i < batSpawnTran.childCount; i++)
+        {
+            Managers.Object.SpawnMonster(batSpawnTran.GetChild(i).position, Monster.Ghost_Bat);
+        }
+
+        CentipedeController centipede = Managers.Resource.Instantiate("Ghost_Centipede", Managers.Object.MonsterTransform).GetOrAddComponent<CentipedeController>();
+        centipede.SetPosition(new Vector3(18.6700001f, -17.1399994f, 0));
+        centipede.Init();
     }
 
     public override void Clear()
@@ -27,6 +38,7 @@ public class IceDungeonScene : BaseScene
         switch ((_eventIndex)) 
         {
             case 0:
+                
                 break;
         }  
     }

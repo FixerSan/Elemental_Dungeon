@@ -132,7 +132,10 @@ namespace MonsterStates
             public override void EnterState(MonsterController _entity)
             {
                 _entity.state = MonsterState.FOLLOW;
+                _entity.rb.gravityScale = 0.5f;
                 if(_entity.movement.checkDetecteCoroutine != null) Managers.Routine.StopCoroutine(_entity.movement.checkDetecteCoroutine);
+                MonsterMovements.Ghost_Bat movement = _entity.movement as MonsterMovements.Ghost_Bat;
+                movement.StartJump();
                 _entity.sound.PlayMoveSound();
                 _entity.animator.SetBool("isMove", true);
             }

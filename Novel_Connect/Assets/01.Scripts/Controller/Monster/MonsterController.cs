@@ -117,6 +117,7 @@ public class MonsterController : BaseController
         if(attack.attackCoroutine != null) Managers.Routine.StopCoroutine(attack.attackCoroutine);
         attack.attackCoroutine = null;
         status.StopAllEffect();
+        movement.StopMoveCoroutine();
         init = false;
         Managers.Routine.StartCoroutine(DieRoutine());
     }

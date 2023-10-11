@@ -112,6 +112,7 @@ public class CentipedeController : BaseController
 
     private void CheckCanUseSkill()
     {
+        if (isUsingSkill) return;
         if (isCanUseSkill && !isMove)
         {
             isCanUseSkill = false;
@@ -125,7 +126,7 @@ public class CentipedeController : BaseController
             if (checkCanUseSkillTime <= 0)
             {
                 isCanUseSkill = true;
-                checkCanUseSkillTime = skillCooltime;
+                checkCanUseSkillTime = 0;
             }
         }
     }
@@ -136,12 +137,13 @@ public class CentipedeController : BaseController
         target.position = skillStartPos.position;
         yield return new WaitUntil(() => Vector2.Distance(headPos.position , target.position) < 0.1f);
         sequence = target.DOJump(skillEndPos.position,skillMoveForce,skillMoveCount,skillTotalTime).SetEase(Ease.Linear);
-        sequence.onComplete = () => { isUsingSkill = false; };
+        sequence.onComplete = () => { isUsingSkill = false; checkCanUseSkillTime = skillCooltime; };
     }
 
     private void CheckMove()
     {
         if (isMove) return;
+        if (checkCanUseSkillTime < 5f) return;
         if (isUsingSkill) { Managers.Line.ReleaseLine("CentipedeMoveLine"); return; }
         isMove = true;
         moveCoroutine = Managers.Routine.StartCoroutine(MoveRoutine());
@@ -205,7 +207,7 @@ public class CentipedeController : BaseController
 
     public override void SetPosition(Vector2 _position)
     {
-
+        transform.position = _position;
     }
 
     private void Update()

@@ -23,13 +23,11 @@ public class GameManager : MonoBehaviour
         }
     }
     private Vector3 mousePos;
-    private Camera cam;
     private LayerMask layerMask;
     private NPCController npc;
 
     private void Awake()
     {
-        cam = Camera.main;
         layerMask = LayerMask.GetMask("NPC");
 
         #region BindEvent
@@ -41,7 +39,7 @@ public class GameManager : MonoBehaviour
     #region MouseInteraction
     public void CheckMousePointInteraction()
     {
-        mousePos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = Managers.Screen.CameraController.Camera.ScreenToWorldPoint(Input.mousePosition);
 
         RaycastHit2D hit = Physics2D.Raycast(mousePos, transform.forward, 100, layerMask);
         if (hit)
