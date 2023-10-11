@@ -38,7 +38,7 @@ public class IceDungeonScene : BaseScene
         switch ((_eventIndex)) 
         {
             case 0:
-                
+                Managers.Object.Player.SetPosition(new Vector2(1.5f, -37f));
                 break;
         }  
     }
