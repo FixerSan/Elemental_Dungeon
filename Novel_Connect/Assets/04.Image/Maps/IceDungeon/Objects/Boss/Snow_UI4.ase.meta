@@ -1,0 +1,1037 @@
+fileFormatVersion: 2
+guid: 24664a63478955b419c5226486c00734
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: big
+    second: {fileID: 7400000, guid: c9f7d33292b53404da476b0c231a6e71, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: big_Cracked
+    second: {fileID: 7400000, guid: 3fce8d24ca3876b4c8c9682bb835c654, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: bigger
+    second: {fileID: 7400000, guid: 227b30845bf915046bd84d827128f178, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: small
+    second: {fileID: 7400000, guid: 7abcc84ca1b0a864cb591961a99b2006, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: small_Cracked
+    second: {fileID: 7400000, guid: 11a80f58c7b6b9445b42eab172c7da0c, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: smaller
+    second: {fileID: 7400000, guid: fbcf331a010b2584fbd2b62b95406e83, type: 2}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638326251382149026
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Snow_UI4_Frame_0
+    originalName: 
+    pivot: {x: 0.5, y: -0.2631579}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 219
+      width: 19
+      height: 19
+    spriteID: 657172c662f3b804d957c0b39c582d99
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 219}
+  - name: Snow_UI4_Frame_1
+    originalName: 
+    pivot: {x: 0.5, y: -0.1904762}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 190
+      width: 21
+      height: 21
+    spriteID: e3068eab7d1fdb641bba049456ac9f2c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 190}
+  - name: Snow_UI4_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.1304348}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 23
+      height: 23
+    spriteID: 20a183e0cac0c0340a6a15c33e3249ad
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Snow_UI4_Frame_3
+    originalName: 
+    pivot: {x: 0.5, y: -0.1304348}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 35
+      width: 23
+      height: 23
+    spriteID: 09073042373380e42bd7d0e07597224f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 35}
+  - name: Snow_UI4_Frame_4
+    originalName: 
+    pivot: {x: 0.5, y: -0.1304348}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 66
+      width: 23
+      height: 23
+    spriteID: 8672bab4c3112c545bf334edba90ac57
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 66}
+  - name: Snow_UI4_Frame_5
+    originalName: 
+    pivot: {x: 0.5, y: -0.1304348}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 97
+      width: 23
+      height: 23
+    spriteID: a4fe1ac19059aeb4a8a7633d87269faf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 97}
+  - name: Snow_UI4_Frame_6
+    originalName: 
+    pivot: {x: 0.5, y: -0.1304348}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 128
+      width: 23
+      height: 23
+    spriteID: 584ae3139dccb2a44ae73b1c745a5000
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 128}
+  - name: Snow_UI4_Frame_7
+    originalName: 
+    pivot: {x: 0.5, y: -0.1304348}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 159
+      width: 23
+      height: 23
+    spriteID: 2662d1cc02eab454bbe54c3071c186ab
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 159}
+  - name: Snow_UI4_Frame_8
+    originalName: 
+    pivot: {x: 0.5, y: -0.2631579}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 4
+      width: 19
+      height: 19
+    spriteID: 2f7f9c3ce21240440a93a9eee0ef025c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: 4}
+  - name: Snow_UI4_Frame_9
+    originalName: 
+    pivot: {x: 0.5, y: -0.2631579}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 31
+      width: 19
+      height: 19
+    spriteID: f2e935ed16b1c394f80c63a0883de2f9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: 31}
+  - name: Snow_UI4_Frame_10
+    originalName: 
+    pivot: {x: 0.5, y: -0.2631579}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 58
+      width: 19
+      height: 19
+    spriteID: b9293aa4e92e9d24cb35616dd1e0d1ce
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: 58}
+  - name: Snow_UI4_Frame_11
+    originalName: 
+    pivot: {x: 0.5, y: -0.2631579}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 85
+      width: 19
+      height: 19
+    spriteID: 844a547560feecc4897777db0a26fefa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: 85}
+  - name: Snow_UI4_Frame_12
+    originalName: 
+    pivot: {x: 0.5, y: -0.3529412}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 4
+      width: 17
+      height: 17
+    spriteID: 07b7540c8dcc0204ab4106f5f647435b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 4}
+  - name: Snow_UI4_Frame_13
+    originalName: 
+    pivot: {x: 0.5, y: -0.46666664}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 79
+      width: 15
+      height: 15
+    spriteID: 6bec63c1d5dba264f84a5b6815509708
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 79}
+  - name: Snow_UI4_Frame_14
+    originalName: 
+    pivot: {x: 0.5, y: -0.6153846}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 171
+      width: 11
+      height: 13
+    spriteID: 3cc0b1ab62fd6fc489195f698d047b2b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 171}
+  - name: Snow_UI4_Frame_15
+    originalName: 
+    pivot: {x: 0.5, y: -0.6153846}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 192
+      width: 11
+      height: 13
+    spriteID: 121c60a1fa9854046a678812c7982352
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 192}
+  - name: Snow_UI4_Frame_16
+    originalName: 
+    pivot: {x: 0.5, y: -0.46666664}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 102
+      width: 15
+      height: 15
+    spriteID: e9166467dcddb894ca6e19f831ecd142
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 102}
+  - name: Snow_UI4_Frame_17
+    originalName: 
+    pivot: {x: 0.5, y: -0.3529412}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 29
+      width: 17
+      height: 17
+    spriteID: 71ae70cdb3b75dd4ca0f259039644732
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 29}
+  - name: Snow_UI4_Frame_18
+    originalName: 
+    pivot: {x: 0.5, y: -0.2631579}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 112
+      width: 19
+      height: 19
+    spriteID: d73ca917104f63f409fe49540afb44d1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: 112}
+  - name: Snow_UI4_Frame_19
+    originalName: 
+    pivot: {x: 0.5, y: -0.2631579}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 139
+      width: 19
+      height: 19
+    spriteID: b0cdc8413a4b8744baf3a9be51749506
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: 139}
+  - name: Snow_UI4_Frame_20
+    originalName: 
+    pivot: {x: 0.5, y: -0.6153846}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 213
+      width: 11
+      height: 13
+    spriteID: 8dfc3b85fa3d27645a7032ce558885b5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 213}
+  - name: Snow_UI4_Frame_21
+    originalName: 
+    pivot: {x: 0.5, y: -0.6153846}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 234
+      width: 11
+      height: 13
+    spriteID: e7877d5531658e14cacedc555968b6a7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 234}
+  - name: Snow_UI4_Frame_22
+    originalName: 
+    pivot: {x: 0.5, y: -0.6153846}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 4
+      width: 11
+      height: 13
+    spriteID: cfbdcb28001b37a429dd389dc1b86722
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 4}
+  - name: Snow_UI4_Frame_23
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.46666664}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 125
+      width: 13
+      height: 15
+    spriteID: 8c3d99bda4472d24e853ef9bc05c8f75
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 125}
+  - name: Snow_UI4_Frame_24
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.46666664}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 148
+      width: 13
+      height: 15
+    spriteID: 3440a1dc7b5565b498cd7fbe3105b3e3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 148}
+  - name: Snow_UI4_Frame_25
+    originalName: 
+    pivot: {x: 0.5, y: -0.3529412}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 54
+      width: 15
+      height: 17
+    spriteID: 4f12b62693b63674cbac3560faf07c7a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 54}
+  - name: Snow_UI4_Frame_26
+    originalName: 
+    pivot: {x: 0.5, y: -0.14285715}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 166
+      width: 17
+      height: 21
+    spriteID: 8f10c2c3205bf9e4aab7aec6c63dcc74
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: 166}
+  - name: Snow_UI4_Frame_27
+    originalName: 
+    pivot: {x: 0.5, y: -0.2631579}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 195
+      width: 17
+      height: 19
+    spriteID: 25ea5f7bba17b304488482fff8fc02bd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: 195}
+  - name: Snow_UI4_Frame_28
+    originalName: 
+    pivot: {x: 0.5, y: -0.2631579}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 222
+      width: 17
+      height: 19
+    spriteID: 68a14eab7b840a345b8b7cd720677f05
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: 222}
+  - name: Snow_UI4_Frame_29
+    originalName: 
+    pivot: {x: 0.50000024, y: -4}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 35
+      y: 249
+      width: 1
+      height: 1
+    spriteID: bd04987e8ebe4f64ebe1e5a9555382c1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 35, y: 249}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 1141492128
+    name: Snow_UI4
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Snow_UI4_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 3
+        y: 5
+        width: 19
+        height: 19
+      spriteId: 657172c662f3b804d957c0b39c582d99
+    - name: Snow_UI4_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 2
+        y: 4
+        width: 21
+        height: 21
+      spriteId: e3068eab7d1fdb641bba049456ac9f2c
+    - name: Snow_UI4_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 1
+        y: 3
+        width: 23
+        height: 23
+      spriteId: 20a183e0cac0c0340a6a15c33e3249ad
+    - name: Snow_UI4_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 1
+        y: 3
+        width: 23
+        height: 23
+      spriteId: 09073042373380e42bd7d0e07597224f
+    - name: Snow_UI4_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 1
+        y: 3
+        width: 23
+        height: 23
+      spriteId: 8672bab4c3112c545bf334edba90ac57
+    - name: Snow_UI4_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 1
+        y: 3
+        width: 23
+        height: 23
+      spriteId: a4fe1ac19059aeb4a8a7633d87269faf
+    - name: Snow_UI4_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 1
+        y: 3
+        width: 23
+        height: 23
+      spriteId: 584ae3139dccb2a44ae73b1c745a5000
+    - name: Snow_UI4_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 1
+        y: 3
+        width: 23
+        height: 23
+      spriteId: 2662d1cc02eab454bbe54c3071c186ab
+    - name: Snow_UI4_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 3
+        y: 5
+        width: 19
+        height: 19
+      spriteId: 2f7f9c3ce21240440a93a9eee0ef025c
+    - name: Snow_UI4_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 3
+        y: 5
+        width: 19
+        height: 19
+      spriteId: f2e935ed16b1c394f80c63a0883de2f9
+    - name: Snow_UI4_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 3
+        y: 5
+        width: 19
+        height: 19
+      spriteId: b9293aa4e92e9d24cb35616dd1e0d1ce
+    - name: Snow_UI4_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 3
+        y: 5
+        width: 19
+        height: 19
+      spriteId: 844a547560feecc4897777db0a26fefa
+    - name: Snow_UI4_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 4
+        y: 6
+        width: 17
+        height: 17
+      spriteId: 07b7540c8dcc0204ab4106f5f647435b
+    - name: Snow_UI4_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 5
+        y: 7
+        width: 15
+        height: 15
+      spriteId: 6bec63c1d5dba264f84a5b6815509708
+    - name: Snow_UI4_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 7
+        y: 8
+        width: 11
+        height: 13
+      spriteId: 3cc0b1ab62fd6fc489195f698d047b2b
+    - name: Snow_UI4_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 7
+        y: 8
+        width: 11
+        height: 13
+      spriteId: 121c60a1fa9854046a678812c7982352
+    - name: Snow_UI4_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 5
+        y: 7
+        width: 15
+        height: 15
+      spriteId: e9166467dcddb894ca6e19f831ecd142
+    - name: Snow_UI4_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 4
+        y: 6
+        width: 17
+        height: 17
+      spriteId: 71ae70cdb3b75dd4ca0f259039644732
+    - name: Snow_UI4_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 3
+        y: 5
+        width: 19
+        height: 19
+      spriteId: d73ca917104f63f409fe49540afb44d1
+    - name: Snow_UI4_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 3
+        y: 5
+        width: 19
+        height: 19
+      spriteId: b0cdc8413a4b8744baf3a9be51749506
+    - name: Snow_UI4_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 7
+        y: 8
+        width: 11
+        height: 13
+      spriteId: 8dfc3b85fa3d27645a7032ce558885b5
+    - name: Snow_UI4_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 7
+        y: 8
+        width: 11
+        height: 13
+      spriteId: e7877d5531658e14cacedc555968b6a7
+    - name: Snow_UI4_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 7
+        y: 8
+        width: 11
+        height: 13
+      spriteId: cfbdcb28001b37a429dd389dc1b86722
+    - name: Snow_UI4_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 6
+        y: 7
+        width: 13
+        height: 15
+      spriteId: 8c3d99bda4472d24e853ef9bc05c8f75
+    - name: Snow_UI4_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 6
+        y: 7
+        width: 13
+        height: 15
+      spriteId: 3440a1dc7b5565b498cd7fbe3105b3e3
+    - name: Snow_UI4_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 5
+        y: 6
+        width: 15
+        height: 17
+      spriteId: 4f12b62693b63674cbac3560faf07c7a
+    - name: Snow_UI4_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 4
+        y: 3
+        width: 17
+        height: 21
+      spriteId: 8f10c2c3205bf9e4aab7aec6c63dcc74
+    - name: Snow_UI4_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 4
+        y: 5
+        width: 17
+        height: 19
+      spriteId: 25ea5f7bba17b304488482fff8fc02bd
+    - name: Snow_UI4_Frame_28
+      frameIndex: 28
+      cellRect:
+        x: 4
+        y: 5
+        width: 17
+        height: 19
+      spriteId: 68a14eab7b840a345b8b7cd720677f05
+    - name: Snow_UI4_Frame_29
+      frameIndex: 29
+      cellRect:
+        x: 12
+        y: 4
+        width: 1
+        height: 1
+      spriteId: bd04987e8ebe4f64ebe1e5a9555382c1
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 25, y: 29}
