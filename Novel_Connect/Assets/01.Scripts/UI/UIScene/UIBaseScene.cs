@@ -34,6 +34,7 @@ public class UIBaseScene : UIScene
         GetImage((int)Images.Image_Skill_OneCoolTime).fillAmount = 0;
         GetImage((int)Images.Image_Skill_TwoCoolTime).fillAmount = 0;
 
+        GetObject((int)Objects.Object_ChangeElemental).SetActive(Managers.Object.Player.elementals.isChangeElemental);
         DrawQuestPanel(VoidEventType.OnChangeQuest);
         return true;
     }
@@ -112,5 +113,16 @@ public class UIBaseScene : UIScene
     private void Update()
     {
         GetText((int)Texts.Text_State).text = Managers.Object.Player.state.ToString();
+    }
+
+    private void OnDestroy()
+    {
+        Managers.Event.OnVoidEvent -= ChangeHPSlider;
+        Managers.Event.OnVoidEvent -= ChangeMPSlider;
+        Managers.Event.OnVoidEvent -= ChangeElemetal;
+        Managers.Event.OnVoidEvent -= ChangeSkill_OneCooltime;
+        Managers.Event.OnVoidEvent -= ChangeSkill_TwoCooltime;
+        Managers.Event.OnVoidEvent -= DrawElementalUI;
+        Managers.Event.OnVoidEvent -= DrawQuestPanel;
     }
 }

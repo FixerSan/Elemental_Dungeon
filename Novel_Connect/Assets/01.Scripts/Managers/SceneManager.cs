@@ -55,7 +55,7 @@ public class SceneManager : MonoBehaviour
         T scene = Util.FindChild<T>(gameObject);
         if (scene == null)
             scene = gameObject.AddComponent<T>();
-        return scene;
+        return scene as T;
     }
 
     // ¾À Ãß°¡

@@ -42,6 +42,9 @@ public class PlayerController : BaseController
         attackTrans = Util.FindChild<Transform>(gameObject, "AttackTrans");
         groundLayer = LayerMask.GetMask("Ground");
         attackLayer = LayerMask.GetMask("Hitable");
+
+        Managers.Event.OnVoidEvent -= CheckDie;
+        Managers.Event.OnVoidEvent += CheckDie;
         Managers.Data.GetPlayerData(_level, (_data) =>
         {
             data = _data;
@@ -57,6 +60,7 @@ public class PlayerController : BaseController
             status.maxRunSpeed = _data.runSpeed;
             status.currentRunSpeed = _data.runSpeed;
             status.currentAttackForce = _data.force;
+            status.isDead = false;
         });
         Elemental _elemental = Util.ParseEnum<Elemental>(_elementalString);
         elementals.ChangeElemental(_elemental, () =>
@@ -73,6 +77,7 @@ public class PlayerController : BaseController
             states.Add(PlayerState.CASTSKILL_TWO, new PlayerStates.CastSkill_Two());
             states.Add(PlayerState.DASH, new PlayerStates.Dash());
             states.Add(PlayerState.FREEZED, new PlayerStates.Freeze());
+            states.Add(PlayerState.DIE, new PlayerStates.Die());
             stateMachine = new StateMachine<PlayerController>(this, states[PlayerState.IDLE]);
             init = true;
         });
@@ -82,6 +87,7 @@ public class PlayerController : BaseController
     public void Update()
     {
         if (!init) return;
+        if (status.isDead) return;
         if (!Managers.Input.isCanControl) return;
         CheckSkillCooltime();
         stateMachine.UpdateState();
@@ -91,12 +97,14 @@ public class PlayerController : BaseController
 
     public override void GetDamage(float _damage)
     {
+        if (status.isDead) return;
         status.currentHP -= _damage;
         Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnChangeHP);
     }
 
     public override void Hit(Transform _attackerTrans, float _damage)
     {
+        if (status.isDead) return;
         GetDamage(_damage);
     }
 
@@ -158,9 +166,17 @@ public class PlayerController : BaseController
         Gizmos.DrawWireCube(attackTrans.position, attackTrans.localScale);
     }
 
+    public void CheckDie(VoidEventType _eventType)
+    {
+        if (_eventType != VoidEventType.OnChangeHP) return;
+        if (status.currentHP <= 0)
+            ChangeState(PlayerState.DIE);
+    }
+
     public override void Die()
     {
         Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnDeadPlayer);
+        status.isDead = true;
     }
 
     protected override IEnumerator DieRoutine()
@@ -170,10 +186,7 @@ public class PlayerController : BaseController
 
     public void AnimationEvent()
     {
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_1")) attack.Attack();
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_2")) attack.Attack();
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_3")) attack.Attack();
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Attack_4")) attack.Attack();
+        if (state == PlayerState.ATTACK) attack.Attack();
     }
 
     public void CheckSkillCooltime()
@@ -213,15 +226,15 @@ public class PlayerController : BaseController
 
     public IEnumerator StopFreeze()
     {
-        yield return new WaitForSeconds(2);
-        spriteRenderer.DOColor(Color.white, 1);
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(2.5f);
+        spriteRenderer.DOColor(Color.white, 0.5f);
+        yield return new WaitForSeconds(0.5f);
         ChangeState(PlayerState.IDLE);
     }
 }
 public enum PlayerState
 {
-    IDLE, WALK, RUN, JUMP, JUMPING, FALL, ATTACK , CASTSKILL_ONE, CASTSKILL_TWO, DASH, FREEZED
+    IDLE, WALK, RUN, JUMP, JUMPING, FALL, ATTACK , CASTSKILL_ONE, CASTSKILL_TWO, DASH, FREEZED, DIE
 }
 
 [System.Serializable]

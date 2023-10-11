@@ -48,28 +48,11 @@ public class Managers : MonoBehaviour
 
         Init();
         CreateManagers();
+
         // 화면 해상도를 1920x1080으로 설정
         UnityEngine.Screen.SetResolution(1920, 1080, true);
     }
     #endregion
-
-    private void CreateManagers()
-    {
-        resource = new ResourceManager();
-        pool = new PoolManager();
-        ui = new UIManager();
-        data = new DataManager();
-        obj = new ObjectManager();
-        sound = new SoundManager();
-        input = new InputManager();
-        dialog = new DialogManager();
-        battle = new BattleManager();
-        screen = new ScreenManager();
-        event_ = new EventManager();
-        particle = new ParticleManager();
-        line = new LineRendererManager();
-        quest = new QuestManager();
-    }
 
     // 각각의 매니저들을 private 변수로 선언
     private ResourceManager resource;
@@ -86,6 +69,7 @@ public class Managers : MonoBehaviour
     private ParticleManager particle;
     private LineRendererManager line;
     private QuestManager quest;
+    private GameManager game;
 
     // 각각의 매니저들에 대한 public 프로퍼티를 추가
     public static ResourceManager Resource { get { return Instance?.resource; } }
@@ -104,4 +88,25 @@ public class Managers : MonoBehaviour
     public static ParticleManager Particle { get { return Instance?.particle; } }
     public static LineRendererManager Line { get { return Instance?.line; } }
     public static QuestManager Quest { get { return Instance?.quest; } }
+    public static GameManager Game { get { return Instance?.game; } }
+
+
+    private void CreateManagers()
+    {
+        resource = new ResourceManager();
+        pool = new PoolManager();
+        ui = new UIManager();
+        data = new DataManager();
+        obj = new ObjectManager();
+        sound = new SoundManager();
+        input = new InputManager();
+        dialog = new DialogManager();
+        battle = new BattleManager();
+        screen = new ScreenManager();
+        event_ = new EventManager();
+        particle = new ParticleManager();
+        line = new LineRendererManager();
+        quest = new QuestManager();
+        game = GameManager.Instance;
+    }
 }

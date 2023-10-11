@@ -10,4 +10,6 @@ public abstract class BaseScene : MonoBehaviour
         Managers.Screen.SetCameraOffset(cameraOffset);
     }
     public abstract void Clear();
+
+    public abstract void SceneEvent(int _eventIndex);
 }

@@ -224,11 +224,33 @@ namespace PlayerStates
         public override void EnterState(PlayerController _entity)
         {
             _entity.animator.SetBool("isFreeze", true);
+            _entity.Stop();
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)
         {
             _entity.animator.SetBool("isFreeze", false);
+            _callback?.Invoke();
+
+        }
+
+        public override void UpdateState(PlayerController _entity)
+        {
+
+        }
+    }
+
+    public class Die : State<PlayerController>
+    {
+        public override void EnterState(PlayerController _entity)
+        {
+            _entity.animator.SetBool("isDead", true);
+            _entity.Die();
+        }
+
+        public override void ExitState(PlayerController _entity, Action _callback)
+        {
+            _entity.animator.SetBool("isDead", false);
             _callback?.Invoke();
 
         }

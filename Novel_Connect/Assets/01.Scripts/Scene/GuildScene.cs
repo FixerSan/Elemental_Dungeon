@@ -20,6 +20,11 @@ public class GuildScene : BaseScene
 
     }
 
+    public override void SceneEvent(int _eventIndex)
+    {
+
+    }
+
     public GuildScene()
     {
         cameraOffset = new Vector3(0,2,-10);

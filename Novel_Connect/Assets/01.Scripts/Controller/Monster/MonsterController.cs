@@ -44,6 +44,7 @@ public class MonsterController : BaseController
             status.maxWalkSpeed = _data.speed;
             status.currentWalkSpeed = _data.speed;
             status.currentAttackForce = _data.force;
+            status.isDead = false;
             elemental = Util.ParseEnum<Elemental>(_data.elemental);
 
             switch (_data.monsterUID)
@@ -123,6 +124,7 @@ public class MonsterController : BaseController
     protected override IEnumerator DieRoutine()
     {
         yield return new WaitForSeconds(3f);
+        status.isDead = true;
         Managers.Pool.Push(gameObject);
     }
 

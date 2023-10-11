@@ -13,4 +13,9 @@ public class LoadingScene : BaseScene
     {
 
     }
+
+    public override void SceneEvent(int _eventIndex)
+    {
+
+    }
 }

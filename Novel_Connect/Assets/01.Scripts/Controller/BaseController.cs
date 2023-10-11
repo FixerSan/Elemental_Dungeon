@@ -76,6 +76,8 @@ public class ControllerStatus
     public System.Action effectAction;
     public Coroutine effectActionCoroutine;
 
+    public bool isDead = false;
+
     public bool isBurn = false;
     public float burnDamage;
     public Coroutine stopBurnCoroutine;
@@ -97,6 +99,8 @@ public class ControllerStatus
         {
             yield return new WaitForSeconds(1f);
             effectAction?.Invoke();
+
+            if (isDead) StopEffectCycle();
         }
     }
 
@@ -143,6 +147,8 @@ public class ControllerStatus
 
     public void SetFreezeCount()
     {
+        if (isDead) return;
+
         freezeCount++;
         controller.SetFreezeUI();
         if (initFreezeCountCoroutine != null) Managers.Routine.StopCoroutine(initFreezeCountCoroutine);
@@ -155,15 +161,30 @@ public class ControllerStatus
 
     public void StartFreeze()
     {
+        if (isDead) return;
+
         freezeCount = 0;
         controller.Freeze();
     }
 
     private IEnumerator InitFreezeCount_Routine()
     {
-        yield return new WaitForSeconds(5);
-        freezeCount = 0;
-        controller.SetFreezeUI();
+        if(isDead)
+        {
+            freezeCount = 0;
+            controller.SetFreezeUI();
+        }
+
+        else
+        {
+            yield return new WaitForSeconds(5);
+            freezeCount--;
+            controller.SetFreezeUI();
+            if(freezeCount != 0)
+            {
+                initFreezeCountCoroutine = Managers.Routine.StartCoroutine(InitFreezeCount_Routine());
+            }
+        }
     }
 
     public ControllerStatus(BaseController _controller)
