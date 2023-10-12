@@ -58,13 +58,13 @@ namespace PlayerStates
 
         public override void ExitState(PlayerController _entity, Action _callback)
         {
-            _entity.animator.SetBool("isRun", false);
+            _entity.animator.SetBool(_entity.HASH_ANIMATION["isRun"], false);
             _callback?.Invoke();
         }      
 
         public override void UpdateState(PlayerController _entity)
         {
-            if (!_entity.animator.GetBool("isRun")) _entity.animator.SetBool("isRun", true);
+            if (!_entity.animator.GetBool(_entity.HASH_ANIMATION["isRun"])) _entity.animator.SetBool(_entity.HASH_ANIMATION["isRun"], true);
             if (_entity.movement.CheckStop()) _entity.Stop();
             if (_entity.movement.CheckMove()) _entity.movement.RunMove();
             _entity.attack.CheckAttack();
@@ -93,7 +93,7 @@ namespace PlayerStates
         public override void UpdateState(PlayerController _entity)
         {
             _entity.movement.CheckUpAndFall();
-            if (!_entity.animator.GetBool("isJump")) _entity.animator.SetBool("isJump", true);
+            if (!_entity.animator.GetBool(_entity.HASH_ANIMATION["isJump"])) _entity.animator.SetBool(_entity.HASH_ANIMATION["isJump"], true);
         }
     }
 
@@ -106,13 +106,13 @@ namespace PlayerStates
 
         public override void ExitState(PlayerController _entity, Action _callback)
         {
-            _entity.animator.SetBool("isJump", false);
+            _entity.animator.SetBool(_entity.HASH_ANIMATION["isJump"], false);
             _callback?.Invoke();
         }
 
         public override void UpdateState(PlayerController _entity)
         {
-            if (!_entity.animator.GetBool("isJump")) _entity.animator.SetBool("isJump", true);
+            if (!_entity.animator.GetBool(_entity.HASH_ANIMATION["isJump"])) _entity.animator.SetBool(_entity.HASH_ANIMATION["isJump"], true);
             _entity.movement.CheckUpAndFall();
             _entity.movement.CheckLanding();
             if (_entity.movement.CheckJumpMove()) _entity.movement.JumpMove();
@@ -130,14 +130,14 @@ namespace PlayerStates
 
         public override void ExitState(PlayerController _entity, Action _callback)
         {
-            _entity.animator.SetBool("isFall", false);
+            _entity.animator.SetBool(_entity.HASH_ANIMATION["isFall"], false);
             if (_entity.movement.CheckStop()) _entity.Stop();
             _callback?.Invoke();
         }
 
         public override void UpdateState(PlayerController _entity)
         {
-            if (!_entity.animator.GetBool("isFall")) _entity.animator.SetBool("isFall", true);
+            if (!_entity.animator.GetBool(_entity.HASH_ANIMATION["isFall"])) _entity.animator.SetBool(_entity.HASH_ANIMATION["isFall"], true);
             _entity.movement.CheckUpAndFall();
             _entity.movement.CheckLanding();
             if (_entity.movement.CheckJumpMove()) _entity.movement.JumpMove();
@@ -150,14 +150,14 @@ namespace PlayerStates
     {
         public override void EnterState(PlayerController _entity)
         {
-            _entity.animator.SetBool("isAttack", true);
+            _entity.animator.SetBool(_entity.HASH_ANIMATION["isAttack"], true);
             _entity.attack.StartAttack();
             _entity.movement.CheckAttackMove();
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)
         {
-            _entity.animator.SetBool("isAttack", false);
+            _entity.animator.SetBool(_entity.HASH_ANIMATION["isAttack"], false);
             _callback?.Invoke();
         }
 
@@ -223,13 +223,13 @@ namespace PlayerStates
     {
         public override void EnterState(PlayerController _entity)
         {
-            _entity.animator.SetBool("isFreeze", true);
+            _entity.animator.SetBool(_entity.HASH_ANIMATION["isFreeze"], true);
             _entity.Stop();
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)
         {
-            _entity.animator.SetBool("isFreeze", false);
+            _entity.animator.SetBool(_entity.HASH_ANIMATION["isFreeze"], false);
             _callback?.Invoke();
 
         }
@@ -244,13 +244,13 @@ namespace PlayerStates
     {
         public override void EnterState(PlayerController _entity)
         {
-            _entity.animator.SetBool("isDead", true);
+            _entity.animator.SetBool(_entity.HASH_ANIMATION["isDead"], true);
             _entity.Die();
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)
         {
-            _entity.animator.SetBool("isDead", false);
+            _entity.animator.SetBool(_entity.HASH_ANIMATION["isDead"], false);
             _callback?.Invoke();
 
         }

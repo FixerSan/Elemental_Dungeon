@@ -69,7 +69,7 @@ public class SoundManager
     public void SetEffectVolume(float _volume)
     {
         effectVolume = _volume;
-        effectSourceController.SetVoulme(effectVolume);
+        EffectSourceController.SetVoulme(effectVolume);
         for (int i = 0; i < effectSourceControllers.Count; i++)
         {
             effectSourceControllers[i].SetVoulme(effectVolume);

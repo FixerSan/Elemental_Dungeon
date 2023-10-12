@@ -26,6 +26,7 @@ public class SceneManager : MonoBehaviour
             Managers.Data.LoadSceneData(Define.Scene.Pre);
             UnityEngine.SceneManagement.SceneManager.sceneLoaded += instance.LoadedScene;
             instance.LoadedScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene(), UnityEngine.SceneManagement.LoadSceneMode.Single);
+            Managers.Game.Init();
         });
     }
     #endregion

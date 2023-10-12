@@ -27,6 +27,7 @@ public class PlayerController : BaseController
     public LayerMask attackLayer;
     private Dictionary<PlayerState, State<PlayerController>> states;
     private StateMachine<PlayerController> stateMachine;
+    public Dictionary<string, int> HASH_ANIMATION;
 
 
     public void Init(int _level, string _elementalString)
@@ -42,9 +43,17 @@ public class PlayerController : BaseController
         attackTrans = Util.FindChild<Transform>(gameObject, "AttackTrans");
         groundLayer = LayerMask.GetMask("Ground");
         attackLayer = LayerMask.GetMask("Hitable");
+        HASH_ANIMATION = new Dictionary<string, int>();
+        HASH_ANIMATION.Add("isRun", Animator.StringToHash("isRun"));
+        HASH_ANIMATION.Add("isJump", Animator.StringToHash("isJump"));
+        HASH_ANIMATION.Add("isFall", Animator.StringToHash("isFall"));
+        HASH_ANIMATION.Add("isAttack", Animator.StringToHash("isAttack"));
+        HASH_ANIMATION.Add("isFreeze", Animator.StringToHash("isFreeze"));
+        HASH_ANIMATION.Add("isDead", Animator.StringToHash("isDead"));
 
         Managers.Event.OnVoidEvent -= CheckDie;
         Managers.Event.OnVoidEvent += CheckDie;
+
         Managers.Data.GetPlayerData(_level, (_data) =>
         {
             data = _data;
@@ -188,6 +197,10 @@ public class PlayerController : BaseController
     {
         if (state == PlayerState.ATTACK) attack.Attack();
     }
+    public void AnimationEvent_End()
+    {
+        if (state == PlayerState.ATTACK) ChangeState(PlayerState.IDLE);
+    }
 
     public void CheckSkillCooltime()
     {
@@ -215,6 +228,8 @@ public class PlayerController : BaseController
     public override void Freeze()
     {
         ChangeState(PlayerState.FREEZED);
+        if (attack.attackCoroutine != null)
+            Managers.Routine.StopCoroutine(attack.attackCoroutine);
         changeStateCoroutine = Managers.Routine.StartCoroutine(StopFreeze());
         spriteRenderer.color = Color.blue;
     }

@@ -39,6 +39,13 @@ public class GameManager : MonoBehaviour
 
         #endregion 
     }
+
+    public void Init()
+    {
+        Managers.Sound.SetBGMVolume(0);
+        Managers.Sound.SetEffectVolume(0);
+    }
+
     #region MouseInteraction
     public void CheckMousePointInteraction()
     {
