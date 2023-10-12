@@ -16,7 +16,7 @@
   "questUID": 0,
   "killEnemyType": "Monster",
   "killEnemyUID": 0,
-  "needKillCount": 10,
+  "needKillCount": 5,
   "baseDataUID": 1
  },
  {
@@ -25,6 +25,13 @@
   "killEnemyUID": 0,
   "needKillCount": 1,
   "baseDataUID": 2
+ },
+ {
+  "questUID": 2,
+  "killEnemyType": "Boss",
+  "killEnemyUID": 1,
+  "needKillCount": 1,
+  "baseDataUID": 3
  }
 ],
 "getQuestDatas":[
@@ -51,8 +58,14 @@
  {
   "questUID": 2,
   "questType": "Kill",
-  "name": "보스 처치",
+  "name": "얼음 정령 처치",
   "description": "보스 1회 처치"
+ },
+ {
+  "questUID": 3,
+  "questType": "Kill",
+  "name": "유령 지네 처치",
+  "description": "유령 지네 1회 처치"
  }
 ],
 "monsterDatas":[
@@ -280,7 +293,7 @@
   "bossName": "얼음 정령",
   "description": "어쩌구 저쩌구",
   "exp": 10,
-  "hp": 100,
+  "hp": 200,
   "force": 10,
   "speed": 3,
   "attackDelay": 1,
@@ -290,6 +303,23 @@
   "skill_OneCooltime": 5,
   "skill_TwoCooltime": 5,
   "skill_UltCooltime": 5
+ },
+ {
+  "bossUID": 1,
+  "bossCodeName": "Ghost_Centipede",
+  "bossName": "유령 지네",
+  "description": "어쩌구 저쩌구",
+  "exp": 10,
+  "hp": 100,
+  "force": 10,
+  "speed": 0,
+  "attackDelay": 0,
+  "canAttackDistance": 0,
+  "knockBackForce": 0,
+  "elemental": "Ghost",
+  "skill_OneCooltime": 0,
+  "skill_TwoCooltime": 0,
+  "skill_UltCooltime": 0
  }
 ]
 }

@@ -27,7 +27,8 @@ namespace MonsterSounds
 
         public override void StopMoveSound()
         {
-            Managers.Routine.StopCoroutine(moveCoroutine);
+            if(moveCoroutine != null)
+                Managers.Routine.StopCoroutine(moveCoroutine);
         }
 
         public IEnumerator PlayMoveSoundRoutine()

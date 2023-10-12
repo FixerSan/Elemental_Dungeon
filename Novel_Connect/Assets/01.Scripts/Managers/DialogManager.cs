@@ -73,6 +73,7 @@ public class DialogManager
                 break;
 
             case 1008:
+                Managers.Game.npcFirstDictionary[$"{nameof(QuestBoardManager)}"] = false;
                 EndDialog();
                 Managers.scene.GetScene<GuildScene>().SceneEvent(1);
                 break;

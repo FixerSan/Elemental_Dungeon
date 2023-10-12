@@ -42,6 +42,7 @@ public class SceneManager : MonoBehaviour
     // 현재 씬 제거 후 새로운 씬 추가
     private void LoadedScene(UnityEngine.SceneManagement.Scene _scene, UnityEngine.SceneManagement.LoadSceneMode _loadSceneMode)
     {
+        Managers.Pool.Clear();
         RemoveScene(currentScene, () =>
         {
             currentScene = _scene.name;

@@ -67,6 +67,9 @@ public class GuildScene : BaseScene
     {
         yield return new WaitForSeconds(1);
         Managers.scene.LoadScene(Define.Scene.IceDungeon);
+        Managers.Quest.AddQuest(Define.QuestType.KILL, 0);
+        Managers.Quest.AddQuest(Define.QuestType.KILL, 2);
+        Managers.Quest.AddQuest(Define.QuestType.KILL, 1);
     }
 
     public GuildScene()

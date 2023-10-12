@@ -23,8 +23,7 @@ public abstract class MonsterMovement
     public abstract void Move();
     public void LookAtTarget()
     {
-        if (Mathf.Abs(monster.trans.position.y - monster.targetTrans.position.y) > 1) return;
-        if(Mathf.Abs(monster.trans.position.x- monster.targetTrans.position.x) > 0.5f)
+        if(Mathf.Abs(monster.trans.position.x - monster.targetTrans.position.x) > 0.5f)
             monster.LookAtTarget();
     }
 
@@ -112,8 +111,10 @@ namespace MonsterMovements
 
         public override void StopMoveCoroutine()
         {
-            Managers.Routine.StopCoroutine(checkDetecteCoroutine);
-            Managers.Routine.StopCoroutine(jumpCoroutine);
+            if(checkDetecteCoroutine != null)
+                Managers.Routine.StopCoroutine(checkDetecteCoroutine);
+            if(jumpCoroutine != null)
+                Managers.Routine.StopCoroutine(jumpCoroutine);
         }
     }
 }

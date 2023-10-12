@@ -91,6 +91,7 @@ public class ObjectManager
 
         MonsterController mc = go.GetOrAddComponent<MonsterController>();
         go.transform.position = _position;
+        go.transform.SetParent(MonsterTransform);
         Monsters.Add(mc);
         mc.Init((int)_monster);
         return mc;

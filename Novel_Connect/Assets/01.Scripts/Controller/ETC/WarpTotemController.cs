@@ -25,7 +25,7 @@ public class WarpTotemController : MonoBehaviour
 
     private void Use()
     {
-        animator.Play("Ing", 0);
+        animator.SetBool("isUse", true);
         IceDungeonScene scene = Managers.scene.GetScene<IceDungeonScene>();
         scene.SceneEvent(0);
     }

@@ -27,7 +27,7 @@ public class MonsterController : BaseController
         init = false;
         changeStateCoroutine = null;
         trans = gameObject.GetOrAddComponent<Transform>();
-        trans.GetOrAddComponent<SpriteRenderer>();
+        spriteRenderer = trans.GetOrAddComponent<SpriteRenderer>();
         animator = trans.GetOrAddComponent<Animator>();
         effectAnim = Util.FindChild<Animator>(gameObject,"EffectSprite");
         rb = trans.GetOrAddComponent<Rigidbody2D>();
@@ -118,8 +118,9 @@ public class MonsterController : BaseController
         attack.attackCoroutine = null;
         status.StopAllEffect();
         movement.StopMoveCoroutine();
-        init = false;
+        spriteRenderer.FadeOut(1);
         Managers.Routine.StartCoroutine(DieRoutine());
+        init = false;
     }
 
     protected override IEnumerator DieRoutine()

@@ -42,7 +42,7 @@ namespace MonsterStates
 
             public override void UpdateState(MonsterController _entity)
             {
-
+                _entity.movement.StopMoveCoroutine();
             }
         }
 

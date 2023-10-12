@@ -51,6 +51,14 @@ public class CentipedeController : BaseController
         checkCanUseSkillTime = skillCooltime;
         isMoveUp = false;
         isUsingSkill = false;
+
+
+        Managers.Data.GetBossData(1, (_data) => 
+        {
+            status.maxHP = _data.hp;
+            status.currentHP = _data.hp;
+            status.currentAttackForce = 10;
+        });
     }
 
     public void CheckDie()
@@ -67,6 +75,7 @@ public class CentipedeController : BaseController
         Managers.Routine.StopCoroutine(moveCoroutine);
         Managers.Line.ReleaseLine("CentipedeMoveLine");
         Managers.Routine.StartCoroutine(DieRoutine());
+        Managers.Event.OnIntEvent(Define.IntEventType.OnDeadBoss, 1);
     }
 
     protected override IEnumerator DieRoutine()
