@@ -1,18 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class GuildScene : BaseScene
 {
+    public List<Transform> cameraPoses;
     public override void Init()
     {
         base.Init();
+
+        GameObject go = GameObject.Find("@CameraPoses");
+        for (int i = 0; i < go.transform.childCount; i++)
+        {
+            cameraPoses.Add(go.transform.GetChild(i));
+        }
+
         Managers.UI.ShowSceneUI<UIBaseScene>("UIScene_BaseScene");
         Managers.Object.Player.Init(1, Define.Elemental.Normal.ToString());
-        Managers.Object.Player.SetPosition(new Vector3(3, -1 ,0));
-        Managers.Screen.SetCameraTarget(Managers.Object.Player.GetTrans());  
-        Managers.Object.SpawnMonster(new Vector3(-3,0,0), Define.Monster.Ghost_Bat);
-        Managers.Object.SpawnBoss(0, new Vector3(2.5f, -2f, 0f));
+        Managers.Object.Player.SetPosition(Vector2.zero);
+        Managers.Screen.SetCameraTarget(Managers.Object.Player.GetTrans());
+        Managers.Screen.CameraController.Camera.orthographicSize = 1.2f;
     }
 
     public override void Clear()
@@ -22,11 +30,28 @@ public class GuildScene : BaseScene
 
     public override void SceneEvent(int _eventIndex)
     {
+        switch(_eventIndex)
+        {
+            case 0:
+                Managers.Dialog.EndDialog_CantControl();
+                Managers.Screen.SetCameraTarget(null);
+                Managers.Screen.CameraController.LinearMoveCamera(cameraPoses[0].position, 2, () => 
+                {
+                    Managers.Routine.StartCoroutine(SceneEvent_0());
+                });
+                break;
+        }
+    }
 
+    private IEnumerator SceneEvent_0()
+    {
+        yield return new WaitForSeconds(1);
+        Managers.Dialog.Call(1003);
     }
 
     public GuildScene()
     {
         cameraOffset = new Vector3(0,2,-10);
+        cameraPoses = new List<Transform>();
     }
 }

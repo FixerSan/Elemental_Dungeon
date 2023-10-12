@@ -130,7 +130,7 @@ public class UIDialogSpeaker : UIPopup
 
     private void Update()
     {
-        if (Input.GetKeyDown(Managers.Input.dialogSkipKey))
+        if (Input.GetKeyDown(Managers.Input.dialogSkipKey) || Input.GetMouseButtonDown(0))
         {
             if (isTyping)
             {

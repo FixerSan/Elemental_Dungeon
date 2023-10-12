@@ -13,10 +13,8 @@ public class ScreenManager
             {
                 GameObject go = GameObject.Find("Main Camera");
                 if(go == null)
-                {
                     go = Managers.Resource.Instantiate("Main Camera");
-                    Object.DontDestroyOnLoad(go);
-                }
+                Object.DontDestroyOnLoad(go);
                 cameraController = go.GetOrAddComponent<CameraController>();
             }
             return cameraController;

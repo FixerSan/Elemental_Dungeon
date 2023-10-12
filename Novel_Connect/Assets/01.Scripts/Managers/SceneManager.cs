@@ -52,9 +52,7 @@ public class SceneManager : MonoBehaviour
     // 특정 타입의 씬 가져오기 또는 추가
     public T GetScene<T>() where T : BaseScene
     {
-        T scene = Util.FindChild<T>(gameObject);
-        if (scene == null)
-            scene = gameObject.AddComponent<T>();
+        T scene = gameObject.GetOrAddComponent<T>();
         return scene as T;
     }
 
@@ -63,6 +61,7 @@ public class SceneManager : MonoBehaviour
     {
         BaseScene bs = null;
         Define.Scene addScene = Util.ParseEnum<Define.Scene>(_sceneName);
+        //Managers.Data.LoadSceneData(addScene);
         switch (addScene)
         {
             case Define.Scene.Loading:

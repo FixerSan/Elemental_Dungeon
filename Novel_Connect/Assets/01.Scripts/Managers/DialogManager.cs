@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Search;
 using UnityEngine;
 
 public class DialogManager
 {
+    public Action callback;
+
     private UIDialogSpeaker speaker;    // 다이얼로그 스피커 선언
     public UIDialogSpeaker Speaker      // 다이얼로그 스피커 프로퍼티 선언
     {
@@ -20,12 +24,15 @@ public class DialogManager
     private DialogData currentData;     //현제 다이얼로그 데이터
 
     // 다이얼로그 불러오기
-    public void Call(int _dialogIndex)
+    public void Call(int _dialogIndex, Action _callback = null)
     {
         Managers.Data.GetDialogData(_dialogIndex, (_data) => 
         {
+            Managers.Input.isCanControl = false;
             currentData = _data;
             Speaker.ApplyDialog(_data);
+            if (_callback != null)
+                callback = _callback;
         });
     }
 
@@ -40,7 +47,7 @@ public class DialogManager
     {
         PlayBtnSound();
         if (currentData.nextDialogUID == -100)  { EndDialog();  return; }
-        if (currentData.nextDialogUID != -1)    { Call(currentData.nextDialogUID); return; }
+        if (currentData.nextDialogUID != -1)    { Call(currentData.nextDialogUID, callback); return; }
 
         switch (currentData.dialogUID)
         {
@@ -51,6 +58,10 @@ public class DialogManager
             case 1:
                 Call(2);
                 break;
+
+            default:
+                EndDialog();
+                return;
         }
     }
 
@@ -92,6 +103,23 @@ public class DialogManager
     public void EndDialog()
     {
         Speaker.CloseDialog();
-        //여기에 플레이어 움직임 불가능 해제
+        speaker = null;
+        Managers.Input.isCanControl = true;
+        if (callback != null)
+        {
+            callback.Invoke();
+            callback = null;
+        }
+    }
+
+    public void EndDialog_CantControl()
+    {
+        Speaker.CloseDialog();
+        speaker = null;
+        if (callback != null)
+        {
+            callback.Invoke();
+            callback = null;
+        }
     }
 }

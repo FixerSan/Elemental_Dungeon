@@ -1,0 +1,663 @@
+fileFormatVersion: 2
+guid: 7e5f99ec872b22643885d7107e452333
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 0
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 0
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638327177467186903
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Guide 1_Frame_0
+    originalName: 
+    pivot: {x: 4.4152546, y: -0.03100775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 118
+      height: 129
+    spriteID: 916ead2106fd95143b7bdddef20e507a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Guide 1_Frame_1
+    originalName: 
+    pivot: {x: 4.4152546, y: -0.03100775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 141
+      width: 118
+      height: 129
+    spriteID: bab693b0e94e1454687e5fa27f9a190d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 141}
+  - name: Guide 1_Frame_2
+    originalName: 
+    pivot: {x: 4.4152546, y: -0.03100775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 278
+      width: 118
+      height: 129
+    spriteID: a6a15ecd143350e418e723b9c1456e42
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 278}
+  - name: Guide 1_Frame_3
+    originalName: 
+    pivot: {x: 4.4152546, y: -0.03100775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 415
+      width: 118
+      height: 129
+    spriteID: 0d384e640f21a9c40877a0c63a5c1ce1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 415}
+  - name: Guide 1_Frame_4
+    originalName: 
+    pivot: {x: 4.4152546, y: -0.03100775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 552
+      width: 118
+      height: 129
+    spriteID: 30882c68380bfb54a8941b87e1bf9e14
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 552}
+  - name: Guide 1_Frame_5
+    originalName: 
+    pivot: {x: 4.4152546, y: -0.03100775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 689
+      width: 118
+      height: 129
+    spriteID: d1d0fc5f6f52f77419643c0da73a97cc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 689}
+  - name: Guide 1_Frame_6
+    originalName: 
+    pivot: {x: 4.4152546, y: -0.03100775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 826
+      width: 118
+      height: 129
+    spriteID: 12f3832f6a950d049a6f98356f94aee5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 826}
+  - name: Guide 1_Frame_7
+    originalName: 
+    pivot: {x: 4.4152546, y: -0.03100775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 4
+      width: 118
+      height: 129
+    spriteID: fc93762db7764ed429c72ed2c04c065d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 4}
+  - name: Guide 1_Frame_8
+    originalName: 
+    pivot: {x: 4.4152546, y: -0.03100775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 141
+      width: 118
+      height: 129
+    spriteID: 61c7910c96acaad4aa28253d2627bb50
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 141}
+  - name: Guide 1_Frame_9
+    originalName: 
+    pivot: {x: 4.4152546, y: -0.03100775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 278
+      width: 118
+      height: 129
+    spriteID: f48ecd13bd7ec3745b3eb8459798f834
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 278}
+  - name: Guide 1_Frame_10
+    originalName: 
+    pivot: {x: 4.4152546, y: -0.03100775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 415
+      width: 118
+      height: 129
+    spriteID: ef754cdfa697a0d48903eb47f6abeef2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 415}
+  - name: Guide 1_Frame_11
+    originalName: 
+    pivot: {x: 4.4152546, y: -0.03100775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 552
+      width: 118
+      height: 129
+    spriteID: a5a7f8e140924cb418b9ce2e57858890
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 552}
+  - name: Guide 1_Frame_12
+    originalName: 
+    pivot: {x: 4.4152546, y: -0.03100775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 689
+      width: 118
+      height: 129
+    spriteID: 251ebe6c54cf99046a6d22251970df2f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 689}
+  - name: Guide 1_Frame_13
+    originalName: 
+    pivot: {x: 4.4152546, y: -0.03100775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 130
+      y: 826
+      width: 118
+      height: 129
+    spriteID: 8205dfc973c09f4428c567162bcd8daf
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 130, y: 826}
+  - name: Guide 1_Frame_14
+    originalName: 
+    pivot: {x: 4.4152546, y: -0.03100775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 4
+      width: 118
+      height: 129
+    spriteID: db37b802f07f9a749986e72d9f43914e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 256, y: 4}
+  - name: Guide 1_Frame_15
+    originalName: 
+    pivot: {x: 4.4152546, y: -0.03100775}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 141
+      width: 118
+      height: 129
+    spriteID: f2a7ee042129bd645acea3f5bc080e15
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 256, y: 141}
+  - name: Icon_GuildGuide
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 256
+      y: 278
+      width: 118
+      height: 129
+    spriteID: cfea6fad00d1a024db954c5223b1c001
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 256, y: 278}
+  spriteSheetImportData:
+  - name: Guide 1_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 319
+      y: 315
+      width: 34
+      height: 34
+    spriteID: e32d0f5a5e62f964b83f3c86aa5ad057
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 500361159
+    name: Guide 1
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Guide 1_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 9
+        y: 4
+        width: 118
+        height: 129
+      spriteId: 916ead2106fd95143b7bdddef20e507a
+    - name: Guide 1_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 9
+        y: 4
+        width: 118
+        height: 129
+      spriteId: bab693b0e94e1454687e5fa27f9a190d
+    - name: Guide 1_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 9
+        y: 4
+        width: 118
+        height: 129
+      spriteId: a6a15ecd143350e418e723b9c1456e42
+    - name: Guide 1_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 9
+        y: 4
+        width: 118
+        height: 129
+      spriteId: 0d384e640f21a9c40877a0c63a5c1ce1
+    - name: Guide 1_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 9
+        y: 4
+        width: 118
+        height: 129
+      spriteId: 30882c68380bfb54a8941b87e1bf9e14
+    - name: Guide 1_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 9
+        y: 4
+        width: 118
+        height: 129
+      spriteId: d1d0fc5f6f52f77419643c0da73a97cc
+    - name: Guide 1_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 9
+        y: 4
+        width: 118
+        height: 129
+      spriteId: 12f3832f6a950d049a6f98356f94aee5
+    - name: Guide 1_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 9
+        y: 4
+        width: 118
+        height: 129
+      spriteId: fc93762db7764ed429c72ed2c04c065d
+    - name: Guide 1_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 9
+        y: 4
+        width: 118
+        height: 129
+      spriteId: 61c7910c96acaad4aa28253d2627bb50
+    - name: Guide 1_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 9
+        y: 4
+        width: 118
+        height: 129
+      spriteId: f48ecd13bd7ec3745b3eb8459798f834
+    - name: Guide 1_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 9
+        y: 4
+        width: 118
+        height: 129
+      spriteId: ef754cdfa697a0d48903eb47f6abeef2
+    - name: Guide 1_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 9
+        y: 4
+        width: 118
+        height: 129
+      spriteId: a5a7f8e140924cb418b9ce2e57858890
+    - name: Guide 1_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 9
+        y: 4
+        width: 118
+        height: 129
+      spriteId: 251ebe6c54cf99046a6d22251970df2f
+    - name: Guide 1_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 9
+        y: 4
+        width: 118
+        height: 129
+      spriteId: 8205dfc973c09f4428c567162bcd8daf
+    - name: Guide 1_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 9
+        y: 4
+        width: 118
+        height: 129
+      spriteId: db37b802f07f9a749986e72d9f43914e
+    - name: Guide 1_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 9
+        y: 4
+        width: 118
+        height: 129
+      spriteId: f2a7ee042129bd645acea3f5bc080e15
+    - name: Guide 1_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 9
+        y: 4
+        width: 118
+        height: 129
+      spriteId: cfea6fad00d1a024db954c5223b1c001
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 1060, y: 242}

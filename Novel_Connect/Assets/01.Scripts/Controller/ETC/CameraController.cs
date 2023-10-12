@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Rendering.LookDev;
 using UnityEngine;
+using DG.Tweening;
 using UnityEngine.EventSystems;
+using System;
 
 public class CameraController : MonoBehaviour
 {
@@ -39,7 +41,6 @@ public class CameraController : MonoBehaviour
     public void SetTarget(Transform _target)
     {
         target = _target;
-        Trans.position = _target.position;
     }
 
     public void SetOffset(Vector3 _offset)
@@ -53,6 +54,14 @@ public class CameraController : MonoBehaviour
         nextPos = new Vector3(Mathf.Clamp((target.transform.position.x + offset.x), min.x, max.x), Mathf.Clamp((target.transform.position.y + offset.y), min.y, max.y), -10);
         nextPos = Vector3.Lerp(Trans.position, nextPos, delayTime * Time.deltaTime);
         Trans.position = nextPos;
+    }
+
+    public void LinearMoveCamera(Vector3 _pos , float _moveTotalTime , Action _callback = null)
+    {
+        Trans.DOMove(_pos, _moveTotalTime).onComplete += () => 
+        {
+            _callback?.Invoke();
+        };
     }
 
     private void Update()

@@ -18,14 +18,14 @@ public abstract class NPCController : MonoBehaviour
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
-    public void EnterHover()
+    public virtual void EnterHover()
     {
         if (isHover) return;
         isHover = true;
         SetOutline();
     }
 
-    public void ExitHover()
+    public virtual void ExitHover()
     {
         if (!isHover) return;
         isHover = false;

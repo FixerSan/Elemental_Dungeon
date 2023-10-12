@@ -1,8 +1,35 @@
 [
  {
-  "itemUID": 0,
-  "name": "TestItem",
-  "description": "�׽�Ʈ�������Դϴ�.",
-  "itemImageKey": "TestItem.Sprite"
+  "dialogUID": 1001,
+  "speakerName": "가이드",
+  "speakerImageKey": "Icon_GuildGuide",
+  "speakerType": "OneButton",
+  "sentence": "안녕! 처음 보는 모험가네?",
+  "buttonOneContent": "다음",
+  "buttonTwoContent": "null",
+  "buttonThreeContent": "null",
+  "nextDialogUID": 1002
+ },
+ {
+  "dialogUID": 1002,
+  "speakerName": "가이드",
+  "speakerImageKey": "Icon_GuildGuide",
+  "speakerType": "OneButton",
+  "sentence": "혹시 퀘스트를 받고 싶니? ",
+  "buttonOneContent": "다음",
+  "buttonTwoContent": "null",
+  "buttonThreeContent": "null",
+  "nextDialogUID": -1
+ },
+ {
+  "dialogUID": 1003,
+  "speakerName": "가이드",
+  "speakerImageKey": "Icon_GuildGuide",
+  "speakerType": "OneButton",
+  "sentence": "그럼 여기 있는 초록색 머리 언니가 관리하는 퀘스트 게시판을 마우스로 클릭해봐!",
+  "buttonOneContent": "다음",
+  "buttonTwoContent": "null",
+  "buttonThreeContent": "null",
+  "nextDialogUID": 100
  }
 ]

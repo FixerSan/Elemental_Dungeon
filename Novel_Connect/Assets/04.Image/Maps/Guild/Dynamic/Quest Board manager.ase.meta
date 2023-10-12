@@ -1,0 +1,638 @@
+fileFormatVersion: 2
+guid: a083adf0d63d72f4ca802fc167cba3d9
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 0
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Quest Board manager_Frame_0
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 56
+      height: 104
+    spriteID: 792339fff6dee7945b83bd50bee60765
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Quest Board manager_Frame_1
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 116
+      width: 56
+      height: 104
+    spriteID: dccab1a1d5f36cc40821e8bc6fd31fb4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 116}
+  - name: Quest Board manager_Frame_2
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 228
+      width: 56
+      height: 104
+    spriteID: 951e0b1c1e88f1a4caa6c3682c9a42d6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 228}
+  - name: Quest Board manager_Frame_3
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 340
+      width: 56
+      height: 104
+    spriteID: 4e8f6efba8b857c4bbed7997f4b06a4e
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 340}
+  - name: Quest Board manager_Frame_4
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 4
+      width: 56
+      height: 104
+    spriteID: 656e395070c8fd041ac1e1a28ce69b0a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 4}
+  - name: Quest Board manager_Frame_5
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 116
+      width: 56
+      height: 104
+    spriteID: 11976d777659ea444aac6c1822f886fa
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 116}
+  - name: Quest Board manager_Frame_6
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 228
+      width: 56
+      height: 104
+    spriteID: cce7cd31e3d0b5b4f9c85012ccc80cde
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 228}
+  - name: Quest Board manager_Frame_7
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 68
+      y: 340
+      width: 56
+      height: 104
+    spriteID: 4df9cd73bff008a40b36f8c5a0e2adf2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 68, y: 340}
+  - name: Quest Board manager_Frame_8
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 4
+      width: 56
+      height: 104
+    spriteID: 75adf52cddbd4a94882a5499ee48ecf5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 132, y: 4}
+  - name: Quest Board manager_Frame_9
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 116
+      width: 56
+      height: 104
+    spriteID: d4b2a7ffd1644ba46a0e91d9593d6837
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 132, y: 116}
+  - name: Quest Board manager_Frame_10
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 228
+      width: 56
+      height: 104
+    spriteID: c5a13e84a7ba8e3419981f78d718367a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 132, y: 228}
+  - name: Quest Board manager_Frame_11
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 132
+      y: 340
+      width: 56
+      height: 104
+    spriteID: a46025eb94d61a248aa198af407839dd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 132, y: 340}
+  - name: Quest Board manager_Frame_12
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 196
+      y: 4
+      width: 56
+      height: 104
+    spriteID: da589abc353b0fc43b9d894035cb95f0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 196, y: 4}
+  - name: Quest Board manager_Frame_13
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 196
+      y: 116
+      width: 56
+      height: 104
+    spriteID: 4fcc02104d70e6040abb32fe2697291c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 196, y: 116}
+  - name: Quest Board manager_Frame_14
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 196
+      y: 228
+      width: 56
+      height: 104
+    spriteID: 002c86512b23b114ea7e12b2ac648d01
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 196, y: 228}
+  - name: Quest Board manager_Frame_15
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 196
+      y: 340
+      width: 56
+      height: 104
+    spriteID: 9d5b98d4690f74d4b967e62885e7311c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 196, y: 340}
+  - name: Quest Board manager_Frame_16
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 260
+      y: 4
+      width: 56
+      height: 104
+    spriteID: 4115c70d4d8f69b45abe5224f802666f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 260, y: 4}
+  - name: Quest Board manager_Frame_17
+    originalName: 
+    pivot: {x: 0.4464285, y: -0.1923077}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 260
+      y: 116
+      width: 56
+      height: 104
+    spriteID: d2c4ab191cf599f46b22ea624bd3ef33
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 260, y: 116}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1372266401
+    name: Quest Board manager
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Quest Board manager_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: 792339fff6dee7945b83bd50bee60765
+    - name: Quest Board manager_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: dccab1a1d5f36cc40821e8bc6fd31fb4
+    - name: Quest Board manager_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: 951e0b1c1e88f1a4caa6c3682c9a42d6
+    - name: Quest Board manager_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: 4e8f6efba8b857c4bbed7997f4b06a4e
+    - name: Quest Board manager_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: 656e395070c8fd041ac1e1a28ce69b0a
+    - name: Quest Board manager_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: 11976d777659ea444aac6c1822f886fa
+    - name: Quest Board manager_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: cce7cd31e3d0b5b4f9c85012ccc80cde
+    - name: Quest Board manager_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: 4df9cd73bff008a40b36f8c5a0e2adf2
+    - name: Quest Board manager_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: 75adf52cddbd4a94882a5499ee48ecf5
+    - name: Quest Board manager_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: d4b2a7ffd1644ba46a0e91d9593d6837
+    - name: Quest Board manager_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: c5a13e84a7ba8e3419981f78d718367a
+    - name: Quest Board manager_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: a46025eb94d61a248aa198af407839dd
+    - name: Quest Board manager_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: da589abc353b0fc43b9d894035cb95f0
+    - name: Quest Board manager_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: 4fcc02104d70e6040abb32fe2697291c
+    - name: Quest Board manager_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: 002c86512b23b114ea7e12b2ac648d01
+    - name: Quest Board manager_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: 9d5b98d4690f74d4b967e62885e7311c
+    - name: Quest Board manager_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: 4115c70d4d8f69b45abe5224f802666f
+    - name: Quest Board manager_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 505
+        y: 20
+        width: 56
+        height: 104
+      spriteId: d2c4ab191cf599f46b22ea624bd3ef33
+    linkedCells: []
+    parentIndex: -1
+  platformSettings: []
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 1060, y: 242}
