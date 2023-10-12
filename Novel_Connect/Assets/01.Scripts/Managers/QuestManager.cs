@@ -5,7 +5,7 @@ using static Define;
 public class QuestManager
 {
     public List<Quest> quests;
-
+    public bool isCanGetReward;
     public void AddQuest(QuestType _type, int _questUID)
     {
         if (quests.Count == 3) return;
@@ -68,6 +68,16 @@ public class QuestManager
         }
     }
 
+    private void CheckCanGetReward(VoidEventType _type)
+    {
+        if (_type != VoidEventType.OnChangeQuest) return;
+        for (int i = 0; i < quests.Count; i++)
+        {
+            if (quests[i].questState == QuestState.AFTER)
+                isCanGetReward = true;
+        }
+    }
+
     public QuestManager()
     {
         quests = new List<Quest>();
@@ -76,5 +86,8 @@ public class QuestManager
 
         Managers.Event.OnIntEvent -= CheckKillQuestState;
         Managers.Event.OnIntEvent += CheckKillQuestState;
+
+        Managers.Event.OnVoidEvent -= CheckCanGetReward;
+        Managers.Event.OnVoidEvent += CheckCanGetReward;
     }
 }

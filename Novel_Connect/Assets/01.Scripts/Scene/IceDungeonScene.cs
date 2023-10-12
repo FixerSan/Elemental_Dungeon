@@ -16,6 +16,7 @@ public class IceDungeonScene : BaseScene
         Managers.Object.Player.Init(1, Define.Elemental.Normal.ToString());
         Managers.Object.Player.SetPosition(new Vector3(-5, 1, 0));
         Managers.Screen.SetCameraTarget(Managers.Object.Player.trans);
+        Managers.Screen.CameraController.Camera.orthographicSize = 3;
         Transform batSpawnTran = Util.FindChild<Transform>(Managers.Object.MonsterTransform.gameObject, _name: "BatTransforms");
 
         for (int i = 0; i < batSpawnTran.childCount; i++)

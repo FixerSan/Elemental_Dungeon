@@ -135,7 +135,17 @@
   "buttonThreeContent": "null",
   "nextDialogUID": -100
  },
- null,
+ {
+  "dialogUID": 1000,
+  "speakerName": "가이드",
+  "speakerImageKey": "Icon_GuildGuide",
+  "speakerType": "OneButton",
+  "sentence": "퀘스트가 완료 되면 날 다시 찾아와!",
+  "buttonOneContent": "다음",
+  "buttonTwoContent": "null",
+  "buttonThreeContent": "null",
+  "nextDialogUID": -100
+ },
  {
   "dialogUID": 1001,
   "speakerName": "가이드",
@@ -165,6 +175,83 @@
   "speakerType": "OneButton",
   "sentence": "그럼 여기 있는 초록색 머리 언니가 관리하는 퀘스트 게시판을 마우스로 클릭해봐!",
   "buttonOneContent": "다음",
+  "buttonTwoContent": "null",
+  "buttonThreeContent": "null",
+  "nextDialogUID": -1
+ },
+ {
+  "dialogUID": 1004,
+  "speakerName": "미쉘",
+  "speakerImageKey": "Icon_QuestManager",
+  "speakerType": "OneButton",
+  "sentence": "호오, 새로운 모험가인가?",
+  "buttonOneContent": "다음",
+  "buttonTwoContent": "null",
+  "buttonThreeContent": "null",
+  "nextDialogUID": 1005
+ },
+ {
+  "dialogUID": 1005,
+  "speakerName": "미쉘",
+  "speakerImageKey": "Icon_QuestManager",
+  "speakerType": "TwoButton",
+  "sentence": "그래, 퀘스트를 받고 싶다고?",
+  "buttonOneContent": "네",
+  "buttonTwoContent": "아니요",
+  "buttonThreeContent": "null",
+  "nextDialogUID": -1
+ },
+ {
+  "dialogUID": 1006,
+  "speakerName": "미쉘",
+  "speakerImageKey": "Icon_QuestManager",
+  "speakerType": "OneButton",
+  "sentence": "마침 들어온 퀘스트가 있어",
+  "buttonOneContent": "다음",
+  "buttonTwoContent": "null",
+  "buttonThreeContent": "null",
+  "nextDialogUID": 1007
+ },
+ {
+  "dialogUID": 1007,
+  "speakerName": "미쉘",
+  "speakerImageKey": "Icon_QuestManager",
+  "speakerType": "OneButton",
+  "sentence": "마을 외각에 동굴에서 한기가 올라와 얼어붙고 있어",
+  "buttonOneContent": "다음",
+  "buttonTwoContent": "null",
+  "buttonThreeContent": "null",
+  "nextDialogUID": 1008
+ },
+ {
+  "dialogUID": 1008,
+  "speakerName": "미쉘",
+  "speakerImageKey": "Icon_QuestManager",
+  "speakerType": "OneButton",
+  "sentence": "동굴 내부로 들어가서 무슨 일이 벌어지고 있는지 조사해줘",
+  "buttonOneContent": "대화 종료",
+  "buttonTwoContent": "null",
+  "buttonThreeContent": "null",
+  "nextDialogUID": -1
+ },
+ {
+  "dialogUID": 1009,
+  "speakerName": "미쉘",
+  "speakerImageKey": "Icon_QuestManager",
+  "speakerType": "OneButton",
+  "sentence": "동굴로 바로 보내줄게",
+  "buttonOneContent": "대화 종료",
+  "buttonTwoContent": "null",
+  "buttonThreeContent": "null",
+  "nextDialogUID": -1
+ },
+ {
+  "dialogUID": 1010,
+  "speakerName": "미쉘",
+  "speakerImageKey": "Icon_QuestManager",
+  "speakerType": "OneButton",
+  "sentence": "그래, 생각이 바뀌면 다시 찾아와",
+  "buttonOneContent": "대화 종료",
   "buttonTwoContent": "null",
   "buttonThreeContent": "null",
   "nextDialogUID": -100

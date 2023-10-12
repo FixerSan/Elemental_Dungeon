@@ -9,6 +9,8 @@ public class GuildGuide : NPCController
     {
         base.Init();
         anim = GetComponent<Animator>();
+        if (!Managers.Game.npcFirstDictionary.ContainsKey($"{nameof(GuildGuide)}"))
+            Managers.Game.npcFirstDictionary.Add($"{nameof(GuildGuide)}", true);
     }
 
     public override void EnterHover()
@@ -25,9 +27,24 @@ public class GuildGuide : NPCController
 
     public override void Interaction()
     {
-        Managers.Dialog.Call(1001 ,() => 
+        if (!isHover) return;
+        if (Managers.Game.npcFirstDictionary[($"{nameof(GuildGuide)}")])
         {
-            Managers.scene.GetScene<GuildScene>().SceneEvent(0);
-        });
+            Managers.Dialog.Call(1001);
+            return;
+        }
+
+        else
+        {
+            if(Managers.Quest.quests.Count > 1 && Managers.Quest.isCanGetReward)
+            {
+
+            }
+
+            else
+            {
+                Managers.Dialog.Call(1000);
+            }
+        }
     }
 }

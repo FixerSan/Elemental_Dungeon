@@ -40,6 +40,14 @@ public class GuildScene : BaseScene
                     Managers.Routine.StartCoroutine(SceneEvent_0());
                 });
                 break;
+
+            case 1:
+                Managers.Routine.StartCoroutine(SceneEvent_1());
+                break;
+
+            case 2:
+                Managers.Routine.StartCoroutine(SceneEvent_2());
+                break;
         }
     }
 
@@ -47,6 +55,18 @@ public class GuildScene : BaseScene
     {
         yield return new WaitForSeconds(1);
         Managers.Dialog.Call(1003);
+    }
+
+    private IEnumerator SceneEvent_1()
+    {
+        yield return new WaitForSeconds(1);
+        Managers.Dialog.Call(1009);
+    }
+    
+    private IEnumerator SceneEvent_2()
+    {
+        yield return new WaitForSeconds(1);
+        Managers.scene.LoadScene(Define.Scene.IceDungeon);
     }
 
     public GuildScene()

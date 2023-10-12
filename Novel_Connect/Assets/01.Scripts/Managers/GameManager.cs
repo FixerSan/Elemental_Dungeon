@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     private LayerMask layerMask;
     private NPCController npc;
 
+    public Dictionary<string, bool> npcFirstDictionary = new Dictionary<string, bool>();
+    public bool isCanGetReward;
+
     private void Awake()
     {
         layerMask = LayerMask.GetMask("NPC");
@@ -39,6 +42,11 @@ public class GameManager : MonoBehaviour
     #region MouseInteraction
     public void CheckMousePointInteraction()
     {
+        if (!Managers.Input.isCanControl) 
+        {
+            npc?.ExitHover();    
+            return;
+        } 
         mousePos = Managers.Screen.CameraController.Camera.ScreenToWorldPoint(Input.mousePosition);
 
         RaycastHit2D hit = Physics2D.Raycast(mousePos, transform.forward, 100, layerMask);
@@ -58,6 +66,8 @@ public class GameManager : MonoBehaviour
 
     public void CheckMouseClickInteraction()
     {
+        if (!Managers.Input.isCanControl) return;
+
         if (Input.GetMouseButtonDown(0) && npc != null)
         {
             npc.Interaction();
