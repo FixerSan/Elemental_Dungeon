@@ -10,6 +10,7 @@ public class BoatController : InteractableObject
     private Define.Direction direction;
     private PlayerController player;
     private bool isFirst;
+    private bool isUsing;
 
     protected override void Awake()
     {
@@ -18,11 +19,13 @@ public class BoatController : InteractableObject
         leftGettingPos.SetParent(null);
         rightGettingPos.SetParent(null);
         isFirst = true;
+        isUsing = false;
     }
 
     protected override void CheckUse()
     {
         if (!isCanUse) return;
+        if (isUsing) return;
         Managers.Input.CheckInput(Managers.Input.interactionKey, (_inputType) =>
         {
             if (_inputType != InputType.PRESS) return;
@@ -43,6 +46,7 @@ public class BoatController : InteractableObject
 
     protected override void Use()
     {
+        isUsing = true;
         Managers.Input.isCanControl = false;
         player.ChangeState(PlayerState.IDLE);
         player.Stop();
@@ -56,6 +60,11 @@ public class BoatController : InteractableObject
             if (direction == Define.Direction.Right) player.SetPosition(rightGettingPos.position);
             else player.SetPosition(leftGettingPos.position);
             direction = (Define.Direction)((int)direction * -1);
+            if (direction == Define.Direction.Right)
+                transform.eulerAngles = new Vector3(0, 0, 0);
+            if (direction == Define.Direction.Left)
+                transform.eulerAngles = new Vector3(0, 180, 0);
+            isUsing = false;
         };
     }
 

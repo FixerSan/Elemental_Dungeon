@@ -97,10 +97,10 @@
  {
   "itemUID": 1,
   "maxCount": 10,
-  "codeName": "TestPotion",
-  "name": "TestPotion",
+  "codeName": "HealPotion",
+  "name": "HealPotion",
   "description": "현제 체력 + 100 ",
-  "itemImageKey": "TestPotion"
+  "itemImageKey": "HealPotion"
  }
 ],
 "dialogDatas":[

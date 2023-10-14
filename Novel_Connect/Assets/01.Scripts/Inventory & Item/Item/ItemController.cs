@@ -46,7 +46,8 @@ public class ItemController : MonoBehaviour
         if (isPushed) return;
         isPushed = true;
         Managers.Object.Player.inventory.AddItem<BaseItem>(item.itemData.itemUID);
-        transform.DOJump(_trans.position, 1, 1, pickupSpeed);
+        transform.DOJump(_trans.position, 0.5f, 1, pickupSpeed);
+        Managers.UI.ShowToast($"{item.itemData.name}À» È¹µæÇÏ¿´½À´Ï´Ù.");
         spriteRenderer.material.DOFade(0, pickupSpeed).onComplete += () => { Managers.Resource.Destroy(gameObject); };
     }
 

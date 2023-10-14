@@ -42,6 +42,9 @@ public class IceDungeonScene : BaseScene
                 Managers.Object.Player.SetPosition(new Vector3(2.0999999f, -37.4000015f, 0));
                 Managers.Object.SpawnBoss(0, new Vector3(9.43999958f, -37.4000015f, 0));
                 break;
+            case 1:
+                Managers.Object.SpawnItem(1, new Vector3(5, -5f, 0));
+                break;
         }  
     }
 
