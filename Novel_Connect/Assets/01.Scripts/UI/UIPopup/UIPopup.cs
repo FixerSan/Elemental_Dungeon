@@ -18,4 +18,13 @@ public class UIPopup : UIBase
     {
         Managers.UI.ClosePopupUI(this);
     }
+
+    protected virtual void Update()
+    {
+        Managers.Input.CheckInput(Managers.Input.escapeKey, (_type) => 
+        {
+            if (_type != InputType.PRESS) return;
+            Managers.UI.ClosePopupUI(this);
+        });
+    }
 }

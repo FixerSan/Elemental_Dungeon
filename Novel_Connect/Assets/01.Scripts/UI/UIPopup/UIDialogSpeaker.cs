@@ -128,8 +128,11 @@ public class UIDialogSpeaker : UIPopup
         SetButton();
     }
 
-    private void Update()
+    protected override void Update()
     {
+        if(Input.GetKeyDown(Managers.Input.escapeKey) && data.nextDialogUID != -1 && Managers.Dialog.callback == null)
+            Managers.Dialog.EndDialog();
+
         if (Input.GetKeyDown(Managers.Input.dialogSkipKey) || Input.GetMouseButtonDown(0))
         {
             if (isTyping)
@@ -145,7 +148,7 @@ public class UIDialogSpeaker : UIPopup
                 Managers.Dialog.EndDialog();
 
             else
-                Managers.Dialog.Call(data.nextDialogUID);
+                Managers.Dialog.Call(data.nextDialogUID, Managers.Dialog.callback);
         }
     }
 }

@@ -112,22 +112,23 @@ public class MonsterController : BaseController
     public override void Die()
     {
         Managers.Event.OnIntEvent?.Invoke(IntEventType.OnDeadMonster, data.monsterUID);
+        status.isDead = true;
         if (changeStateCoroutine != null) Managers.Routine.StopCoroutine(changeStateCoroutine);
         changeStateCoroutine = null;
         if(attack.attackCoroutine != null) Managers.Routine.StopCoroutine(attack.attackCoroutine);
         attack.attackCoroutine = null;
         status.StopAllEffect();
         movement.StopMoveCoroutine();
-        spriteRenderer.FadeOut(1);
-        Managers.Routine.StartCoroutine(DieRoutine());
+        spriteRenderer.FadeOut(1, () => 
+        {
+            Managers.Object.MonsterDespawn(this);
+        });
         init = false;
     }
 
     protected override IEnumerator DieRoutine()
     {
         yield return new WaitForSeconds(3f);
-        status.isDead = true;
-        Managers.Pool.Push(gameObject);
     }
 
     public override void SetPosition(Vector2 _position)

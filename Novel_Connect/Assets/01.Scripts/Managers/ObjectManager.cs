@@ -122,15 +122,10 @@ public class ObjectManager
     }
 
     // 몬스터 삭제
-    public void Despawn<T>(T _object) where T : BaseController
+    public void MonsterDespawn(MonsterController _object)
     {
-        System.Type type = typeof(T);
-
-        if (type == typeof(MonsterController))
-        {
-            Monsters.Remove(_object as MonsterController);
-            Managers.Resource.Destroy(_object.gameObject);
-        }
+        Monsters.Remove(_object);
+        Managers.Resource.Destroy(_object.gameObject);
     }
     
     // 아이템 생성

@@ -2,52 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WarpTotemController : MonoBehaviour
+public class WarpTotemController : InteractableObject
 {
     private Animator animator;
-    private bool isCanUse;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         animator = GetComponent<Animator>();
-        isCanUse = false;
-    }
-    
-    private void CheckUse()
-    {
-        if (!isCanUse) return;
-        Managers.Input.CheckInput(Managers.Input.interactionKey, (_inputType) => 
-        {
-            if (_inputType != InputType.PRESS) return;
-            Use();
-        });
     }
 
-    private void Use()
+    protected override void Use()
     {
         animator.SetBool("isUse", true);
-        IceDungeonScene scene = Managers.scene.GetScene<IceDungeonScene>();
-        scene.SceneEvent(0);
+        Managers.Routine.StartCoroutine(UseRoutine());
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private IEnumerator UseRoutine()
     {
-        if(collision.CompareTag("Player"))
-        {
-            isCanUse = true;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
-        {
-            isCanUse = false;
-        }
-    }
-
-    private void Update()
-    {
-        CheckUse();
+        yield return new WaitForSeconds(0.1f);
+        float animationTime = animator.GetCurrentAnimatorStateInfo(0).length;
+        yield return new WaitForSeconds(animationTime - 0.1f);
+        Managers.scene.GetScene<IceDungeonScene>().SceneEvent(0);
     }
 }

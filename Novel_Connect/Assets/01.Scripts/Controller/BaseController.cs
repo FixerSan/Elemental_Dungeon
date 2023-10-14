@@ -22,7 +22,7 @@ public abstract class BaseController : MonoBehaviour
     protected abstract IEnumerator DieRoutine();
     public abstract void KnockBack();
     public abstract void KnockBack(float _force);
-    public void ChangeDirection(Direction _direction) 
+    public virtual void ChangeDirection(Direction _direction) 
     {
         if (direction == _direction) return;
         direction = _direction;

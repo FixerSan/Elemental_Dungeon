@@ -23,7 +23,7 @@ public class DialogManager
     private DialogData currentData;     //현제 다이얼로그 데이터
 
     // 다이얼로그 불러오기
-    public void Call(int _dialogIndex)
+    public void Call(int _dialogIndex, Action _callback = null)
     {
         Managers.Data.GetDialogData(_dialogIndex, (_data) => 
         {
@@ -32,6 +32,7 @@ public class DialogManager
             Managers.Object.Player.Stop();
             currentData = _data;
             Speaker.ApplyDialog(_data);
+            callback = _callback;
         });
     }
 
@@ -46,7 +47,7 @@ public class DialogManager
     {
         PlayBtnSound();
         if (currentData.nextDialogUID == -100)  { EndDialog();  return; }
-        if (currentData.nextDialogUID != -1)    { Call(currentData.nextDialogUID); return; }
+        if (currentData.nextDialogUID != -1) { Call(currentData.nextDialogUID, callback); return; }
 
         switch (currentData.dialogUID)
         {
@@ -58,9 +59,6 @@ public class DialogManager
                 Call(2);
                 break;
 
-            case 1002:
-                Managers.scene.GetScene<GuildScene>().SceneEvent(0);
-                break;
             case 1003:
                 Managers.Screen.SetCameraTarget(Managers.Object.Player.trans);
                 Managers.Game.npcFirstDictionary[$"{nameof(GuildGuide)}"] = false;
@@ -93,7 +91,7 @@ public class DialogManager
     {
         PlayBtnSound();
         if (currentData.nextDialogUID == -100) { EndDialog(); return; }
-        if (currentData.nextDialogUID != -1) { Call(currentData.nextDialogUID); return; }
+        if (currentData.nextDialogUID != -1) { Call(currentData.nextDialogUID, callback); return; }
 
         switch (currentData.dialogUID)
         {
@@ -116,7 +114,7 @@ public class DialogManager
     {
         PlayBtnSound();
         if (currentData.nextDialogUID == -100) { EndDialog(); return; }
-        if (currentData.nextDialogUID != -1) { Call(currentData.nextDialogUID); return; }
+        if (currentData.nextDialogUID != -1) { Call(currentData.nextDialogUID, callback); return; }
 
         switch (currentData.dialogUID)
         {
@@ -132,11 +130,6 @@ public class DialogManager
         Speaker.CloseDialog();
         speaker = null;
         Managers.Input.isCanControl = true;
-    }
-
-    public void EndDialog_CantControl()
-    {
-        Speaker.CloseDialog();
-        speaker = null;
+        callback?.Invoke();
     }
 }

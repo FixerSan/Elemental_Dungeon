@@ -33,7 +33,7 @@ public class GuildScene : BaseScene
         switch(_eventIndex)
         {
             case 0:
-                Managers.Dialog.EndDialog_CantControl();
+                Managers.Input.isCanControl = false;
                 Managers.Screen.SetCameraTarget(null);
                 Managers.Screen.CameraController.LinearMoveCamera(cameraPoses[0].position, 2, () => 
                 {

@@ -11,8 +11,7 @@ public class TestController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            Managers.Object.Player.SetPosition(new Vector3(2.0999999f, -37.4000015f, 0));
-            Managers.Object.SpawnBoss(0, new Vector3(9.43999958f, -37.4000015f, 0));
+            Managers.scene.GetScene<IceDungeonScene>().SceneEvent(0);
         }
     }
 }

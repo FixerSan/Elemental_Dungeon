@@ -23,6 +23,7 @@ public class InputManager
     public KeyCode inventoryKey = KeyCode.I;
     public KeyCode pickupItemKey = KeyCode.Z;
     public KeyCode interactionKey = KeyCode.F;
+    public KeyCode escapeKey = KeyCode.Escape;
 
     // 플레이어 조작 가능 여부 설정
     public void ChangeCanControl(bool _bool)

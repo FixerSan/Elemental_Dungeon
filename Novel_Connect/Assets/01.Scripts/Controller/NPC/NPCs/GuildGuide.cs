@@ -30,7 +30,10 @@ public class GuildGuide : NPCController
         if (!isHover) return;
         if (Managers.Game.npcFirstDictionary[($"{nameof(GuildGuide)}")])
         {
-            Managers.Dialog.Call(1001);
+            Managers.Dialog.Call(1001, () => 
+            {
+                Managers.scene.GetScene<GuildScene>().SceneEvent(0);
+            });
             return;
         }
 

@@ -104,6 +104,15 @@ public class PlayerController : BaseController
         inventory.CheckOpenUIInventory();
     }
 
+    public override void ChangeDirection(Direction _direction)
+    {
+        if (direction == _direction) return;
+        direction = _direction;
+        if (_direction == Direction.Left) transform.eulerAngles = Vector3.zero;
+        if (_direction == Direction.Right) transform.eulerAngles = new Vector3(0, 180, 0);
+    }
+
+
     public override void GetDamage(float _damage)
     {
         if (status.isDead) return;

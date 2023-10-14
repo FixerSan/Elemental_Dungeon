@@ -1,22 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class UIToast : UIBase
 {
+    private float firstPos;
     enum Images
     {
-        BackgroundImage
+        //BackgroundImage
     }
 
     enum Texts
     {
-        ToastMessageValueText,
+        Text_Description,
     }
 
     public void OnEnable()
     {
-        PopupOpenAnimation(gameObject);
+        
     }
 
     private void Awake()
@@ -29,23 +31,37 @@ public class UIToast : UIBase
         if (base.Init() == false)
             return false;
 
+        Managers.UI.SetCanvas(gameObject, _isToast: true);
         BindImage(typeof(Images));
         BindText(typeof(Texts));
         Refresh();
+        firstPos = 280f;
         return true;
     }
 
-    public void SetInfo(string msg)
+    public void SetInfo(string _description)
     {
         // 메시지 변경
-        transform.localScale = Vector3.one;
-        GetText((int)Texts.ToastMessageValueText).text = msg;
         Refresh();
+        transform.localScale = Vector3.one;
+        GetText((int)Texts.Text_Description).text = _description;
+        GetText((int)Texts.Text_Description).rectTransform.DOAnchorPosY(500f,3);
+        GetText((int)Texts.Text_Description).DOFade(0, 3).onComplete += () => 
+        {
+            Managers.UI.CloseToastUI();
+        };
     }
 
-    void Refresh()
+    public void SetColor(Color _color)
     {
+        GetText((int)Texts.Text_Description).color = _color;
+    }
 
-
+    public void Refresh()
+    {
+        GetText((int)Texts.Text_Description).text = string.Empty;
+        GetText((int)Texts.Text_Description).color = Color.white;
+        GetText((int)Texts.Text_Description).color = Color.white;
+        GetText((int)Texts.Text_Description).rectTransform.DOAnchorPosY(280, 0);
     }
 }

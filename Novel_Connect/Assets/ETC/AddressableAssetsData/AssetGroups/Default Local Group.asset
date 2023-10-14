@@ -211,6 +211,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
+  - m_GUID: e00cbd1a2b2c5444a8100cc3ed87be82
+    m_Address: UIToast.GameObject
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7625f705cca72f24088dfc48d2137928, type: 2}
   m_SchemaSet:

@@ -50,14 +50,14 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Effect
+    uniqueID: 2546231113
+    locked: 0
   - name: Monster
     uniqueID: 3183918201
     locked: 0
   - name: Player
     uniqueID: 2918944465
-    locked: 0
-  - name: Effect
-    uniqueID: 2546231113
     locked: 0
   - name: FrontGroundObject
     uniqueID: 2635910313

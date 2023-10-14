@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using DG.Tweening;
 
 public class UIManager 
 {
@@ -12,7 +13,7 @@ public class UIManager
     private int toastOrder = 500;                               // 인스턴트 메세지 그려지는 여유 선언
 
     private Stack<UIPopup> popupStack = new Stack<UIPopup>();   // 팝업 스택
-    private Stack<UIToast> toastStack = new Stack<UIToast>();   // 인스턴트 메세지 스택
+    private Queue<UIToast> toastStack = new Queue<UIToast>();   // 인스턴트 메세지 스택
     private EventSystem eventSystem = null;                     // 이벤트 시스템 선언
     private UIScene sceneUI = null;                             // SceneUI 선언
     public UIScene SceneUI { get { return sceneUI; } }          // SceneUI 프로퍼티 선언
@@ -153,21 +154,13 @@ public class UIManager
     // 인스턴트 메세지 생성
     public UIToast ShowToast(string _description)
     {
-        string name = typeof(UIToast).Name;
+        string name = nameof(UIToast);
         GameObject go = Managers.Resource.Instantiate($"{name}", _pooling: true);
         UIToast popup = go.GetOrAddComponent<UIToast>();
         popup.SetInfo(_description);
-        toastStack.Push(popup);
+        toastStack.Enqueue(popup);
         go.transform.SetParent(Root.transform);
-        Managers.Routine.StartCoroutine(CloseToastUIRoutine());
         return popup;
-    }
-
-    // 인스턴트 메세지 삭제 루틴
-    private IEnumerator CloseToastUIRoutine()
-    {
-        yield return new WaitForSeconds(1f);
-        CloseToastUI();
     }
 
     // 인스턴트 메세지 삭제 기능
@@ -178,7 +171,8 @@ public class UIManager
             return;
         }
 
-        UIToast toast = toastStack.Pop();
+        UIToast toast = toastStack.Dequeue();
+        toast.Refresh();
         Managers.Resource.Destroy(toast.gameObject);
         toast = null;
         toastOrder--;
@@ -189,7 +183,7 @@ public class UIManager
     {
         while (toastStack.Count > 0)
         {
-            Managers.Resource.Destroy(toastStack.Pop().gameObject);
+            Managers.Resource.Destroy(toastStack.Dequeue().gameObject);
         }
     }
 
