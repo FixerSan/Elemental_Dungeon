@@ -21,6 +21,8 @@ public class GuildScene : BaseScene
         Managers.Object.Player.SetPosition(Vector2.zero);
         Managers.Screen.SetCameraTarget(Managers.Object.Player.GetTrans());
         Managers.Screen.CameraController.Camera.orthographicSize = 1.2f;
+        Managers.Screen.CameraController.min = new Vector2(-3.15f, 0);
+        Managers.Screen.CameraController.max = new Vector2(3.15f, 0);
     }
 
     public override void Clear()

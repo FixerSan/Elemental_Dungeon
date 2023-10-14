@@ -5,6 +5,7 @@
     <type fullname="CentipedeController" preserve="all" />
     <type fullname="IceSkill_One" preserve="all" />
     <type fullname="IceSkill_One_IceSpear" preserve="all" />
+    <type fullname="IceSkill_Two" preserve="all" />
     <type fullname="ItemController" preserve="all" />
     <type fullname="MonsterController" preserve="all" />
     <type fullname="ParticleController" preserve="all" />
@@ -17,9 +18,11 @@
     <type fullname="UIBaseScene" preserve="all" />
     <type fullname="UIDialogSpeaker" preserve="all" />
     <type fullname="UIInventory" preserve="all" />
+    <type fullname="UIRetry" preserve="all" />
     <type fullname="UISlot_Inventory" preserve="all" />
     <type fullname="UISlot_Item" preserve="all" />
     <type fullname="UISlot_QuestPanel" preserve="all" />
+    <type fullname="UIToast" preserve="all" />
     <type fullname="BaseItem" preserve="nothing" serialized="true" />
     <type fullname="BossData" preserve="nothing" serialized="true" />
     <type fullname="ControllerStatus" preserve="nothing" serialized="true" />
@@ -115,6 +118,7 @@
   </assembly>
   <assembly fullname="UnityEngine.UIModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
     <type fullname="UnityEngine.Canvas" preserve="all" />
+    <type fullname="UnityEngine.CanvasGroup" preserve="all" />
     <type fullname="UnityEngine.CanvasRenderer" preserve="all" />
   </assembly>
   <assembly fullname="UnityEngine.TextCoreFontEngineModule">

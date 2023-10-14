@@ -29,7 +29,6 @@ public class PlayerController : BaseController
     private StateMachine<PlayerController> stateMachine;
     public Dictionary<string, int> HASH_ANIMATION;
 
-
     public void Init(int _level, string _elementalString)
     {
         elementals = new PlayerElemental(this);
@@ -222,14 +221,16 @@ public class PlayerController : BaseController
 
     public void OnTriggerStay2D(Collider2D collision)
     {
+        if (!inventory.isCanGet) return;
         if(collision.CompareTag("Item"))
         {
             Managers.Input.CheckInput(Managers.Input.pickupItemKey, (_inputType) => 
             {
                 if (_inputType != InputType.HOLD) return;
-
+                inventory.isCanGet = false;
                 ItemController item = collision.GetOrAddComponent<ItemController>();
                 item.PutInInventory(trans);
+                Managers.Routine.StartCoroutine(inventory.CheckCanGetRoutine());
             });
         }
     }

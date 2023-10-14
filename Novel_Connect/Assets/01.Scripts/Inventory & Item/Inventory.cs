@@ -6,9 +6,11 @@ using static Define;
 [System.Serializable]
 public class Inventory
 {
-    public BaseItem[] items = new BaseItem[24];
+    public BaseItem[] items;
     public UIInventory ui_Inventory;
     private int gold;
+
+    public bool isCanGet;
     public int Gold
     {
         get
@@ -85,5 +87,18 @@ public class Inventory
 
             ui_Inventory.ClosePopupUP();
         });
+    }
+
+    public IEnumerator CheckCanGetRoutine()
+    {
+        yield return new WaitForSeconds(0.25f);
+        isCanGet = true;
+    }
+
+    public Inventory()
+    {
+        isCanGet = true;
+        items = new BaseItem[24];
+        gold = 0;
     }
 }

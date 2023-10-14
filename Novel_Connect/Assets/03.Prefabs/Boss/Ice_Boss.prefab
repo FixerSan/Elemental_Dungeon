@@ -93,12 +93,15 @@ MonoBehaviour:
     currentJumpForce: 0
     currentAttackForce: 0
     isKnockback: 0
+    isDead: 0
     isBurn: 0
     burnDamage: 0
+    freezeCount: 0
   trans: {fileID: 0}
   animator: {fileID: 0}
   rb: {fileID: 0}
   spriteRenderer: {fileID: 0}
+  effectUIAnimator: {fileID: 0}
   elemental: 0
   direction: -1
   data:
@@ -112,7 +115,6 @@ MonoBehaviour:
     speed: 0
     attackDelay: 0
     canAttackDistance: 0
-    canAttackDelay: 0
     elemental: 
     skill_OneCooltime: 0
     skill_TwoCooltime: 0
@@ -161,8 +163,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1111049095
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 8288920581854512654, guid: eecc68076010c9647a75ed39088d2118, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

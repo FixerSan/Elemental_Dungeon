@@ -44,6 +44,12 @@ public class IceDungeonScene : BaseScene
                 break;
             case 1:
                 Managers.Object.SpawnItem(1, new Vector3(5, -5f, 0));
+                Managers.Object.SpawnItem(1, new Vector3(5, -5f, 0));
+                Managers.Object.SpawnItem(1, new Vector3(5, -5f, 0));
+                Managers.Object.SpawnItem(1, new Vector3(5, -5f, 0));
+                Managers.Object.SpawnItem(1, new Vector3(5, -5f, 0));
+                Managers.Object.SpawnItem(1, new Vector3(5, -5f, 0));
+                Managers.Object.SpawnItem(1, new Vector3(5, -5f, 0));
                 break;
         }  
     }

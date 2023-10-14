@@ -12,9 +12,12 @@ public class ChestController : InteractableObject
     {
         base.Awake();
         animator = GetComponent<Animator>();
+        isUsed = false;
     }
     protected override void Use()
     {
+        if (isUsed) return;
+        isUsed = true;
         animator.SetBool("IsOpened", true);
         Managers.scene.GetScene<IceDungeonScene>().SceneEvent(sceneEventIndex);
     }
