@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using System;
 
 public class GuildScene : BaseScene
 {
@@ -9,7 +10,7 @@ public class GuildScene : BaseScene
     public override void Init()
     {
         base.Init();
-
+     
         GameObject go = GameObject.Find("@CameraPoses");
         for (int i = 0; i < go.transform.childCount; i++)
         {
@@ -26,10 +27,10 @@ public class GuildScene : BaseScene
 
     public override void Clear()
     {
-
+        
     }
 
-    public override void SceneEvent(int _eventIndex)
+    public override void SceneEvent(int _eventIndex, Action _callback = null)
     {
         switch(_eventIndex)
         {
@@ -49,6 +50,15 @@ public class GuildScene : BaseScene
             case 2:
                 Managers.Routine.StartCoroutine(SceneEvent_2());
                 break;
+
+            case 3:
+                Managers.Object.Player.inventory.AddGold(10000);
+                SceneEvent(-100);
+                break;
+
+            case -100:
+                Managers.Routine.StartCoroutine(SceneEvent_End());
+                break;
         }
     }
 
@@ -67,10 +77,16 @@ public class GuildScene : BaseScene
     private IEnumerator SceneEvent_2()
     {
         yield return new WaitForSeconds(1);
-        Managers.scene.LoadScene(Define.Scene.IceDungeon);
+        Managers.Scene.LoadScene(Define.Scene.IceDungeon);
         Managers.Quest.AddQuest(Define.QuestType.KILL, 0);
         Managers.Quest.AddQuest(Define.QuestType.KILL, 2);
         Managers.Quest.AddQuest(Define.QuestType.KILL, 1);
+    }
+
+    private IEnumerator SceneEvent_End()
+    {
+        yield return new WaitForSeconds(1);
+        Managers.Dialog.Call(1013);
     }
 
     public GuildScene()

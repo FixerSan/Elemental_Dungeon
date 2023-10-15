@@ -74,7 +74,7 @@ public class DataManager
     #endregion
 
     // 데이터 로드
-    public void LoadSceneData(Define.Scene _scene)
+    public void LoadSceneData(Define.Scene _scene, Action _callback = null)
     {
         Managers.Resource.Load<TextAsset>(_scene.ToString(),(sceneDataJson) => 
         {
@@ -120,6 +120,8 @@ public class DataManager
             {
                 baseQuestDataDictionary.TryAdd(sceneData.baseQuestDatas[i].questUID, sceneData.baseQuestDatas[i]);
             }
+
+            _callback?.Invoke();
         });
 
     }

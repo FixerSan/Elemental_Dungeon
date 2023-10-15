@@ -50,6 +50,7 @@ public class MonsterController : BaseController
             switch (_data.monsterUID)
             {
                 case 0:
+                    rb.gravityScale = 0;
                     movement = new MonsterMovements.Ghost_Bat(this);
                     sound = new MonsterSounds.Ghost_Bat(this);
                     attack = new MonsterAttacks.Bat(this);
@@ -121,6 +122,7 @@ public class MonsterController : BaseController
         movement.StopMoveCoroutine();
         spriteRenderer.FadeOut(1, () => 
         {
+            spriteRenderer.color = Color.white;
             Managers.Object.MonsterDespawn(this);
         });
         init = false;

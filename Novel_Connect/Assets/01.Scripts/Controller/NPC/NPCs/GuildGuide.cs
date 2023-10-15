@@ -32,7 +32,7 @@ public class GuildGuide : NPCController
         {
             Managers.Dialog.Call(1001, () => 
             {
-                Managers.scene.GetScene<GuildScene>().SceneEvent(0);
+                Managers.Scene.GetScene<GuildScene>().SceneEvent(0);
             });
             return;
         }
@@ -41,7 +41,7 @@ public class GuildGuide : NPCController
         {
             if(Managers.Quest.quests.Count > 1 && Managers.Quest.isCanGetReward)
             {
-
+                Managers.Dialog.Call(1011);
             }
 
             else

@@ -19,6 +19,6 @@ public class ChestController : InteractableObject
         if (isUsed) return;
         isUsed = true;
         animator.SetBool("IsOpened", true);
-        Managers.scene.GetScene<IceDungeonScene>().SceneEvent(sceneEventIndex);
+        Managers.Scene.GetScene<IceDungeonScene>().SceneEvent(sceneEventIndex);
     }
 }

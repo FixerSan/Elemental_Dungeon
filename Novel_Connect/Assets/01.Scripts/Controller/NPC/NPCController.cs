@@ -7,7 +7,7 @@ public abstract class NPCController : MonoBehaviour
 {
     public bool isHover;
     private SpriteRenderer spriteRenderer;
-    public Color color = Color.white;
+    private Color color = new Color(255,150,0,255);
     public int outlineSize = 1;
     private void Awake()
     {

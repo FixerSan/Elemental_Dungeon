@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.UIElements;
 
 public class CameraController : MonoBehaviour
 {
@@ -37,6 +38,13 @@ public class CameraController : MonoBehaviour
 
     private Vector3 nextPos;
 
+
+    private void Awake()
+    {
+        if (Managers.Screen.CameraController != this)
+            Managers.Resource.Destroy(gameObject);
+    }
+
     public void SetTarget(Transform _target)
     {
         target = _target;
@@ -50,8 +58,9 @@ public class CameraController : MonoBehaviour
     public void FollowTarget()
     {
         if (target == null) return;
-        nextPos = new Vector3(Mathf.Clamp((target.transform.position.x + offset.x), min.x, max.x), Mathf.Clamp((target.transform.position.y + offset.y), min.y, max.y), -10);
+        nextPos = new Vector3(target.transform.position.x + offset.x, target.transform.position.y + offset.y, -10);
         nextPos = Vector3.Lerp(Trans.position, nextPos, delayTime * Time.deltaTime);
+        nextPos = new Vector3(Mathf.Clamp(nextPos.x, min.x, max.x), Mathf.Clamp(nextPos.y, min.y, max.y), -10);
         Trans.position = nextPos;
     }
 

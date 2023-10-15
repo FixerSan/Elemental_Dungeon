@@ -237,6 +237,7 @@ public class PlayerController : BaseController
 
     public override void Freeze()
     {
+        if (state == PlayerState.DIE) return;
         ChangeState(PlayerState.FREEZED);
         if (attack.attackCoroutine != null)
             Managers.Routine.StopCoroutine(attack.attackCoroutine);

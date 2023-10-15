@@ -131,7 +131,8 @@ namespace PlayerStates
         public override void ExitState(PlayerController _entity, Action _callback)
         {
             _entity.animator.SetBool(_entity.HASH_ANIMATION["isFall"], false);
-            if (_entity.movement.CheckStop()) _entity.Stop();
+            _entity.rb.velocity = new UnityEngine.Vector2(_entity.rb.velocity.x * 0.5f, _entity.rb.velocity.y);
+
             _callback?.Invoke();
         }
 

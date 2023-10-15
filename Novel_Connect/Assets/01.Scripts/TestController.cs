@@ -11,7 +11,7 @@ public class TestController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            Managers.scene.GetScene<IceDungeonScene>().SceneEvent(0);
+            Managers.Scene.GetScene<IceDungeonScene>().SceneEvent(0);
         }
     }
 }

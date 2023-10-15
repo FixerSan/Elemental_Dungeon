@@ -6,6 +6,12 @@ public class QuestManager
 {
     public List<Quest> quests;
     public bool isCanGetReward;
+
+    public void Init()
+    {
+        quests.Clear();
+    }
+
     public void AddQuest(QuestType _type, int _questUID)
     {
         if (quests.Count == 3) return;

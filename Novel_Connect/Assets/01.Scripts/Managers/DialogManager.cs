@@ -72,12 +72,17 @@ public class DialogManager
             case 1008:
                 Managers.Game.npcFirstDictionary[$"{nameof(QuestBoardManager)}"] = false;
                 EndDialog();
-                Managers.scene.GetScene<GuildScene>().SceneEvent(1);
+                Managers.Scene.GetScene<GuildScene>().SceneEvent(1);
                 break;
 
             case 1009:
                 EndDialog();
-                Managers.scene.GetScene<GuildScene>().SceneEvent(2);
+                Managers.Scene.GetScene<GuildScene>().SceneEvent(2);
+                break;
+
+            case 1012:
+                EndDialog();
+                Managers.Scene.GetScene<GuildScene>().SceneEvent(3);
                 break;
 
             default:

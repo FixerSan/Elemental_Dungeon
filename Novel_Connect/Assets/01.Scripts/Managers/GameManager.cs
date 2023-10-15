@@ -42,8 +42,24 @@ public class GameManager : MonoBehaviour
 
     public void Init()
     {
-        Managers.Sound.SetBGMVolume(0);
-        Managers.Sound.SetEffectVolume(0);
+        //Managers.Sound.SetBGMVolume(0);
+        //Managers.Sound.SetEffectVolume(0);
+        npcFirstDictionary.Clear();
+    }
+
+    public void StartGame()
+    {
+        Managers.Resource.LoadAllAsync<Object>("Preload", null, () =>
+        {
+            Managers.Data.LoadSceneData(Define.Scene.Pre, () => 
+            {
+                Scene scene = Util.ParseEnum<Scene>(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+                UnityEngine.SceneManagement.SceneManager.sceneLoaded += Managers.Scene.LoadedScene;
+                Managers.Scene.LoadScene(scene);
+                Managers.Event.OnVoidEvent -= PlayerDeadEvent;
+                Managers.Event.OnVoidEvent += PlayerDeadEvent;
+            });
+        });
     }
 
     #region MouseInteraction
@@ -96,7 +112,10 @@ public class GameManager : MonoBehaviour
     public void RestartGame()
     {
         Managers.Routine.StopAllCoroutines();
-        Managers.scene.LoadScene(Scene.Guild);
+        Managers.Quest.Init();
+        Managers.Object.Init();
+        Managers.Game.Init();
+        Managers.Scene.LoadScene(Scene.Guild);
     }
 
     public void RetryStage()
@@ -113,5 +132,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         CheckMouseClickInteraction();
+        if (Input.GetKeyDown(KeyCode.R))
+            RestartGame();
     }
 }

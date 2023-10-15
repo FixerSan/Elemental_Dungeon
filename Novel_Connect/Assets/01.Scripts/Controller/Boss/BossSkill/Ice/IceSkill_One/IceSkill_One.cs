@@ -9,6 +9,7 @@ public class IceSkill_One : MonoBehaviour
     public float shootDelay;
     private Transform targetTrans;
     private BaseController user;
+    private Coroutine ShotSpearCoroutine;
 
     public void Init(BaseController _user, Transform _targetTrans)
     {
@@ -20,7 +21,7 @@ public class IceSkill_One : MonoBehaviour
             iceSpears[i].transform.position = iceSpearPoses[i].position;
             iceSpears[i].gameObject.SetActive(true);
         }
-        Managers.Routine.StartCoroutine(ShotSpear());
+        ShotSpearCoroutine = Managers.Routine.StartCoroutine(ShotSpear());
     }
 
     private IEnumerator ShotSpear()
@@ -35,8 +36,14 @@ public class IceSkill_One : MonoBehaviour
         Managers.Resource.Destroy(gameObject);
     }
 
+    private void OnDestroy()
+    {
+        Managers.Routine.StopCoroutine(ShotSpearCoroutine);
+    }
+
     private void FixedUpdate()
     {
-        transform.position = new Vector3(user.trans.position.x, user.trans.position.y + 1.6f , user.trans.position.z);
+        if(user != null)
+            transform.position = new Vector3(user.trans.position.x, user.trans.position.y + 1.6f , user.trans.position.z);
     }
 }

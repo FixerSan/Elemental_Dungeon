@@ -7,10 +7,16 @@ public class SceneManager : MonoBehaviour
     //싱글톤 선언
     #region Singleton
     private static SceneManager instance;
-    public static SceneManager Instance { get { return instance; } }
+    public static SceneManager Instance
+    {
+        get
+        {
+            if (instance == null)
+                Init();
+            return instance;
+        }
+    }
 
-    // 초기화
-    [RuntimeInitializeOnLoadMethod]
     private static void Init()
     {
         // SceneManager 싱글톤 초기화 및 게임 오브젝트 생성
@@ -19,15 +25,6 @@ public class SceneManager : MonoBehaviour
             go = new GameObject { name = $"[{nameof(SceneManager)}]" };
         instance = go.GetOrAddComponent<SceneManager>();
         DontDestroyOnLoad(go);
-
-        // 리소스 로딩 및 초기 씬 로드
-        Managers.Resource.LoadAllAsync<Object>("Preload", null, () =>
-        {
-            Managers.Data.LoadSceneData(Define.Scene.Pre);
-            UnityEngine.SceneManagement.SceneManager.sceneLoaded += instance.LoadedScene;
-            instance.LoadedScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene(), UnityEngine.SceneManagement.LoadSceneMode.Single);
-            Managers.Game.Init();
-        });
     }
     #endregion
 
@@ -41,7 +38,7 @@ public class SceneManager : MonoBehaviour
     }
 
     // 현재 씬 제거 후 새로운 씬 추가
-    private void LoadedScene(UnityEngine.SceneManagement.Scene _scene, UnityEngine.SceneManagement.LoadSceneMode _loadSceneMode)
+    public void LoadedScene(UnityEngine.SceneManagement.Scene _scene, UnityEngine.SceneManagement.LoadSceneMode _loadSceneMode)
     {
         Managers.Pool.Clear();
         RemoveScene(currentScene, () =>
@@ -54,7 +51,7 @@ public class SceneManager : MonoBehaviour
     // 특정 타입의 씬 가져오기 또는 추가
     public T GetScene<T>() where T : BaseScene
     {
-        T scene = gameObject.GetOrAddComponent<T>();
+        T scene = gameObject.GetComponent<T>();
         return scene as T;
     }
 

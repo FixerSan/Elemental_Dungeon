@@ -72,8 +72,8 @@ public class ObjectManager
     {
         ClearMonsters();
         Managers.Resource.Destroy(Player.gameObject);
-        Managers.Resource.Destroy(monsterTrasnform.gameObject);
-        Managers.Resource.Destroy(itemTransform.gameObject);
+        Managers.Resource.Destroy(MonsterTransform.gameObject);
+        Managers.Resource.Destroy(ItemTransform.gameObject);
     }
 
     // 플레이어 스폰

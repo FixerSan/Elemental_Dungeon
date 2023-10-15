@@ -16,8 +16,6 @@ public class CoroutineManager : MonoBehaviour
         }
     }
 
-    // √ ±‚»≠
-    [RuntimeInitializeOnLoadMethod]
     private static void Init()
     {
         GameObject go = GameObject.Find($"[{nameof(CoroutineManager)}]");

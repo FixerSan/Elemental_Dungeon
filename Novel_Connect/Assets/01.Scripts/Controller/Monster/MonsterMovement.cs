@@ -78,19 +78,22 @@ namespace MonsterMovements
 
         private IEnumerator CheckMoveRoutine()
         {
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(monster.detecteTrans.position,monster.detecteTrans.localScale,0,monster.attackLayer);
-            for (int i = 0; i < colliders.Length; i++)
+            if(monster != null)
             {
-                if (colliders[i].CompareTag("Player"))
+                Collider2D[] colliders = Physics2D.OverlapBoxAll(monster.detecteTrans.position,monster.detecteTrans.localScale,0,monster.attackLayer);
+                for (int i = 0; i < colliders.Length; i++)
                 {
-                    monster.ChangeState(MonsterState.FOLLOW);
-                    monster.SetTarget(colliders[i].transform);
-                    if(checkDetecteCoroutine != null) Managers.Routine.StopCoroutine(checkDetecteCoroutine);
-                    break;
+                    if (colliders[i].CompareTag("Player"))
+                    {
+                        monster.ChangeState(MonsterState.FOLLOW);
+                        monster.SetTarget(colliders[i].transform);
+                        if(checkDetecteCoroutine != null) Managers.Routine.StopCoroutine(this.checkDetecteCoroutine);
+                        break;
+                    }
                 }
+                yield return new WaitForSeconds(0.5f);
+                checkDetecteCoroutine = Managers.Routine.StartCoroutine(this.CheckMoveRoutine());
             }
-            yield return new WaitForSeconds(0.5f);
-            checkDetecteCoroutine = Managers.Routine.StartCoroutine(CheckMoveRoutine());
         }
 
         public override void Move()

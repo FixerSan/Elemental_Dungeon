@@ -17,7 +17,6 @@ public class Managers : MonoBehaviour
             return instance;
         }
     }
-
     [RuntimeInitializeOnLoadMethod]
     private static void Init()
     {
@@ -35,22 +34,13 @@ public class Managers : MonoBehaviour
 
         // 씬 전환 시 파괴되지 않도록 설정
         DontDestroyOnLoad(go);
-    }
-
-    private void Awake()
-    {
-        // 인스턴스가 없는 경우 초기화하고, 이미 있는 경우 현재 게임 오브젝트를 파괴
-        if (instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Init();
-        CreateManagers();
-
         // 화면 해상도를 1920x1080으로 설정
         UnityEngine.Screen.SetResolution(1920, 1080, true);
+
+        // 매니저들 생성
+        instance.CreateManagers();
+        Game.StartGame();
+
     }
     #endregion
 
@@ -70,14 +60,16 @@ public class Managers : MonoBehaviour
     private LineRendererManager line;
     private QuestManager quest;
     private GameManager game;
+    private SceneManager scene;
+    private CoroutineManager routine;
 
     // 각각의 매니저들에 대한 public 프로퍼티를 추가
     public static ResourceManager Resource { get { return Instance?.resource; } }
     public static PoolManager Pool { get { return Instance?.pool; } }
     public static UIManager UI { get { return Instance?.ui; } }
     public static DataManager Data { get { return Instance?.data; } }
-    public static CoroutineManager Routine { get { return CoroutineManager.Instance; } }
-    public static SceneManager scene { get { return SceneManager.Instance; } }
+    public static CoroutineManager Routine { get { return Instance.routine; } }
+    public static SceneManager Scene { get { return Instance?.scene; } }
     public static ObjectManager Object { get { return Instance?.obj; } }
     public static SoundManager Sound { get { return Instance?.sound; } }
     public static InputManager Input { get { return Instance?.input; } }
@@ -108,5 +100,7 @@ public class Managers : MonoBehaviour
         line = new LineRendererManager();
         quest = new QuestManager();
         game = GameManager.Instance;
+        routine = CoroutineManager.Instance;
+        scene = SceneManager.Instance;
     }
 }

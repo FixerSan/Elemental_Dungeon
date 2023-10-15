@@ -28,14 +28,14 @@ public abstract class Playermovement
     }
     public void CheckUpAndFall()
     {
-        if (!isGround)
+        if (!isGround || player.state == PlayerState.JUMP)
         {
             //올라가는 중일 때
-            if (player.rb.velocity.y >= 0.01f)
+            if (player.rb.velocity.y >= 0f)
                 player.ChangeState(PlayerState.JUMPING);
 
             //떨어지는 중일 때
-            else if (player.rb.velocity.y <= 0f)
+            else if (player.rb.velocity.y <= 0.01f)
                 player.ChangeState(PlayerState.FALL);
         }
     }
@@ -167,8 +167,17 @@ public abstract class Playermovement
 
     public virtual void Jump()
     {
+        if (!isCanJump) return;
         player.rb.AddForce(Vector2.up * player.status.currentJumpForce * 1.5f, ForceMode2D.Impulse);
         Managers.Particle.PlayParticle("Particle_Jump", player.trans.position);
+        isCanJump = false;
+        Managers.Routine.StartCoroutine(JumpRoutine());
+    }
+
+    private IEnumerator JumpRoutine()
+    {
+        yield return new WaitForSeconds(0.2f);
+        isCanJump = true;
     }
 
     public virtual void CheckAttackMove()

@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &149449261
+--- !u!1001 &133394056
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -134,9 +134,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 5083648402969499523, guid: 06cda6286f6da9c46a6e0c477a11db69, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5083648402969499548, guid: 06cda6286f6da9c46a6e0c477a11db69, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5083648402969499548, guid: 06cda6286f6da9c46a6e0c477a11db69, type: 3}
       propertyPath: m_LocalPosition.x
@@ -181,34 +185,6 @@ PrefabInstance:
     - target: {fileID: 5083648402969499549, guid: 06cda6286f6da9c46a6e0c477a11db69, type: 3}
       propertyPath: orthographic size
       value: 1.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5083648402969499551, guid: 06cda6286f6da9c46a6e0c477a11db69, type: 3}
-      propertyPath: max.x
-      value: 3.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5083648402969499551, guid: 06cda6286f6da9c46a6e0c477a11db69, type: 3}
-      propertyPath: max.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5083648402969499551, guid: 06cda6286f6da9c46a6e0c477a11db69, type: 3}
-      propertyPath: min.x
-      value: -3.15
-      objectReference: {fileID: 0}
-    - target: {fileID: 5083648402969499551, guid: 06cda6286f6da9c46a6e0c477a11db69, type: 3}
-      propertyPath: min.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5083648402969499551, guid: 06cda6286f6da9c46a6e0c477a11db69, type: 3}
-      propertyPath: target
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 5083648402969499551, guid: 06cda6286f6da9c46a6e0c477a11db69, type: 3}
-      propertyPath: offset.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5083648402969499551, guid: 06cda6286f6da9c46a6e0c477a11db69, type: 3}
-      propertyPath: offset.z
-      value: -10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06cda6286f6da9c46a6e0c477a11db69, type: 3}
@@ -786,7 +762,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1159292657}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -794,7 +770,7 @@ Transform:
   - {fileID: 1207105892}
   - {fileID: 714994248}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1207105891
 GameObject:
@@ -1346,6 +1322,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quest Board manager
       objectReference: {fileID: 0}
+    - target: {fileID: 8916449892942530890, guid: 804baf2a173e48d499aadc038ad10605, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 804baf2a173e48d499aadc038ad10605, type: 3}
 --- !u!1001 &1986511518211571349
@@ -1402,6 +1382,10 @@ PrefabInstance:
     - target: {fileID: 8874904792134092097, guid: aae39586858e82e49b4f1ea476d4ea30, type: 3}
       propertyPath: m_Name
       value: Guide
+      objectReference: {fileID: 0}
+    - target: {fileID: 8874904792134092097, guid: aae39586858e82e49b4f1ea476d4ea30, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aae39586858e82e49b4f1ea476d4ea30, type: 3}

@@ -28,6 +28,6 @@ public class WarpTotemController : InteractableObject
         yield return new WaitForSeconds(0.1f);
         float animationTime = animator.GetCurrentAnimatorStateInfo(0).length;
         yield return new WaitForSeconds(animationTime - 0.1f);
-        Managers.scene.GetScene<IceDungeonScene>().SceneEvent(sceneEventIndex);
+        Managers.Scene.GetScene<IceDungeonScene>().SceneEvent(sceneEventIndex);
     }
 }
