@@ -1,0 +1,742 @@
+fileFormatVersion: 2
+guid: 2a975f32aa2e775419dc42eadf8f83f5
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: ice
+    second: {fileID: 7400000, guid: 9aceb66ed1ad60345b0de1358a973067, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: ice_end
+    second: {fileID: 7400000, guid: 1cbc23ac8c0d84a49b11278a0ff94696, type: 2}
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: ice_start
+    second: {fileID: 7400000, guid: 937c8374b94e9ca419b2d5bcbf809fb7, type: 2}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 180
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 0
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 0
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638329828590370823
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Ice_Boss_Ice_After_Frame_0
+    originalName: 
+    pivot: {x: 0.51428574, y: 0.46363634}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 358
+      y: 732
+      width: 105
+      height: 110
+    spriteID: a8109eb1019f1754a84c0395bbcee1c7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 358, y: 732}
+  - name: Ice_Boss_Ice_After_Frame_1
+    originalName: 
+    pivot: {x: 0.5146199, y: 0.47701153}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 550
+      width: 171
+      height: 174
+    spriteID: 2d01ff2789f09cd4eb808e29fa1a2b95
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 550}
+  - name: Ice_Boss_Ice_After_Frame_2
+    originalName: 
+    pivot: {x: 0.5146199, y: 0.47701153}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 732
+      width: 171
+      height: 174
+    spriteID: 79d4c517f07c2154b89e8d6c915f3bc4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 732}
+  - name: Ice_Boss_Ice_After_Frame_3
+    originalName: 
+    pivot: {x: 0.5146199, y: 0.47701153}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 185
+      y: 4
+      width: 171
+      height: 174
+    spriteID: 7c5e8d6139246894e8c7f2c495e1da09
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 185, y: 4}
+  - name: Ice_Boss_Ice_After_Frame_4
+    originalName: 
+    pivot: {x: 0.5146199, y: 0.47701153}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 185
+      y: 186
+      width: 171
+      height: 174
+    spriteID: 014dd2500d4c0cb478509a1f1e229c0d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 185, y: 186}
+  - name: Ice_Boss_Ice_After_Frame_5
+    originalName: 
+    pivot: {x: 0.5146199, y: 0.47701153}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 185
+      y: 368
+      width: 171
+      height: 174
+    spriteID: 26561e1d2d4d78f4eb3984414c4d3a45
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 185, y: 368}
+  - name: Ice_Boss_Ice_After_Frame_6
+    originalName: 
+    pivot: {x: 0.5146199, y: 0.47701153}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 185
+      y: 550
+      width: 171
+      height: 174
+    spriteID: 73ac3cf8b7cc932479ac81b998426bf2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 185, y: 550}
+  - name: Ice_Boss_Ice_After_Frame_7
+    originalName: 
+    pivot: {x: 0.5086705, y: 0.47701153}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 173
+      height: 174
+    spriteID: 00df1b2ba2bc63c44a0b7dbdd02fe10c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Ice_Boss_Ice_After_Frame_8
+    originalName: 
+    pivot: {x: 0.5086705, y: 0.47701153}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 186
+      width: 173
+      height: 174
+    spriteID: b94189c10faa5674a96f5fed6f8f03b1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 186}
+  - name: Ice_Boss_Ice_After_Frame_9
+    originalName: 
+    pivot: {x: 0.5086705, y: 0.47701153}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 368
+      width: 173
+      height: 174
+    spriteID: 4adf82900b635a84e8319756245c3526
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 368}
+  - name: Ice_Boss_Ice_After_Frame_10
+    originalName: 
+    pivot: {x: 0.5151515, y: 0.5}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 185
+      y: 732
+      width: 165
+      height: 166
+    spriteID: cfc089d8b6512724594709d2f604c948
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 185, y: 732}
+  - name: Ice_Boss_Ice_After_Frame_11
+    originalName: 
+    pivot: {x: 0.5362319, y: 0.5354839}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 4
+      width: 138
+      height: 155
+    spriteID: 07649242a5ddd9a4abe85ba935940409
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 4}
+  - name: Ice_Boss_Ice_After_Frame_12
+    originalName: 
+    pivot: {x: 0.51724136, y: 0.5971223}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 186
+      width: 116
+      height: 139
+    spriteID: b045900020e20964f8edfb48b494531a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 186}
+  - name: Ice_Boss_Ice_After_Frame_13
+    originalName: 
+    pivot: {x: 0.5294118, y: 0.5609757}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 368
+      width: 102
+      height: 123
+    spriteID: 8a09103da4c2d8f4d9d9296ce41b0331
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 368}
+  - name: Ice_Boss_Ice_After_Frame_14
+    originalName: 
+    pivot: {x: 0.5555555, y: 0.5940594}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 914
+      width: 81
+      height: 101
+    spriteID: ae5f4146fa211684ab8dfcf1f0dae485
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 914}
+  - name: Ice_Boss_Ice_After_Frame_15
+    originalName: 
+    pivot: {x: 0.52307695, y: 0.6206897}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 93
+      y: 914
+      width: 65
+      height: 87
+    spriteID: 67fb368fdb9b903479036e41200878cd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 93, y: 914}
+  - name: Ice_Boss_Ice_After_Frame_16
+    originalName: 
+    pivot: {x: 0.49090904, y: 0.6268657}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 550
+      width: 55
+      height: 67
+    spriteID: 35bd695dc126dd54fbf5f7a4c248133c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 550}
+  - name: Ice_Boss_Ice_After_Frame_17
+    originalName: 
+    pivot: {x: 0.47169816, y: 0.56249994}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 625
+      width: 53
+      height: 48
+    spriteID: dab472c0bd3d79b429db54731285954c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 625}
+  - name: Ice_Boss_Ice_After_Frame_18
+    originalName: 
+    pivot: {x: 0.6774193, y: 0.72972965}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 364
+      y: 681
+      width: 31
+      height: 37
+    spriteID: f8445841b79bed342a85e8c62781d0ae
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 364, y: 681}
+  - name: Ice_Boss_Ice_After_Frame_19
+    originalName: 
+    pivot: {x: 2.2499993, y: 2.9999995}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 403
+      y: 681
+      width: 4
+      height: 6
+    spriteID: cf0c779c0c73ca546866c296f53121a0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 403, y: 681}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -1944138010
+    name: Ice_Boss_Ice_After
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Ice_Boss_Ice_After_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 50
+        y: 61
+        width: 105
+        height: 110
+      spriteId: a8109eb1019f1754a84c0395bbcee1c7
+    - name: Ice_Boss_Ice_After_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 16
+        y: 29
+        width: 171
+        height: 174
+      spriteId: 2d01ff2789f09cd4eb808e29fa1a2b95
+    - name: Ice_Boss_Ice_After_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 16
+        y: 29
+        width: 171
+        height: 174
+      spriteId: 79d4c517f07c2154b89e8d6c915f3bc4
+    - name: Ice_Boss_Ice_After_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 16
+        y: 29
+        width: 171
+        height: 174
+      spriteId: 7c5e8d6139246894e8c7f2c495e1da09
+    - name: Ice_Boss_Ice_After_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 16
+        y: 29
+        width: 171
+        height: 174
+      spriteId: 014dd2500d4c0cb478509a1f1e229c0d
+    - name: Ice_Boss_Ice_After_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 16
+        y: 29
+        width: 171
+        height: 174
+      spriteId: 26561e1d2d4d78f4eb3984414c4d3a45
+    - name: Ice_Boss_Ice_After_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 16
+        y: 29
+        width: 171
+        height: 174
+      spriteId: 73ac3cf8b7cc932479ac81b998426bf2
+    - name: Ice_Boss_Ice_After_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 16
+        y: 29
+        width: 173
+        height: 174
+      spriteId: 00df1b2ba2bc63c44a0b7dbdd02fe10c
+    - name: Ice_Boss_Ice_After_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 16
+        y: 29
+        width: 173
+        height: 174
+      spriteId: b94189c10faa5674a96f5fed6f8f03b1
+    - name: Ice_Boss_Ice_After_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 16
+        y: 29
+        width: 173
+        height: 174
+      spriteId: 4adf82900b635a84e8319756245c3526
+    - name: Ice_Boss_Ice_After_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 19
+        y: 29
+        width: 165
+        height: 166
+      spriteId: cfc089d8b6512724594709d2f604c948
+    - name: Ice_Boss_Ice_After_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 30
+        y: 29
+        width: 138
+        height: 155
+      spriteId: 07649242a5ddd9a4abe85ba935940409
+    - name: Ice_Boss_Ice_After_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 44
+        y: 29
+        width: 116
+        height: 139
+      spriteId: b045900020e20964f8edfb48b494531a
+    - name: Ice_Boss_Ice_After_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 50
+        y: 43
+        width: 102
+        height: 123
+      spriteId: 8a09103da4c2d8f4d9d9296ce41b0331
+    - name: Ice_Boss_Ice_After_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 59
+        y: 52
+        width: 81
+        height: 101
+      spriteId: ae5f4146fa211684ab8dfcf1f0dae485
+    - name: Ice_Boss_Ice_After_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 70
+        y: 58
+        width: 65
+        height: 87
+      spriteId: 67fb368fdb9b903479036e41200878cd
+    - name: Ice_Boss_Ice_After_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 77
+        y: 70
+        width: 55
+        height: 67
+      spriteId: 35bd695dc126dd54fbf5f7a4c248133c
+    - name: Ice_Boss_Ice_After_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 79
+        y: 85
+        width: 53
+        height: 48
+      spriteId: dab472c0bd3d79b429db54731285954c
+    - name: Ice_Boss_Ice_After_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 83
+        y: 85
+        width: 31
+        height: 37
+      spriteId: f8445841b79bed342a85e8c62781d0ae
+    - name: Ice_Boss_Ice_After_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 95
+        y: 94
+        width: 4
+        height: 6
+      spriteId: cf0c779c0c73ca546866c296f53121a0
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 208, y: 224}

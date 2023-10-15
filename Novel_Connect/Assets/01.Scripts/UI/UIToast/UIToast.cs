@@ -5,7 +5,6 @@ using DG.Tweening;
 
 public class UIToast : UIBase
 {
-    private float firstPos;
     enum Images
     {
         //BackgroundImage
@@ -35,7 +34,6 @@ public class UIToast : UIBase
         BindImage(typeof(Images));
         BindText(typeof(Texts));
         Refresh();
-        firstPos = 280f;
         return true;
     }
 

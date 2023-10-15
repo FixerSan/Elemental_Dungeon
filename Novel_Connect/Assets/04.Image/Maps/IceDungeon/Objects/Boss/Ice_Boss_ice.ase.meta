@@ -103,7 +103,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638320349303454704
+  platformSettingsDirtyTick: 638329822954584043
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -127,7 +127,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Boss_ice2_Frame_0
+  - name: Ice_Boss_ice_Frame_0
     originalName: 
     pivot: {x: 0.37499997, y: 0.5}
     alignment: 9
@@ -138,7 +138,7 @@ ScriptedImporter:
       y: 20
       width: 12
       height: 6
-    spriteID: 4750d9f33707aef459d569aa1124950a
+    spriteID: b22bfdf081f38ef4baffa248f411dd6e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -147,7 +147,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 85, y: 20}
-  - name: Boss_ice2_Frame_1
+  - name: Ice_Boss_ice_Frame_1
     originalName: 
     pivot: {x: 0.4333333, y: 0.5714286}
     alignment: 9
@@ -158,7 +158,7 @@ ScriptedImporter:
       y: 20
       width: 15
       height: 7
-    spriteID: 3d03a58e3d674d640864a47f66351b64
+    spriteID: eb73a32a556f6d9419e0fe6a443325d2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -167,7 +167,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 62, y: 20}
-  - name: Boss_ice2_Frame_2
+  - name: Ice_Boss_ice_Frame_2
     originalName: 
     pivot: {x: 0.5208334, y: 0.5714286}
     alignment: 9
@@ -178,7 +178,7 @@ ScriptedImporter:
       y: 4
       width: 24
       height: 7
-    spriteID: 7fa9f542d7eebe147924edc4761cdae0
+    spriteID: 95e8732197b02d9458c57c667673cb7e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -187,7 +187,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 98, y: 4}
-  - name: Boss_ice2_Frame_3
+  - name: Ice_Boss_ice_Frame_3
     originalName: 
     pivot: {x: 0.4107143, y: 0.6249999}
     alignment: 9
@@ -198,7 +198,7 @@ ScriptedImporter:
       y: 4
       width: 28
       height: 8
-    spriteID: ee9aeeb32820f6d428fcb1911262a6ab
+    spriteID: 846217f9fa3bb274d89900e8f947aede
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -207,7 +207,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 62, y: 4}
-  - name: Boss_ice2_Frame_4
+  - name: Ice_Boss_ice_Frame_4
     originalName: 
     pivot: {x: -0.062500164, y: 0.3783784}
     alignment: 9
@@ -218,7 +218,7 @@ ScriptedImporter:
       y: 4
       width: 8
       height: 37
-    spriteID: b211d1b905ec1bb42ad551f1b9d3439e
+    spriteID: 622ad49922ca139419430af032b81168
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -227,7 +227,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 46, y: 4}
-  - name: Boss_ice2_Frame_5
+  - name: Ice_Boss_ice_Frame_5
     originalName: 
     pivot: {x: 0.7205882, y: 0.41463414}
     alignment: 9
@@ -238,7 +238,7 @@ ScriptedImporter:
       y: 4
       width: 34
       height: 41
-    spriteID: af9f7e38682292b4f910a066310f55a6
+    spriteID: 469182cae0b7c6344bb4cac2cdb0adcc
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -247,7 +247,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Boss_ice2_Frame_6
+  - name: Ice_Boss_ice_Frame_6
     originalName: 
     pivot: {x: -0.08333355, y: 0.46666667}
     alignment: 9
@@ -258,7 +258,7 @@ ScriptedImporter:
       y: 53
       width: 6
       height: 45
-    spriteID: 4197924cb3b8eff469ffaccd86cb5229
+    spriteID: 0281ff3c91429444b9ef0ed5852fe5bb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -267,7 +267,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 53}
-  - name: Boss_ice2_Frame_7
+  - name: Ice_Boss_ice_Frame_7
     originalName: 
     pivot: {x: -0.08333355, y: 0.46666667}
     alignment: 9
@@ -278,7 +278,7 @@ ScriptedImporter:
       y: 53
       width: 6
       height: 45
-    spriteID: 458349e87c9e9c14d8af73ec0716ec2d
+    spriteID: 642f107852d346f4dbf546ca259b7780
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -287,7 +287,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 18, y: 53}
-  - name: Boss_ice2_Frame_8
+  - name: Ice_Boss_ice_Frame_8
     originalName: 
     pivot: {x: -0.08333355, y: 0.46666667}
     alignment: 9
@@ -298,7 +298,7 @@ ScriptedImporter:
       y: 53
       width: 6
       height: 45
-    spriteID: eccf96523b542d34da4c0d8c18d4f675
+    spriteID: 2cd73070e5ddd89488c282dc5ea6d131
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -310,84 +310,84 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 201645703
-    name: Boss_ice2
+    guid: 534967869
+    name: Ice_Boss_ice
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Boss_ice2_Frame_0
+    - name: Ice_Boss_ice_Frame_0
       frameIndex: 0
       cellRect:
         x: 18
         y: 26
         width: 12
         height: 6
-      spriteId: 4750d9f33707aef459d569aa1124950a
-    - name: Boss_ice2_Frame_1
+      spriteId: b22bfdf081f38ef4baffa248f411dd6e
+    - name: Ice_Boss_ice_Frame_1
       frameIndex: 1
       cellRect:
         x: 16
         y: 25
         width: 15
         height: 7
-      spriteId: 3d03a58e3d674d640864a47f66351b64
-    - name: Boss_ice2_Frame_2
+      spriteId: eb73a32a556f6d9419e0fe6a443325d2
+    - name: Ice_Boss_ice_Frame_2
       frameIndex: 2
       cellRect:
         x: 10
         y: 25
         width: 24
         height: 7
-      spriteId: 7fa9f542d7eebe147924edc4761cdae0
-    - name: Boss_ice2_Frame_3
+      spriteId: 95e8732197b02d9458c57c667673cb7e
+    - name: Ice_Boss_ice_Frame_3
       frameIndex: 3
       cellRect:
         x: 11
         y: 24
         width: 28
         height: 8
-      spriteId: ee9aeeb32820f6d428fcb1911262a6ab
-    - name: Boss_ice2_Frame_4
+      spriteId: 846217f9fa3bb274d89900e8f947aede
+    - name: Ice_Boss_ice_Frame_4
       frameIndex: 4
       cellRect:
         x: 23
         y: 15
         width: 8
         height: 37
-      spriteId: b211d1b905ec1bb42ad551f1b9d3439e
-    - name: Boss_ice2_Frame_5
+      spriteId: 622ad49922ca139419430af032b81168
+    - name: Ice_Boss_ice_Frame_5
       frameIndex: 5
       cellRect:
         x: -2
         y: 12
         width: 34
         height: 41
-      spriteId: af9f7e38682292b4f910a066310f55a6
-    - name: Boss_ice2_Frame_6
+      spriteId: 469182cae0b7c6344bb4cac2cdb0adcc
+    - name: Ice_Boss_ice_Frame_6
       frameIndex: 6
       cellRect:
         x: 23
         y: 8
         width: 6
         height: 45
-      spriteId: 4197924cb3b8eff469ffaccd86cb5229
-    - name: Boss_ice2_Frame_7
+      spriteId: 0281ff3c91429444b9ef0ed5852fe5bb
+    - name: Ice_Boss_ice_Frame_7
       frameIndex: 7
       cellRect:
         x: 23
         y: 8
         width: 6
         height: 45
-      spriteId: 458349e87c9e9c14d8af73ec0716ec2d
-    - name: Boss_ice2_Frame_8
+      spriteId: 642f107852d346f4dbf546ca259b7780
+    - name: Ice_Boss_ice_Frame_8
       frameIndex: 8
       cellRect:
         x: 23
         y: 8
         width: 6
         height: 45
-      spriteId: eccf96523b542d34da4c0d8c18d4f675
+      spriteId: 2cd73070e5ddd89488c282dc5ea6d131
     linkedCells: []
     parentIndex: -1
   platformSettings:

@@ -68,6 +68,14 @@ public class ObjectManager
         Monsters.Clear();
     }
 
+    public void Init()
+    {
+        ClearMonsters();
+        Managers.Resource.Destroy(Player.gameObject);
+        Managers.Resource.Destroy(monsterTrasnform.gameObject);
+        Managers.Resource.Destroy(itemTransform.gameObject);
+    }
+
     // 플레이어 스폰
     public PlayerController SpawnPlayer(Vector3 _position)
     {
@@ -75,6 +83,8 @@ public class ObjectManager
         PlayerController pc = go.GetOrAddComponent<PlayerController>();
         pc.transform.position = _position;
         player = pc;
+        player.Init(1, Elemental.Normal.ToString());
+        Object.DontDestroyOnLoad(player.gameObject);
         return pc;
     }
 

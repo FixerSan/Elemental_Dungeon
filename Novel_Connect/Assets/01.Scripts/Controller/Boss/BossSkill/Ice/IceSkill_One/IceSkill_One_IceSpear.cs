@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
 
@@ -66,14 +67,6 @@ public class IceSkill_One_IceSpear : MonoBehaviour
         transform.position = transform.position += (transform.up * Time.deltaTime * moveSpeed);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (!isShot) return;
-        if (isBoom) return;
-        if (other.CompareTag("Player") || other.CompareTag("Ground"))
-            Boom();
-    }
-
     private void CheckBoom()
     {
         if (Vector2.Distance(transform.position, target) <= 0.1f)
@@ -82,9 +75,11 @@ public class IceSkill_One_IceSpear : MonoBehaviour
 
     private void Boom()
     {
-        Debug.Log("Boom");
         isBoom = true;
         Managers.Resource.Destroy(circle);
+        IceSkill_One_After afterSkill = Managers.Resource.Instantiate("IceSkill_One_After", _pooling: true).GetComponent<IceSkill_One_After>();
+        afterSkill.transform.position = target;
+        afterSkill.Boom();
         gameObject.SetActive(false);
     }
 

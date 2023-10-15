@@ -13,7 +13,6 @@ public class IceDungeonScene : BaseScene
         base.Init();
         nowCheckPoint = 0;
         Managers.UI.ShowSceneUI<UIBaseScene>("UIScene_BaseScene");
-        Managers.Object.Player.Init(1, Define.Elemental.Normal.ToString());
         Managers.Object.Player.SetPosition(new Vector3(-5, 1, 0));
         Managers.Screen.SetCameraTarget(Managers.Object.Player.trans);
         Managers.Screen.CameraController.Camera.orthographicSize = 3;

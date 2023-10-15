@@ -80,6 +80,7 @@ namespace BossAttacks
         private IEnumerator Skill_Two_Routine()
         {
             Managers.Line.ReleaseLine("Skill_Two");
+            boss.effectAnim.Play("Skill_2");
             boss.rb.AddForce(new Vector2((int)boss.direction * 10 ,0), ForceMode2D.Impulse);
             yield return new WaitForSeconds(0.5f);
             Managers.Resource.Destroy(skill_Two.gameObject);

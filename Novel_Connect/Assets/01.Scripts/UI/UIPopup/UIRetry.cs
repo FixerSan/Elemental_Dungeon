@@ -55,7 +55,7 @@ public class UIRetry : UIPopup
         GetText((int)Texts.Text_Count).text = $"{(int)currentTimeCount}";
     }
 
-    private void Update()
+    protected override void Update()
     {
         if (!isOpen) return;
         CheckTimeCount();

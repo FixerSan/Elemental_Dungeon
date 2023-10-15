@@ -123,7 +123,7 @@ ScriptedImporter:
     addSortingGroup: 1
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638326251382149026
+  platformSettingsDirtyTick: 638329822792639331
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -147,7 +147,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: Snow_UI4_Frame_0
+  - name: Snow_UI_Frame_0
     originalName: 
     pivot: {x: 0.5, y: -0.2631579}
     alignment: 9
@@ -158,7 +158,7 @@ ScriptedImporter:
       y: 219
       width: 19
       height: 19
-    spriteID: 657172c662f3b804d957c0b39c582d99
+    spriteID: 814f7f4d607427d46a931f601b8e9826
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -167,7 +167,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 219}
-  - name: Snow_UI4_Frame_1
+  - name: Snow_UI_Frame_1
     originalName: 
     pivot: {x: 0.5, y: -0.1904762}
     alignment: 9
@@ -178,7 +178,7 @@ ScriptedImporter:
       y: 190
       width: 21
       height: 21
-    spriteID: e3068eab7d1fdb641bba049456ac9f2c
+    spriteID: 0cbab2301d9a79b469bc9099e489a1b6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -187,7 +187,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 190}
-  - name: Snow_UI4_Frame_2
+  - name: Snow_UI_Frame_2
     originalName: 
     pivot: {x: 0.5, y: -0.1304348}
     alignment: 9
@@ -198,7 +198,7 @@ ScriptedImporter:
       y: 4
       width: 23
       height: 23
-    spriteID: 20a183e0cac0c0340a6a15c33e3249ad
+    spriteID: 9894393fdbff47d468d4a35e82dad290
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -207,7 +207,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: Snow_UI4_Frame_3
+  - name: Snow_UI_Frame_3
     originalName: 
     pivot: {x: 0.5, y: -0.1304348}
     alignment: 9
@@ -218,7 +218,7 @@ ScriptedImporter:
       y: 35
       width: 23
       height: 23
-    spriteID: 09073042373380e42bd7d0e07597224f
+    spriteID: 3d55f72759f3c854f95cff3f8aa6db16
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -227,7 +227,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 35}
-  - name: Snow_UI4_Frame_4
+  - name: Snow_UI_Frame_4
     originalName: 
     pivot: {x: 0.5, y: -0.1304348}
     alignment: 9
@@ -238,7 +238,7 @@ ScriptedImporter:
       y: 66
       width: 23
       height: 23
-    spriteID: 8672bab4c3112c545bf334edba90ac57
+    spriteID: fdb7eb71f0854494c8dc594ea25cd382
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -247,7 +247,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 66}
-  - name: Snow_UI4_Frame_5
+  - name: Snow_UI_Frame_5
     originalName: 
     pivot: {x: 0.5, y: -0.1304348}
     alignment: 9
@@ -258,7 +258,7 @@ ScriptedImporter:
       y: 97
       width: 23
       height: 23
-    spriteID: a4fe1ac19059aeb4a8a7633d87269faf
+    spriteID: e10e25bbff2befa49a4ebd4aca2826ba
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -267,7 +267,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 97}
-  - name: Snow_UI4_Frame_6
+  - name: Snow_UI_Frame_6
     originalName: 
     pivot: {x: 0.5, y: -0.1304348}
     alignment: 9
@@ -278,7 +278,7 @@ ScriptedImporter:
       y: 128
       width: 23
       height: 23
-    spriteID: 584ae3139dccb2a44ae73b1c745a5000
+    spriteID: 9b99b30ce104e594dba3e1967c04acbb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -287,7 +287,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 128}
-  - name: Snow_UI4_Frame_7
+  - name: Snow_UI_Frame_7
     originalName: 
     pivot: {x: 0.5, y: -0.1304348}
     alignment: 9
@@ -298,7 +298,7 @@ ScriptedImporter:
       y: 159
       width: 23
       height: 23
-    spriteID: 2662d1cc02eab454bbe54c3071c186ab
+    spriteID: 20a25f2723183d845b7c3eaad1e7bfaa
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -307,7 +307,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 159}
-  - name: Snow_UI4_Frame_8
+  - name: Snow_UI_Frame_8
     originalName: 
     pivot: {x: 0.5, y: -0.2631579}
     alignment: 9
@@ -318,7 +318,7 @@ ScriptedImporter:
       y: 4
       width: 19
       height: 19
-    spriteID: 2f7f9c3ce21240440a93a9eee0ef025c
+    spriteID: 436d00c9b76e10843b57abbc22ac1643
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -327,7 +327,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 35, y: 4}
-  - name: Snow_UI4_Frame_9
+  - name: Snow_UI_Frame_9
     originalName: 
     pivot: {x: 0.5, y: -0.2631579}
     alignment: 9
@@ -338,7 +338,7 @@ ScriptedImporter:
       y: 31
       width: 19
       height: 19
-    spriteID: f2e935ed16b1c394f80c63a0883de2f9
+    spriteID: 981ba235bc74eed4c8799b5ac215c424
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -347,7 +347,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 35, y: 31}
-  - name: Snow_UI4_Frame_10
+  - name: Snow_UI_Frame_10
     originalName: 
     pivot: {x: 0.5, y: -0.2631579}
     alignment: 9
@@ -358,7 +358,7 @@ ScriptedImporter:
       y: 58
       width: 19
       height: 19
-    spriteID: b9293aa4e92e9d24cb35616dd1e0d1ce
+    spriteID: 7601ddfef3fe6ef419589724cf427c2e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -367,7 +367,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 35, y: 58}
-  - name: Snow_UI4_Frame_11
+  - name: Snow_UI_Frame_11
     originalName: 
     pivot: {x: 0.5, y: -0.2631579}
     alignment: 9
@@ -378,7 +378,7 @@ ScriptedImporter:
       y: 85
       width: 19
       height: 19
-    spriteID: 844a547560feecc4897777db0a26fefa
+    spriteID: 4bdfaf969dd8503428ee46d0ecd1ac66
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -387,7 +387,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 35, y: 85}
-  - name: Snow_UI4_Frame_12
+  - name: Snow_UI_Frame_12
     originalName: 
     pivot: {x: 0.5, y: -0.3529412}
     alignment: 9
@@ -398,7 +398,7 @@ ScriptedImporter:
       y: 4
       width: 17
       height: 17
-    spriteID: 07b7540c8dcc0204ab4106f5f647435b
+    spriteID: 10640eb7bf668a149a7a55f45cc051a2
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -407,7 +407,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 62, y: 4}
-  - name: Snow_UI4_Frame_13
+  - name: Snow_UI_Frame_13
     originalName: 
     pivot: {x: 0.5, y: -0.46666664}
     alignment: 9
@@ -418,7 +418,7 @@ ScriptedImporter:
       y: 79
       width: 15
       height: 15
-    spriteID: 6bec63c1d5dba264f84a5b6815509708
+    spriteID: f27d34feae7ba7b4fbed83f0e834edc6
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -427,7 +427,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 62, y: 79}
-  - name: Snow_UI4_Frame_14
+  - name: Snow_UI_Frame_14
     originalName: 
     pivot: {x: 0.5, y: -0.6153846}
     alignment: 9
@@ -438,7 +438,7 @@ ScriptedImporter:
       y: 171
       width: 11
       height: 13
-    spriteID: 3cc0b1ab62fd6fc489195f698d047b2b
+    spriteID: c2a042125f2cd4e4baec9600c457225c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -447,7 +447,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 62, y: 171}
-  - name: Snow_UI4_Frame_15
+  - name: Snow_UI_Frame_15
     originalName: 
     pivot: {x: 0.5, y: -0.6153846}
     alignment: 9
@@ -458,7 +458,7 @@ ScriptedImporter:
       y: 192
       width: 11
       height: 13
-    spriteID: 121c60a1fa9854046a678812c7982352
+    spriteID: 0128853e6757c7a4abc5ecc860905a80
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -467,7 +467,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 62, y: 192}
-  - name: Snow_UI4_Frame_16
+  - name: Snow_UI_Frame_16
     originalName: 
     pivot: {x: 0.5, y: -0.46666664}
     alignment: 9
@@ -478,7 +478,7 @@ ScriptedImporter:
       y: 102
       width: 15
       height: 15
-    spriteID: e9166467dcddb894ca6e19f831ecd142
+    spriteID: 28ca9eee1047adf48a16e307fa3ee987
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -487,7 +487,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 62, y: 102}
-  - name: Snow_UI4_Frame_17
+  - name: Snow_UI_Frame_17
     originalName: 
     pivot: {x: 0.5, y: -0.3529412}
     alignment: 9
@@ -498,7 +498,7 @@ ScriptedImporter:
       y: 29
       width: 17
       height: 17
-    spriteID: 71ae70cdb3b75dd4ca0f259039644732
+    spriteID: 7fdbc8175e176f44b8b80a7748047f8d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -507,7 +507,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 62, y: 29}
-  - name: Snow_UI4_Frame_18
+  - name: Snow_UI_Frame_18
     originalName: 
     pivot: {x: 0.5, y: -0.2631579}
     alignment: 9
@@ -518,7 +518,7 @@ ScriptedImporter:
       y: 112
       width: 19
       height: 19
-    spriteID: d73ca917104f63f409fe49540afb44d1
+    spriteID: d088cbdcbbf80d7489e23f9d99dafdeb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -527,7 +527,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 35, y: 112}
-  - name: Snow_UI4_Frame_19
+  - name: Snow_UI_Frame_19
     originalName: 
     pivot: {x: 0.5, y: -0.2631579}
     alignment: 9
@@ -538,7 +538,7 @@ ScriptedImporter:
       y: 139
       width: 19
       height: 19
-    spriteID: b0cdc8413a4b8744baf3a9be51749506
+    spriteID: 072a0d3008faec34889cbb17570b8596
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -547,7 +547,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 35, y: 139}
-  - name: Snow_UI4_Frame_20
+  - name: Snow_UI_Frame_20
     originalName: 
     pivot: {x: 0.5, y: -0.6153846}
     alignment: 9
@@ -558,7 +558,7 @@ ScriptedImporter:
       y: 213
       width: 11
       height: 13
-    spriteID: 8dfc3b85fa3d27645a7032ce558885b5
+    spriteID: 8fade5948becc8147b0cf6a3f4f07963
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -567,7 +567,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 62, y: 213}
-  - name: Snow_UI4_Frame_21
+  - name: Snow_UI_Frame_21
     originalName: 
     pivot: {x: 0.5, y: -0.6153846}
     alignment: 9
@@ -578,7 +578,7 @@ ScriptedImporter:
       y: 234
       width: 11
       height: 13
-    spriteID: e7877d5531658e14cacedc555968b6a7
+    spriteID: 48ee5188b372675478fd709bd7f2be7c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -587,7 +587,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 62, y: 234}
-  - name: Snow_UI4_Frame_22
+  - name: Snow_UI_Frame_22
     originalName: 
     pivot: {x: 0.5, y: -0.6153846}
     alignment: 9
@@ -598,7 +598,7 @@ ScriptedImporter:
       y: 4
       width: 11
       height: 13
-    spriteID: cfbdcb28001b37a429dd389dc1b86722
+    spriteID: 32d566c41e52a284e919545e559ff38f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -607,7 +607,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 87, y: 4}
-  - name: Snow_UI4_Frame_23
+  - name: Snow_UI_Frame_23
     originalName: 
     pivot: {x: 0.49999997, y: -0.46666664}
     alignment: 9
@@ -618,7 +618,7 @@ ScriptedImporter:
       y: 125
       width: 13
       height: 15
-    spriteID: 8c3d99bda4472d24e853ef9bc05c8f75
+    spriteID: e314b62ade7ac6849940e579c5bf6d54
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -627,7 +627,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 62, y: 125}
-  - name: Snow_UI4_Frame_24
+  - name: Snow_UI_Frame_24
     originalName: 
     pivot: {x: 0.49999997, y: -0.46666664}
     alignment: 9
@@ -638,7 +638,7 @@ ScriptedImporter:
       y: 148
       width: 13
       height: 15
-    spriteID: 3440a1dc7b5565b498cd7fbe3105b3e3
+    spriteID: e405cde96ff47d8438430172ae692aa7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -647,7 +647,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 62, y: 148}
-  - name: Snow_UI4_Frame_25
+  - name: Snow_UI_Frame_25
     originalName: 
     pivot: {x: 0.5, y: -0.3529412}
     alignment: 9
@@ -658,7 +658,7 @@ ScriptedImporter:
       y: 54
       width: 15
       height: 17
-    spriteID: 4f12b62693b63674cbac3560faf07c7a
+    spriteID: 1af5537c310384941bd1e73ba2c73d2d
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -667,7 +667,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 62, y: 54}
-  - name: Snow_UI4_Frame_26
+  - name: Snow_UI_Frame_26
     originalName: 
     pivot: {x: 0.5, y: -0.14285715}
     alignment: 9
@@ -678,7 +678,7 @@ ScriptedImporter:
       y: 166
       width: 17
       height: 21
-    spriteID: 8f10c2c3205bf9e4aab7aec6c63dcc74
+    spriteID: 5c4d6263176c6d345bb565b4eebdf2e0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -687,7 +687,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 35, y: 166}
-  - name: Snow_UI4_Frame_27
+  - name: Snow_UI_Frame_27
     originalName: 
     pivot: {x: 0.5, y: -0.2631579}
     alignment: 9
@@ -698,7 +698,7 @@ ScriptedImporter:
       y: 195
       width: 17
       height: 19
-    spriteID: 25ea5f7bba17b304488482fff8fc02bd
+    spriteID: 88b245d5031bb664aa856952e425a532
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -707,7 +707,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 35, y: 195}
-  - name: Snow_UI4_Frame_28
+  - name: Snow_UI_Frame_28
     originalName: 
     pivot: {x: 0.5, y: -0.2631579}
     alignment: 9
@@ -718,7 +718,7 @@ ScriptedImporter:
       y: 222
       width: 17
       height: 19
-    spriteID: 68a14eab7b840a345b8b7cd720677f05
+    spriteID: 6a842b532fde2dc4a85dc14d23582dad
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -727,7 +727,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 35, y: 222}
-  - name: Snow_UI4_Frame_29
+  - name: Snow_UI_Frame_29
     originalName: 
     pivot: {x: 0.50000024, y: -4}
     alignment: 9
@@ -738,7 +738,7 @@ ScriptedImporter:
       y: 249
       width: 1
       height: 1
-    spriteID: bd04987e8ebe4f64ebe1e5a9555382c1
+    spriteID: db22d71de847ec64e8176e9dbdbac47f
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -750,252 +750,252 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 1141492128
-    name: Snow_UI4
+    guid: 992833548
+    name: Snow_UI
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: Snow_UI4_Frame_0
+    - name: Snow_UI_Frame_0
       frameIndex: 0
       cellRect:
         x: 3
         y: 5
         width: 19
         height: 19
-      spriteId: 657172c662f3b804d957c0b39c582d99
-    - name: Snow_UI4_Frame_1
+      spriteId: 814f7f4d607427d46a931f601b8e9826
+    - name: Snow_UI_Frame_1
       frameIndex: 1
       cellRect:
         x: 2
         y: 4
         width: 21
         height: 21
-      spriteId: e3068eab7d1fdb641bba049456ac9f2c
-    - name: Snow_UI4_Frame_2
+      spriteId: 0cbab2301d9a79b469bc9099e489a1b6
+    - name: Snow_UI_Frame_2
       frameIndex: 2
       cellRect:
         x: 1
         y: 3
         width: 23
         height: 23
-      spriteId: 20a183e0cac0c0340a6a15c33e3249ad
-    - name: Snow_UI4_Frame_3
+      spriteId: 9894393fdbff47d468d4a35e82dad290
+    - name: Snow_UI_Frame_3
       frameIndex: 3
       cellRect:
         x: 1
         y: 3
         width: 23
         height: 23
-      spriteId: 09073042373380e42bd7d0e07597224f
-    - name: Snow_UI4_Frame_4
+      spriteId: 3d55f72759f3c854f95cff3f8aa6db16
+    - name: Snow_UI_Frame_4
       frameIndex: 4
       cellRect:
         x: 1
         y: 3
         width: 23
         height: 23
-      spriteId: 8672bab4c3112c545bf334edba90ac57
-    - name: Snow_UI4_Frame_5
+      spriteId: fdb7eb71f0854494c8dc594ea25cd382
+    - name: Snow_UI_Frame_5
       frameIndex: 5
       cellRect:
         x: 1
         y: 3
         width: 23
         height: 23
-      spriteId: a4fe1ac19059aeb4a8a7633d87269faf
-    - name: Snow_UI4_Frame_6
+      spriteId: e10e25bbff2befa49a4ebd4aca2826ba
+    - name: Snow_UI_Frame_6
       frameIndex: 6
       cellRect:
         x: 1
         y: 3
         width: 23
         height: 23
-      spriteId: 584ae3139dccb2a44ae73b1c745a5000
-    - name: Snow_UI4_Frame_7
+      spriteId: 9b99b30ce104e594dba3e1967c04acbb
+    - name: Snow_UI_Frame_7
       frameIndex: 7
       cellRect:
         x: 1
         y: 3
         width: 23
         height: 23
-      spriteId: 2662d1cc02eab454bbe54c3071c186ab
-    - name: Snow_UI4_Frame_8
+      spriteId: 20a25f2723183d845b7c3eaad1e7bfaa
+    - name: Snow_UI_Frame_8
       frameIndex: 8
       cellRect:
         x: 3
         y: 5
         width: 19
         height: 19
-      spriteId: 2f7f9c3ce21240440a93a9eee0ef025c
-    - name: Snow_UI4_Frame_9
+      spriteId: 436d00c9b76e10843b57abbc22ac1643
+    - name: Snow_UI_Frame_9
       frameIndex: 9
       cellRect:
         x: 3
         y: 5
         width: 19
         height: 19
-      spriteId: f2e935ed16b1c394f80c63a0883de2f9
-    - name: Snow_UI4_Frame_10
+      spriteId: 981ba235bc74eed4c8799b5ac215c424
+    - name: Snow_UI_Frame_10
       frameIndex: 10
       cellRect:
         x: 3
         y: 5
         width: 19
         height: 19
-      spriteId: b9293aa4e92e9d24cb35616dd1e0d1ce
-    - name: Snow_UI4_Frame_11
+      spriteId: 7601ddfef3fe6ef419589724cf427c2e
+    - name: Snow_UI_Frame_11
       frameIndex: 11
       cellRect:
         x: 3
         y: 5
         width: 19
         height: 19
-      spriteId: 844a547560feecc4897777db0a26fefa
-    - name: Snow_UI4_Frame_12
+      spriteId: 4bdfaf969dd8503428ee46d0ecd1ac66
+    - name: Snow_UI_Frame_12
       frameIndex: 12
       cellRect:
         x: 4
         y: 6
         width: 17
         height: 17
-      spriteId: 07b7540c8dcc0204ab4106f5f647435b
-    - name: Snow_UI4_Frame_13
+      spriteId: 10640eb7bf668a149a7a55f45cc051a2
+    - name: Snow_UI_Frame_13
       frameIndex: 13
       cellRect:
         x: 5
         y: 7
         width: 15
         height: 15
-      spriteId: 6bec63c1d5dba264f84a5b6815509708
-    - name: Snow_UI4_Frame_14
+      spriteId: f27d34feae7ba7b4fbed83f0e834edc6
+    - name: Snow_UI_Frame_14
       frameIndex: 14
       cellRect:
         x: 7
         y: 8
         width: 11
         height: 13
-      spriteId: 3cc0b1ab62fd6fc489195f698d047b2b
-    - name: Snow_UI4_Frame_15
+      spriteId: c2a042125f2cd4e4baec9600c457225c
+    - name: Snow_UI_Frame_15
       frameIndex: 15
       cellRect:
         x: 7
         y: 8
         width: 11
         height: 13
-      spriteId: 121c60a1fa9854046a678812c7982352
-    - name: Snow_UI4_Frame_16
+      spriteId: 0128853e6757c7a4abc5ecc860905a80
+    - name: Snow_UI_Frame_16
       frameIndex: 16
       cellRect:
         x: 5
         y: 7
         width: 15
         height: 15
-      spriteId: e9166467dcddb894ca6e19f831ecd142
-    - name: Snow_UI4_Frame_17
+      spriteId: 28ca9eee1047adf48a16e307fa3ee987
+    - name: Snow_UI_Frame_17
       frameIndex: 17
       cellRect:
         x: 4
         y: 6
         width: 17
         height: 17
-      spriteId: 71ae70cdb3b75dd4ca0f259039644732
-    - name: Snow_UI4_Frame_18
+      spriteId: 7fdbc8175e176f44b8b80a7748047f8d
+    - name: Snow_UI_Frame_18
       frameIndex: 18
       cellRect:
         x: 3
         y: 5
         width: 19
         height: 19
-      spriteId: d73ca917104f63f409fe49540afb44d1
-    - name: Snow_UI4_Frame_19
+      spriteId: d088cbdcbbf80d7489e23f9d99dafdeb
+    - name: Snow_UI_Frame_19
       frameIndex: 19
       cellRect:
         x: 3
         y: 5
         width: 19
         height: 19
-      spriteId: b0cdc8413a4b8744baf3a9be51749506
-    - name: Snow_UI4_Frame_20
+      spriteId: 072a0d3008faec34889cbb17570b8596
+    - name: Snow_UI_Frame_20
       frameIndex: 20
       cellRect:
         x: 7
         y: 8
         width: 11
         height: 13
-      spriteId: 8dfc3b85fa3d27645a7032ce558885b5
-    - name: Snow_UI4_Frame_21
+      spriteId: 8fade5948becc8147b0cf6a3f4f07963
+    - name: Snow_UI_Frame_21
       frameIndex: 21
       cellRect:
         x: 7
         y: 8
         width: 11
         height: 13
-      spriteId: e7877d5531658e14cacedc555968b6a7
-    - name: Snow_UI4_Frame_22
+      spriteId: 48ee5188b372675478fd709bd7f2be7c
+    - name: Snow_UI_Frame_22
       frameIndex: 22
       cellRect:
         x: 7
         y: 8
         width: 11
         height: 13
-      spriteId: cfbdcb28001b37a429dd389dc1b86722
-    - name: Snow_UI4_Frame_23
+      spriteId: 32d566c41e52a284e919545e559ff38f
+    - name: Snow_UI_Frame_23
       frameIndex: 23
       cellRect:
         x: 6
         y: 7
         width: 13
         height: 15
-      spriteId: 8c3d99bda4472d24e853ef9bc05c8f75
-    - name: Snow_UI4_Frame_24
+      spriteId: e314b62ade7ac6849940e579c5bf6d54
+    - name: Snow_UI_Frame_24
       frameIndex: 24
       cellRect:
         x: 6
         y: 7
         width: 13
         height: 15
-      spriteId: 3440a1dc7b5565b498cd7fbe3105b3e3
-    - name: Snow_UI4_Frame_25
+      spriteId: e405cde96ff47d8438430172ae692aa7
+    - name: Snow_UI_Frame_25
       frameIndex: 25
       cellRect:
         x: 5
         y: 6
         width: 15
         height: 17
-      spriteId: 4f12b62693b63674cbac3560faf07c7a
-    - name: Snow_UI4_Frame_26
+      spriteId: 1af5537c310384941bd1e73ba2c73d2d
+    - name: Snow_UI_Frame_26
       frameIndex: 26
       cellRect:
         x: 4
         y: 3
         width: 17
         height: 21
-      spriteId: 8f10c2c3205bf9e4aab7aec6c63dcc74
-    - name: Snow_UI4_Frame_27
+      spriteId: 5c4d6263176c6d345bb565b4eebdf2e0
+    - name: Snow_UI_Frame_27
       frameIndex: 27
       cellRect:
         x: 4
         y: 5
         width: 17
         height: 19
-      spriteId: 25ea5f7bba17b304488482fff8fc02bd
-    - name: Snow_UI4_Frame_28
+      spriteId: 88b245d5031bb664aa856952e425a532
+    - name: Snow_UI_Frame_28
       frameIndex: 28
       cellRect:
         x: 4
         y: 5
         width: 17
         height: 19
-      spriteId: 68a14eab7b840a345b8b7cd720677f05
-    - name: Snow_UI4_Frame_29
+      spriteId: 6a842b532fde2dc4a85dc14d23582dad
+    - name: Snow_UI_Frame_29
       frameIndex: 29
       cellRect:
         x: 12
         y: 4
         width: 1
         height: 1
-      spriteId: bd04987e8ebe4f64ebe1e5a9555382c1
+      spriteId: db22d71de847ec64e8176e9dbdbac47f
     linkedCells: []
     parentIndex: -1
   platformSettings:

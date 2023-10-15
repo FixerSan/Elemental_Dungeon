@@ -33,7 +33,7 @@ public class UIInputPanel : UIPopup
         Text_ChangeElementalKey
     }
 
-    private void Update()
+    protected override void Update()
     {
         if(isChanging)
         {

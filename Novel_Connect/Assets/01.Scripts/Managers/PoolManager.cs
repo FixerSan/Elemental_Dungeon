@@ -63,17 +63,20 @@ public class Pool
     public void Clear()
     {
         poolObjectQueue.Clear();
-        Managers.Resource.Destroy(transform_Pool.gameObject); // 부모 게임 오브젝트 파괴
     }
 }
 
-public class PoolManager
+public class PoolManager 
 {
     public Dictionary<string, Pool> poolDictionary = new Dictionary<string, Pool>();    // 풀 딕셔너리
 
     // 모든 풀 클리어
     public void Clear()
     {
+        foreach (var item in poolDictionary)
+        {
+            poolDictionary[item.Key].Clear();
+        }
         poolDictionary.Clear(); 
     }
 
@@ -123,5 +126,10 @@ public class PoolManager
             poolDictionary[_key].Clear(); 
             poolDictionary.Remove(_key); 
         }
+    }
+
+    public void Init()
+    {
+        Clear();
     }
 }

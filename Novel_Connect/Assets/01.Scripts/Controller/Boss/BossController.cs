@@ -11,6 +11,7 @@ public class BossController : BaseController
     public BossAttack attack;
     public BossSound sound;
     public BossState state;
+    public Animator effectAnim;
     public Transform attackTrans;
     public LayerMask attackLayer;
     public Transform targetTrans;
@@ -32,6 +33,7 @@ public class BossController : BaseController
         trans = gameObject.GetOrAddComponent<Transform>();
         spriteRenderer = trans.GetOrAddComponent<SpriteRenderer>();
         animator = trans.GetOrAddComponent<Animator>();
+        effectAnim = Util.FindChild<Animator>(gameObject, _name: "EffectAnim");
         rb = trans.GetOrAddComponent<Rigidbody2D>();
         attackTrans = Util.FindChild<Transform>(gameObject, "AttackTrans");
         targetTrans = null;

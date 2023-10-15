@@ -17,7 +17,6 @@ public class GuildScene : BaseScene
         }
 
         Managers.UI.ShowSceneUI<UIBaseScene>("UIScene_BaseScene");
-        Managers.Object.Player.Init(1, Define.Elemental.Normal.ToString());
         Managers.Object.Player.SetPosition(Vector2.zero);
         Managers.Screen.SetCameraTarget(Managers.Object.Player.GetTrans());
         Managers.Screen.CameraController.Camera.orthographicSize = 1.2f;
