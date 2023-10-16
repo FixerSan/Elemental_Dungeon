@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static Define;
-[System.Serializable]
 public class Inventory
 {
     public BaseItem[] items;
@@ -51,16 +50,18 @@ public class Inventory
         }
     }
 
-    public void RemoveItem(int _itemUID, int _count = 1)
+    public bool RemoveItem(int _itemUID, int _count = 1)
     {
         for (int i = 0; i < _count; i++)
         {
             BaseItem arrayItem = items.FindItem(_itemUID);
-            if (arrayItem == null) return;
+            if (arrayItem == null) return false;
             if (arrayItem.itemCount == 1) items[Array.IndexOf(items, arrayItem)] = null;
             else arrayItem.itemCount--;
+            Managers.Event.OnIntEvent?.Invoke(IntEventType.OnRemoveItem, _itemUID);
+            return true;
         }
-        Managers.Event.OnIntEvent?.Invoke(IntEventType.OnRemoveItem, _itemUID);
+        return false;
     }
 
     public void AddGold(int _value)

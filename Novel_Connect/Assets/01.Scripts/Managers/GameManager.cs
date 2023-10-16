@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.AI;
 using static Define;
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     public Dictionary<string, bool> npcFirstDictionary = new Dictionary<string, bool>();
     public bool isCanGetReward;
+    public int nowCheckPoint;
 
     private void Awake()
     {
@@ -36,7 +38,7 @@ public class GameManager : MonoBehaviour
         #region BindEvent
         Managers.Event.OnVoidEvent -= PlayerDeadEvent;
         Managers.Event.OnVoidEvent += PlayerDeadEvent;
-
+        nowCheckPoint = -1;
         #endregion 
     }
 
@@ -45,6 +47,7 @@ public class GameManager : MonoBehaviour
         //Managers.Sound.SetBGMVolume(0);
         //Managers.Sound.SetEffectVolume(0);
         npcFirstDictionary.Clear();
+        nowCheckPoint = -1;
     }
 
     public void StartGame()
@@ -115,12 +118,16 @@ public class GameManager : MonoBehaviour
         Managers.Quest.Init();
         Managers.Object.Init();
         Managers.Game.Init();
-        Managers.Scene.LoadScene(Scene.Guild);
+        Managers.Scene.LoadScene(Scene.Start);
     }
 
     public void RetryStage()
-    { 
-    
+    {
+        Managers.Resource.Destroy(Managers.Object.Player.gameObject);
+        Managers.Scene.LoadScene(Scene.IceDungeon,() => 
+        {
+            Managers.Scene.GetScene<IceDungeonScene>().SceneEvent(nowCheckPoint);
+        });
     }
     #endregion
 
@@ -131,8 +138,20 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        DisplayKey();
         CheckMouseClickInteraction();
         if (Input.GetKeyDown(KeyCode.R))
             RestartGame();
+    }
+
+    public void DisplayKey()
+    {
+        if(Input.GetKey(KeyCode.LeftShift))
+        {
+            if(Input.GetKeyDown(KeyCode.F1))
+            {
+                RestartGame();
+            }
+        }
     }
 }

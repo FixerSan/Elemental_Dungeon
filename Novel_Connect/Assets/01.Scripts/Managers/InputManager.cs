@@ -16,8 +16,8 @@ public class InputManager
     public KeyCode move_JumpKey = KeyCode.Space;
     public KeyCode runKey = KeyCode.LeftShift;
     public KeyCode attackKey = KeyCode.A;
-    public KeyCode skill_OneKey = KeyCode.Q;
-    public KeyCode skill_TwoKey = KeyCode.W;
+    public KeyCode skill_OneKey = KeyCode.S;
+    public KeyCode skill_TwoKey = KeyCode.D;
     public KeyCode bendingKey = KeyCode.LeftControl;
     public KeyCode dialogSkipKey = KeyCode.G;
     public KeyCode inventoryKey = KeyCode.I;
@@ -55,6 +55,7 @@ public class InputManager
     {
         isCanControl = true;
         inputAction = null;
+
         changeElementalKey = KeyCode.Tab;
         move_UpKey = KeyCode.UpArrow;
         move_DownKey = KeyCode.DownArrow;
@@ -63,10 +64,14 @@ public class InputManager
         move_JumpKey = KeyCode.Space;
         runKey = KeyCode.LeftShift;
         attackKey = KeyCode.A;
-        skill_OneKey = KeyCode.Q;
-        skill_TwoKey = KeyCode.W;
+        skill_OneKey = KeyCode.S;
+        skill_TwoKey = KeyCode.D;
         bendingKey = KeyCode.LeftControl;
-        dialogSkipKey = KeyCode.B;
+        dialogSkipKey = KeyCode.G;
+        inventoryKey = KeyCode.I;
+        pickupItemKey = KeyCode.Z;
+        interactionKey = KeyCode.F;
+        escapeKey = KeyCode.Escape;
     }
 }
 

@@ -12,7 +12,7 @@ public class PlayerElemental
     public bool isChangeElemental = false;
     public void CheckChangeElemental()
     {
-        Managers.Input.CheckInput(Managers.Input.changeElementalKey, (_inputType) => 
+        Managers.Input.CheckInput(Managers.Input.changeElementalKey, (_inputType) =>
         {
             if (_inputType != InputType.PRESS) return;
             isChangeElemental = !isChangeElemental;
@@ -20,14 +20,19 @@ public class PlayerElemental
 
         if (isChangeElemental)
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1) && player.elemental != Elemental.Normal)
+            if (Input.GetKeyDown(KeyCode.Q) && player.elemental != Elemental.Normal)
             {
                 ChangeElemental(Elemental.Normal);
                 isChangeElemental = false;
             }
 
-            if (Input.GetKeyDown(KeyCode.Alpha2) && player.elemental != Elemental.Fire && isHasFire)
+            if (Input.GetKeyDown(KeyCode.W) && player.elemental != Elemental.Fire && isHasFire)
             {
+                if (player.status.currentMP < 20)
+                {
+                    Managers.UI.ShowToast("마나가 부족합니다!").SetColor(Color.red);
+                    return;
+                }
                 ChangeElemental(Elemental.Fire);
                 isChangeElemental = false;
             }
@@ -63,6 +68,31 @@ public class PlayerElemental
             Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnChangeElemental);
             _callback?.Invoke();
         });
+    }
+    
+
+    public void ChangeMP()
+    {
+        if (player.elemental == Elemental.Normal)
+        {
+            if(player.status.currentMP >= player.status.maxHP)
+            {
+                player.status.currentMP = player.status.maxHP;
+                return;
+            }
+            player.status.currentMP += 2.5f * Time.deltaTime;
+            Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnChangeMP);
+        }        
+        else
+        {
+            player.status.currentMP -= 5*Time.deltaTime;
+            Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnChangeMP);
+            if (player.status.currentMP <= 0)
+            {
+                ChangeElemental(Elemental.Normal);
+                player.status.currentMP = 0;
+            }
+        }
     }
 
     public PlayerElemental(PlayerController _player) 

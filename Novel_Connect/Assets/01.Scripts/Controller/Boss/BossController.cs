@@ -110,6 +110,14 @@ public class BossController : BaseController
     {
         status.currentHP -= _damage;
         CheckDie();
+        Managers.Routine.StartCoroutine(GetDamageRoutine());
+    }
+
+    public IEnumerator GetDamageRoutine()
+    {
+        spriteRenderer.color = new Color32(255,122,122,255);
+        yield return new WaitForSeconds(0.2f);
+        spriteRenderer.color = Color.white;
     }
     public void CheckDie()
     {

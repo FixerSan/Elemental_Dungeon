@@ -75,7 +75,7 @@
   "monsterName": "유령 박쥐",
   "description": "어쩌구 저쩌구",
   "exp": 1,
-  "hp": 10,
+  "hp": 50,
   "force": 5,
   "speed": 5,
   "attackDelay": 0.07,
@@ -89,18 +89,18 @@
  {
   "itemUID": 0,
   "maxCount": 10,
-  "codeName": "TestItem",
+  "codeName": "TotemKey",
   "name": "TestItem",
-  "description": "테스트아이템입니다.",
+  "description": "토템 열쇠",
   "itemImageKey": "TestItem"
  },
  {
   "itemUID": 1,
   "maxCount": 10,
-  "codeName": "HealPotion",
-  "name": "HealPotion",
-  "description": "현제 체력 + 100 ",
-  "itemImageKey": "HealPotion"
+  "codeName": "TotemKey",
+  "name": "토템 열쇠",
+  "description": "토템 열쇠",
+  "itemImageKey": "TotemKey"
  }
 ],
 "dialogDatas":[
@@ -326,8 +326,8 @@
   "bossName": "얼음 정령",
   "description": "어쩌구 저쩌구",
   "exp": 10,
-  "hp": 200,
-  "force": 10,
+  "hp": 400,
+  "force": 15,
   "speed": 3,
   "attackDelay": 1,
   "canAttackDistance": 1.5,
@@ -343,7 +343,7 @@
   "bossName": "유령 지네",
   "description": "어쩌구 저쩌구",
   "exp": 10,
-  "hp": 100,
+  "hp": 200,
   "force": 10,
   "speed": 0,
   "attackDelay": 0,

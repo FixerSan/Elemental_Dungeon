@@ -77,14 +77,14 @@ public class SoundManager
     }
 
     // 효과음 설정
-    public void PlaySoundEffect(SoundProfile_Effect _profileName ,int index = -1)
+    public void PlaySoundEffect(SoundProfile_Effect _profileName , Vector2 _position , int _index = -1)
     {
         string loadKey = _profileName.ToString();
         Managers.Resource.Load<SoundProfile>(loadKey, (soundProfile) => 
         {
             AudioClip audioClip;
-            if (index == -1)    audioClip = soundProfile.PlaySoundToRandom();
-            else                audioClip = soundProfile.PlaySoundToIndex(index);
+            if (_index == -1)    audioClip = soundProfile.PlaySoundToRandom();
+            else                audioClip = soundProfile.PlaySoundToIndex(_index);
 
             AudioSourceController sourceController = EffectSourceController;
             if (sourceController.AudioSource.isPlaying)
@@ -92,6 +92,7 @@ public class SoundManager
                 sourceController = new AudioSourceController();
                 effectSourceControllers.Add(sourceController);
             }
+            sourceController.AudioSource.transform.position = _position;
             sourceController.Play(audioClip);
         });
     }

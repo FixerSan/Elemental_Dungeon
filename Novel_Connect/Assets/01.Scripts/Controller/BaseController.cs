@@ -15,6 +15,7 @@ public abstract class BaseController : MonoBehaviour
     public Animator effectUIAnimator;
     public Elemental elemental;
     public Direction direction = Direction.Left;
+    public bool isCanHit;
     public abstract void GetDamage(float _damage);
     public abstract void Hit(Transform _attackTrans, float _damage);
     public abstract void SetPosition(Vector2 _position);
@@ -97,14 +98,14 @@ public class ControllerStatus
     {
         while (true)
         {
+            if (isDead) StopEffectCycle();
+
             yield return new WaitForSeconds(1f);
             effectAction?.Invoke();
-
-            if (isDead) StopEffectCycle();
         }
     }
 
-    private void StopEffectCycle()
+    public void StopEffectCycle()
     {
         if (effectActionCoroutine == null) return;
         Managers.Routine.StopCoroutine(effectActionCoroutine);
@@ -133,8 +134,8 @@ public class ControllerStatus
 
     private void Burn()
     {
+        if (controller == null) return;
         controller.GetDamage(burnDamage);
-        Managers.Sound.PlaySoundEffect(SoundProfile_Effect.Effect, 0);
     }
 
     public void StopBurn()
@@ -142,6 +143,7 @@ public class ControllerStatus
         effectAction -= Burn;
         burnDamage = 0;
         if (effectAction == null)   StopEffectCycle(); 
+
     }
 
 

@@ -28,7 +28,7 @@ public class ItemController : MonoBehaviour
         isPushed = false;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!isInit) return;
         Movement();
@@ -47,7 +47,7 @@ public class ItemController : MonoBehaviour
         isPushed = true;
         Managers.Object.Player.inventory.AddItem<BaseItem>(item.itemData.itemUID);
         transform.DOJump(_trans.position, 0.5f, 1, pickupSpeed);
-        Managers.UI.ShowToast($"{item.itemData.name}À» È¹µæÇÏ¿´½À´Ï´Ù.");
+        Managers.UI.ShowToast($"{item.itemData.name}À»(¸¦) È¹µæÇÏ¿´½À´Ï´Ù.");
         spriteRenderer.material.DOFade(0, pickupSpeed).onComplete += () => { Managers.Resource.Destroy(gameObject); };
     }
 

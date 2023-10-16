@@ -18,6 +18,26 @@ public class UIManager
     private UIScene sceneUI = null;                             // SceneUI 선언
     public UIScene SceneUI { get { return sceneUI; } }          // SceneUI 프로퍼티 선언
 
+    private CanvasGroup blackPanel;
+    public CanvasGroup BlackPanel
+    {
+        get
+        {
+            if (blackPanel == null)
+            {
+                GameObject go = GameObject.Find("@BlackPanel");
+                if(go == null)
+                {
+                    go = Managers.Resource.Instantiate("BlackPanel");
+                    go.name = "@BlackPanel";
+                    UnityEngine.Object.DontDestroyOnLoad(go);
+                    blackPanel = go.GetOrAddComponent<CanvasGroup>();
+                }
+            }
+            return blackPanel;
+        }
+    }
+
     public GameObject Root
     {
         get

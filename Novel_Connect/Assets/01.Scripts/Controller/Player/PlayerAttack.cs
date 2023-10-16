@@ -7,9 +7,9 @@ using static Define;
 public abstract class PlayerAttack
 {
     public Coroutine attackCoroutine;
+    public int currentAttackCount;
     protected PlayerController player;
     protected Coroutine initAttackCountCoroutine;
-    protected int currentAttackCount;
     protected int maxAttackCount;
     protected int InitAttackCountDelay;
 

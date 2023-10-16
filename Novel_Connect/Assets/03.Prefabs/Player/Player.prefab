@@ -95,6 +95,7 @@ MonoBehaviour:
     currentJumpForce: 0
     currentAttackForce: 0
     isKnockback: 0
+    isDead: 0
     isBurn: 0
     burnDamage: 0
     freezeCount: 0
@@ -277,6 +278,7 @@ MonoBehaviour:
         itemImageKey: 
       itemCount: 0
     ui_Inventory: {fileID: 0}
+    isCanGet: 0
   state: 0
   beforestate: 0
   checkIsGroundTrans: {fileID: 526067048}
@@ -326,7 +328,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1376022831
-  m_SortingLayer: 2
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 2878456727111259326, guid: 58dcfc444d304c142af40102810b875f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

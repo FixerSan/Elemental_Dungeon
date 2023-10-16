@@ -5,6 +5,7 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.XR;
 
 public abstract class Playermovement 
 {
@@ -14,6 +15,10 @@ public abstract class Playermovement
     public float    walkDistance;
     public float    runDistance;
     protected bool  isCanJump;
+
+    public float dashCooltime = 3;
+    public float currentdashCooltime = 0;
+    public bool isCanDash = true;
 
     public void CheckIsGround()
     {
@@ -26,7 +31,7 @@ public abstract class Playermovement
         }
         else isGround = true;
     }
-    public void CheckUpAndFall()
+    public bool CheckUpAndFall()
     {
         if (!isGround || player.state == PlayerState.JUMP)
         {
@@ -37,7 +42,15 @@ public abstract class Playermovement
             //떨어지는 중일 때
             else if (player.rb.velocity.y <= 0.01f)
                 player.ChangeState(PlayerState.FALL);
+            return true;
         }
+        return false;
+    }
+
+
+    public void Update()
+    {
+        CheckDashCoolTime();
     }
 
     public void CheckLanding()
@@ -161,23 +174,30 @@ public abstract class Playermovement
 
     public virtual void CheckJump()
     {
-        if (Input.GetKey(Managers.Input.move_JumpKey))
+        if (Input.GetKeyDown(Managers.Input.move_JumpKey))
             player.ChangeState(PlayerState.JUMP);
     }
 
     public virtual void Jump()
     {
-        if (!isCanJump) return;
+        if (!isCanJump) 
+        {
+            player.ChangeState(PlayerState.JUMPING);
+            return;
+        }
+        isCanJump = false;
         player.rb.AddForce(Vector2.up * player.status.currentJumpForce * 1.5f, ForceMode2D.Impulse);
         Managers.Particle.PlayParticle("Particle_Jump", player.trans.position);
-        isCanJump = false;
         Managers.Routine.StartCoroutine(JumpRoutine());
     }
 
     private IEnumerator JumpRoutine()
     {
-        yield return new WaitForSeconds(0.2f);
-        isCanJump = true;
+        if(!isCanJump)
+        {
+            yield return new WaitForSeconds(0.2f);
+            isCanJump = true;
+        }
     }
 
     public virtual void CheckAttackMove()
@@ -206,18 +226,40 @@ public abstract class Playermovement
         player.Stop();
     }
 
+    public void CheckDashCoolTime()
+    {
+        if (isCanDash) return;
+        if (currentdashCooltime > 0)
+        {
+            currentdashCooltime -= Time.deltaTime;
+            Managers.Event.OnVoidEvent?.Invoke(Define.VoidEventType.OnChangeDashTime);
+            if (currentdashCooltime <= 0)
+            {
+                currentdashCooltime = 0;
+                isCanDash = true;
+            }
+        }
+    }
+
     public virtual void CheckDash()
     {
-        if(Input.GetKeyDown(KeyCode.C))
+        if(Input.GetKeyDown(KeyCode.C) && isCanDash)
+        {
             player.ChangeState(PlayerState.DASH);
+            isCanDash = false;
+            currentdashCooltime = dashCooltime;
+        }
     }
     
-    public virtual IEnumerator Dash()
+    public virtual IEnumerator DashRoutine()
     {
+        player.rb.gravityScale = 0;
         player.rb.velocity = Vector2.zero;
         player.rb.AddForce(new Vector2((int)player.direction * 15, 0), ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.2f);
         player.Stop();
+        yield return new WaitForSeconds(0.71f);
+        player.rb.gravityScale = 2;
         player.ChangeState(PlayerState.IDLE);
     }
 }

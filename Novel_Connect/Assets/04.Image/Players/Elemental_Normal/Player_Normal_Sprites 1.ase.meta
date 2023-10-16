@@ -4185,11 +4185,31 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 461
-      y: 1355
-      width: 32
-      height: 32
+      x: 455
+      y: 1350
+      width: 40
+      height: 40
     spriteID: 4c9f22bfe2d548744ab7f5b1d7e78d5b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  - name: Player_Normal_Sprites 1_1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1
+      y: 1239
+      width: 105
+      height: 105
+    spriteID: 9d76b6d89500fbb4ca455d76122d8d35
     spriteBone: []
     spriteOutline: []
     vertices: []

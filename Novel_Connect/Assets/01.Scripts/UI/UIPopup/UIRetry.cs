@@ -31,12 +31,11 @@ public class UIRetry : UIPopup
 
     public void OnClick_RetryGame()
     {
-        Debug.Log("Y");
+        Managers.Game.RetryStage();
     }
 
     public void OnClick_ResetGame()
     {
-        Debug.Log("N");
         Managers.Game.RestartGame();
     }
 

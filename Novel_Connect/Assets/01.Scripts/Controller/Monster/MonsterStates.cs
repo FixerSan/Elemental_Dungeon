@@ -29,6 +29,7 @@ namespace MonsterStates
         {
             public override void EnterState(MonsterController _entity)
             {
+                if (_entity == null) return;
                 _entity.state = MonsterState.DIE ;
                 _entity.Die();
                 _entity.animator.SetBool("isDie", true);
@@ -42,6 +43,11 @@ namespace MonsterStates
 
             public override void UpdateState(MonsterController _entity)
             {
+
+                if (_entity.attack.attackCoroutine != null) Managers.Routine.StopCoroutine(_entity.attack.attackCoroutine);
+                _entity.attack.attackCoroutine = null;
+                _entity.status.StopAllEffect();
+                _entity.status.StopEffectCycle();
                 _entity.movement.StopMoveCoroutine();
             }
         }
@@ -160,6 +166,7 @@ namespace MonsterStates
             public override void EnterState(MonsterController _entity)
             {
                 _entity.state = MonsterState.ATTACK;
+                _entity.Stop();
                 _entity.animator.SetBool("isAttack", true);
                 _entity.effectAnim?.SetBool("isAttack", true);
                 _entity.attack.StartAttack();

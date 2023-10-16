@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TestController : MonoBehaviour
 {
+    public float sdsd;
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F1))
@@ -11,7 +12,7 @@ public class TestController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F2))
         {
-            Managers.Scene.GetScene<IceDungeonScene>().SceneEvent(0);
+            Managers.Screen.Shake(sdsd);
         }
     }
 }

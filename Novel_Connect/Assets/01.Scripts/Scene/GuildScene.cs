@@ -7,7 +7,7 @@ using System;
 public class GuildScene : BaseScene
 {
     public List<Transform> cameraPoses;
-    public override void Init()
+    public override void Init(Action _callback)
     {
         base.Init();
      
@@ -23,6 +23,7 @@ public class GuildScene : BaseScene
         Managers.Screen.CameraController.Camera.orthographicSize = 1.2f;
         Managers.Screen.CameraController.min = new Vector2(-3.15f, 0);
         Managers.Screen.CameraController.max = new Vector2(3.15f, 0);
+        _callback?.Invoke();
     }
 
     public override void Clear()

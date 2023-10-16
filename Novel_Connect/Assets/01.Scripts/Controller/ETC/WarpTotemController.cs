@@ -18,6 +18,13 @@ public class WarpTotemController : InteractableObject
     protected override void Use()
     {
         if (isUsed) return;
+
+        if(!Managers.Object.Player.inventory.RemoveItem(1))
+        {
+            Managers.UI.ShowToast("토템열쇠가 부족합니다!").SetColor(Color.red);
+            return;
+        }
+
         isUsed = true;
         animator.SetBool("isUse", true);
         Managers.Routine.StartCoroutine(UseRoutine());

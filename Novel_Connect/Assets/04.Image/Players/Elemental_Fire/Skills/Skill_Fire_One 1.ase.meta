@@ -1,0 +1,808 @@
+fileFormatVersion: 2
+guid: cdc2bacdb450a86428719ead7b2ce607
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:AnimationClip
+      assembly: UnityEngine.AnimationModule
+      name: Skill_Fire_One_Clip
+    second: {fileID: 7400000, guid: cbca5cb5a9d008240910a1cc61442932, type: 2}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 0
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 0
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638330807989498659
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: Skill_Fire_One 1_Frame_0
+    originalName: 
+    pivot: {x: -0.60317457, y: -0.46938774}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 304
+      y: 1706
+      width: 126
+      height: 98
+    spriteID: 09c5192918cf0a843b533b778a8fed39
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: -10, y: 1706}
+  - name: Skill_Fire_One 1_Frame_1
+    originalName: 
+    pivot: {x: -0.6612904, y: -0.4509804}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 328
+      y: 1926
+      width: 124
+      height: 102
+    spriteID: 281cc1c9bdddeb044b224fa86bcc719f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 328, y: 1926}
+  - name: Skill_Fire_One 1_Frame_2
+    originalName: 
+    pivot: {x: -0.8245614, y: -0.43396223}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 472
+      y: 656
+      width: 114
+      height: 106
+    spriteID: 1d47bfd0a7ce1ef4782b919bac0d7395
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 472, y: 656}
+  - name: Skill_Fire_One 1_Frame_3
+    originalName: 
+    pivot: {x: -0.8245614, y: -0.37931034}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 206
+      y: 1926
+      width: 114
+      height: 116
+    spriteID: 734fa2f0ff383eb4ead0ed20210a83f8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 206, y: 1926}
+  - name: Skill_Fire_One 1_Frame_4
+    originalName: 
+    pivot: {x: -0.6551724, y: -0.37704918}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 472
+      y: 410
+      width: 116
+      height: 122
+    spriteID: 4b06079233ca41f4187305f5e2eb9b61
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 472, y: 410}
+  - name: Skill_Fire_One 1_Frame_5
+    originalName: 
+    pivot: {x: -0.66666657, y: -0.42592594}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 472
+      y: 540
+      width: 114
+      height: 108
+    spriteID: ba201a29e8843294186d92a918cde473
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 472, y: 540}
+  - name: Skill_Fire_One 1_Frame_6
+    originalName: 
+    pivot: {x: -0.041237112, y: -0.42592594}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1926
+      width: 194
+      height: 108
+    spriteID: d7d79945c0252764fbab58355d181cff
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1926}
+  - name: Skill_Fire_One 1_Frame_7
+    originalName: 
+    pivot: {x: 0.19230768, y: -0.47916666}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1822
+      width: 260
+      height: 96
+    spriteID: a2c6490f836715646993ed49b879a93f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1822}
+  - name: Skill_Fire_One 1_Frame_8
+    originalName: 
+    pivot: {x: 0.25342464, y: -0.42592594}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1706
+      width: 292
+      height: 108
+    spriteID: 7047e439820f5494dbf893a691beedcd
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1706}
+  - name: Skill_Fire_One 1_Frame_9
+    originalName: 
+    pivot: {x: 0.50446427, y: -0.4117647}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1284
+      width: 448
+      height: 102
+    spriteID: 31d673b658018f84991d04758621edc1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1284}
+  - name: Skill_Fire_One 1_Frame_10
+    originalName: 
+    pivot: {x: 0.50869566, y: -0.47916666}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1394
+      width: 460
+      height: 96
+    spriteID: 20b0afe8701fcca41b888d2524004451
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1394}
+  - name: Skill_Fire_One 1_Frame_11
+    originalName: 
+    pivot: {x: 0.50434786, y: -0.3898305}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1030
+      width: 460
+      height: 118
+    spriteID: 938861703a10fa742a192c7fcf26de77
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1030}
+  - name: Skill_Fire_One 1_Frame_12
+    originalName: 
+    pivot: {x: 0.48898676, y: -0.35384616}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 892
+      width: 454
+      height: 130
+    spriteID: afa9111d4629d574da85472646ddd317
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 892}
+  - name: Skill_Fire_One 1_Frame_13
+    originalName: 
+    pivot: {x: 0.46948355, y: -0.38333333}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1156
+      width: 426
+      height: 120
+    spriteID: 71a48ce4891aa074e825ad4a4616e269
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1156}
+  - name: Skill_Fire_One 1_Frame_14
+    originalName: 
+    pivot: {x: 0.4935065, y: -0.1954023}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 472
+      y: 228
+      width: 462
+      height: 174
+    spriteID: ffaaf12ba1b0d6e47b6891caf3a04f24
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 472, y: 228}
+  - name: Skill_Fire_One 1_Frame_15
+    originalName: 
+    pivot: {x: 0.4888889, y: 0.08196722}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 252
+      width: 450
+      height: 244
+    spriteID: 7a113d4a791938342bd984eb7b11a161
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 252}
+  - name: Skill_Fire_One 1_Frame_16
+    originalName: 
+    pivot: {x: 0.4956522, y: 0.033333335}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 460
+      height: 240
+    spriteID: 720c5547d197fe94c9a76248a6eabba4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: Skill_Fire_One 1_Frame_17
+    originalName: 
+    pivot: {x: 0.4935065, y: -0.00925926}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 472
+      y: 4
+      width: 462
+      height: 216
+    spriteID: 42960f8d2a01e7246b99b1dd55a6d7c3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 472, y: 4}
+  - name: Skill_Fire_One 1_Frame_18
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.060000002}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 504
+      width: 456
+      height: 200
+    spriteID: d0fc5028cfe5f194c8e442f529f4c601
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 504}
+  - name: Skill_Fire_One 1_Frame_19
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.26744184}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 712
+      width: 456
+      height: 172
+    spriteID: a4c412031e54ee349842c82791e6b003
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 712}
+  - name: Skill_Fire_One 1_Frame_20
+    originalName: 
+    pivot: {x: 0.5044248, y: -0.47916666}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1602
+      width: 452
+      height: 96
+    spriteID: 55fd5b0bfd3846b49af50c8592d422b7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1602}
+  - name: Skill_Fire_One 1_Frame_21
+    originalName: 
+    pivot: {x: 0.5110132, y: -0.47916666}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 1498
+      width: 454
+      height: 96
+    spriteID: ebeac9330453c3541baefdb95f900c9d
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 1498}
+  spriteSheetImportData:
+  - name: Skill_Fire_One 1_0
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 172
+      y: 1142
+      width: 150
+      height: 150
+    spriteID: 488f3b9f85383a84e9b885168c839948
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  asepriteLayers:
+  - layerIndex: 0
+    guid: 441824104
+    name: Skill_Fire_One 1
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: Skill_Fire_One 1_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 0
+        y: 46
+        width: 440
+        height: 440
+      spriteId: 09c5192918cf0a843b533b778a8fed39
+    - name: Skill_Fire_One 1_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 320
+        y: 46
+        width: 124
+        height: 102
+      spriteId: 281cc1c9bdddeb044b224fa86bcc719f
+    - name: Skill_Fire_One 1_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 332
+        y: 46
+        width: 114
+        height: 106
+      spriteId: 1d47bfd0a7ce1ef4782b919bac0d7395
+    - name: Skill_Fire_One 1_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 332
+        y: 44
+        width: 114
+        height: 116
+      spriteId: 734fa2f0ff383eb4ead0ed20210a83f8
+    - name: Skill_Fire_One 1_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 314
+        y: 46
+        width: 116
+        height: 122
+      spriteId: 4b06079233ca41f4187305f5e2eb9b61
+    - name: Skill_Fire_One 1_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 314
+        y: 46
+        width: 114
+        height: 108
+      spriteId: ba201a29e8843294186d92a918cde473
+    - name: Skill_Fire_One 1_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 246
+        y: 46
+        width: 194
+        height: 108
+      spriteId: d7d79945c0252764fbab58355d181cff
+    - name: Skill_Fire_One 1_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 188
+        y: 46
+        width: 260
+        height: 96
+      spriteId: a2c6490f836715646993ed49b879a93f
+    - name: Skill_Fire_One 1_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 164
+        y: 46
+        width: 292
+        height: 108
+      spriteId: 7047e439820f5494dbf893a691beedcd
+    - name: Skill_Fire_One 1_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 12
+        y: 42
+        width: 448
+        height: 102
+      spriteId: 31d673b658018f84991d04758621edc1
+    - name: Skill_Fire_One 1_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 4
+        y: 46
+        width: 460
+        height: 96
+      spriteId: 20b0afe8701fcca41b888d2524004451
+    - name: Skill_Fire_One 1_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 6
+        y: 46
+        width: 460
+        height: 118
+      spriteId: 938861703a10fa742a192c7fcf26de77
+    - name: Skill_Fire_One 1_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 16
+        y: 46
+        width: 454
+        height: 130
+      spriteId: afa9111d4629d574da85472646ddd317
+    - name: Skill_Fire_One 1_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 38
+        y: 46
+        width: 426
+        height: 120
+      spriteId: 71a48ce4891aa074e825ad4a4616e269
+    - name: Skill_Fire_One 1_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 10
+        y: 34
+        width: 462
+        height: 174
+      spriteId: ffaaf12ba1b0d6e47b6891caf3a04f24
+    - name: Skill_Fire_One 1_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 18
+        y: -20
+        width: 450
+        height: 244
+      spriteId: 7a113d4a791938342bd984eb7b11a161
+    - name: Skill_Fire_One 1_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 10
+        y: -8
+        width: 460
+        height: 240
+      spriteId: 720c5547d197fe94c9a76248a6eabba4
+    - name: Skill_Fire_One 1_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 10
+        y: 2
+        width: 462
+        height: 216
+      spriteId: 42960f8d2a01e7246b99b1dd55a6d7c3
+    - name: Skill_Fire_One 1_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 10
+        y: 12
+        width: 456
+        height: 200
+      spriteId: d0fc5028cfe5f194c8e442f529f4c601
+    - name: Skill_Fire_One 1_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 10
+        y: 46
+        width: 456
+        height: 172
+      spriteId: a4c412031e54ee349842c82791e6b003
+    - name: Skill_Fire_One 1_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 10
+        y: 46
+        width: 452
+        height: 96
+      spriteId: 55fd5b0bfd3846b49af50c8592d422b7
+    - name: Skill_Fire_One 1_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 6
+        y: 46
+        width: 454
+        height: 96
+      spriteId: ebeac9330453c3541baefdb95f900c9d
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 476, y: 240}

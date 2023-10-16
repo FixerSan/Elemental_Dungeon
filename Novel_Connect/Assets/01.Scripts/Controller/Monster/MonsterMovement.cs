@@ -23,7 +23,7 @@ public abstract class MonsterMovement
     public abstract void Move();
     public void LookAtTarget()
     {
-        if(Mathf.Abs(monster.trans.position.x - monster.targetTrans.position.x) > 0.5f)
+        if(Mathf.Abs(monster.targetTrans.position.x - monster.trans.position.x) > 0.2f)
             monster.LookAtTarget();
     }
 

@@ -47,8 +47,10 @@ public class PlayerController : BaseController
         HASH_ANIMATION.Add("isJump", Animator.StringToHash("isJump"));
         HASH_ANIMATION.Add("isFall", Animator.StringToHash("isFall"));
         HASH_ANIMATION.Add("isAttack", Animator.StringToHash("isAttack"));
+        HASH_ANIMATION.Add("AttackCount", Animator.StringToHash("AttackCount"));
         HASH_ANIMATION.Add("isFreeze", Animator.StringToHash("isFreeze"));
         HASH_ANIMATION.Add("isDead", Animator.StringToHash("isDead"));
+        HASH_ANIMATION.Add("isDash", Animator.StringToHash("isDash"));
 
         Managers.Event.OnVoidEvent -= CheckDie;
         Managers.Event.OnVoidEvent += CheckDie;
@@ -101,6 +103,8 @@ public class PlayerController : BaseController
         stateMachine.UpdateState();
         movement.CheckIsGround();
         inventory.CheckOpenUIInventory();
+        movement.Update();
+        elementals.ChangeMP();
     }
 
     public override void ChangeDirection(Direction _direction)
@@ -111,17 +115,34 @@ public class PlayerController : BaseController
         if (_direction == Direction.Right) transform.eulerAngles = new Vector3(0, 180, 0);
     }
 
+    public void GetFullHP()
+    {
+        status.currentHP = status.maxHP;
+        Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnChangeHP);
+    }
 
     public override void GetDamage(float _damage)
     {
         if (status.isDead) return;
         status.currentHP -= _damage;
+        Managers.Routine.StartCoroutine(GetDamageRoutine());
         Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnChangeHP);
+    }
+
+    public IEnumerator GetDamageRoutine()
+    {
+        if(state != PlayerState.FREEZED)
+        {
+            spriteRenderer.color = new Color32(255, 122, 122, 255);
+            yield return new WaitForSeconds(0.2f);
+            spriteRenderer.color = Color.white;
+        }
     }
 
     public override void Hit(Transform _attackerTrans, float _damage)
     {
         if (status.isDead) return;
+        Managers.Screen.Shake(2,0.2f);
         GetDamage(_damage);
     }
 
@@ -200,14 +221,19 @@ public class PlayerController : BaseController
     {
         yield return null;
     }
-
+    public void AnimationEvent_Attack()
+    {
+        attack.Attack();
+    }
     public void AnimationEvent()
     {
         if (state == PlayerState.ATTACK) attack.Attack();
+        if (state == PlayerState.DASH) Managers.Routine.StartCoroutine(movement.DashRoutine());
     }
     public void AnimationEvent_End()
     {
         if (state == PlayerState.ATTACK) ChangeState(PlayerState.IDLE);
+        if (state == PlayerState.DASH) ChangeState(PlayerState.IDLE);
     }
 
     public void CheckSkillCooltime()

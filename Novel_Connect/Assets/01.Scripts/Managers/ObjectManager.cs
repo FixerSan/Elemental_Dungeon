@@ -65,6 +65,10 @@ public class ObjectManager
     // 몬스터 초기화
     public void ClearMonsters()
     {
+        foreach (var item in Monsters)
+        {
+            item.ChangeState(MonsterState.DIE);
+        }
         Monsters.Clear();
     }
 

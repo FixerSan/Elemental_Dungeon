@@ -91,7 +91,6 @@ public class MonsterController : BaseController
     public override void Hit(Transform _attackerTrans,float _damage)
     {
         if (state == MonsterState.DIE ) return;
-        sound.PlayHitSound();
         SetTarget(_attackerTrans);
         KnockBack();
         GetDamage(_damage);
@@ -101,9 +100,21 @@ public class MonsterController : BaseController
 
     public override void GetDamage(float _damage)
     {
+        if (state == MonsterState.DIE) return;
+        spriteRenderer.color = Color.red;
+        sound.PlayHitSound();
         status.currentHP -= _damage;
         CheckDie();
+        Managers.Routine.StartCoroutine(GetDamageRoutine());
     }
+
+    public IEnumerator GetDamageRoutine()
+    {
+        spriteRenderer.color = new Color32(255, 122, 122, 255);
+        yield return new WaitForSeconds(0.2f);
+        spriteRenderer.color = Color.white;
+    }
+
     public void CheckDie()
     {
         if(status.currentHP <= 0)
@@ -114,12 +125,7 @@ public class MonsterController : BaseController
     {
         Managers.Event.OnIntEvent?.Invoke(IntEventType.OnDeadMonster, data.monsterUID);
         status.isDead = true;
-        if (changeStateCoroutine != null) Managers.Routine.StopCoroutine(changeStateCoroutine);
-        changeStateCoroutine = null;
-        if(attack.attackCoroutine != null) Managers.Routine.StopCoroutine(attack.attackCoroutine);
-        attack.attackCoroutine = null;
-        status.StopAllEffect();
-        movement.StopMoveCoroutine();
+
         spriteRenderer.FadeOut(1, () => 
         {
             spriteRenderer.color = Color.white;

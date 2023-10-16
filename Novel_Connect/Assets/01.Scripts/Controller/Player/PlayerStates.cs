@@ -17,16 +17,16 @@ namespace PlayerStates
 
         public override void UpdateState(PlayerController _entity)
         {
-            _entity.movement.CheckMove();
-            _entity.attack.CheckAttack();
+            if(_entity.movement.CheckUpAndFall()) return;
+            if (_entity.movement.CheckMove()) return ;
             _entity.movement.CheckJump();
             _entity.movement.CheckDash();
-            _entity.movement.CheckUpAndFall();
             if (_entity.skills.Length != 0)
             {
                 _entity.skills[0]?.CheckUse();
                 _entity.skills[1]?.CheckUse();
             }
+            _entity.attack.CheckAttack();
             _entity.elementals.CheckChangeElemental();
         }
     }
@@ -64,6 +64,7 @@ namespace PlayerStates
 
         public override void UpdateState(PlayerController _entity)
         {
+            if (_entity.movement.CheckUpAndFall()) return;
             if (!_entity.animator.GetBool(_entity.HASH_ANIMATION["isRun"])) _entity.animator.SetBool(_entity.HASH_ANIMATION["isRun"], true);
             if (_entity.movement.CheckStop()) _entity.Stop();
             if (_entity.movement.CheckMove()) _entity.movement.RunMove();
@@ -206,11 +207,15 @@ namespace PlayerStates
     {
         public override void EnterState(PlayerController _entity)
         {
-            Managers.Routine.StartCoroutine(_entity.movement.Dash());
+            _entity.animator.SetBool(_entity.HASH_ANIMATION["isDash"], true);
+            _entity.animator.SetBool(_entity.HASH_ANIMATION["isAttack"], false);
+            _entity.animator.SetInteger(_entity.HASH_ANIMATION["AttackCount"], 0);
+            _entity.attack.currentAttackCount = 0;
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)
         {
+            _entity.animator.SetBool(_entity.HASH_ANIMATION["isDash"], false);
             _callback?.Invoke();
         }
 
@@ -225,6 +230,9 @@ namespace PlayerStates
         public override void EnterState(PlayerController _entity)
         {
             _entity.animator.SetBool(_entity.HASH_ANIMATION["isFreeze"], true);
+            _entity.animator.SetBool(_entity.HASH_ANIMATION["isAttack"], false);
+            _entity.animator.SetInteger(_entity.HASH_ANIMATION["AttackCount"], 0);
+            _entity.attack.currentAttackCount = 0;
             _entity.Stop();
         }
 

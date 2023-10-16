@@ -39,7 +39,7 @@ public class DialogManager
     // 다이얼로그 버튼 사운드 호출
     private void PlayBtnSound()
     {
-        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Dialog, 1);
+        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Dialog, Managers.Object.Player.trans.position ,1);
     }
 
     // 다이얼로그 버튼 1 처리 코드

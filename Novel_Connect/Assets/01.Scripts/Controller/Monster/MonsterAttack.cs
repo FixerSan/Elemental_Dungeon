@@ -45,6 +45,7 @@ namespace MonsterAttacks
 
         public override void Attack()
         {
+            monster.LookAtTarget();
             Collider2D[] colliders = Physics2D.OverlapBoxAll(monster.attackTrans.position, monster.attackTrans.localScale, 0, monster.attackLayer);
             for (int i = 0; i < colliders.Length; i++)
             {

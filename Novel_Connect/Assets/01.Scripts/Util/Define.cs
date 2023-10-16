@@ -21,7 +21,7 @@ public class Define
 
     public enum VoidEventType
     {
-        OnChangeHP, OnChangeMP, OnChangeElemental, OnChangeSkill_OneCoolTime, OnChangeSkill_TwoCoolTime, OnInput_ElementalKey, OnChangeQuest, OnDeadPlayer
+        OnChangeHP, OnChangeMP, OnChangeElemental, OnChangeSkill_OneCoolTime, OnChangeSkill_TwoCoolTime, OnChangeDashTime, OnInput_ElementalKey, OnChangeQuest, OnDeadPlayer
     }
 
     public enum Scene
@@ -29,7 +29,9 @@ public class Define
         Loading,
         Pre,
         Guild,
-        IceDungeon
+        IceDungeon,
+        Start,
+        End
     }
 
     public enum SpeakerType

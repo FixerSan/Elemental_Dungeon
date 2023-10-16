@@ -61,6 +61,8 @@ public class BattleManager
                 break;
         }
 
+        if (_hiter == null) return;
+
         // 데미지 적용
         _hiter.Hit(_attacker.trans, calculatedDamage);
     }

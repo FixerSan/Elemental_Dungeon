@@ -36,11 +36,11 @@ public class CentipedeController : BaseController
     public Transform[] targetUpPoses;
     public Transform[] targetDownPoses;
 
-    private bool isCanHit;
     private DG.Tweening.Sequence sequence;
     public float canHitDelay;
 
-    private bool isDead;
+    public bool isDead;
+    private bool isCanAttack;
 
     public void Init()
     {
@@ -51,6 +51,7 @@ public class CentipedeController : BaseController
         checkCanUseSkillTime = skillCooltime;
         isMoveUp = false;
         isUsingSkill = false;
+        isCanAttack = true;
 
 
         Managers.Data.GetBossData(1, (_data) => 
@@ -110,6 +111,20 @@ public class CentipedeController : BaseController
         isCanHit = false;
         GetDamage(_damage);
         Managers.Routine.StartCoroutine(HitRoutine());
+    }
+
+    public void Attack()
+    {
+        if (!isCanAttack) return;
+        isCanAttack = false;
+        Managers.Battle.DamageCalculate(this, Managers.Object.Player, status.currentAttackForce);
+        Managers.Routine.StartCoroutine(AttackRoutine());
+    }
+
+    public IEnumerator AttackRoutine()
+    {
+        yield return new WaitForSeconds(0.5f);
+        isCanAttack = true;
     }
 
     public IEnumerator HitRoutine()

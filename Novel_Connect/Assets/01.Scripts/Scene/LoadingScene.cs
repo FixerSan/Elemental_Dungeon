@@ -5,11 +5,6 @@ using System;
 
 public class LoadingScene : BaseScene
 {
-    public override void Init()
-    {
-
-    }
-
     public override void Clear()
     {
 

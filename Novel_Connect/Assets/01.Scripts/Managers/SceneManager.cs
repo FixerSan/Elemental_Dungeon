@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,6 +18,8 @@ public class SceneManager : MonoBehaviour
         }
     }
 
+    public Action callback;
+
     private static void Init()
     {
         // SceneManager 싱글톤 초기화 및 게임 오브젝트 생성
@@ -31,8 +34,9 @@ public class SceneManager : MonoBehaviour
     private string currentScene = string.Empty;
 
     // 지정한 씬 로드
-    public void LoadScene(Define.Scene _scene)
+    public void LoadScene(Define.Scene _scene, Action _callback = null)
     {
+        callback = _callback;
         string sceneName = _scene.ToString();
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
@@ -74,8 +78,17 @@ public class SceneManager : MonoBehaviour
             case Define.Scene.IceDungeon:
                 bs = gameObject.AddComponent<IceDungeonScene>();
                 break;
+
+            case Define.Scene.Start:
+                bs= gameObject.AddComponent<StartScene>();
+                break;
         }
-        bs.Init();
+        if (bs == null) return;
+        bs.Init(() => 
+        {
+            callback?.Invoke();
+            callback = null;
+        });
     }
 
     // 특정 씬 제거
@@ -103,6 +116,9 @@ public class SceneManager : MonoBehaviour
                 bs = gameObject.GetComponent<IceDungeonScene>();
                 break;
 
+            case Define.Scene.Start:
+                bs = gameObject.GetComponent<StartScene>();
+                break;
             default:
                 return;
         }
