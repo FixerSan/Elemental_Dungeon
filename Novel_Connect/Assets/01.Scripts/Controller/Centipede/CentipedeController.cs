@@ -70,6 +70,7 @@ public class CentipedeController : BaseController
 
     public override void Die()
     {
+        status.currentHP = 0;
         isDead = true;
         DOTween.Kill(sequence);
         status.currentHP = 0;

@@ -45,7 +45,7 @@ public class UIBaseScene : UIScene
 
     private enum Images { Image_HPbar, Image_MPbar, Image_Illust, Image_Skill_One, Image_Skill_OneCoolTime, Image_Skill_Two, Image_Skill_TwoCoolTime , Image_DashCoolTime }
     private enum Objects { Object_ChangeElemental , Panel_FireSkill }
-    private enum Texts { Text_State, Text_Title }
+    private enum Texts {  Text_Title }
 
     private enum Slots { Slot_QuestPanel_One, Slot_QuestPanel_Two, Slot_QuestPanel_Three }
     public void ChangeHPSlider(VoidEventType _eventType)
@@ -144,11 +144,6 @@ public class UIBaseScene : UIScene
         {
             Get<UISlot_QuestPanel>(i).DrawQuestInfo(Managers.Quest.quests[i]);
         }
-    }
-
-    private void Update()
-    {
-        GetText((int)Texts.Text_State).text = Managers.Object.Player.state.ToString();
     }
 
     private void OnDestroy()

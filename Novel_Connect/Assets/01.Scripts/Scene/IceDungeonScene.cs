@@ -20,8 +20,6 @@ public class IceDungeonScene : BaseScene
         Managers.Screen.CameraController.Camera.orthographicSize = 3;
         Managers.Screen.CameraController.min = new Vector2(-1000, -1000f);
         Managers.Screen.CameraController.max = new Vector2(1000, 1000f);
-        endTotem = GameObject.Find("WarpTotem_End");
-        endTotem.SetActive(false);
         cameraPoses = GameObject.Find("@CameraPoses").GetComponentsInChildren<Transform>();
         Transform batSpawnTran = Util.FindChild<Transform>(Managers.Object.MonsterTransform.gameObject, _name: "BatTransforms_OneStage");
         for (int i = 0; i < batSpawnTran.childCount; i++)
@@ -89,8 +87,7 @@ public class IceDungeonScene : BaseScene
                 break;
 
             case 100:
-                Managers.Object.SpawnItem(1, boss.transform.position + new Vector3(0,2,0));
-                endTotem.SetActive(true);
+                
                 break;
 
             case -100:

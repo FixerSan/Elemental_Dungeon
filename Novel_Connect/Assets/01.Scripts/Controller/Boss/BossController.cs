@@ -98,6 +98,8 @@ public class BossController : BaseController
     public override void Die()
     {
         init = false;
+        Managers.Object.SpawnItem(1, trans.position + new Vector3(0, 2, 0));
+        status.currentHP = 0;
         if (changeStateCoroutine != null) Managers.Routine.StopCoroutine(changeStateCoroutine);
         changeStateCoroutine = null;
         if (attack.attackCoroutine != null) Managers.Routine.StopCoroutine(attack.attackCoroutine);
