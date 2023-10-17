@@ -140,8 +140,6 @@ public class GameManager : MonoBehaviour
     {
         DisplayKey();
         CheckMouseClickInteraction();
-        if (Input.GetKeyDown(KeyCode.R))
-            RestartGame();
     }
 
     public void DisplayKey()
@@ -150,8 +148,11 @@ public class GameManager : MonoBehaviour
         {
             if(Input.GetKeyDown(KeyCode.F1))
             {
-                RestartGame();
+                RetryStage();
             }
+
+            if (Input.GetKeyDown(KeyCode.R))
+                RestartGame();
         }
     }
 }

@@ -214,6 +214,7 @@ public class PlayerController : BaseController
     public override void Die()
     {
         Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnDeadPlayer);
+        Stop();
         status.isDead = true;
     }
 

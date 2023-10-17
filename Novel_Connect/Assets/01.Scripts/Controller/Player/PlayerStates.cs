@@ -253,8 +253,11 @@ namespace PlayerStates
     {
         public override void EnterState(PlayerController _entity)
         {
-            _entity.animator.SetBool(_entity.HASH_ANIMATION["isDead"], true);
-            _entity.Die();
+            if (_entity != null && _entity.animator != null) 
+            {
+                _entity.animator.SetBool(_entity.HASH_ANIMATION["isDead"], true);
+                _entity.Die();            
+            }
         }
 
         public override void ExitState(PlayerController _entity, Action _callback)

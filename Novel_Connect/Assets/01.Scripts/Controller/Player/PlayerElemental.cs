@@ -9,21 +9,21 @@ public class PlayerElemental
     public PlayerController player;
     public bool isHasFire = false;
     public bool isHasIce = false;
-    public bool isChangeElemental = false;
+    public bool isChangeElemental = true;
+
     public void CheckChangeElemental()
     {
-        Managers.Input.CheckInput(Managers.Input.changeElementalKey, (_inputType) =>
-        {
-            if (_inputType != InputType.PRESS) return;
-            isChangeElemental = !isChangeElemental;
-        });
+        //Managers.Input.CheckInput(Managers.Input.changeElementalKey, (_inputType) =>
+        //{
+        //    if (_inputType != InputType.PRESS) return;
+        //    isChangeElemental = !isChangeElemental;
+        //});
 
         if (isChangeElemental)
         {
             if (Input.GetKeyDown(KeyCode.Q) && player.elemental != Elemental.Normal)
             {
                 ChangeElemental(Elemental.Normal);
-                isChangeElemental = false;
             }
 
             if (Input.GetKeyDown(KeyCode.W) && player.elemental != Elemental.Fire && isHasFire)
@@ -34,7 +34,6 @@ public class PlayerElemental
                     return;
                 }
                 ChangeElemental(Elemental.Fire);
-                isChangeElemental = false;
             }
         }
     }
@@ -64,7 +63,7 @@ public class PlayerElemental
         Managers.Resource.Load<RuntimeAnimatorController>($"Player_{_elemental}", (ac) =>
         {
             player.animator.runtimeAnimatorController = ac;
-            isChangeElemental = false;
+            //isChangeElemental = false;
             Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnChangeElemental);
             _callback?.Invoke();
         });
@@ -98,7 +97,7 @@ public class PlayerElemental
     public PlayerElemental(PlayerController _player) 
     {
         player = _player;
-        isChangeElemental = false;
+        isChangeElemental = true;
         isHasFire = true;
     }
 }

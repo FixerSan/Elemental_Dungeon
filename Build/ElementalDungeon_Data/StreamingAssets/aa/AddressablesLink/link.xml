@@ -18,6 +18,7 @@
     <type fullname="SubController" preserve="all" />
     <type fullname="UIBaseScene" preserve="all" />
     <type fullname="UIDialogSpeaker" preserve="all" />
+    <type fullname="UIHPbar" preserve="all" />
     <type fullname="UIInventory" preserve="all" />
     <type fullname="UIRetry" preserve="all" />
     <type fullname="UISlot_Inventory" preserve="all" />

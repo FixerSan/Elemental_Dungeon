@@ -32,14 +32,13 @@ public class UIBaseScene : UIScene
         Managers.Event.OnVoidEvent -= DrawQuestPanel;
         Managers.Event.OnVoidEvent += DrawQuestPanel;
 
-        GetImage((int)Images.Image_Skill_OneCoolTime).fillAmount = 0;
-        GetImage((int)Images.Image_Skill_TwoCoolTime).fillAmount = 0;
+        GetImage((int)Images.Image_Skill_OneCoolTime).fillAmount = 1;
+        GetImage((int)Images.Image_Skill_TwoCoolTime).fillAmount = 1;
         GetImage((int)Images.Image_DashCoolTime).fillAmount = 0;
-        GetImage((int)Images.Image_Skill_One).gameObject.SetActive(false);
-        GetImage((int)Images.Image_Skill_Two).gameObject.SetActive(false);
+        //GetImage((int)Images.Image_Skill_One).gameObject.SetActive(false);
+        //GetImage((int)Images.Image_Skill_Two).gameObject.SetActive(false);
 
-        GetObject((int)Objects.Panel_FireSkill).SetActive(false);
-        GetObject((int)Objects.Object_ChangeElemental).SetActive(Managers.Object.Player.elementals.isChangeElemental);
+        //GetObject((int)Objects.Panel_FireSkill).SetActive(false);
         DrawQuestPanel(VoidEventType.OnChangeQuest);
         return true;
     }
@@ -75,7 +74,11 @@ public class UIBaseScene : UIScene
         if (_eventType == VoidEventType.OnChangeSkill_OneCoolTime || _eventType == VoidEventType.OnChangeElemental)
         {
             PlayerController player = Managers.Object.Player;
-            if (player.skills.Length == 0) return;
+            if (player.skills.Length == 0) 
+            {
+                GetImage((int)Images.Image_Skill_OneCoolTime).fillAmount = 1;
+                return;
+            }
             GetImage((int)Images.Image_Skill_OneCoolTime).fillAmount = player.skills[0].currentCoolTime / player.skills[0].coolTime;
         }
     }
@@ -85,7 +88,11 @@ public class UIBaseScene : UIScene
         if (_eventType == VoidEventType.OnChangeSkill_TwoCoolTime || _eventType == VoidEventType.OnChangeElemental)
         {
             PlayerController player = Managers.Object.Player;
-            if (player.skills.Length == 0) return;
+            if (player.skills.Length == 0)
+            {
+                GetImage((int)Images.Image_Skill_TwoCoolTime).fillAmount = 1;
+                return;
+            }
             GetImage((int)Images.Image_Skill_TwoCoolTime).fillAmount = player.skills[1].currentCoolTime / player.skills[1].coolTime;
         }
     }
@@ -95,6 +102,7 @@ public class UIBaseScene : UIScene
         if (_eventType == VoidEventType.OnChangeDashTime || _eventType == VoidEventType.OnChangeElemental)
         {
             PlayerController player = Managers.Object.Player;
+
             GetImage((int)Images.Image_DashCoolTime).fillAmount = player.movement.currentdashCooltime / player.movement.dashCooltime;
         }
     }
@@ -106,22 +114,20 @@ public class UIBaseScene : UIScene
             GetObject((int)Objects.Object_ChangeElemental).SetActive(Managers.Object.Player.elementals.isChangeElemental);
         }
 
-        if(_eventType == VoidEventType.OnChangeElemental)
-        {
-            GetObject((int)Objects.Object_ChangeElemental).SetActive(Managers.Object.Player.elementals.isChangeElemental);
-            if (Managers.Object.Player.elemental == Elemental.Fire)
-            {
-                GetObject((int)Objects.Panel_FireSkill).SetActive(true);
-                GetImage((int)Images.Image_Skill_One).gameObject.SetActive(true);
-                GetImage((int)Images.Image_Skill_Two).gameObject.SetActive(true);
-            }
-            else
-            {
-                GetObject((int)Objects.Panel_FireSkill).SetActive(false);
-                GetImage((int)Images.Image_Skill_One).gameObject.SetActive(false);
-                GetImage((int)Images.Image_Skill_Two).gameObject.SetActive(false);
-            }
-        }
+        //if(_eventType == VoidEventType.OnChangeElemental)
+        //{
+        //    GetObject((int)Objects.Object_ChangeElemental).SetActive(Managers.Object.Player.elementals.isChangeElemental);
+        //    if (Managers.Object.Player.elemental == Elemental.Fire)
+        //    {
+        //        GetImage((int)Images.Image_Skill_One).gameObject.SetActive(true);
+        //        GetImage((int)Images.Image_Skill_Two).gameObject.SetActive(true);
+        //    }
+        //    else
+        //    {
+        //        GetImage((int)Images.Image_Skill_One).gameObject.SetActive(false);
+        //        GetImage((int)Images.Image_Skill_Two).gameObject.SetActive(false);
+        //    }
+        //}
     }
 
     public void DrawQuestPanel(VoidEventType _eventType)
