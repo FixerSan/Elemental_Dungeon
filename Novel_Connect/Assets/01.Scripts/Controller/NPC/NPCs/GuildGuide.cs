@@ -17,12 +17,14 @@ public class GuildGuide : NPCController
     {
         base.EnterHover();
         anim.Play("move", 0);
+        guideSprite.gameObject.SetActive(true);
     }
 
     public override void ExitHover()
     {
         base.ExitHover();
         anim.Play("idle", 0);
+        guideSprite.gameObject.SetActive(false);
     }
 
     public override void Interaction()

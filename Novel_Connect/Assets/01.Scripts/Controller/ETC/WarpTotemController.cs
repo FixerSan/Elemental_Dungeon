@@ -5,7 +5,6 @@ using UnityEngine;
 public class WarpTotemController : InteractableObject
 {
     private Animator animator;
-    private bool isUsed;
     public int sceneEventIndex;
 
     protected override void Awake()
@@ -28,6 +27,7 @@ public class WarpTotemController : InteractableObject
         isUsed = true;
         animator.SetBool("isUse", true);
         Managers.Routine.StartCoroutine(UseRoutine());
+        guideSprite.gameObject.SetActive(false);
     }
 
     private IEnumerator UseRoutine()

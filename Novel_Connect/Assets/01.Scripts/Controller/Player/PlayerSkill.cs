@@ -65,7 +65,7 @@ namespace PlayerSkills
             public One(PlayerController _player)
             {
                 player = _player;
-                coolTime = 3;
+                coolTime = 7;
                 isCanUse = true;
                 Managers.Data.GetSkillData(0,(_skillData) => 
                 {
@@ -117,7 +117,7 @@ namespace PlayerSkills
             public Two(PlayerController _player)
             {
                 player = _player;
-                coolTime = 5;
+                coolTime = 10;
                 isCanUse = true;
                 Managers.Data.GetSkillData(1, (_skillData) =>
                 {

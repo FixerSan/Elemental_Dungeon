@@ -16,7 +16,7 @@ public abstract class Playermovement
     public float    runDistance;
     protected bool  isCanJump;
 
-    public float dashCooltime = 3;
+    public float dashCooltime = 5;
     public float currentdashCooltime = 0;
     public bool isCanDash = true;
 

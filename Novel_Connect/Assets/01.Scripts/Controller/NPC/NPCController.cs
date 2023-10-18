@@ -8,10 +8,18 @@ public abstract class NPCController : MonoBehaviour
     public bool isHover;
     private SpriteRenderer spriteRenderer;
     private Color color = new Color(255,150,0,255);
+    protected SpriteRenderer guideSprite;
     public int outlineSize = 1;
     private void Awake()
     {
         Init();
+        guideSprite = Util.FindChild<SpriteRenderer>(gameObject, "GuideSprite");
+        if (guideSprite != null)
+        {
+            guideSprite.transform.eulerAngles = Vector3.zero;
+            guideSprite.gameObject.SetActive(false);
+        }
+
     }
 
     protected virtual void Init()

@@ -5,10 +5,17 @@ using UnityEngine;
 public abstract class InteractableObject : MonoBehaviour
 {
     protected bool isCanUse;
-
+    protected bool isUsed;
+    protected SpriteRenderer guideSprite;
     protected virtual void Awake()
     {
         isCanUse = false;
+        guideSprite = Util.FindChild<SpriteRenderer>(gameObject, "GuideSprite");
+        if(guideSprite != null)
+        {
+            guideSprite.transform.eulerAngles = Vector3.zero;
+            guideSprite.gameObject.SetActive(false);
+        }
     }
 
     protected virtual void CheckUse()
@@ -25,17 +32,21 @@ public abstract class InteractableObject : MonoBehaviour
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
+        if (isUsed) return;
         if (collision.CompareTag("Player"))
         {
             isCanUse = true;
+            guideSprite.gameObject.SetActive(true);
         }
     }
 
     protected virtual void OnTriggerExit2D(Collider2D collision)
     {
+        if (isUsed) return;
         if (collision.CompareTag("Player"))
         {
             isCanUse = false;
+            guideSprite.gameObject.SetActive(false);
         }
     }
 

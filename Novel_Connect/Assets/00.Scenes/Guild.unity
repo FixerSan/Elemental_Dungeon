@@ -1359,10 +1359,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Quest Board manager
       objectReference: {fileID: 0}
-    - target: {fileID: 8916449892942530890, guid: 804baf2a173e48d499aadc038ad10605, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 804baf2a173e48d499aadc038ad10605, type: 3}
 --- !u!1001 &1986511518211571349
@@ -1419,10 +1415,6 @@ PrefabInstance:
     - target: {fileID: 8874904792134092097, guid: aae39586858e82e49b4f1ea476d4ea30, type: 3}
       propertyPath: m_Name
       value: Guide
-      objectReference: {fileID: 0}
-    - target: {fileID: 8874904792134092097, guid: aae39586858e82e49b4f1ea476d4ea30, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aae39586858e82e49b4f1ea476d4ea30, type: 3}

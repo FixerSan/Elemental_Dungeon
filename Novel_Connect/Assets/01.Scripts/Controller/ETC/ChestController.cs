@@ -5,7 +5,6 @@ using UnityEngine;
 public class ChestController : InteractableObject
 {
     public int sceneEventIndex;
-    private bool isUsed;
     private Animator animator;
 
     protected override void Awake()
@@ -21,5 +20,6 @@ public class ChestController : InteractableObject
         animator.SetBool("IsOpened", true);
         Managers.Sound.PlaySoundEffect(Define.AudioClip_Effect.ChestOpen);
         Managers.Scene.GetScene<IceDungeonScene>().SceneEvent(sceneEventIndex);
+        guideSprite.gameObject.SetActive(false);
     }
 }

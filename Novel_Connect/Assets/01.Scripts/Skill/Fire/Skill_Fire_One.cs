@@ -36,7 +36,7 @@ public class Skill_Fire_One : MonoBehaviour
                 BaseController monster = collider2Ds[i].GetComponent<BaseController>();
             if (monster != null)
             {
-                Managers.Battle.DamageCalculate(Managers.Object.Player, monster, Managers.Object.Player.status.currentAttackForce * 1.5f);
+                Managers.Battle.DamageCalculate(Managers.Object.Player, monster, Managers.Object.Player.status.currentAttackForce * 2f);
                 Managers.Battle.SetStatusEffect(Managers.Object.Player, monster, StatusEffect.BURN);
             }
         }
