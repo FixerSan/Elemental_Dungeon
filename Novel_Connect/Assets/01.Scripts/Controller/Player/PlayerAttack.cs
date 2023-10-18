@@ -30,7 +30,7 @@ public abstract class PlayerAttack
         else currentAttackCount = 1;
         player.animator.SetInteger("AttackCount", currentAttackCount);
         attackCoroutine = Managers.Routine.StartCoroutine(AttackRoutine());
-        player.sound.PlayAttackSound(currentAttackCount - 1);
+        player.sound.PlayAttackSound(currentAttackCount-1);
     }
 
     public abstract void Attack();

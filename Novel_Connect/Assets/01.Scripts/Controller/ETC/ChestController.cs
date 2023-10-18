@@ -19,6 +19,7 @@ public class ChestController : InteractableObject
         if (isUsed) return;
         isUsed = true;
         animator.SetBool("IsOpened", true);
+        Managers.Sound.PlaySoundEffect(Define.AudioClip_Effect.ChestOpen);
         Managers.Scene.GetScene<IceDungeonScene>().SceneEvent(sceneEventIndex);
     }
 }

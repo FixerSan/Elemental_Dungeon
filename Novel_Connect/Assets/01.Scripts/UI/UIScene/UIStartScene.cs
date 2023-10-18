@@ -11,13 +11,7 @@ public class UIStartScene : UIScene
         BindButton(typeof(Buttons));
         BindEvent(GetButton((int)Buttons.Button_Start).gameObject, () => 
         {
-            Managers.Screen.FadeIn(1, () => 
-            {
-                Managers.Scene.LoadScene(Define.Scene.Guild, () =>
-                {
-                    Managers.Screen.FadeOut(1);
-                });
-            });
+            Managers.Scene.LoadScene(Define.Scene.Guild);
         });
         return true;
     }

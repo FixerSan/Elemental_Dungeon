@@ -41,12 +41,12 @@ public class Define
 
     public enum SoundProfile_Effect
     {
-        Effect, Ghost_Bat_Move, Player_Attack, Player_Walk, Player_Run, Player_ETC, Dialog, Centipede
+        Effect, Ghost_Bat_Move, Player_Attack, Player_Walk, Player_Run, Player_ETC, Dialog, Centipede, Player_Damaged, Centipede_Move, Ice_Boss_Attack, Skill_Ice_One, Skill_Ice_One_After
     }
 
     public enum AudioClip_Effect
     {
-        Effect_1, Ghost_Bat_Attack, Ghost_Bat_Hit
+        Effect_1, Ghost_Bat_Attack, Ghost_Bat_Hit, ChestOpen, GetItem, Dialog_Next, Dialog_Exit, Dialog_Select, Inventory_Open, WarpTotem, Fire_Skill_1, Fire_Skill_2, Ice_Boss_Die, Ice_Boss_Create, Skill_Ice_One_Create, Skill_Ice_Two
     }
 
     public enum SoundProfile_BGM

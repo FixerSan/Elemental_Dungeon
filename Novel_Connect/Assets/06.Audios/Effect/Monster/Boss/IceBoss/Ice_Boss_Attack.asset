@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7b39265f8ded44447b1c35b915fcbcd6, type: 3}
+  m_Name: Ice_Boss_Attack
+  m_EditorClassIdentifier: 
+  audios:
+  - {fileID: 8300000, guid: 774cc45fece1c3f40be2cf71b618afc4, type: 3}
+  - {fileID: 8300000, guid: 6d564122bc8617a4a82d14add1af26e0, type: 3}

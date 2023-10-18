@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class IceSkill_Two : MonoBehaviour
@@ -10,7 +11,6 @@ public class IceSkill_Two : MonoBehaviour
     public void Init(BaseController _user)
     {
         user = _user;
-        transform.position = user.trans.position;
         hitControllers.Clear();
     }
 
@@ -22,6 +22,14 @@ public class IceSkill_Two : MonoBehaviour
             if (hiter == hitControllers[i]) return;
         hitControllers.Add(hiter);
         Managers.Battle.DamageCalculate(user, hiter, user.status.currentAttackForce * 2);
+    }
+
+    public void FixedUpdate()
+    {
+        if (user != null)
+        {
+            transform.position = new Vector2(user.trans.position.x,user.trans.position.y + 0.57f);
+        }
     }
 
     private void OnDisable()

@@ -26,12 +26,12 @@ public class UIInventory : UIDraggablePopup
 
         Managers.Event.OnIntEvent -= DrawAllSlot;
         Managers.Event.OnIntEvent += DrawAllSlot;
-
         return true;
     }
 
     public override void ClosePopupUP()
     {
+        Managers.Sound.PlaySoundEffect(AudioClip_Effect.Inventory_Open);
         Managers.Pool.Push(gameObject);
         Managers.Object.Player.inventory.ui_Inventory = null;
     }
@@ -70,5 +70,10 @@ public class UIInventory : UIDraggablePopup
     private enum Texts
     {
         Text_Gold
+    }
+
+    private void OnEnable()
+    {
+        Managers.Sound.PlaySoundEffect(AudioClip_Effect.Inventory_Open);
     }
 }

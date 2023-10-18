@@ -22,6 +22,7 @@ public class IceSkill_One : MonoBehaviour
             iceSpears[i].gameObject.SetActive(true);
         }
         ShotSpearCoroutine = Managers.Routine.StartCoroutine(ShotSpear());
+        Managers.Sound.PlaySoundEffect(Define.AudioClip_Effect.Skill_Ice_One_Create);
     }
 
     private IEnumerator ShotSpear()
@@ -30,6 +31,7 @@ public class IceSkill_One : MonoBehaviour
         {
             yield return new WaitForSeconds(shootDelay);
             iceSpears[i].Shot(targetTrans.position, user);
+            Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Skill_Ice_One, i);
         }
 
         yield return new WaitForSeconds(10);

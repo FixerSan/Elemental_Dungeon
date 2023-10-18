@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Player_ETC
   m_EditorClassIdentifier: 
   audios:
-  - {fileID: 8300000, guid: ed9b931fe63f1144dbaa0a03644fd914, type: 3}
-  - {fileID: 8300000, guid: 43ac8abdbd341024e8d1647eed82ddfe, type: 3}
+  - {fileID: 8300000, guid: 8d701591f1124ed42a0324aceee9cc2c, type: 3}
+  - {fileID: 8300000, guid: e1058de3187452f498646ccb1c71a6bd, type: 3}

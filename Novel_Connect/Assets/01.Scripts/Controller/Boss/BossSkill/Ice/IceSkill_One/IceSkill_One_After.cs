@@ -7,6 +7,7 @@ public class IceSkill_One_After : MonoBehaviour
     public Transform size;
     public void Boom()
     {
+        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Skill_Ice_One_After);
         Collider2D[] colliders = Physics2D.OverlapCircleAll(size.position, size.localScale.x);
         for (int i = 0; i < colliders.Length; i++)
         {

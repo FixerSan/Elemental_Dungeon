@@ -15,6 +15,3 @@ MonoBehaviour:
   audios:
   - {fileID: 8300000, guid: 167aa92864ad761459965520b3dd55cd, type: 3}
   - {fileID: 8300000, guid: cae670ded63d8e6418b6d55e56fceb13, type: 3}
-  - {fileID: 8300000, guid: f232a145dba370643a13e593d5c374fc, type: 3}
-  - {fileID: 8300000, guid: c01efbe75d9c5f64a8a93c3c0284832d, type: 3}
-  - {fileID: 8300000, guid: 0a9fed818b36ec24996c32c2ee6d64cf, type: 3}

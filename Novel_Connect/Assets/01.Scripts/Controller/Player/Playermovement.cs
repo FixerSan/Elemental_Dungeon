@@ -187,6 +187,7 @@ public abstract class Playermovement
         }
         isCanJump = false;
         player.rb.AddForce(Vector2.up * player.status.currentJumpForce * 1.5f, ForceMode2D.Impulse);
+        player.sound.PlayJumpStartSound();
         Managers.Particle.PlayParticle("Particle_Jump", player.trans.position);
         Managers.Routine.StartCoroutine(JumpRoutine());
     }
@@ -241,20 +242,23 @@ public abstract class Playermovement
         }
     }
 
-    public virtual void CheckDash()
+    public virtual bool CheckDash()
     {
         if(Input.GetKeyDown(KeyCode.C) && isCanDash)
         {
             player.ChangeState(PlayerState.DASH);
             isCanDash = false;
             currentdashCooltime = dashCooltime;
+            return true;
         }
+        return false;
     }
     
     public virtual IEnumerator DashRoutine()
     {
         player.rb.gravityScale = 0;
         player.rb.velocity = Vector2.zero;
+        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_ETC, 1);
         player.rb.AddForce(new Vector2((int)player.direction * 15, 0), ForceMode2D.Impulse);
         yield return new WaitForSeconds(0.2f);
         player.Stop();

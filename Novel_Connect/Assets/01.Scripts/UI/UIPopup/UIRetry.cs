@@ -10,6 +10,7 @@ public class UIRetry : UIPopup
     private float currentTimeCount;
     private CanvasGroup canvasGroup;
     public int timeCount;
+    private bool isSelected = false;
     public override bool Init()
     {
         if (!base.Init())
@@ -21,8 +22,21 @@ public class UIRetry : UIPopup
         BindButton(typeof(Buttons));
         BindText(typeof(Texts));
 
-        BindEvent(GetButton((int)Buttons.Button_Yes).gameObject, _callback:OnClick_RetryGame);
-        BindEvent(GetButton((int)Buttons.Button_No).gameObject, _callback: OnClick_ResetGame);
+        BindEvent(GetButton((int)Buttons.Button_Yes).gameObject, _callback:()=> 
+        { 
+            if (isSelected) return;
+            isSelected = true;
+            OnClick_RetryGame();
+            Destroy(gameObject, 2);
+        });
+        BindEvent(GetButton((int)Buttons.Button_No).gameObject, _callback:()=> 
+        {
+            if (isSelected) return;
+
+            isSelected = true;
+            OnClick_ResetGame();
+            Destroy(gameObject, 2);
+        } );
         canvasGroup.alpha = 0f;
         canvasGroup.DOFade(1, 1).SetEase(Ease.Linear).onComplete += () => { isOpen = true; };
 

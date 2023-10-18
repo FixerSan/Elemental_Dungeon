@@ -9,6 +9,7 @@ public class BoatController : InteractableObject
     [SerializeField] private Transform rightGettingPos;
     private Define.Direction direction;
     private PlayerController player;
+    private AudioSource audioSource;
     private bool isFirst;
     private bool isUsing;
 
@@ -20,6 +21,7 @@ public class BoatController : InteractableObject
         rightGettingPos.SetParent(null);
         isFirst = true;
         isUsing = false;
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     protected override void CheckUse()
@@ -47,6 +49,7 @@ public class BoatController : InteractableObject
     protected override void Use()
     {
         isUsing = true;
+        audioSource.Play();
         Managers.Input.isCanControl = false;
         player.ChangeState(PlayerState.IDLE);
         player.Stop();
@@ -65,6 +68,7 @@ public class BoatController : InteractableObject
             if (direction == Define.Direction.Left)
                 transform.eulerAngles = new Vector3(0, 180, 0);
             isUsing = false;
+            audioSource.Stop();
         };
     }
 

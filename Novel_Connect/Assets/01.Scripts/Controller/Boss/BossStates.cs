@@ -11,7 +11,7 @@ namespace BossStates
         {
             public override void EnterState(BossController _entity)
             {
-
+                Managers.Sound.PlaySoundEffect(Define.AudioClip_Effect.Ice_Boss_Create);
             }
 
             public override void ExitState(BossController _entity, Action _callback)
@@ -139,7 +139,7 @@ namespace BossStates
 
             public override void UpdateState(BossController _entity)
             {
-
+                Managers.Sound.PlaySoundEffect(Define.AudioClip_Effect.Ice_Boss_Die);
             }
         }
     }

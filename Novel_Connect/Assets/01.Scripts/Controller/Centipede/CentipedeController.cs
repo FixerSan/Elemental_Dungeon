@@ -42,6 +42,10 @@ public class CentipedeController : BaseController
     public bool isDead;
     private bool isCanAttack;
 
+
+    [SerializeField]private float moveSoundDelay;
+    [SerializeField]private float skillSoundDelay;
+
     public void Init()
     {
         isMove = false;
@@ -82,6 +86,7 @@ public class CentipedeController : BaseController
 
     protected override IEnumerator DieRoutine()
     {
+        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Centipede, 3);
         Collider2D[] colls = GetComponentsInChildren<Collider2D>();
         for (int i = 0; i < colls.Length; i++)
         {
@@ -92,6 +97,7 @@ public class CentipedeController : BaseController
         for (int i = 0; i < rbs.Length; i++)
         {
             rbs[i].gravityScale = 1;
+            rbs[i].AddForce(new Vector2(UnityEngine.Random.Range(-1, 2), 1), ForceMode2D.Impulse);
         }
 
         yield return new WaitForSeconds(3);
@@ -141,7 +147,8 @@ public class CentipedeController : BaseController
         if (isCanUseSkill && !isMove)
         {
             isCanUseSkill = false;
-            Managers.Routine.StartCoroutine(Skill());
+            Managers.Routine.StartCoroutine(SkillRoutine());
+
             return;
         }
 
@@ -156,13 +163,21 @@ public class CentipedeController : BaseController
         }
     }
 
-    private IEnumerator Skill()
+    private IEnumerator SkillRoutine()
     {
         isUsingSkill = true;
         target.position = skillStartPos.position;
         yield return new WaitUntil(() => Vector2.Distance(headPos.position , target.position) < 0.1f);
+        Managers.Routine.StartCoroutine(PlaySkillSound());
         sequence = target.DOJump(skillEndPos.position,skillMoveForce,skillMoveCount,skillTotalTime).SetEase(Ease.Linear);
+        Managers.Screen.Shake(3, 5);
         sequence.onComplete = () => { isUsingSkill = false; checkCanUseSkillTime = skillCooltime; };
+    }
+
+    private IEnumerator PlaySkillSound()
+    {
+        yield return new WaitForSeconds(skillSoundDelay);
+        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Centipede, 2);
     }
 
     private void CheckMove()
@@ -184,10 +199,18 @@ public class CentipedeController : BaseController
         Managers.Line.SetLine("CentipedeMoveLine", headPos.position, nextTargetPos.position, 1);
         yield return new WaitForSeconds(2);
         Managers.Line.ReleaseLine("CentipedeMoveLine");
+        Managers.Routine.StartCoroutine(PlayMoveSound());
+        Managers.Screen.Shake(3, 2);
         target.position = nextTargetPos.position;
         yield return new WaitUntil(() => Vector2.Distance(headPos.position, nextTargetPos.position) > 0.1f);
         isMoveUp = !isMoveUp;
         isMove = false;
+    }
+
+    private IEnumerator PlayMoveSound()
+    {
+        yield return new WaitForSeconds(moveSoundDelay);
+        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Centipede_Move);
     }
 
     private void HeadMoveMove()

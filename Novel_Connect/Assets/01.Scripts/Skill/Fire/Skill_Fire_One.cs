@@ -22,15 +22,20 @@ public class Skill_Fire_One : MonoBehaviour
         Vector2 pos = new Vector2(Managers.Object.Player.trans.position.x + offset.x * (int)direction, Managers.Object.Player.trans.position.y + offset.y);
         trans.position = pos;
     }
+    public void AnimationEvent_PlaySound()
+    {
+        Managers.Sound.PlaySoundEffect(AudioClip_Effect.Fire_Skill_1);
+    }
 
     public void Hit()
     {
-        Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(attackTrans.position, attackTrans.localScale, 0, attackLayer);
+        Collider2D[] collider2Ds = Physics2D.OverlapBoxAll(attackTrans.position, attackTrans.localScale, 0, Managers.Object.Player.attackLayer);
         for (int i = 0; i < collider2Ds.Length; i++)
         {
-            if (collider2Ds[i].CompareTag("Hitable"))
-            {
+            if (collider2Ds[i].CompareTag("Player")) continue;
                 BaseController monster = collider2Ds[i].GetComponent<BaseController>();
+            if (monster != null)
+            {
                 Managers.Battle.DamageCalculate(Managers.Object.Player, monster, Managers.Object.Player.status.currentAttackForce * 1.5f);
                 Managers.Battle.SetStatusEffect(Managers.Object.Player, monster, StatusEffect.BURN);
             }

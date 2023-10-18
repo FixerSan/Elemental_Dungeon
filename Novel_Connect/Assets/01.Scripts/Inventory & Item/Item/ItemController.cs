@@ -45,6 +45,7 @@ public class ItemController : MonoBehaviour
     {
         if (isPushed) return;
         isPushed = true;
+        Managers.Sound.PlaySoundEffect(Define.AudioClip_Effect.GetItem);
         Managers.Object.Player.inventory.AddItem<BaseItem>(item.itemData.itemUID);
         transform.DOJump(_trans.position, 0.5f, 1, pickupSpeed);
         Managers.UI.ShowToast($"{item.itemData.name}À»(¸¦) È¹µæÇÏ¿´½À´Ï´Ù.");

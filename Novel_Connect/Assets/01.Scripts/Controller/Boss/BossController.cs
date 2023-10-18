@@ -186,6 +186,11 @@ public class BossController : BaseController
         attack.Skill_Two();
     }
 
+    public void AnimationEvent_Sound()
+    {
+        if (state == BossState.ATTACK) Managers.Sound.PlaySoundEffect(SoundProfile_Effect.Ice_Boss_Attack);
+        if (state == BossState.SKILL_2CAST) Managers.Sound.PlaySoundEffect(AudioClip_Effect.Skill_Ice_Two);
+    }
     protected override IEnumerator DieRoutine()
     {
         throw new System.NotImplementedException();

@@ -126,6 +126,7 @@ public class PlayerController : BaseController
         if (status.isDead) return;
         status.currentHP -= _damage;
         Managers.Routine.StartCoroutine(GetDamageRoutine());
+        Managers.Sound.PlaySoundEffect(SoundProfile_Effect.Player_Damaged);
         Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnChangeHP);
     }
 
@@ -268,6 +269,7 @@ public class PlayerController : BaseController
         ChangeState(PlayerState.FREEZED);
         if (attack.attackCoroutine != null)
             Managers.Routine.StopCoroutine(attack.attackCoroutine);
+        attack.currentAttackCount = 0;
         changeStateCoroutine = Managers.Routine.StartCoroutine(StopFreeze());
         spriteRenderer.color = Color.blue;
     }

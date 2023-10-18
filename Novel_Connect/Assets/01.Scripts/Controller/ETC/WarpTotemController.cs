@@ -24,7 +24,7 @@ public class WarpTotemController : InteractableObject
             Managers.UI.ShowToast("토템열쇠가 부족합니다!").SetColor(Color.red);
             return;
         }
-
+        Managers.Sound.PlaySoundEffect(Define.AudioClip_Effect.WarpTotem);
         isUsed = true;
         animator.SetBool("isUse", true);
         Managers.Routine.StartCoroutine(UseRoutine());

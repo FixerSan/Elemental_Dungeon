@@ -52,7 +52,7 @@ public class Inventory
 
     public bool RemoveItem(int _itemUID, int _count = 1)
     {
-        for (int i = 0; i < _count; i++)
+        for (int i = 0; i < _count;)
         {
             BaseItem arrayItem = items.FindItem(_itemUID);
             if (arrayItem == null) return false;

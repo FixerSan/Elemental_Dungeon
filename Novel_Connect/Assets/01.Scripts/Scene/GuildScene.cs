@@ -9,26 +9,29 @@ public class GuildScene : BaseScene
     public List<Transform> cameraPoses;
     public override void Init(Action _callback, Action _soundCallback)
     {
-        base.Init();
+        Managers.Sound.FadeOutBGM(2, () => 
+        {
+            base.Init();
      
-        GameObject go = GameObject.Find("@CameraPoses");
-        for (int i = 0; i < go.transform.childCount; i++)
-        {
-            cameraPoses.Add(go.transform.GetChild(i));
-        }
+            GameObject go = GameObject.Find("@CameraPoses");
+            for (int i = 0; i < go.transform.childCount; i++)
+            {
+                cameraPoses.Add(go.transform.GetChild(i));
+            }
 
-        Managers.UI.ShowSceneUI<UIBaseScene>("UIScene_BaseScene");
-        Managers.Object.Player.SetPosition(Vector2.zero);
-        Managers.Screen.SetCameraTarget(Managers.Object.Player.GetTrans());
-        Managers.Screen.CameraController.Camera.orthographicSize = 1.2f;
-        Managers.Screen.CameraController.min = new Vector2(-3.15f, 0);
-        Managers.Screen.CameraController.max = new Vector2(3.15f, 0);
+            Managers.UI.ShowSceneUI<UIBaseScene>("UIScene_BaseScene");
+            Managers.Object.Player.SetPosition(Vector2.zero);
+            Managers.Screen.SetCameraTarget(Managers.Object.Player.GetTrans());
+            Managers.Screen.CameraController.Camera.orthographicSize = 1.2f;
+            Managers.Screen.CameraController.min = new Vector2(-3.15f, 0);
+            Managers.Screen.CameraController.max = new Vector2(3.15f, 0);
 
-        _callback?.Invoke();    
+            _callback?.Invoke();
 
-        Managers.Sound.FadeInBGM(Define.SoundProfile_BGM.Guild, 2, 1, () => 
-        {
-            _soundCallback?.Invoke();
+            Managers.Sound.FadeInBGM(Define.SoundProfile_BGM.Guild, 2, 1, () => 
+            {
+                _soundCallback?.Invoke();
+            });        
         });
     }
 
@@ -60,6 +63,8 @@ public class GuildScene : BaseScene
 
             case 3:
                 Managers.Object.Player.inventory.AddGold(10000);
+                Managers.UI.ShowToast("10000 Gold를 얻었습니다!");
+                Managers.Sound.PlaySoundEffect(Define.AudioClip_Effect.GetItem);
                 SceneEvent(-100);
                 break;
 

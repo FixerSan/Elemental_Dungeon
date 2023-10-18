@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Player_Attack
   m_EditorClassIdentifier: 
   audios:
-  - {fileID: 8300000, guid: e7c7b9936da890449b87195aeaefe471, type: 3}
-  - {fileID: 8300000, guid: e6d8661471e02114ea156932507a8fc7, type: 3}
-  - {fileID: 8300000, guid: 34335c956e3a1674093e56305da978ac, type: 3}
-  - {fileID: 8300000, guid: 57b1d040c47ca524c8881267fd87d46b, type: 3}
+  - {fileID: 8300000, guid: 729811cdfd0f81440a645dca1db2f8c0, type: 3}
+  - {fileID: 8300000, guid: 2276641d9ad42d5488a6c5cbbf8801a4, type: 3}
+  - {fileID: 8300000, guid: 1adb552e42e83e141a0c93d59b2a8e62, type: 3}
+  - {fileID: 8300000, guid: 255ec0de6312bdd46ab3ab50805df3cb, type: 3}

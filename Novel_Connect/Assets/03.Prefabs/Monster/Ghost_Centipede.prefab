@@ -2525,6 +2525,8 @@ MonoBehaviour:
   - {fileID: 445995945}
   canHitDelay: 0.1
   isDead: 0
+  moveSoundDelay: 0
+  skillSoundDelay: 1.65
 --- !u!50 &1954081906
 Rigidbody2D:
   serializedVersion: 4

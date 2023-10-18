@@ -22,6 +22,11 @@ public class Skill_Fire_Two : MonoBehaviour
         init = true;
     }
 
+    public void AnimationEvent_PlaySound()
+    {
+        Managers.Sound.PlaySoundEffect(AudioClip_Effect.Fire_Skill_2);
+    }
+
     public void EndSkill()
     {
         init = false;
@@ -38,10 +43,11 @@ public class Skill_Fire_Two : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Hitable"))
+        if (collision.CompareTag("Player")) return;
+        BaseController monster = collision.GetComponent<BaseController>();
+        if (monster != null)
         {
-            BaseController monster = collision.GetComponent<BaseController>();
-            Managers.Battle.DamageCalculate(Managers.Object.Player, monster, Managers.Object.Player.status.currentAttackForce);
+            Managers.Battle.DamageCalculate(Managers.Object.Player, monster, Managers.Object.Player.status.currentAttackForce * 1.5f);
             Managers.Battle.SetStatusEffect(Managers.Object.Player, monster, StatusEffect.BURN);
         }
     }

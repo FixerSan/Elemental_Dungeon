@@ -19,7 +19,7 @@ public class InputManager
     public KeyCode skill_OneKey = KeyCode.S;
     public KeyCode skill_TwoKey = KeyCode.D;
     public KeyCode bendingKey = KeyCode.LeftControl;
-    public KeyCode dialogSkipKey = KeyCode.G;
+    public KeyCode dialogSkipKey = KeyCode.B;
     public KeyCode inventoryKey = KeyCode.I;
     public KeyCode pickupItemKey = KeyCode.Z;
     public KeyCode interactionKey = KeyCode.F;
@@ -67,7 +67,7 @@ public class InputManager
         skill_OneKey = KeyCode.S;
         skill_TwoKey = KeyCode.D;
         bendingKey = KeyCode.LeftControl;
-        dialogSkipKey = KeyCode.G;
+        dialogSkipKey = KeyCode.B;
         inventoryKey = KeyCode.I;
         pickupItemKey = KeyCode.Z;
         interactionKey = KeyCode.F;

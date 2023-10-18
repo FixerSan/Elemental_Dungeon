@@ -20,7 +20,7 @@ namespace PlayerStates
             if(_entity.movement.CheckUpAndFall()) return;
             if (_entity.movement.CheckMove()) return ;
             _entity.movement.CheckJump();
-            _entity.movement.CheckDash();
+            if (_entity.movement.CheckDash()) return;
             if (_entity.skills.Length != 0)
             {
                 _entity.skills[0]?.CheckUse();
@@ -68,9 +68,9 @@ namespace PlayerStates
             if (!_entity.animator.GetBool(_entity.HASH_ANIMATION["isRun"])) _entity.animator.SetBool(_entity.HASH_ANIMATION["isRun"], true);
             if (_entity.movement.CheckStop()) _entity.Stop();
             if (_entity.movement.CheckMove()) _entity.movement.RunMove();
-            _entity.attack.CheckAttack();
+            if (_entity.movement.CheckDash()) return;
             _entity.movement.CheckJump();
-            _entity.movement.CheckDash();
+            _entity.attack.CheckAttack();
             if (_entity.skills.Length != 0)
             {
                 _entity.skills[0]?.CheckUse();
@@ -117,7 +117,7 @@ namespace PlayerStates
             _entity.movement.CheckUpAndFall();
             _entity.movement.CheckLanding();
             if (_entity.movement.CheckJumpMove()) _entity.movement.JumpMove();
-            _entity.movement.CheckDash();
+            if (_entity.movement.CheckDash()) return;
             _entity.elementals.CheckChangeElemental();
         }
     }
@@ -143,7 +143,7 @@ namespace PlayerStates
             _entity.movement.CheckUpAndFall();
             _entity.movement.CheckLanding();
             if (_entity.movement.CheckJumpMove()) _entity.movement.JumpMove();
-            _entity.movement.CheckDash();
+            if (_entity.movement.CheckDash()) return;
             _entity.elementals.CheckChangeElemental();
         }
     }
@@ -165,7 +165,7 @@ namespace PlayerStates
 
         public override void UpdateState(PlayerController _entity)
         {
-            _entity.movement.CheckDash();
+            if (_entity.movement.CheckDash()) return;
         }
     }
 

@@ -15,14 +15,11 @@ public class ObjectManager
             {
                 GameObject go = GameObject.Find("Player");
                 if(go == null)
-                {
-                    player = SpawnPlayer(Vector3.zero);
-                    return player;
-                }
-                player = go.GetOrAddComponent<PlayerController>();
+                    SpawnPlayer(Vector3.zero);
             }
             return player; 
         } 
+        set { player = value; }
     }
     public HashSet<MonsterController> Monsters { get; } = new HashSet<MonsterController>();     // 몬스터 해쉬 셋
     private Transform monsterTrasnform;

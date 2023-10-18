@@ -123,10 +123,16 @@ public class GameManager : MonoBehaviour
 
     public void RetryStage()
     {
-        Managers.Resource.Destroy(Managers.Object.Player.gameObject);
-        Managers.Scene.LoadScene(Scene.IceDungeon,_loadCallback:() => 
+        Managers.Screen.FadeIn(2, () => 
         {
-            Managers.Scene.GetScene<IceDungeonScene>().SceneEvent(nowCheckPoint);
+            Managers.Resource.Destroy(Managers.Object.Player.gameObject);
+            Managers.Object.SpawnPlayer(Vector3.zero);
+            Managers.Object.ClearMonsters();
+            IceDungeonScene scene = Managers.Scene.GetScene<IceDungeonScene>();
+            if (scene.boss != null) Managers.Resource.Destroy(scene.boss?.gameObject);
+            if (scene.centipede != null) Managers.Resource.Destroy(scene.centipede.gameObject);
+            scene.SceneEvent(nowCheckPoint);
+            Managers.Screen.FadeOut(2);
         });
     }
     #endregion

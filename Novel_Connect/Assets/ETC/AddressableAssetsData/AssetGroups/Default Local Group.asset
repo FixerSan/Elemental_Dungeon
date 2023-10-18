@@ -249,15 +249,118 @@ MonoBehaviour:
   - m_GUID: 8bd6c81681452d949b9fba31ed5aaf7b
     m_Address: Guild.SoundProfile
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Preload
   - m_GUID: 44e32af76bc97f643b8a3a4aa95f9ca8
     m_Address: IceDungeon.SoundProfile
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Preload
   - m_GUID: e669794077437994c912d2f0eae0602e
     m_Address: Centipede.SoundProfile
     m_ReadOnly: 0
-    m_SerializedLabels: []
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 038f36b816ec7614cb7b6c4d0bfd7b4e
+    m_Address: ChestOpen.AudioClip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 4ede9f5ac3189f042b134b87ba8a24ec
+    m_Address: Dialog_Next.AudioClip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: fbffecd1721e97f45b432cb89bff3168
+    m_Address: Dialog_Exit.AudioClip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: b0ee4e2b114425e4295912620e8d3a0c
+    m_Address: GetItem.AudioClip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 6c21a6e05cb1ee8439ae9947f547390c
+    m_Address: Inventory_Open.AudioClip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 2158a74ee70ed744c9d8c2a0ac143f49
+    m_Address: Dialog_Select..AudioClip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: c7ce7900acc140a4c9ad613d35c74669
+    m_Address: WarpTotem.AudioClip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 1d5bb4237d4296e4c802bd7458fd21ac
+    m_Address: Centipede_Move.AudioClip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 1e6e5de4fec928349ab8bdd17f00a3ca
+    m_Address: Centipede_Die.AudioClip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 8934eb32f2f6036449774d72e43b3a73
+    m_Address: Player_Damaged.SoundProfile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 4d5551f485c58a645bdfd475f187fdea
+    m_Address: Fire_Skill_1.AudioClip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 37f8970d5e643d34f96f119353a2528f
+    m_Address: Fire_Skill_2.AudioClip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 99820613300cf424a80601f59e83252c
+    m_Address: Centipede_Move.SoundProfile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: ff5f78780268c75448d06fe095286502
+    m_Address: Skill_Ice_One_Create.AudioClip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: d1aa7e3d082b50745b8206be38be5a26
+    m_Address: Skill_Ice_Two.AudioClip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 71eeb4b4c00eb3d45b8e3cd846352f26
+    m_Address: Ice_Boss_Create.AudioClip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 80e2f29af1b774b40b66cae82de6b85c
+    m_Address: Ice_Boss_Die.AudioClip
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 248eba1c25291c9458d3ef49195f0a99
+    m_Address: Ice_Boss_Attack.SoundProfile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: 88fe1effd319e0949884b481bd1ab522
+    m_Address: Skill_Ice_One.SoundProfile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
+  - m_GUID: c9eb4d7459017d64182d421fb651eb41
+    m_Address: Skill_Ice_One_After.SoundProfile
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Preload
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7625f705cca72f24088dfc48d2137928, type: 2}
   m_SchemaSet:

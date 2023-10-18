@@ -25,6 +25,7 @@ public class DialogManager
     // 다이얼로그 불러오기
     public void Call(int _dialogIndex, Action _callback = null)
     {
+        Managers.Sound.PlaySoundEffect(Define.AudioClip_Effect.Dialog_Next);
         Managers.Data.GetDialogData(_dialogIndex, (_data) => 
         {
             Managers.Input.isCanControl = false;
@@ -39,7 +40,7 @@ public class DialogManager
     // 다이얼로그 버튼 사운드 호출
     private void PlayBtnSound()
     {
-        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Dialog);
+        //Managers.Sound.PlaySoundEffect(Define.AudioClip_Effect.Dialog_Next);
     }
 
     // 다이얼로그 버튼 1 처리 코드
@@ -85,6 +86,9 @@ public class DialogManager
                 Managers.Scene.GetScene<GuildScene>().SceneEvent(3);
                 break;
 
+            case 1013:
+                Managers.Scene.LoadScene(Define.Scene.End);
+                break;
             default:
                 EndDialog();
                 return;
