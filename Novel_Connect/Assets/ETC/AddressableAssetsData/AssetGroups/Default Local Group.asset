@@ -246,6 +246,18 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels:
     - Preload
+  - m_GUID: 8bd6c81681452d949b9fba31ed5aaf7b
+    m_Address: Guild.SoundProfile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: 44e32af76bc97f643b8a3a4aa95f9ca8
+    m_Address: IceDungeon.SoundProfile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  - m_GUID: e669794077437994c912d2f0eae0602e
+    m_Address: Centipede.SoundProfile
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 7625f705cca72f24088dfc48d2137928, type: 2}
   m_SchemaSet:

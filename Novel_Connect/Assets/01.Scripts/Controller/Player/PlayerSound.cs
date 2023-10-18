@@ -11,7 +11,7 @@ public abstract class PlayerSound
     protected Coroutine elementalSoundCoroutine;
     public virtual void PlayAttackSound(int _index)
     {
-        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_Attack, player.trans.position,_index);
+        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_Attack);
     }
 
     public virtual void PlayWalkSound()
@@ -50,7 +50,7 @@ public abstract class PlayerSound
     }
     public virtual void PlayJumpStartSound()
     {
-        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_ETC,player.trans.position,0);
+        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_ETC);
     }
 
     public virtual void PlayJumpSound()
@@ -65,7 +65,7 @@ public abstract class PlayerSound
 
     public virtual void PlayFallEndSound()
     {
-        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_ETC,player.trans.position, 1);
+        Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Player_ETC);
     }
 
     public virtual void PlayHitSound()

@@ -6,7 +6,7 @@ using System;
 public abstract class BaseScene : MonoBehaviour
 {
     public Vector3 cameraOffset;
-    public virtual void Init(Action _callback = null)
+    public virtual void Init(Action _callback = null, Action _soundCallback = null)
     {
         Managers.Screen.SetCameraOffset(cameraOffset);
     }

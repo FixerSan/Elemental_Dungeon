@@ -41,7 +41,7 @@ public class Define
 
     public enum SoundProfile_Effect
     {
-        Effect, Ghost_Bat_Move, Player_Attack, Player_Walk, Player_Run, Player_ETC, Dialog
+        Effect, Ghost_Bat_Move, Player_Attack, Player_Walk, Player_Run, Player_ETC, Dialog, Centipede
     }
 
     public enum AudioClip_Effect
@@ -49,10 +49,16 @@ public class Define
         Effect_1, Ghost_Bat_Attack, Ghost_Bat_Hit
     }
 
+    public enum SoundProfile_BGM
+    {
+        IceDungeon, Guild
+    }
+
     public enum AudioClip_BGM
     {
-        BGM_1
+
     }
+
 
     public enum Elemental
     {

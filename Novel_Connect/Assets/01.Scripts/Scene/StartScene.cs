@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class StartScene : BaseScene
 {
-    public override void Init(Action _callback)
+    public override void Init(Action _callback, Action _soundCallback)
     {
         Managers.UI.ShowSceneUI<UIStartScene>("UIScene_StartScene");
     }

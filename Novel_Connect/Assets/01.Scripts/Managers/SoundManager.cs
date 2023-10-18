@@ -77,7 +77,7 @@ public class SoundManager
     }
 
     // 효과음 설정
-    public void PlaySoundEffect(SoundProfile_Effect _profileName , Vector2 _position , int _index = -1)
+    public void PlaySoundEffect(SoundProfile_Effect _profileName, int _index = -1, Action _callback = null)
     {
         string loadKey = _profileName.ToString();
         Managers.Resource.Load<SoundProfile>(loadKey, (soundProfile) => 
@@ -92,13 +92,20 @@ public class SoundManager
                 sourceController = new AudioSourceController();
                 effectSourceControllers.Add(sourceController);
             }
-            sourceController.AudioSource.transform.position = _position;
             sourceController.Play(audioClip);
+            if (_callback != null)
+                Managers.Routine.StartCoroutine(PlaySoundCallbackRoutine(audioClip.length, _callback));
         });
     }
 
+    private IEnumerator PlaySoundCallbackRoutine(float _soundLength, Action _callback)
+    {
+        yield return new WaitForSeconds(_soundLength);
+        _callback?.Invoke();
+    }
+
     // 효과음 설정 2
-    public void PlaySoundEffect(AudioClip_Effect _clip)
+    public void PlaySoundEffect(AudioClip_Effect _clip, Action _callback = null)
     {
         string loadKey = _clip.ToString();
         Managers.Resource.Load<AudioClip>(loadKey, (effectAudioClip) =>
@@ -110,6 +117,9 @@ public class SoundManager
                 effectSourceControllers.Add(sourceController);
             }
             sourceController.Play(effectAudioClip);
+            if (_callback != null)
+                Managers.Routine.StartCoroutine(PlaySoundCallbackRoutine(effectAudioClip.length, _callback));
+
         });
     }
 
@@ -138,14 +148,24 @@ public class SoundManager
         });
     }
 
-    // 배경음악 FadeIn 설정
-    public void FadeInBGM(AudioClip_BGM _bgm, float _fadeTime)
+    public void PlayBGM(SoundProfile_BGM _bgm, int index = 0)
     {
-        Managers.Routine.StartCoroutine(FadeInBGMRoutine(_bgm, _fadeTime));
+        string loadKey = _bgm.ToString();
+        Managers.Resource.Load<SoundProfile>(loadKey, (bgmClip) => 
+        {
+            BgmSource.clip = bgmClip.PlaySoundToIndex(index);
+            BgmSource.Play();
+        });
+    }
+
+    // 배경음악 FadeIn 설정
+    public void FadeInBGM(AudioClip_BGM _bgm, float _fadeTime, Action _callback = null)
+    {
+        Managers.Routine.StartCoroutine(FadeInBGMRoutine(_bgm, _fadeTime, _callback));
     }
 
     // 배경음악 FadeIn 루틴
-    private IEnumerator FadeInBGMRoutine(AudioClip_BGM _bgm, float _fadeTime)
+    private IEnumerator FadeInBGMRoutine(AudioClip_BGM _bgm, float _fadeTime, Action _callback = null)
     {
         BgmSource.volume = 0;
         PlayBGM(_bgm);
@@ -155,16 +175,37 @@ public class SoundManager
             BgmSource.volume += bgmVolume * Time.deltaTime / _fadeTime;
             yield return null;
         }
+
+        _callback?.Invoke();
+    }
+
+    public void FadeInBGM(SoundProfile_BGM _bgm, float _fadeTime, int _index = 0, Action _callback = null)
+    {
+        Managers.Routine.StartCoroutine(FadeInBGMRoutine(_bgm, _fadeTime, _index, _callback));
+    }
+
+    private IEnumerator FadeInBGMRoutine(SoundProfile_BGM _bgm,  float _fadeTime, int _index = 0,  Action _callback = null)
+    {
+        BgmSource.volume = 0;
+        PlayBGM(_bgm, _index);
+
+        while (BgmSource.volume < bgmVolume)
+        {
+            BgmSource.volume += bgmVolume * Time.deltaTime / _fadeTime;
+            yield return null;
+        }
+
+        _callback?.Invoke();
     }
 
     // 배경음악 FadeOut 설정
-    public void FadeOutBGM(float _fadeTime)
+    public void FadeOutBGM(float _fadeTime, Action _callback = null)
     {
-        Managers.Routine.StartCoroutine(FadeOutBGMRoutine(_fadeTime));
+        Managers.Routine.StartCoroutine(FadeOutBGMRoutine(_fadeTime, _callback));
     }
 
     // 배걍음악 FadeOut 루틴
-    private IEnumerator FadeOutBGMRoutine(float fadeTime)
+    private IEnumerator FadeOutBGMRoutine(float fadeTime, Action _callback = null)
     {
         while (BgmSource.volume > 0.0f)
         {
@@ -172,18 +213,33 @@ public class SoundManager
             yield return null;
         }
         BgmSource.Stop();
+        _callback?.Invoke();
     }
 
     // 배경음악 FadeIn,FadeOut으로 변경
-    public void FadeChangeBGM(AudioClip_BGM _bgm, float _fadeTime)
+    public void FadeChangeBGM(AudioClip_BGM _bgm, float _fadeTotalTime, Action _callback = null)
     {
-        Managers.Routine.StartCoroutine(FadeChangeBGMRoutine(_bgm,_fadeTime));
+        Managers.Routine.StartCoroutine(FadeChangeBGMRoutine(_bgm, _fadeTotalTime, _callback));
     }
 
     // 배경음악 FadeIn, FadeOut 루틴
-    private IEnumerator FadeChangeBGMRoutine(AudioClip_BGM _bgm, float _fadeTime)
+    private IEnumerator FadeChangeBGMRoutine(AudioClip_BGM _bgm, float _fadeTotalTime, Action _callback = null)
     {
-        yield return Managers.Routine.StartCoroutine(FadeOutBGMRoutine(_fadeTime));
-        yield return Managers.Routine.StartCoroutine(FadeInBGMRoutine(_bgm, _fadeTime));
+        yield return Managers.Routine.StartCoroutine(FadeOutBGMRoutine(_fadeTotalTime * 0.5f));
+        yield return Managers.Routine.StartCoroutine(FadeInBGMRoutine(_bgm, _fadeTotalTime * 0.5f));
+        _callback?.Invoke();
+    }
+
+    public void FadeChangeBGM(SoundProfile_BGM _bgm, float _fadeTotalTime, int _index = 0,Action _callback = null)
+    {
+        Managers.Routine.StartCoroutine(FadeChangeBGMRoutine(_bgm, _fadeTotalTime, _index, _callback));
+    }
+
+    // 배경음악 FadeIn, FadeOut 루틴
+    private IEnumerator FadeChangeBGMRoutine(SoundProfile_BGM _bgm, float _fadeTotalTime, int _index = 0, Action _callback = null)
+    {
+        yield return Managers.Routine.StartCoroutine(FadeOutBGMRoutine(_fadeTotalTime * 0.5f)) ;
+        yield return Managers.Routine.StartCoroutine(FadeInBGMRoutine(_bgm, _fadeTotalTime * 0.5f, _index));
+        _callback?.Invoke();
     }
 }

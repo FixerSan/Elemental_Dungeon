@@ -18,7 +18,8 @@ public class SceneManager : MonoBehaviour
         }
     }
 
-    public Action callback;
+    public Action loadCallback;
+    public Action soundCallback;
 
     private static void Init()
     {
@@ -34,11 +35,12 @@ public class SceneManager : MonoBehaviour
     private string currentScene = string.Empty;
 
     // 지정한 씬 로드
-    public void LoadScene(Define.Scene _scene, Action _callback = null)
+    public void LoadScene(Define.Scene _scene, Action _loadCallback = null, Action _soundCallback = null)
     {
-        callback = _callback;
+        loadCallback = _loadCallback;
+        soundCallback = _soundCallback;
         string sceneName = _scene.ToString();
-        UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
+        Managers.Screen.FadeIn(2, () => { UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName); });
     }
 
     // 현재 씬 제거 후 새로운 씬 추가
@@ -84,10 +86,11 @@ public class SceneManager : MonoBehaviour
                 break;
         }
         if (bs == null) return;
-        bs.Init(() => 
+        bs.Init(_callback:() => 
         {
-            callback?.Invoke();
-            callback = null;
+            Managers.Screen.FadeOut(2);
+            loadCallback?.Invoke();
+            loadCallback = null;
         });
     }
 

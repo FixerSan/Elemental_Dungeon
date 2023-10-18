@@ -124,7 +124,7 @@ public class GameManager : MonoBehaviour
     public void RetryStage()
     {
         Managers.Resource.Destroy(Managers.Object.Player.gameObject);
-        Managers.Scene.LoadScene(Scene.IceDungeon,() => 
+        Managers.Scene.LoadScene(Scene.IceDungeon,_loadCallback:() => 
         {
             Managers.Scene.GetScene<IceDungeonScene>().SceneEvent(nowCheckPoint);
         });

@@ -35,7 +35,7 @@ namespace MonsterSounds
         {
             if(monster != null)
             {
-                Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Ghost_Bat_Move, _position:monster.trans.position);
+                Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Ghost_Bat_Move);
                 yield return new WaitForSeconds(0.5f);
                 moveCoroutine = Managers.Routine.StartCoroutine(PlayMoveSoundRoutine());
             }

@@ -10,7 +10,7 @@ public class IceDungeonScene : BaseScene
     public GameObject endTotem;
     private Transform[] cameraPoses;
     private BaseController boss;
-    public override void Init(Action _callback)
+    public override void Init(Action _loadCallback, Action _soundCallback)
     {
         cameraOffset = new Vector3(0, 2, -10);
         base.Init();
@@ -26,7 +26,14 @@ public class IceDungeonScene : BaseScene
             Managers.Object.SpawnMonster(batSpawnTran.GetChild(i).position, Monster.Ghost_Bat);
 
         Managers.Event.OnIntEvent += CheckEvent;
-        _callback?.Invoke();
+        _loadCallback?.Invoke();
+        Managers.Sound.FadeOutBGM(2, () => 
+        {
+            Managers.Sound.FadeInBGM(SoundProfile_BGM.IceDungeon, 2, 0, () => 
+            {
+                _soundCallback?.Invoke();
+            });    
+        });
     }
 
     public override void Clear()
@@ -39,14 +46,25 @@ public class IceDungeonScene : BaseScene
         switch ((_eventIndex)) 
         {
             case 0:
-                Managers.Game.nowCheckPoint = 0;
+                Managers.Game.nowCheckPoint = 9;
+                Managers.Input.isCanControl = false;
+                Managers.Object.Player.ChangeState(PlayerState.IDLE);
+                Managers.Object.Player.Stop();
                 Managers.Screen.CameraController.min = new Vector2(6, -35f);
                 Managers.Screen.CameraController.max = new Vector2(9.1f, -35f);
                 Managers.Object.ClearMonsters();
                 Managers.Object.Player.ChangeDirection(Direction.Right);
                 Managers.Object.Player.GetFullHP();
                 Managers.Object.Player.SetPosition(new Vector3(2.0999999f, -37.4000015f, 0));
-                boss = Managers.Object.SpawnBoss(0, new Vector3(9.43999958f, -37.4000015f, 0));
+
+                Managers.Sound.FadeOutBGM(2, () => 
+                {
+                    Managers.Sound.FadeInBGM(SoundProfile_BGM.IceDungeon, 2, 2, () => 
+                    {
+                        Managers.Sound.FadeChangeBGM(SoundProfile_BGM.IceDungeon, 4, 0);
+                        Managers.Input.isCanControl = true;
+                    });
+                });
                 break;
             case 1:
                 Managers.Object.SpawnItem(1, new Vector3(5, -5f, 0));
@@ -63,9 +81,21 @@ public class IceDungeonScene : BaseScene
                 Managers.Object.Player.GetFullHP();
                 Managers.Object.ClearMonsters();
                 Managers.Object.Player.SetPosition(new Vector3(31.59f, -24.11f, 0));
-                CentipedeController centipede = Managers.Resource.Instantiate("Ghost_Centipede", Managers.Object.MonsterTransform).GetOrAddComponent<CentipedeController>();
-                centipede.SetPosition(new Vector3(18.6700001f, -17.1399994f, 0));
-                centipede.Init();
+                Managers.Input.isCanControl = false;
+                Managers.Object.Player.ChangeState(PlayerState.IDLE);
+                Managers.Object.Player.Stop();
+                Managers.Sound.FadeOutBGM(2, () => 
+                {
+                    Managers.Input.isCanControl = true;
+                    Managers.Screen.Shake(3,3);
+                    Managers.Sound.PlaySoundEffect(SoundProfile_Effect.Centipede, 0, () => 
+                    {
+                        Managers.Sound.FadeInBGM(SoundProfile_BGM.IceDungeon, 2, 1);
+                        CentipedeController centipede = Managers.Resource.Instantiate("Ghost_Centipede", Managers.Object.MonsterTransform).GetOrAddComponent<CentipedeController>();
+                        centipede.SetPosition(new Vector3(18.6700001f, -17.1399994f, 0));
+                        centipede.Init();
+                    });         
+                });
                 break;
 
             case 4:
@@ -76,6 +106,7 @@ public class IceDungeonScene : BaseScene
             case 5:
                 Managers.Screen.CameraController.Camera.orthographicSize = 3;
                 Managers.Screen.CameraController.SetTarget(Managers.Object.Player.trans);
+                Managers.Sound.FadeChangeBGM(SoundProfile_BGM.IceDungeon, 4, 0);
                 break;
 
             case 6:
@@ -86,8 +117,27 @@ public class IceDungeonScene : BaseScene
                 Managers.Object.SpawnItem(1, new Vector3(8.93f, -15, 0));
                 break;
 
+            case 8:
+                Managers.Sound.FadeChangeBGM(SoundProfile_BGM.IceDungeon, 4, 0);
+                break;
+
+            case 9:
+                Managers.Game.nowCheckPoint = 9;
+                Managers.Input.isCanControl = false;
+                Managers.Object.Player.ChangeState(PlayerState.IDLE);
+                Managers.Object.Player.Stop();
+                Managers.Screen.CameraController.min = new Vector2(6, -35f);
+                Managers.Screen.CameraController.max = new Vector2(9.1f, -35f);
+                Managers.Object.ClearMonsters();
+                Managers.Object.Player.ChangeDirection(Direction.Right);
+                Managers.Object.Player.GetFullHP();
+                Managers.Object.Player.SetPosition(new Vector3(2.0999999f, -37.4000015f, 0));
+                Managers.Sound.FadeChangeBGM(SoundProfile_BGM.IceDungeon, 4, 0);
+                Managers.Input.isCanControl = true;
+                break;
+
             case 100:
-                
+                Managers.Sound.FadeChangeBGM(SoundProfile_BGM.IceDungeon, 4, 0);
                 break;
 
             case -100:
@@ -98,8 +148,11 @@ public class IceDungeonScene : BaseScene
 
     public void CheckEvent(IntEventType _type, int _value)
     {
-        if (_type != IntEventType.OnDeadBoss || _value != 0)
+        if (_type != IntEventType.OnDeadBoss)
             return;
-        SceneEvent(100);
+        if(_value == 0)
+            SceneEvent(100);
+        if (_value == 1)
+            SceneEvent(8);
     }
 }
