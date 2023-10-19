@@ -30,7 +30,10 @@ public class IceSkill_One : MonoBehaviour
         for (int i = iceSpears.Count - 1; i > -1; i--)
         {
             yield return new WaitForSeconds(shootDelay);
-            iceSpears[i].Shot(targetTrans.position, user);
+            if (targetTrans != null)
+                iceSpears[i].Shot(targetTrans.position, user);
+            else
+                Managers.Resource.Destroy(gameObject);
             Managers.Sound.PlaySoundEffect(Define.SoundProfile_Effect.Skill_Ice_One, i);
         }
 
