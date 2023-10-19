@@ -42,12 +42,12 @@ public abstract class NPCController : MonoBehaviour
 
     public void SetOutline()
     {
-        MaterialPropertyBlock mpb = new MaterialPropertyBlock();
-        spriteRenderer.GetPropertyBlock(mpb);
-        mpb.SetFloat("_Outline", isHover ? 1f : 0);
-        mpb.SetColor("_OutlineColor", color);
-        mpb.SetFloat("_OutlineSize", outlineSize);
-        spriteRenderer.SetPropertyBlock(mpb);
+        //MaterialPropertyBlock mpb = new MaterialPropertyBlock();
+        //spriteRenderer.GetPropertyBlock(mpb);
+        //mpb.SetFloat("_Outline", isHover ? 1f : 0);
+        //mpb.SetColor("_OutlineColor", color);
+        //mpb.SetFloat("_OutlineSize", outlineSize);
+        //spriteRenderer.SetPropertyBlock(mpb);
     }
 
     public abstract void Interaction();

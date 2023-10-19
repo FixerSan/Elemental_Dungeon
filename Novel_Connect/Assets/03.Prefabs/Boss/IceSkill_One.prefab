@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1748736183
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 5099369334373370377, guid: 7b8ba6ca6935b3447bed60b32cd42c84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_Size: {x: 0.12, y: 0.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &5662675667706137511
@@ -171,9 +171,6 @@ MonoBehaviour:
   angleOffset: 270
   moveSpeed: 6
   rotationSpeed: 1
-  layer:
-    serializedVersion: 2
-    m_Bits: 72
 --- !u!1 &8667873347082280462
 GameObject:
   m_ObjectHideFlags: 0
@@ -333,8 +330,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1748736183
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 5099369334373370377, guid: 7b8ba6ca6935b3447bed60b32cd42c84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -344,7 +341,7 @@ SpriteRenderer:
   m_Size: {x: 0.12, y: 0.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &8667873347171543938
@@ -430,9 +427,6 @@ MonoBehaviour:
   angleOffset: 270
   moveSpeed: 6
   rotationSpeed: 1
-  layer:
-    serializedVersion: 2
-    m_Bits: 72
 --- !u!1 &8667873347731624609
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,8 +501,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1748736183
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 5099369334373370377, guid: 7b8ba6ca6935b3447bed60b32cd42c84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -518,7 +512,7 @@ SpriteRenderer:
   m_Size: {x: 0.12, y: 0.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &8667873347731624620
@@ -604,9 +598,6 @@ MonoBehaviour:
   angleOffset: 270
   moveSpeed: 6
   rotationSpeed: 1
-  layer:
-    serializedVersion: 2
-    m_Bits: 72
 --- !u!1 &8667873348452760146
 GameObject:
   m_ObjectHideFlags: 0

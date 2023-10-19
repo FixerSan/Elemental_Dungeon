@@ -71,8 +71,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1748736183
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -8785636032767620349, guid: 3d684cab679c3cc4facd7a96b9fb4641, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -183,8 +183,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1111049095
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: -8150193050613381960, guid: d650dde3dca64e64da66b819eadeeabd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -259,6 +259,7 @@ MonoBehaviour:
   effectUIAnimator: {fileID: 0}
   elemental: 0
   direction: 0
+  isCanHit: 0
   data:
     monsterUID: 0
     monsterCodeName: 
