@@ -10,6 +10,7 @@ public class IceDungeonScene : BaseScene
     private Transform[] cameraPoses;
     public BaseController boss;
     public CentipedeController centipede;
+    private GameObject tileMap_3;
     public override void Init(Action _loadCallback, Action _soundCallback)
     {
         cameraOffset = new Vector3(0, 2, -10);
@@ -21,6 +22,7 @@ public class IceDungeonScene : BaseScene
         Managers.Screen.CameraController.min = new Vector2(-1000, -1000f);
         Managers.Screen.CameraController.max = new Vector2(1000, 1000f);
         cameraPoses = GameObject.Find("@CameraPoses").GetComponentsInChildren<Transform>();
+        tileMap_3 = GameObject.Find("Tilemap (3)");
         Transform batSpawnTran = Util.FindChild<Transform>(Managers.Object.MonsterTransform.gameObject, _name: "BatTransforms_OneStage");
         for (int i = 0; i < batSpawnTran.childCount; i++)
             Managers.Object.SpawnMonster(batSpawnTran.GetChild(i).position, Monster.Ghost_Bat);
@@ -111,6 +113,7 @@ public class IceDungeonScene : BaseScene
 
             case 7:
                 Managers.Object.SpawnItem(1, new Vector3(8.93f, -15, 0));
+                tileMap_3.SetActive(false);
                 break;
 
             case 8:

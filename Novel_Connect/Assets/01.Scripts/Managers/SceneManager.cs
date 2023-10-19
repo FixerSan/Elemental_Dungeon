@@ -33,14 +33,16 @@ public class SceneManager : MonoBehaviour
     #endregion
 
     private string currentScene = string.Empty;
-
+    private bool isLoading = false;
     // 지정한 씬 로드
     public void LoadScene(Define.Scene _scene, Action _loadCallback = null, Action _soundCallback = null)
     {
+        if (isLoading) return;
+        isLoading = true;
         loadCallback = _loadCallback;
         soundCallback = _soundCallback;
         string sceneName = _scene.ToString();
-        Managers.Screen.FadeIn(2, () => { UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName); });
+        Managers.Screen.FadeIn(1, () => { UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName); });
     }
 
     // 현재 씬 제거 후 새로운 씬 추가
@@ -85,10 +87,16 @@ public class SceneManager : MonoBehaviour
                 bs= gameObject.AddComponent<StartScene>();
                 break;
         }
-        if (bs == null) return;
+        if (bs == null)
+        {
+            Managers.Screen.FadeOut(1, () => { isLoading = false; });
+            loadCallback?.Invoke();
+            loadCallback = null;
+            return;
+        } 
         bs.Init(_callback:() => 
         {
-            Managers.Screen.FadeOut(2);
+            Managers.Screen.FadeOut(1, ()=> { isLoading = false; });
             loadCallback?.Invoke();
             loadCallback = null;
         });
@@ -123,6 +131,7 @@ public class SceneManager : MonoBehaviour
                 bs = gameObject.GetComponent<StartScene>();
                 break;
             default:
+                _callback?.Invoke();
                 return;
         }
 

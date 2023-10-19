@@ -88,6 +88,11 @@ public class DialogManager
 
             case 1013:
                 Managers.Scene.LoadScene(Define.Scene.End);
+                Managers.Resource.Destroy(Managers.Object.Player.gameObject);
+                Managers.Screen.CameraController.SetTarget(null);
+                Managers.Screen.CameraController.min = Vector3.zero;
+                Managers.Screen.CameraController.max = Vector3.zero;
+                Managers.Screen.CameraController.transform.position = new Vector3(0,0,-10);
                 break;
             default:
                 EndDialog();

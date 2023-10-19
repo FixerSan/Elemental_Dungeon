@@ -25,6 +25,7 @@ public class GuildScene : BaseScene
             Managers.Screen.CameraController.Camera.orthographicSize = 1.2f;
             Managers.Screen.CameraController.min = new Vector2(-3.15f, 0);
             Managers.Screen.CameraController.max = new Vector2(3.15f, 0);
+            Managers.Input.isCanControl = true;
 
             _callback?.Invoke();
 

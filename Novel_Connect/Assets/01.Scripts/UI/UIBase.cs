@@ -21,6 +21,7 @@ public abstract class UIBase : MonoBehaviour
         init = true;
         return true;
     }
+
     private void Start()
     {
         Init();

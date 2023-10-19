@@ -29,6 +29,7 @@ public class UIRetry : UIPopup
             OnClick_RetryGame();
             Destroy(gameObject, 2);
         });
+
         BindEvent(GetButton((int)Buttons.Button_No).gameObject, _callback:()=> 
         {
             if (isSelected) return;
@@ -37,6 +38,7 @@ public class UIRetry : UIPopup
             OnClick_ResetGame();
             Destroy(gameObject, 2);
         } );
+
         canvasGroup.alpha = 0f;
         canvasGroup.DOFade(1, 1).SetEase(Ease.Linear).onComplete += () => { isOpen = true; };
 
