@@ -57,6 +57,7 @@ public class UIRetry : UIPopup
 
     public void CheckTimeCount()
     {
+        if (isSelected) return;
         if (currentTimeCount > 0)
         {
             currentTimeCount -= Time.deltaTime;

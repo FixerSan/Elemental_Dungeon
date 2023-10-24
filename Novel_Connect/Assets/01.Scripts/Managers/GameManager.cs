@@ -125,6 +125,7 @@ public class GameManager : MonoBehaviour
     {
         Managers.Screen.FadeIn(2, () => 
         {
+            Managers.Pool.Clear();
             Managers.Resource.Destroy(Managers.Object.Player.gameObject);
             Managers.Object.SpawnPlayer(Vector3.zero);
             Managers.Object.ClearMonsters();

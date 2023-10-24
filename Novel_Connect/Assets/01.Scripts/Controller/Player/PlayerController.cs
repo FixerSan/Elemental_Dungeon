@@ -117,12 +117,14 @@ public class PlayerController : BaseController
 
     public void GetFullHP()
     {
+        if (!init) return;
         status.currentHP = status.maxHP;
         Managers.Event.OnVoidEvent?.Invoke(VoidEventType.OnChangeHP);
     }
 
     public override void GetDamage(float _damage)
     {
+        if (!init) return;
         if (status.isDead) return;
         status.currentHP -= _damage;
         Managers.Routine.StartCoroutine(GetDamageRoutine());
@@ -207,6 +209,7 @@ public class PlayerController : BaseController
 
     public void CheckDie(VoidEventType _eventType)
     {
+        if (status.isDead) return;
         if (_eventType != VoidEventType.OnChangeHP) return;
         if (status.currentHP <= 0)
             ChangeState(PlayerState.DIE);

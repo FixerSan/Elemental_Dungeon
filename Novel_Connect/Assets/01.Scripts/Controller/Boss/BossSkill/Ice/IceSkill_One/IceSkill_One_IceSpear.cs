@@ -49,6 +49,11 @@ public class IceSkill_One_IceSpear : MonoBehaviour
     {
         if (!isShot) return;
         if (isBoom) return;
+        if (user == null) 
+        {
+            Managers.Resource.Destroy(circle);
+            gameObject.SetActive(false);
+        }
         TrackingTarget();
         CheckBoom();
     }
